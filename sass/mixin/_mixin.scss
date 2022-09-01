@@ -1,5 +1,5 @@
 //有陰影按鈕
-@mixin btn1($w ,$f, $p, $bgc, $c, $r:null,$bgch,$ch){
+@mixin btn1($w ,$f, $p, $bgc, $c, $r:null,$bgch:null,$ch:null){
     width:$w ;
     font-size: $f;
     padding:$p 0;
@@ -18,6 +18,7 @@
     }
 }
 
+
 //無陰影按鈕
 @mixin btn2($w ,$f, $p, $bgc, $c, $r:null,$bgch,$ch){
     width:$w ;
@@ -25,7 +26,6 @@
     padding:$p 0;
     background-color: $bgc;
     color: $c;
-    box-shadow:4px 4px 4px $shadow01;
     border-radius: $r;
     text-align: center;
     cursor: pointer;
