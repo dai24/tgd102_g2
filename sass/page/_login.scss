@@ -1,65 +1,71 @@
-//--------共同設定----------
-body{
-    background-color:#FFFFFF;
-}
-
-//--------專屬設定----------
-
-// .card-login {
-//     width: 1150px;
-//     height: 620px;
-//     background-color: aquamarine;
-// }
-
 .login{
-    .card1{
-        background-color:#ffffff;
+    width: 100vw;
+    background-color: $primary01;
+    padding-top: $space08;
+    .card{        
         width: 1150px;
         height: 620px;
-
-        display: flex;
+        background-color:#ffffff;
+        
+        display: flex;        
         flex-direction: column;
+        align-items: center;
 
+        border-radius: 5px;
+
+        margin-top: $space08 ; //64px。主要內容到header
+        padding-left: 50px;
+        padding-right: 50px;
+
+        //"會員登入"
         h1{
+            font-size: $fontSize02;
             text-align: center;
+            margin-top:$space05;
+            margin-bottom: $space05;
         }
-
+        h2{
+            text-align: center;
+            line-height: 340px;
+        }
         ul{
         display: flex;
+            //"企業 學生"
+            h2{
+                font-size: 64px;
+                margin: 0;
+            }
 
-        //"企業 學生"
-        h2{
-            font-size: 64px;
-            margin: 0;
+            //企業 會員區塊
+            li{
+                position: relative;
+            }
         }
+        li:first-child{
+            width: 400px;
+            height: 340px;
+            clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
+            background-color: $focus01;
 
-        
-    }
+            //"企業"
+            h2{
+                
+            }
+        }
+        li:last-child{
+            width: 400px;
+            height: 340px;
+            clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
+            background-color:$primary02;
+            left: -45px; //和企業的區塊重疊
+            z-index: 1;
 
-    li:first-child{
-        width: 400px;
-        height: 340px;
-        clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
-        background-color: $focus01;
-
-        //"企業"
-        h2{
-            margin-left: 135px;
+            //"會員"
+            h2{
+                
+            }
         }
     }
-
-    li:last-child{
-        width: 400px;
-        height: 340px;
-        clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
-        background-color:$primary02;
-
-        //"會員"
-        h2{
-            margin-right: 135px;
-        }
-    }
-    }
-
+    
     
 }
