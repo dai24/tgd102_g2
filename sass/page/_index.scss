@@ -1,65 +1,38 @@
-// .index {
-//     .content {
-//         @include center(1200px, 10px, rgb(241, 241, 241) );
-//     }
+.example{
+    font-family: $fontFamily;
+    letter-spacing: 2px;
+}
+.indexBgc01{
+    background-color: $primary01;
+}
+.section1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 3;
+    
+}
+.section1 .section1_test{
+    margin-left: 180px;
+}
 
-//     .center {
-//         @include box-center();
-//         height: 600px;
-//         background-color: $gray01;
+.section1_resume{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h1{
+    font-size: $fontSize01;
+    text-align: center;
+    margin-bottom: 60px;
+}
 
-//         .box {
-//             width: 300px;
-//             height: 300px;
-//             background-color: $gray02;
-//         }
-
-//     }
-
-//     h1 {
-//         color: $color;
-
-//         span {
-//             font-size: 10px;
-//         }
-//     }
-
-//     .btn {
-//         width: 300px;
-//         transition: all .3s ease;
-//         text-align: center;
-//         padding: 15px 0px;
-//         cursor: pointer;
-
-//         &-submit {
-//             margin-top: $space01;
-//             background-color: rgb(0, 98, 255);
-//             color: rgb(255, 255, 255);
-
-//             &:hover {
-//                 background-color: rgb(0, 3, 155);
-//             }
-//         }
-
-//         &-reset {
-//             background-color: rgb(104, 104, 104);
-//             color: rgb(255, 255, 255);
-
-//             &:hover {
-//                 background-color: rgb(60, 60, 60);
-//             }
-//         }
-
-//         &-warming {
-//             background-color: rgb(255, 238, 0);
-//             color: rgb(255, 255, 255);
-
-//             &:hover {
-//                 background-color: rgb(151, 168, 28);
-//             }
-
-//         }
-//     }
-
-
-// }
+@include m(){
+    .section1{
+        flex-direction: column;
+    }
+    .section1 .section1_test{
+        margin-left: 0px;
+        text-align: center;
+    }
+}
