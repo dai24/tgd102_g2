@@ -1,0 +1,65 @@
+//--------共同設定----------
+body{
+    background-color:#FFFFFF;
+}
+
+//--------專屬設定----------
+
+// .card-login {
+//     width: 1150px;
+//     height: 620px;
+//     background-color: aquamarine;
+// }
+
+.login{
+    .card1{
+        background-color:#ffffff;
+        width: 1150px;
+        height: 620px;
+
+        display: flex;
+        flex-direction: column;
+
+        h1{
+            text-align: center;
+        }
+
+        ul{
+        display: flex;
+
+        //"企業 學生"
+        h2{
+            font-size: 64px;
+            margin: 0;
+        }
+
+        
+    }
+
+    li:first-child{
+        width: 400px;
+        height: 340px;
+        clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
+        background-color: $focus01;
+
+        //"企業"
+        h2{
+            margin-left: 135px;
+        }
+    }
+
+    li:last-child{
+        width: 400px;
+        height: 340px;
+        clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
+        background-color:$primary02;
+
+        //"會員"
+        h2{
+            margin-right: 135px;
+        }
+    }
+    }
+
+    
+}
