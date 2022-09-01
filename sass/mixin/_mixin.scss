@@ -36,7 +36,7 @@
     }
 }
 
-
+//橘色彈窗
 @mixin card ($w){
     width:$w ;
     background-color: #F4F1EC;
@@ -84,6 +84,22 @@
     justify-content: center;
     align-items: center;
 }
+
+
+// 職涯測驗白色方框
+
+@mixin testbox(){
+    background-color: $secondary02;
+    border: 4px solid black;
+    max-width: 800px;
+    margin: 100px auto;
+    
+}
+
+
+
+
+
 
 //手機板
 
