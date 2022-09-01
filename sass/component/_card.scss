@@ -1,3 +1,4 @@
+//橘色彈窗
 .card{
     @include card(800px);
     .cardUl{
@@ -15,4 +16,10 @@
     // @include m(){
     //     @include btn1(144px, 4px, white,#EAA565, 5px, #E58C39)
     // }
+}
+
+//職涯測驗白色方框
+.testbox{
+    @include testbox();
+    padding: 40px 0;
 }
