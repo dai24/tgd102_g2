@@ -211,40 +211,56 @@ body {
   background-color: #FFFFFF;
 }
 
-.login .card1 {
-  background-color: #ffffff;
+.login {
+  width: 100vw;
+  background-color: #F4F1EC;
+  padding-top: 64px;
+}
+.login .card {
   width: 1150px;
   height: 620px;
+  background-color: #ffffff;
   display: flex;
   flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 64px;
+  padding-left: 50px;
+  padding-right: 50px;
 }
-.login .card1 h1 {
+.login .card h1 {
+  font-size: 24px;
   text-align: center;
+  margin-top: 40px;
+  margin-bottom: 40px;
 }
-.login .card1 ul {
+.login .card h2 {
+  text-align: center;
+  line-height: 340px;
+}
+.login .card ul {
   display: flex;
 }
-.login .card1 ul h2 {
+.login .card ul h2 {
   font-size: 64px;
   margin: 0;
 }
-.login .card1 li:first-child {
+.login .card ul li {
+  position: relative;
+}
+.login .card li:first-child {
   width: 400px;
   height: 340px;
   -webkit-clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
           clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
   background-color: #D25541;
 }
-.login .card1 li:first-child h2 {
-  margin-left: 135px;
-}
-.login .card1 li:last-child {
+.login .card li:last-child {
   width: 400px;
   height: 340px;
   -webkit-clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
           clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
   background-color: #EAA565;
-}
-.login .card1 li:last-child h2 {
-  margin-right: 135px;
+  left: -45px;
+  z-index: 1;
 }/*# sourceMappingURL=style.css.map */
