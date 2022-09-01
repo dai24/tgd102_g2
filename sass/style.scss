@@ -1,0 +1,27 @@
+/*css 註解*/
+// scss 註解
+// var
+@import 'base/font';
+@import 'base/color';
+@import 'base/other';
+@import 'base/image';
+
+
+//mixin
+@import 'mixin/mixin';
+
+//component
+@import 'component/btn';
+@import 'component/space';
+@import 'component/card';
+@import 'component/grid';
+
+//layout
+@import 'layout/header';
+@import 'layout/footer';
+
+//page
+@import 'page/index';
+@import 'page/about';
+
+

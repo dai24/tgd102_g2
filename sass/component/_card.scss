@@ -1,0 +1,18 @@
+.card{
+    @include card(800px);
+    .cardUl{
+        @include cardUl();
+        .cardH1{
+            @include cardH1($fontSize01);
+        }
+        .cardXmark{
+            @include cardXmark(16px);
+        }
+    }
+    .cardInner{
+        @include cardInner(800px);
+    }
+    // @include m(){
+    //     @include btn1(144px, 4px, white,#EAA565, 5px, #E58C39)
+    // }
+}

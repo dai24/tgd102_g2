@@ -1,0 +1,38 @@
+//PC
+$fontSize01: 30px;	//大標題
+$fontSize02: 24px;	//次標題
+$fontSize03: 20px;	//小標題
+$fontSize04: 18px;	//內文1
+$fontSize05: 16px;	//內文2
+
+//RWD 
+$R-fontSize01: 26px;	 //大標題
+$R-fontSize02: 22px;	 //次標題
+$R-fontSize03: 20px;	 //小標題
+$R-fontSize04: 18px;	 //內文1
+$R-fontSize05: 16px;	 //內文2
+$R-fontSize06: 14px;	 //特殊內文
+
+
+//Pc履歷用
+$resumeSize : (
+    'resumeFontSize': 26px //最大數值
+);
+@each $title,$val in $resumeSize {
+    @for $i from 0 through 10 {
+        .#{$title}#{$i} {
+            font-size: $val - ($i*2);
+        }
+    }
+}
+
+$resumeSize : (
+    'R-resumeFontSize': 26px //最大數值
+);
+@each $title,$val in $resumeSize {
+    @for $i from 0 through 7 {
+        .#{$title}#{$i} {
+            font-size: $val - ($i*2);
+        }
+    }
+}
