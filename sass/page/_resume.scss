@@ -1,0 +1,60 @@
+.resume_wrapper {
+    width: 1280px;
+    margin: 0 auto;
+    // outline: 2px solid red;
+}
+
+// .container,
+// .container-fluid {
+//     // outline: 1px solid red;
+//     padding-left: 0;
+//     padding-right: 0;
+   
+// }
+
+.banner1 {
+    background-color: #EAA565;
+    color: white;
+    // outline: 2px solid rgb(252, 56, 17);
+    height: 125px;
+    margin-left: 0;
+    margin-right: 0;
+    
+}
+.banner1 .h1-1{
+    line-height: 4;
+    font-size: $fontSize01;
+    
+}
+.banner2 {
+    background-color: #EAA565;
+    color: white;
+    // outline: 2px solid rgb(64, 17, 252);
+    height: 230px;
+    margin-left: 0;
+    margin-right: 0;
+    text-align:left;
+    margin-top: 30px;
+    
+}
+.banner2 .h1-2{
+   font-size: $fontSize01;
+   margin-top: 10%;
+    
+}
+.banner2 .h4-1{
+    font-size: $fontSize02;
+     
+ }
+.banner2 img{
+    margin-top: 25px;
+ }
+//  麵包屑
+.bread-crumb {
+    --bs-breadcrumb-divider: '>';
+    font-size: 20px;
+}
+.btn11{
+    margin: 9% 0;
+   
+}
