@@ -75,10 +75,10 @@
 }
 
 .btn11{
-    @include btn1(172px ,$fontSize02, $space01, $secondary02, $focus01,5px,null,null);
+    @include btn3(172px ,$fontSize02, $space01, $secondary02, $focus01,5px,null,null);
     height: 60px;
     @include m(){
-        @include btn1(85px ,$fontSize05, $space01, $secondary02, $focus01, 5px,null,null);
+        @include btn3(85px ,$fontSize05, $space01, $secondary02, $focus01, 5px,null,null);
         height: 37px;
     }
 }
