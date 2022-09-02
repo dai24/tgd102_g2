@@ -1,6 +1,12 @@
+body{
+    font-family: $fontFamily;
+}
+.indexBgc01 h2,h3{
+    letter-spacing: 2px;
+    
+}
 .example{
     font-family: $fontFamily;
-    letter-spacing: 2px;
 }
 .indexBgc01{
     background-color: $primary01;
@@ -21,9 +27,10 @@
     flex-direction: column;
     align-items: center;
 }
-h1{
+.indexBgc01 h1{
     font-size: $fontSize01;
     text-align: center;
+    letter-spacing: 2px;
     margin-bottom: 60px;
 }
 

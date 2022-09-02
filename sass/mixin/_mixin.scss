@@ -2,6 +2,7 @@
 @mixin btn1($w ,$f, $p, $bgc, $c, $r:null,$bgch:null,$ch:null){
     width:$w ;
     font-size: $f;
+    font-family: $fontFamily;
     padding:$p 0;
     background-color: $bgc;
     color: $c;
@@ -23,6 +24,7 @@
 @mixin btn2($w ,$f, $p, $bgc, $c, $r:null,$bgch,$ch){
     width:$w ;
     font-size: $f;
+    font-family: $fontFamily;
     padding:$p 0;
     background-color: $bgc;
     color: $c;

@@ -1,6 +1,33 @@
-.indexBgc01{
-    @include indexBgc01($primary01)
+.Wrapper{
+    background-color: $primary01;
+
 }
-.section1{
-    @include section1(flex)
+
+.about{
+    max-width: 1280px;
+    width: 100%;
+    // border: 1px solid red;
+    margin: 64px auto;
+    border-radius: 5px;
+    
+    .title{
+        font-size: $fontSize01;
+        color: $secondary02;
+        text-align: center;
+        background-color: $primary02;
+        border-radius: 5px 5px 0 0;
+        padding: 25px 0;
+    }
+    .main{
+        font-size: $fontSize03;
+        background-color: $secondary02;
+        color: $secondary01;
+        padding: $space08;
+        border-radius: 0 0 5px 5px;
+        div{
+            margin-bottom: 50px;
+            letter-spacing: 2px;
+            line-height: 1.2;
+        }
+    }
 }
