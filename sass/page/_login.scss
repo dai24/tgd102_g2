@@ -2,20 +2,23 @@
     width: 100vw;
     background-color: $primary01;
     padding-top: $space08;
+
+    a{
+        text-decoration: none;
+    }
+
+    //此頁專屬設定
     .card{        
-        width: 1150px;
-        height: 620px;
-        background-color:#ffffff;
+        width: 1152px;
+        height: 624px;
+        background-color:$secondary02;
         
         display: flex;        
         flex-direction: column;
         align-items: center;
 
-        border-radius: 5px;
-
-        margin-top: $space08 ; //64px。主要內容到header
-        padding-left: 50px;
-        padding-right: 50px;
+        margin-top: $space08 ; //64px。主要內容到header的距離
+        padding-bottom: 0;
 
         //"會員登入"
         h1{
@@ -24,48 +27,83 @@
             margin-top:$space05;
             margin-bottom: $space05;
         }
+
+        //"企業 學生"
         h2{
-            text-align: center;
-            line-height: 340px;
+            font-size: $fontSize06;
         }
-        ul{
-        display: flex;
+
+        .choose{
+            display: flex;
+            margin-left: 3vw; //讓兩個按鈕置中
+
             //"企業 學生"
             h2{
+                text-align: center;
+                line-height: 340px;
                 font-size: 64px;
                 margin: 0;
             }
 
-            //企業 會員區塊
-            li{
+            //企業 學生區塊 共同的設定
+            button{
                 position: relative;
+                margin-bottom: $space04;
+                color: $secondary02;
             }
-        }
-        li:first-child{
-            width: 400px;
-            height: 340px;
-            clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
-            background-color: $focus01;
 
-            //"企業"
-            h2{
-                
+            //左側區塊
+            button:first-child{
+                width: 400px;
+                height: 340px;
+                clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
+                border-radius:20px 0 0 10px;
+                background-color: $focus01;
+                @include m(){
+                    width: 120px;
+                    height: 112px;
+                }
+                &:hover{
+                    background-color:$focus01H ;
+                }
             }
-        }
-        li:last-child{
-            width: 400px;
-            height: 340px;
-            clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
-            background-color:$primary02;
-            left: -45px; //和企業的區塊重疊
-            z-index: 1;
 
-            //"會員"
-            h2{
-                
+            //右側區塊
+            button:last-child{
+                width: 400px;
+                height: 340px;
+                clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
+                border-radius: 0 5px 5px 0;
+                background-color:$primary02;
+                left: -45px; //和企業的區塊重疊
+                z-index: 1;
+                @include m(){
+                    width: 120px;
+                    height: 112px;
+                }
+                &:hover{
+                    background-color:$primary02H ;
+                }
+            }        
+        }
+        
+        .sign{
+            display: flex;
+
+            h4{
+                font-size: $fontSize05;
+                line-height: $fontSize05; //文字高度置中
+            }
+
+            //註冊按鈕
+            button{
+                background-color:$secondary02;
+            }
+
+            //"註冊"
+            .alert{
+                margin-left: $space04;
             }
         }
     }
-    
-    
 }
