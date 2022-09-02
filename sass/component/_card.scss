@@ -18,16 +18,13 @@
     // }
 }
 
-//職涯測驗白色方框
-.testbox{
-    @include testbox();
-    padding: 40px 0;
-}
-
 //會員登入白色方框
 .logincard{
     @include logincard(1152, 624);
     @include m(){
         @include logincard(344, 216);
     }
+
+    padding: 20px 0;
+
 }

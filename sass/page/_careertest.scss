@@ -1,6 +1,11 @@
-body{
+.careertest{
     background-color: #FFA800;
-    font-family: arial;
+    font-family: $fontFamily;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 48px;
+    box-sizing: border-box;
+    
 }
 
 
@@ -10,8 +15,8 @@ body{
 }
 
 .testbox_logo{
-    width: 304px;
-    margin: 32px auto 0;    
+    width: 264px;
+    margin: 0px auto 0;    
 }
 
 .testbox_pic1{
