@@ -4,13 +4,13 @@
     // outline: 2px solid red;
 }
 
-// .container,
-// .container-fluid {
-//     // outline: 1px solid red;
-//     padding-left: 0;
-//     padding-right: 0;
-   
-// }
+.container,
+.container-fluid {
+    // outline: 1px solid red;
+    padding-left: 0;
+    padding-right: 0;
+ 
+}
 
 .resume_banner1 {
     background-color: #EAA565;
@@ -51,10 +51,45 @@
  }
 //  麵包屑
 .bread-crumb {
+    // outline: 2px solid rgb(64, 17, 252);
     --bs-breadcrumb-divider: '>';
     font-size: 20px;
+    margin: 32px 0;
 }
 .btn11{
     margin: 9% 0;
    
+}
+.resume{
+    margin: 64px 0;
+}
+.category{
+    // outline: 2px solid rgb(64, 17, 252);
+    margin: 30px 0;
+}
+.category .col-1{
+    // outline: 2px solid rgb(3, 3, 3);
+    padding: 0;
+    
+}
+.category .btn13{
+    // outline: 2px solid rgb(3, 3, 3);
+    
+}
+.card img{
+
+}
+.card-body{
+outline: 2px solid rgb(64, 17, 252);
+// background-color: rgb(234, 234, 234);
+}
+.card-body a{
+    // width: 100px;
+    // height: 100px;
+    // background-color: black;
+}
+.fa-heart{
+    font-size: 30px;
+    color: red;
+    // outline: 2px solid rgb(64, 17, 252);
 }

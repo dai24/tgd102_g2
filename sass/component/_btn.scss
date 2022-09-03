@@ -91,10 +91,10 @@
 }
 
 .btn13{
-    @include btn2(68px ,$fontSize02, $space01, transparent, $secondary01,5px,$primary02,null);
-    height: 49px;
+    @include btn4(70px ,$fontSize02, $space01, rgba(255, 255, 255, 0), $secondary01,5px,null,$primary02);
+    height: 40px;
     @include m(){
-        @include btn2(36px ,$fontSize04, $space01, transparent, $secondary01, 5px,$secondary02,null);
+        @include btn4(36px ,$fontSize04, $space01, transparent, $secondary01, 5px,$secondary02,null);
         height: 22px;
     }
 }

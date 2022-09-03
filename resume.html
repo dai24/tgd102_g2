@@ -8,6 +8,7 @@
 </head>
 
 <body>
+    @@include('./layout/header.html')
     <!-- <div class="container">100% wide until container breakpoint</div>
     <div class="container-sm">100% wide until small breakpoint</div>
     <div class="container-md">100% wide until medium breakpoint</div>
@@ -15,7 +16,7 @@
     <div class="container-xl">100% wide until extra large breakpoint</div>
     <div class="container-xxl">100% wide until extra extra large breakpoint</div>
     <div class="container-fluid">100% wide until extra extra large breakpoint</div> -->
-    <!-- <div class="container-fluid"> -->
+    <div class="container-fluid">
 
         <div class="resume_wrapper">
             @@include('./layout/breadcrumb2.html',{
@@ -39,12 +40,36 @@
                     <h4 class="h4-1">瀏覽可用於往後設計中的履歷範本</h4>
                 </div>
                 <div class="col">
-                    <img src="images/resume/resume1.png" alt="">
+                    <img src="images/resume/resume_banner1.png" alt="">
                 </div>
             </div>
+            
+            <main class="resume">
+                <div class="row category">
+                    <div class="col-1"><button class="btn13">全部</button></div>
+                    <div class="col-1"><button class="btn13">設計</button></div>
+                    <div class="col-1"><button class="btn13">工程</button></div>
+                    <div class="col-1"><button class="btn13">管理</button></div>
+                    <div class="col-1"><button class="btn13">媒體</button></div>
+                    <div class="col-1"><button class="btn13">銷售</button></div>
+                    <div class="col-1"><button class="btn13">金融</button></div>
+                    <div class="col-1"><button class="btn13">行政</button></div>
+                    <div class="col-1"><button class="btn13">科技</button></div>
+                    <div class="col-1"><button class="btn13">服務</button></div>
+                </div>
+                
+                <div class="card" style="width: 18rem;">
+                    <img src="images/resume/resume_1.png" class="card-img-top" alt="...">
+                    <div class="card-body">                     
+                      <button><i class="fa-solid fa-heart"></i></button>
+                    </div>
+                  </div>
+            </main>
         </div>
 
-    <!-- </div> -->
+        @@include('./layout/footer.html')
+
+    </div>
 </body>
 
 </html>

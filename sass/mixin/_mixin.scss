@@ -53,10 +53,30 @@
     cursor: pointer;
     
     &:hover {
-        background-color: $bgch;
-        color: $ch;
         box-shadow: 0px 0px 0px;
         transform: translateX(4px);
+    }
+}
+
+// 履歷範本分類
+@mixin btn4($w ,$f, $p, $bgc, $c, $r:null,$bgch,$ch){
+    width:$w ;
+    font-size: $f;
+    padding:$p;
+    background-color: $bgc;
+    color: $c;
+    // box-shadow:4px 4px 4px $shadow01;
+    border: 0;
+    // box-shadow:4px 4px 4px rgba($color: #313131, $alpha: 0.3);
+    border-radius: $r;
+    text-align: center;
+    cursor: pointer;
+    
+    &:hover {
+        background-color: $bgch;
+        color: $ch;
+        // box-shadow: 0px 0px 0px;
+        // transform: translateX(4px);
     }
 }
 
