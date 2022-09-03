@@ -1,0 +1,17 @@
+.input01{
+    @include input01();
+    .inputText{ //表單欄位
+        @include inputText(448px);
+    }
+    @include m(){
+        .inputText{
+            @include inputText(224px);
+        }
+    }
+}
+.inputAlert{ //警告訊息
+    @include inputAlert(block, -32px); //(display狀態, margin-top數值)
+    @include m(){
+        @include inputAlert(block, -32px);
+    }        
+}
