@@ -1,7 +1,7 @@
 //橘色彈窗
 .card{
     @include card(800px);
-    .cardUl{
+    .cardUl{ 
         @include cardUl();
         .cardH1{
             @include cardH1($fontSize01);
@@ -10,7 +10,7 @@
             @include cardXmark(16px);
         }
     }
-    .cardInner{
+    .cardInner{ 
         @include cardInner(800px);
     }
     // @include m(){
@@ -18,13 +18,12 @@
     // }
 }
 
-//會員登入白色方框
+//會員登入白色方框 未使用
 .logincard{
     @include logincard(1152, 624);
     @include m(){
-        @include logincard(344, 216);
+        @include logincard(352, 208);
     }
-
     padding: 20px 0;
 
 }

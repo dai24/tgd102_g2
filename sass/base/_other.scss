@@ -19,16 +19,3 @@ $R-space07 : 28px;
 $R-space08 : 32px;
 $R-space09 : 36px;
 $R-space10 : 40px;
-
-
-// $space : (
-//     'space': 100px //最大數值
-// );
-// @each $title,$val in $space {
-//     @for $i from 0 through 7 {
-//         .#{$title}#{$i} {
-//             padding-top: $val - ($i*8);
-//             padding-bottom: $val - ($i*8);
-//         }
-//     }
-// }

@@ -1,15 +1,3 @@
-
-
-
-//--------專屬設定----------
-
-// .card-login {
-//     width: 1150px;
-//     height: 620px;
-//     background-color: aquamarine;
-// }
-
-
 .login{
     width: 100vw;
     background-color: $primary01;
@@ -20,10 +8,14 @@
         text-decoration: none;
     }
 
+    @include m(){
+        padding-top:200px; //main到header
+        padding-bottom:200px; //main到footer
+    }
+
     //此頁專屬設定
     .card{        
         width: 1152px;
-        height: 624px;
         background-color:$secondary02;
         
         display: flex;        
@@ -31,20 +23,28 @@
         align-items: center;
 
         margin-top: $space08 ; //64px。主要內容到header的距離
-        padding-bottom: 0;
+        margin-left: auto;
+        margin-right: auto;
+        padding-bottom:$space04 ; //內容到card底部的距離
+
+        @include m(){
+            width: 352px;            
+            height: 208px;
+        }
 
         //"會員登入"
         h1{
             font-size: $fontSize02;
             text-align: center;
-            margin-top:$space05;
+            margin-top:$space05; 
             margin-bottom: $space05;
+            @include m(){
+                margin-top:$R-space04;
+                margin-bottom:$R-space04;
+            }
         }
 
-        //"企業 學生"
-        h2{
-            font-size: $fontSize06;
-        }
+       
 
         .choose{
             display: flex;
@@ -52,11 +52,16 @@
 
             //"企業 學生"
             h2{
+                font-size: $fontSize06;
                 text-align: center;
                 line-height: 340px;
                 font-size: 64px;
                 color: $secondary02;
                 margin: 0;
+                @include m(){
+                    font-size:$R-fontSize01;
+                    line-height: 112px; //數值和左側右側按鈕高度相同
+                }
             }
 
             //企業 學生區塊 共同的設定
@@ -94,6 +99,7 @@
                 @include m(){
                     width: 120px;
                     height: 112px;
+                    left: -12px; //保持左右按鈕的間距
                 }
                 &:hover{
                     background-color:$primary02H ;
