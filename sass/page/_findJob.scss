@@ -1,0 +1,155 @@
+.findJobWrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+
+    .findJob{
+        position: relative;
+        background-color: $primary02;
+        margin: 32px auto 64px;
+        border-radius: 5px;
+        display: flex;
+        padding: 26px 70px;
+        .findJobMain{
+            .findJobSearch{
+                text-align: left;
+                padding-left: 24px ;
+                margin-bottom: 20px;
+                ::placeholder { 
+                    color: $primary02;
+                }
+                input{
+                    margin-left: 40px;
+                    outline: none;
+                    border: 0px;
+                    font-size: $fontSize05;
+                    color: $primary02;
+                }
+            }
+            .findJobClass{
+                color: $secondary02;
+                margin-bottom: 20px;
+                h3{
+                    font-size: $fontSize03;
+                }
+                .findJobClassMain{
+                    display: flex;
+                    div{
+                        margin-right: 10px;
+                    }
+                }
+            }
+            
+            .findJobType{
+                display: flex;
+                .findJobTypeTitle > div{
+                    color: $secondary02;
+                    text-align: left;
+                    margin-right: 40px;
+                    i{
+                        padding-left: 15px;
+                    }
+                }
+                .findJobTypeTitle > ul{
+                    background-color: $secondary02;
+                    border-radius: 5px;
+                    color: $primary02;
+                }
+                .findJobTypeArea{
+                    background-color: $secondary02;
+                    border-radius: 5px;
+                    color: $primary02;
+                }
+            }
+            
+        }
+        .findJobPicture img{
+            width: 145px;
+            position: absolute;
+            top: 35px;
+            left:1000px;
+        }
+        input[type=checkbox] {
+            margin-right: 10px;
+            cursor: pointer;
+            font-size: $fontSize05;
+            width: 14px;
+            height: 14px;
+            position: relative;
+        }
+        
+        input[type=checkbox]:after {
+        position: absolute;
+        width: 14px;
+        height: 14px;
+        content: "";
+        background-color: #FFFFFF;
+        display: inline-block;
+        visibility: visible;
+        padding: 0px 0px;
+        border-radius: 0px;
+        border: 1px solid $primary02;
+        }
+
+        input[type=checkbox]:checked:after {
+        content: "V";
+        color: #FFFFFF;
+        background-color: $primary02;
+        font-size: $R-fontSize06;
+        text-align:center;
+        }
+    }
+
+    .findJobVacancies{
+        display: flex;
+        background-color: $secondary02;
+        border-radius: 5px;
+        padding: 54px 65px;
+        margin-bottom: 16px;
+        .findJobVacanciesPicture img{
+            width: 170px;
+        }
+        .findJobVacanciesTitle{
+            max-width: 700px;
+            width: 100%;
+            margin-left: 28px;
+            h3{
+                font-size: $fontSize03;
+                margin-bottom: 12px;
+            }
+            p{
+                font-size: $fontSize05;
+            }
+            h3 + p{
+                margin-bottom: 24px;
+            }
+            p + p{
+                line-height: 1.4;
+            }
+            
+        }
+        .findJobVacanciesIcon{
+            display: flex;
+            line-height: 2;
+            margin-left: 70px;
+            i{
+                align-self: center;
+                margin-right: 12px;
+            }
+        }
+        .findJobVacanciesBtn{
+            display: flex;
+            margin-top: 55px;
+            .btn5{
+                margin-right: 20px;
+            }
+        }
+        .findJobVacanciesItem{
+            margin-left: 70px;
+        }
+    }
+
+}
+
+
+
