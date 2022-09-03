@@ -130,12 +130,11 @@
 }
 
 //會員登入白色方框
-@mixin logincard($w, $h){    
+@mixin logincard($w){    
     width: $w;
-    height: $h;
     background-color:$secondary02;
     border-radius: 5px;
-    margin: 0px auto; 
+    margin: 0 auto;
 }
 
 
