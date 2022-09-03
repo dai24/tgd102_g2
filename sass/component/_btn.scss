@@ -112,4 +112,18 @@
     
 }
 
+.btn15{
+    @include btn2(540px ,$fontSize02, $space01, $secondary02, $primary02,5px,null,null);
+    @include m(){
+        @include btn2(144px ,$fontSize02, $space01, $secondary02, $primary02, 5px,null,null);
+    }
+}
+
+.btn16{
+    @include btn2(auto ,$fontSize05, $space01, transparent, $secondary02,5px,$primary02,null);
+    @include m(){
+        @include btn2(36px ,$fontSize05, $space01, transparent, $secondary02, 5px,$secondary02,null);
+        height: 22px;
+    }
+}
 

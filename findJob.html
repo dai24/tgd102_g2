@@ -4,47 +4,181 @@
         <meta charset="UTF-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>關於我們</title>
-    
+        <title>找實習</title>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
         <link rel="stylesheet" href="./css/style.css">
     </head>
 <body>
-    <div class="Wrapper">
-        <div class="wrapper findJob">
-            <div>
-                <div>
+    <div class="findJobWrapper">
+        <div class="findJob">
+            <div class="findJobMain">
+                <div class="findJobSearch btn15">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" name="" value="">
+                    <input type="text" name="" value="" placeholder="搜尋職稱或公司">
                 </div>
-                <div>
-                    <h3>熱門職務類別</h3>
-                    <div>前端工程師</div>
-                    <div>半導體</div>
-                    <div>金融</div>
-                    <div>餐飲</div>
-                    <div>設計</div>
-                    <div>業務</div>
+                <div class="findJobClass">
+                    <div>
+                        <h3>熱門職務類別</h3>
+                    </div>
+                    <div class="findJobClassMain">
+                        <div class="btn16">前端工程師</div>
+                        <div class="btn16">半導體</div>
+                        <div class="btn16">金融</div>
+                        <div class="btn16">餐飲</div>
+                        <div class="btn16">設計</div>
+                        <div class="btn16">業務</div>
+                    </div>
                 </div>
-                <ul>
-                    <li>地點<i class="fa-solid fa-chevron-down"></i>
-                        <ul>
-                            <li>北部</li>
-                            <li>中部</li>
-                            <li>東部</li>
-                            <li>南部</li>
+                <ul class="findJobType">
+                    <li class="findJobTypeTitle"><div class="btn16">地點<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea" style="display: none;">
+                            <li><input type="checkbox" ><label for="">北部</label></li></li>
+                            <li><input type="checkbox" ><label for="">中部</label></li></li>
+                            <li><input type="checkbox" ><label for="">東部</label></li></li>
+                            <li><input type="checkbox" ><label for="">南部</label></li></li>
                         </ul>
                     </li>
-                    <li>職務類別<i class="fa-solid fa-chevron-down"></i>
-                        <ul>
-                            <li>軟體<i class="fa-solid fa-chevron-right"></i></li>
-                            <li><input type="checkbox">前端開發人員</li>
-                            <li><input type="checkbox">前端開發人員</li>    
+                    <li class="findJobTypeTitle"><div class="btn16">職務類別<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul style="display: none;">
+                            <li><div>軟體<i class="fa-solid fa-chevron-right"></i></div></li>
+                            <li><input type="checkbox"><label for="">前端開發人員</label></li>
+                            <li><input type="checkbox"><label for="">後端開發人員</label></li>    
+                        </ul>
+                        <ul style="display: none;">
+                            <li>行銷<i class="fa-solid fa-chevron-right"></i></li>
+                            <li><input type="checkbox"><label for="">行銷人員</label></li>
+                            <li><input type="checkbox"><label for="">數位行銷人員</label></li>  
+                        </ul>
+                        <ul style="display: none;">
+                            <li><div>金融<i class="fa-solid fa-chevron-right"></i></div></li>
+                            <li><input type="checkbox"><label>企業財務</label> </li>
+                            <li><input type="checkbox"><label for="">管理會計</label></li>
+                        </ul>
+                    </li>
+                    <li class="findJobTypeTitle"><div class="btn16">公司規模<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul style="display: none;">
+                            <li><input type="checkbox"><label for="">大</label></li>
+                            <li><input type="checkbox"><label for="">中</label></li>
+                            <li><input type="checkbox"><label for="">小</label></li>
+                        </ul>
+                    </li>
+                    <li class="findJobTypeTitle"><div class="btn16">薪資<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul style="display: none;">
+                            <li><input type="checkbox"><label for="">168</label></li>
+                            <li><input type="checkbox"><label for="">200</label></li>
+                            <li><input type="checkbox"><label for="">250</label></li>
+                            <li><input type="checkbox"><label for="">300</label></li>
+                        </ul>
+                    </li>
+                    <li class="findJobTypeTitle"><div class="btn16">遠端工作<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul style="display: none;">
+                            <li><input type="checkbox" name="remote"><label for="">是</label></li>
+                            <li><input type="checkbox" name="remote"><label for="">否</label></li>
                         </ul>
                     </li>
                 </ul>
             </div>
+            <div class="findJobPicture">
+                <img src="./images/index/findjob.png" alt="">
+            </div>
+        </div>
+        <div>
+            
+        </div>
+        <div class="findJobVacancies">
+            <div class="findJobVacanciesPicture">
+                <img src="./images/findJob/comLogo.jpg" alt="">
+            </div>
+            <div class="findJobVacanciesTitle">
+                <h3>醫療客服專案實習師</h3>
+                <p>Dr. Right 精準關懷</p>
+                <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
+            </div>
+            <div class="findJobVacanciesItem">
+                <div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-user-tie"></i></i><p>6</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-location-dot"></i><p>台北</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-dollar-sign"></i><p>200 / h</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-eye"></i><p>20</p>
+                    </div>
+                </div>
+                
+                <div class="findJobVacanciesBtn">
+                    <div class="btn5">儲存職缺</div>
+                    <div class="btn6">立即應徵</div>
+                </div>
+            </div>
+        </div>
+        <div class="findJobVacancies">
+            <div class="findJobVacanciesPicture">
+                <img src="./images/findJob/comLogo.jpg" alt="">
+            </div>
+            <div class="findJobVacanciesTitle">
+                <h3>醫療客服專案實習師</h3>
+                <p>Dr. Right 精準關懷</p>
+                <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
+            </div>
+            <div class="findJobVacanciesItem">
+                <div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-user-tie"></i><p>6</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-location-dot"></i><p>台北</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-dollar-sign"></i><p>200 / h</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-eye"></i><p>20</p>
+                    </div>
+                </div>
+                
+                <div class="findJobVacanciesBtn">
+                    <div class="btn5">儲存職缺</div>
+                    <div class="btn6">立即應徵</div>
+                </div>
+            </div>
+        </div>
+        <div class="findJobVacancies">
+            <div class="findJobVacanciesPicture">
+                <img src="./images/findJob/comLogo.jpg" alt="">
+            </div>
+            <div class="findJobVacanciesTitle">
+                <h3>醫療客服專案實習師</h3>
+                <p>Dr. Right 精準關懷</p>
+                <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
+            </div>
+            <div class="findJobVacanciesItem">
+                <div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-user-tie"></i><p>6</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-location-dot"></i><p>台北</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-dollar-sign"></i><p>200 / h</p>
+                    </div>
+                    <div class="findJobVacanciesIcon">
+                        <i class="fa-solid fa-eye"></i><p>20</p>
+                    </div>
+                </div>
+                
+                <div class="findJobVacanciesBtn">
+                    <div class="btn5">儲存職缺</div>
+                    <div class="btn6">立即應徵</div>
+                </div>
+            </div>
         </div>
     </div>
+
 </body>
 </html>
