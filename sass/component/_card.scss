@@ -6,7 +6,7 @@
         .cardH1{
             @include cardH1($fontSize01);
         }
-        .cardXmark{
+        .cardXmark{ 
             @include cardXmark(16px);
         }
     }
@@ -20,10 +20,17 @@
 
 //會員登入白色方框 未使用
 .logincard{
-    @include logincard(1152, 624);
+    @include card(1152);
+    //標題文字
+    .cardH1{
+        @include cardH1($fontSize01)
+    };
+    // @include logincard(1152);
     @include m(){
-        @include logincard(352, 208);
+        @include logincard(352);
+        //標題文字
+        .cardH1{
+            @include cardH1($R-fontSize01)
+        };
     }
-    padding: 20px 0;
-
 }
