@@ -1,0 +1,85 @@
+.student_sign{    
+    padding-top: $space08; //main到header
+    padding-bottom: $space08; //main到footer
+    a{
+        background-color:$secondary02;
+    }
+    @include disflex(){
+
+    }
+    @include m(){
+        padding-top: $R-space08; //main到header
+        padding-bottom: $R-space08; //main到footer
+    }
+    h1{
+        font-size: $fontSize01;
+    }
+    h4{
+        font-size: $fontSize05;
+        @include m(){
+            font-size: $R-fontSize05;
+        }
+    }
+    .figure{
+        width: 168px;
+        height: 168px;
+        margin-bottom:$space04;
+        @include m(){
+            width: 104px;
+            height: 104px;
+            margin-bottom:$R-space04;
+        }
+    }
+    //主標題
+    .title{        
+        padding-top:$space04;
+        margin-bottom:$space04;
+        @include m(){
+            margin-top:$R-space04;
+            margin-bottom:$R-space04;
+        }
+    }
+    //input表單區
+    form{
+        margin-top:$space04;
+        section{
+            &:nth-child(4){ //輸入手機號碼
+                position: relative;            
+        }
+        }
+        @include m(){
+            margin-top:$R-space04;
+            @include disflex(column, center, none);
+        }
+        
+    }
+    //驗證碼
+    .sendcode{
+        width: 120px;
+        height:48px;        
+        border-radius: 0 5px 5px 0;
+        color:$secondary02;
+        position: absolute;
+        @include m(){
+        background-color:$R-primary02;
+        }
+        h4{
+            color:$secondary02;
+            background-color:$primary02;
+        }
+}
+    //同意條款
+    .agree01{
+        display: inline-block;
+        a{
+            color: $focus01;
+        }
+    }
+    .btn17{        
+        margin-top:$space02;
+        margin-bottom:$space05;
+        @include m(){
+            margin-bottom:$R-space05;
+        }
+    }    
+}

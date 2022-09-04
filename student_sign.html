@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>學生註冊</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="">
+    <script src="https://kit.fontawesome.com/1ded507973.js" crossorigin="anonymous"></script>
+</head>
+<body>
+@@include('./layout/header.html')
+<main class="student_sign">
+    <div class="logincard">
+        <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
+        <h1 class="cardH1 title">學生註冊</h1>
+        <form method="post" action="#">
+            <section class="input01">
+                <input type="text" placeholder="姓名*" class="inputText" name="name">
+            </section>
+            <section class="input01">
+                <input type="text" placeholder="請輸入電子信箱*" class="inputText" name="email">
+                <h4 class="inputAlert">信箱格式錯誤</h4>
+            </section>
+            <section class="input01">
+                <input type="text" placeholder="請輸入由6~12個英文或數字組成的密碼*" class="inputText" name="passeord">
+                <!-- <h4 class="inputAlert alert1">密碼格式錯誤</h4> -->
+                <h4 class="inputAlert alert2">請輸入由6~12個英文或數字組成的密碼</h4>
+            </section>
+            <section class="input01 phone">
+                <input type="text" placeholder="請輸入手機號碼*" class="inputText" name="email">
+                <h4 class="inputAlert">手機號碼格式錯誤，請重新輸入</h4>
+                <button type="button" class="sendcode" name="code">寄送驗證信</button>                
+            </section> 
+
+            <section>
+                <input type="radio" name="agree" class="agree01"><h4>我已閱讀並同意<span><a href="">INTERNGO會員條款</a></span></h4>
+            </section>
+            <section>
+                <input type="submit" class="btn17" value="註冊" name="submit">
+            </section>
+
+            
+        </form>   
+    </div>
+</main> 
+@@include('./layout/footer.html')
+<script src="./js/header.js"></script>
+</body>
+</html>
