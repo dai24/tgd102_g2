@@ -173,6 +173,21 @@
     justify-content:$justify;
 }
 
+
+// 職涯測驗白底黑框
+@mixin testbox {
+    margin: 16px auto;
+    background-color: $secondary02;
+    border: 6px solid $secondary01;
+    width: 800px;
+    padding: 32px 0;
+
+}
+
+
+
+
+
 //手機板
 
 @mixin m(){

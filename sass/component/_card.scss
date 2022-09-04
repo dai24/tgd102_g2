@@ -37,3 +37,8 @@
     }
     padding-bottom:$space05;
 }
+
+// 職涯測驗白底黑框
+.testbox{
+    @include testbox();
+}
