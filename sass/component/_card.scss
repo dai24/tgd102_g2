@@ -18,19 +18,22 @@
     // }
 }
 
-//會員登入白色方框 未使用
-.logincard{
-    // @include card(1152);
+//會員登入白色方框 
+.logincard{    
+    padding-top:$space06;
+    @include disflex(column, center, none);    
+    @include card(800px);
     //標題文字
-    .cardH1{
+    .cardH1{ //主標題
         @include cardH1($fontSize01)
     };
     @include logincard(1152);
     @include m(){
-        @include logincard(352);
+        @include logincard(352px);
         //標題文字
         .cardH1{
             @include cardH1($R-fontSize01)
         };
     }
+    padding-bottom:$space05;
 }

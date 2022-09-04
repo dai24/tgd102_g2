@@ -1,7 +1,33 @@
-.student_login{
-    
-    
-    
+.student_login{    
+    .figure{
+        width: 168px;
+        height: 168px;
+        margin-bottom:$space04;
+        @include m(){
+            width: 104px;
+            height: 104px;
+        }
+    }
+    .social{
+        @include disflex(row, none, center);
+        display:flex;
+        margin-top:$space04;
+    }
+    .fa-brands{
+        display: block;
+        font-size:72px;
+        color: $secondary01;
+        margin-left:20px;
+        margin-right:20px;
+        @include m(){
+            font-size:48px;
+            margin-left:16px;
+            margin-right:16px;
+        }
+    }
+    form{
+        margin-top:$space04;
+    }
     
     
 }
