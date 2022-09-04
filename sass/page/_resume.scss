@@ -86,9 +86,9 @@
     --bs-breadcrumb-divider: '>';
     font-size: 20px;
     margin: 32px 0;
-    @include m(){       
-        margin-left: 10px;
+    @include m(){         
         margin: 16px 0;
+        margin-left: 10px;
     }
 }
 
