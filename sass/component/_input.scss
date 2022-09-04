@@ -12,6 +12,6 @@
 .inputAlert{ //警告訊息
     @include inputAlert(block, -32px); //(display狀態, margin-top數值)
     @include m(){
-        @include inputAlert(block, -32px);
+        @include inputAlert(block, -20px);
     }        
 }

@@ -1,4 +1,19 @@
 .student_login{    
+    padding-top: $space08; //main到header
+    padding-bottom: $space08; //main到footer
+    @include m(){
+        padding-top: $R-space08; //main到header
+        padding-bottom: $R-space08; //main到footer
+    }
+    h1{
+        font-size: $fontSize01;
+    }
+    h4{
+        font-size: $fontSize05;
+        @include m(){
+            font-size: $R-fontSize05;
+        }
+    }
     .figure{
         width: 168px;
         height: 168px;
@@ -6,13 +21,69 @@
         @include m(){
             width: 104px;
             height: 104px;
+            margin-bottom:$R-space04;
         }
     }
+    //input表單區
+    form{
+        margin-top:$space04;
+        @include m(){
+            margin-top:$R-space04;
+            @include disflex(column, center, none);
+        }
+    }
+    //去註冊
+    .gosign{
+        @include disflex(column, center, center);
+        h4{
+            :first-child{
+                width: 100px;
+            };
+        }
+    }
+    //"或" 
+    .otherway{
+        @include disflex(row, none, center);
+        width: 100%;
+        text-align: center;
+        position: relative;
+        margin-top:$space02;
+        @include m(){
+            margin-top:$R-space04;
+        }
+        &:before{
+            content: "";
+            width: 148px;
+            border-bottom: 1px dotted black;  
+            margin-right: 8px;
+            margin-bottom: 8px;
+            @include m(){
+                width: 44px;
+            }
+        }
+        &:after{
+            content: "";
+            width: 148px;
+            border-bottom: 1px dotted black;  
+            margin-left: 8px;          
+            margin-bottom: 8px;
+            @include m(){
+                width: 44px;
+            } 
+        }
+    }
+    
+    //社群媒體登入
     .social{
         @include disflex(row, none, center);
         display:flex;
         margin-top:$space04;
-    }
+        margin-bottom:$space04;
+        @include m(){
+            margin-top:$R-space04;
+            margin-bottom:$R-space04;
+        }
+    }    
     .fa-brands{
         display: block;
         font-size:72px;
@@ -25,9 +96,32 @@
             margin-right:16px;
         }
     }
-    form{
-        margin-top:$space04;
+    //忘記密碼
+    .forgotpw{
+        background-color:$secondary02;
+        float: right;
+        a{            
+            color: $focus01;
+        }
     }
-    
-    
+    .btn17{        
+        margin-top:$space02;
+        margin-bottom:$space05;
+        @include m(){
+            margin-bottom:$R-space05;
+        }
+    }
+    //前往註冊
+    .gosign{
+        @include disflex(row, none, center);
+        h4{
+            &:last-child{
+                color: $focus01;
+                margin-left:$space02;
+            }
+        }
+        a{
+            color: $focus01;
+        }
+    }
 }
