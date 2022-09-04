@@ -6,7 +6,7 @@
         .cardH1{
             @include cardH1($fontSize01);
         }
-        .cardXmark{
+        .cardXmark{ 
             @include cardXmark(16px);
         }
     }
@@ -18,12 +18,27 @@
     // }
 }
 
-//會員登入白色方框 未使用
-.logincard{
-    @include logincard(1152, 624);
+//會員登入白色方框 
+.logincard{    
+    padding-top:$space06;
+    @include disflex(column, center, none);    
+    @include card(800px);
+    //標題文字
+    .cardH1{ //主標題
+        @include cardH1($fontSize01)
+    };
+    @include logincard(1152);
     @include m(){
-        @include logincard(352, 208);
+        @include logincard(352px);
+        //標題文字
+        .cardH1{
+            @include cardH1($R-fontSize01)
+        };
     }
-    padding: 20px 0;
+    padding-bottom:$space05;
+}
 
+// 職涯測驗白底黑框
+.testbox{
+    @include testbox();
 }

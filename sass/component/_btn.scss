@@ -127,3 +127,13 @@
     }
 }
 
+.btn17{
+    border-width: 0px;
+    @include btn1(452px ,$fontSize02, $primary02, $primary02, $secondary02,5px,$primary02,null);
+    height: 56px;
+    @include m(){
+        @include btn2(36px ,$R-fontSize05, $primary02, $primary02, $secondary02, 5px,$secondary02,null);
+        height: 32px;
+    }
+}
+

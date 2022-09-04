@@ -1,0 +1,182 @@
+.jobMainWrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 0 auto;
+    margin: 32px auto 0px;
+    .jobMainWrapperTitle{
+        color: $secondary02;
+        margin-bottom: 64px;
+        padding: 30px 130px;
+        border-radius: 5px;
+        background-color: $primary02;
+        h2{
+            font-size: $fontSize02;
+            line-height: 2;
+        }
+        div{
+            display: flex;
+            align-items: center;
+            img{
+                width: 25px;
+            }
+            p{
+                font-size: $fontSize05;
+                margin-left: 10px;
+            }
+        }
+        
+    }
+    .jobMainWrapperMain{
+        padding: 30px 130px;
+        margin-bottom: 64px;
+        background-color: $secondary02;
+        display: flex;
+        border-radius: 5px;
+        .jobMainContent{
+            max-width: 900px;
+            width: 100%;
+            .jobMain{
+                margin-bottom: 25px;
+                .jobMainStatement{
+                    display: flex;
+                    h3{
+                        font-size: $fontSize03;
+                        margin-bottom: 25px;
+                    }
+                }
+                p{
+                    font-size: $fontSize05;
+                    line-height: 1.6;
+                }
+            }
+            .jobMainVacanciesBtn{
+                display: flex;
+                margin-top: 60px;
+                .btn6{
+                    margin-left: 20px;
+                }
+            }
+        }
+        .jobMainItem{
+            .jobMainIcon{
+                line-height: 3;
+                margin-left: 40px;
+                a{
+                    color: $secondary01;
+                    display: flex;
+                }
+                i{
+                    align-self: center;
+                    margin-right: 12px;
+                }
+            } 
+        }
+    }
+    .jobMainWrapperCom{
+        padding: 30px 130px;
+        background-color: $secondary02;
+        border-radius: 5px;
+        margin-bottom: 64px;
+        .jobMainWrapperComTitle{
+            display: flex;
+            margin-bottom: 50px;
+            img{
+                width: 112px;
+            }
+            .jobMainWrapperComIconT{
+                margin-left: 35px;
+                align-self: center;
+                
+                a{
+                    color: $secondary01;
+                    h2{
+                        font-size: $fontSize02;
+                        line-height: 3;
+                        
+                    }
+                }
+                    
+                .jobMainWrapperComIconTM{
+                    display: flex;
+                    
+                    .jobMainWrapperComIcon{
+                        a{
+                            display: flex;
+                            color: $secondary01;
+                            p{
+                                margin: 0 10px;
+                            }
+                        }
+                    }
+                }
+                
+            }
+           
+        }
+        .jobMainWrapperComMain{
+            h3{
+                font-size: $fontSize03;
+                margin-bottom: 30px;
+            }
+            p{
+                font-size: $fontSize05;
+                line-height: 1.6;
+            }
+        }
+    }
+    .jobMainWrapperOther{
+        border-radius: 5px;
+        margin-bottom: 64px;
+        
+            .jobMainWrapperOthTitle{
+                padding: 30px 130px;
+                display: flex;
+                align-items: center;
+                background-color: $primary02;
+                color: $secondary02;
+                img{
+                    width: 50px;
+                };
+                h2{
+                    font-size: $fontSize02;
+                    margin-left: 15px;
+                }
+            }
+            .jobMainWrapperOthMain{
+                padding: 30px 130px;
+                background-color: $secondary02;
+                p{
+                    line-height: 2;
+                }
+                .findJobVacanciesIcTitle{
+                    display: flex;
+                    .findJobVacanciesIcon{
+                        a{
+                            display: flex;
+                            color: $secondary01;
+                            align-items: center;
+                            p{
+                                margin: 0 10px;
+                            }
+                        }
+                    }
+                }
+                .jobMainWrapperOthBtn{
+                    display: flex;
+                    justify-content: end;
+                    padding-bottom: 20px;
+                    // &:last-child{
+                    //     padding-bottom: 0px;
+                    // }
+                    border-bottom: 1px solid $secondary01;
+                    .btn5{
+                        margin-right: 20px;
+                    }
+                }
+
+                
+            
+        }
+        
+    }
+}
