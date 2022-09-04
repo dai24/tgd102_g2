@@ -1,9 +1,9 @@
-.container-fluid {
-    // outline: 1px solid red;
-    padding-left: 0;
-    padding-right: 0;
+// .container-fluid {
+//     // outline: 1px solid red;
+//     padding-left: 0;
+//     padding-right: 0;
 
-}
+// }
 .resume_wrapper {
     max-width: 1280px;
     margin: 0 auto;
@@ -92,9 +92,6 @@
     }
 }
 
-.btn11 {
-
-}
 
 .resume {
     margin: 64px 0;
@@ -122,71 +119,6 @@
 
 }
 
-.category .btn13 {
-    // outline: 2px solid rgb(3, 3, 3);
-
-}
-
-.resume article{
-    // margin-top: 38px;
-    // @include m(){       
-    //     margin: 16px 38px 0px 38px;
-    // }
-}
-
-.resume .resume_sample_row{
-    // margin-top: 38px;
-    // @include m(){       
-    //     margin: 16px 38px 0px 38px;
-    // }
-}
-
-// .resume .resume-card {
-//     outline: 2px solid rgb(64, 17, 252);
-//     width: 18rem;
-//     // margin: 0; //跟共用的card衝突
-//     margin-left: 16px ;
-//     @include m(){       
-//         margin: 16px 38px 0px 38px;
-//     }
-// }
-
-// .resume .resume-card > img {
-//     width: 290px;
-//     height: 407px;
-// }
-
-// .resume .card-body {
-    
-//     background-color: rgb(255, 255, 255);
-//     height: 48px;
-//     padding: 0;
-// }
-
-// .resume .card-body .row{
-//     margin-top: 9.5px;
-//     margin-right: 0;
-//     margin-left: 0;
-// }
-
-// .resume .card-body span {
-//     font-size: $fontSize05;
-//     // outline: 2px solid rgb(64, 17, 252);
-
-// }
-
-// .resume .card-body button{
-//     background-color: rgb(255, 255, 255,0);
-//     // outline: 2px solid rgb(64, 17, 252);
-// }
-
-
-// .resume .card-body img{
-//     // outline: 2px solid rgb(17, 252, 48);
-
-// }
-
-
 .resume .resume_sample_row{
     margin: 0 auto;
     
@@ -207,7 +139,7 @@
     @include m(){   
         width: 22rem;    
         margin: 0 auto;
-        outline: 2px solid rgb(64, 17, 252);
+        // outline: 2px solid rgb(64, 17, 252);
     }
 }
 
@@ -227,6 +159,7 @@
     margin-right: 0;
     margin-left: 0;
     padding: 8px 0;
+    // outline: 2px solid rgb(64, 17, 252);
 }
 
 .resume .card_body span {
@@ -234,11 +167,45 @@
 }
 
 .resume .card_body button{
-    background-color: rgb(255, 255, 255,0);
+    background-color: rgba(255, 255, 255,0);
 }
 
 .fa-heart:before {
     content: "\f004";
     font-size: 30px;
     color: red;   
+}
+
+.resume .card_body .resume_zoom_btn {
+    
+    @include m(){   
+        display: none;
+    }
+}
+
+.resume .pagination-div{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin-top: 60px;
+    @include m(){   
+        display: none;
+    }
+}
+
+.resume .pagination-div .pagination-ul{
+    display: flex;
+	justify-content: center;
+	align-items: center;
+	grid-column: 1 /8;
+	grid-row: 1/2;
+
+}
+
+.resume .pagination-div .pagination-ul li{
+    margin: 10px 20px;
+}
+
+.resume .pagination-div .pagination-ul li a{
+    color: #313131;
 }
