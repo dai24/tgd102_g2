@@ -15,32 +15,35 @@
     <ul class="logincard">
         <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
         <h1 class="cardH1">學生登入</h1>
-        <ul class="social">
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
-        </ul>
-
         <form method="post" action="#">
-            <p class="input01">
-                <input type="text" placeholder="請輸入電子信箱" class="inputText">
+            <section class="input01">
+                <input type="text" placeholder="請輸入電子信箱" class="inputText" name="account">
                 <h4 class="inputAlert">信箱格式錯誤</h4>
-            </p>
-            <p class="input01">
-                <input type="text" placeholder="請輸入密碼" class="inputText">
+            </section>
+            <section class="input01">
+                <input type="text" placeholder="請輸入密碼" class="inputText" name="passeord">
                 <h4 class="inputAlert">密碼格式錯誤</h4>
-            </p>
-            <p>                
-                <button>忘記密碼</button>
-            </p>
-            <p>
-                <input type="submit" class="btn17">
-            </p>
-            <p>
-                <h4>還沒有註冊帳號嗎?</h4><h4><a href="#">註冊</a></h4>
-            </p>
-        </form>
-        
-        
+            </section>
+            <section>
+                <h4 class="otherway">或用以下方式登入</h4>
+            </section>
+            <ul class="social">
+                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
+            </ul>
+            <section>                
+                <button class="forgotpw"><h4><a href="#">忘記密碼</a></h4></button>
+            </section>    
+
+            <section>
+                <input type="submit" class="btn17" value="登入" name="submit">
+            </section>
+
+            <div class="gosign">
+                <h4>還沒有註冊帳號嗎?</h4>
+                <h4><a href="#">註冊</a></h4>
+            </div>
+        </form>   
     </ul>
 </main> 
 @@include('./layout/footer.html')

@@ -135,6 +135,7 @@
 //表單input01
 @mixin input01(){
     position: relative; //alert定位用
+
 }
 @mixin inputText($w){ 
     height:$space06;
@@ -146,9 +147,10 @@
     padding-left: $space01;
     margin-bottom: $space05;
     @include m(){
-        height:$R-space10;
-        padding-left: $R-space01;
-        margin-bottom: $R_space10;
+        height:$R-space09;
+        font-size:$R-fontSize05;
+        padding-left: $R-space01;        
+        margin-bottom: $R_space07;
     }
 }
 @mixin inputAlert($dis, $margint){ 
