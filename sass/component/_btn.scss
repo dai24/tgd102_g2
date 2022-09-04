@@ -78,7 +78,7 @@
     @include btn3(172px ,$fontSize02, $space01, $secondary02, $focus01,5px,null,null);
     height: 60px;
     @include m(){
-        @include btn3(85px ,$fontSize05, $space01, $secondary02, $focus01, 5px,null,null);
+        @include btn3(85px ,$R-fontSize05, $R-space01, $secondary02, $focus01, 5px,null,null);
         height: 37px;
     }
 }
@@ -94,8 +94,8 @@
     @include btn4(70px ,$fontSize02, $space01, rgba(255, 255, 255, 0), $secondary01,5px,null,$primary02);
     height: 40px;
     @include m(){
-        @include btn4(36px ,$fontSize04, $space01, transparent, $secondary01, 5px,$secondary02,null);
-        height: 22px;
+        @include btn4(46px ,$R-fontSize04, $R-space01, transparent, $secondary01, 5px,$secondary02,null);
+        height: 32px;
     }
 }
 
