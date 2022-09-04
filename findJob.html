@@ -39,39 +39,44 @@
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btn16">職務類別<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul style="display: none;">
-                            <li><div>軟體<i class="fa-solid fa-chevron-right"></i></div></li>
-                            <li><input type="checkbox"><label for="">前端開發人員</label></li>
-                            <li><input type="checkbox"><label for="">後端開發人員</label></li>    
-                        </ul>
-                        <ul style="display: none;">
-                            <li>行銷<i class="fa-solid fa-chevron-right"></i></li>
-                            <li><input type="checkbox"><label for="">行銷人員</label></li>
-                            <li><input type="checkbox"><label for="">數位行銷人員</label></li>  
-                        </ul>
-                        <ul style="display: none;">
-                            <li><div>金融<i class="fa-solid fa-chevron-right"></i></div></li>
-                            <li><input type="checkbox"><label>企業財務</label> </li>
-                            <li><input type="checkbox"><label for="">管理會計</label></li>
+                        <ul class="findJobTypeSort" style="display: none;">
+                            <li><div class="findJobTypeSortTitle">軟體<i class="fa-solid fa-chevron-right"></i></div>
+                                <ul>
+                                    <li><input type="checkbox"><label for="">前端開發人員</label></li>
+                                    <li><input type="checkbox"><label for="">後端開發人員</label></li>   
+                                </ul>
+                            </li>
+                            <li><div class="findJobTypeSortTitle">行銷<i class="fa-solid fa-chevron-right"></i></div>
+                                <ul>
+                                    <li><input type="checkbox"><label for="">行銷人員</label></li>
+                                    <li><input type="checkbox"><label for="">數位行銷人員</label></li> 
+                                </ul>
+                            </li>
+                            <li><div class="findJobTypeSortTitle">金融<i class="fa-solid fa-chevron-right"></i></div>
+                                <ul>
+                                    <li><input type="checkbox"><label for="">企業財務</label></li>
+                                    <li><input type="checkbox"><label for="">管理會計</label></li> 
+                                </ul>
+                            </li>
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btn16">公司規模<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul style="display: none;">
+                        <ul class="findJobTypeArea" style="display: none;">
                             <li><input type="checkbox"><label for="">大</label></li>
                             <li><input type="checkbox"><label for="">中</label></li>
                             <li><input type="checkbox"><label for="">小</label></li>
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btn16">薪資<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul style="display: none;">
-                            <li><input type="checkbox"><label for="">168</label></li>
-                            <li><input type="checkbox"><label for="">200</label></li>
-                            <li><input type="checkbox"><label for="">250</label></li>
-                            <li><input type="checkbox"><label for="">300</label></li>
+                        <ul class="findJobTypeArea" style="display: none;">
+                            <li><input type="checkbox"><label for="">168 / h</label></li>
+                            <li><input type="checkbox"><label for="">200 / h</label></li>
+                            <li><input type="checkbox"><label for="">250 / h</label></li>
+                            <li><input type="checkbox"><label for="">300 / h</label></li>
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btn16">遠端工作<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul style="display: none;">
+                        <ul class="findJobTypeArea" style="display: none;">
                             <li><input type="checkbox" name="remote"><label for="">是</label></li>
                             <li><input type="checkbox" name="remote"><label for="">否</label></li>
                         </ul>
@@ -82,8 +87,21 @@
                 <img src="./images/index/findjob.png" alt="">
             </div>
         </div>
-        <div>
-            
+        <div class="findJobFind">
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>280 / h</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
         </div>
         <div class="findJobVacancies">
             <div class="findJobVacanciesPicture">
@@ -97,16 +115,16 @@
             <div class="findJobVacanciesItem">
                 <div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-user-tie"></i></i><p>6</p>
+                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-location-dot"></i><p>台北</p>
+                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-dollar-sign"></i><p>200 / h</p>
+                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-eye"></i><p>20</p>
+                        <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p>20</p></a>
                     </div>
                 </div>
                 
@@ -128,16 +146,16 @@
             <div class="findJobVacanciesItem">
                 <div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-user-tie"></i><p>6</p>
+                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-location-dot"></i><p>台北</p>
+                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-dollar-sign"></i><p>200 / h</p>
+                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-eye"></i><p>20</p>
+                        <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p>20</p></a>
                     </div>
                 </div>
                 
@@ -158,17 +176,19 @@
             </div>
             <div class="findJobVacanciesItem">
                 <div>
-                    <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-user-tie"></i><p>6</p>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-location-dot"></i><p>台北</p>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-dollar-sign"></i><p>200 / h</p>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <i class="fa-solid fa-eye"></i><p>20</p>
+                    <div>
+                        <div class="findJobVacanciesIcon">
+                            <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
+                        </div>
+                        <div class="findJobVacanciesIcon">
+                            <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
+                        </div>
+                        <div class="findJobVacanciesIcon">
+                            <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
+                        </div>
+                        <div class="findJobVacanciesIcon">
+                            <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p>20</p></a>
+                        </div>
                     </div>
                 </div>
                 
@@ -179,6 +199,5 @@
             </div>
         </div>
     </div>
-
 </body>
 </html>
