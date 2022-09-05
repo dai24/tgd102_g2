@@ -2,11 +2,11 @@ header {
     background-color: #F4F1EC;
 }
 
+//header 最外層
 .header_inner {
     // border: solid 1px black;
     position: relative;
     z-index: 99;
-    // display: flex;
     width: 1280px;
     margin: 0 auto;
     height: 100px;
@@ -20,19 +20,17 @@ header {
     }
 }
 
+//logo圖片
 .logo_img img {
     position: absolute;
     top: 38px;
-    left: 30px;
-    
-    // width: 214px;
-    // height: 46px;
+    left: 0px;
     width: 20%;
     z-index: 99;
     @include m(){
         position: absolute;
         top: 20px;
-        left: 25px;
+        left: 10px;
         width: 40%;
 
     }
@@ -42,13 +40,12 @@ header {
 
 }
 
+//會員icon
 .fa-user {
     position: absolute;
     top: 40px;
-    right: 160px;
-
+    right: 110px;
     font-size: 30px;
-
     color: #313131;
     @include m(){
         position: absolute;
@@ -60,11 +57,11 @@ header {
 
 
 }
-
+//錢幣icon
 .money_icon {
     position: absolute;
     top: 38px;
-    right: 260px;
+    right: 210px;
     font-size: 25px;
 
     color: #313131;
@@ -74,12 +71,11 @@ header {
     }
 
 }
-
+//漢堡的父層
 .nav-toggle {
-    
     position: absolute;
     top: 30px;
-    right: 20px;
+    right: 0px;
     width: 50px;
     height: 50px;
     cursor: pointer;
@@ -95,10 +91,11 @@ header {
 
 }
 
+//漢堡用span 組成
 .nav-toggle span {
     position: absolute;
     top: 50%;
-    right: 50%;
+    right: -10%;
     transform: translate(-50%, -50%);
     width: 65%;
     height: 3px;
@@ -116,20 +113,23 @@ header {
     top: 70%;
 }
 
+//漢堡點選後變x角度轉變(1)
 body.activeNav .nav-toggle span:nth-child(1) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(45deg);
 }
-
+//漢堡-第二個 span 消失(2)
 body.activeNav .nav-toggle span:nth-child(2) {
     display: none;
 }
-
+//漢堡點選後變x角度轉變(3)
 body.activeNav .nav-toggle span:nth-child(3) {
     top: 50%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
 
+
+//轉場動畫螢幕
 .header_nav {
     position: fixed;
     top: 0px;
@@ -147,6 +147,7 @@ body.activeNav .header_nav {
     height: 100vh;
 }
 
+//主選單ul
 .header_nav .header_links {
     display: flex;
     align-items: center;
@@ -163,7 +164,7 @@ body.activeNav .header_nav {
     }
 
 }
-
+//主選單li
 .header_nav .header_links .header_link {
     position: relative;
     margin: 0px 100px;
@@ -181,11 +182,10 @@ body.activeNav .header_nav {
     margin-top: 50px;
     @include m(){
         margin-top:0;
-    
-       
     }
 }
 
+//主選單主標題文字
 .header_nav .header_links .header_link a {
     position: relative;
     top: 80px;
@@ -202,7 +202,7 @@ body.activeNav .header_nav {
     }
 
 }
-
+//主選單主副標題文字
 .header_nav .header_links .header_link .header_second_a {
     font-size: $fontSize03;
     font-weight: 500;
@@ -215,7 +215,7 @@ body.activeNav .header_nav {
     }
 
 }
-
+//主選單文字點選後出現底線編輯
 .header_nav .header_links .header_link a:after {
     content: "";
     display: block;
@@ -235,6 +235,8 @@ body.activeNav .header_nav .header_links .header_link a {
     opacity: 1;
 }
 
+
+//主選單點擊漢堡文字轉場動畫效果編輯
 .header_nav .header_links>li:nth-child(1)>a {
     transition: all 300ms ease-in-out 500ms;
 }
