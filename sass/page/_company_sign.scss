@@ -60,8 +60,15 @@
             width: 224px;
         };
         &:first-child{ //公司名稱
+            @include m(){
+                flex-direction: column;
+            }
             ul{
                 display: flex;
+                @include m(){
+                    flex-wrap: wrap;
+                max-width: 236px;
+                };
             }
         }
         
@@ -71,14 +78,41 @@
         height:$space06;
         line-height:$space06;
     }    
-    //公司列表
+    //按鈕：公司列表
     .clist{
         width: 112px;
         height: 48px;
+        color:$primary01;
         background-color:$primary02;
         border-radius: 5px;
         margin-left: 8px;
+        &:hover{
+            background-color:$primary02H;
+        }
     }
+    .wrapper1{
+        display: flex;
+        //公司負責人列
+        .principle{
+            width: 50%;
+            justify-content:start;
+        }
+        //資本額列
+        .property{
+            width: 50%;
+            justify-content:end;
+            h4{
+                //"萬"
+                &:last-child{ padding-left:8px;}
+            }
+        }
+    } 
+    .wrapper2{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 555px;
+
+    }   
     //表單：公司名稱
     .inputA{
         width:248px;
@@ -88,9 +122,40 @@
         width: 152px;
         margin-left: 8px;
     }
-    //表單：公司名稱
+    //表單：公司介紹
     .inputC{
         width:544px;
+        height:96px;
+        padding-top:11px;
+    }
+    //表單：公司負責人
+    .inputD{
+        width:192px;
+        margin-left: 5px;
+    }
+    //表單：資本額
+    .inputE{
+        width:104px;
+    }
+    //縣市區
+    .inputF{
+        width:168px;
+        margin-bottom: 8px; 
+    }
+    //鄉鎮市區
+    .inputG{
+        width:168px;
+        margin-bottom:8px;
+    }
+    //地址
+    .inputH{
+        width: 536px;
+    }
+    //服務項目
+    .inputI{
+        width:544px;
+        height:96px;
+        padding-top:11px;
     }
     //驗證碼
     .sendcode{
