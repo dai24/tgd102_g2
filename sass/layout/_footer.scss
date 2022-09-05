@@ -1,10 +1,11 @@
 /* --------------footer-------------- */
 
 footer {
+    margin-top: 64px;
     width: 100%;
     height: 260px;
     background-color: #2C2F3E;
-    padding-top: $space08;
+    // padding-top: $space08;
 
     @include m(){
         height: auto;
@@ -45,6 +46,7 @@ footer {
 }
 
 .footer_inner .footer_a {
+    padding-top: 30px;
     font-weight: bold;
     margin-bottom: $space04;
 
@@ -62,7 +64,7 @@ footer {
     font-size: $fontSize02;
     text-decoration: none;
     color: white;
-    margin-bottom: $space04;
+    padding-bottom: 30px;
 }
 
 .footer_inner h3 {
