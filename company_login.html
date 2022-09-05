@@ -4,35 +4,39 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>學生註冊</title>
+    <title>企業登入</title>
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="">
     <script src="https://kit.fontawesome.com/1ded507973.js" crossorigin="anonymous"></script>
 </head>
 <body>
 @@include('./layout/header.html')
-<main class="student_forgotPW">
+<main class="student_login">
     <div class="logincard">
-        <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
-        <h1 class="cardH1">忘記密碼</h1>
+        <img src="./images/student-login/student.jpg" alt="企業圖案" class="figure">
+        <h1 class="cardH1">企業登入</h1>
         <form method="post" action="#">
             <section class="input01">
-                <input type="text" placeholder="請輸入您的姓名*" class="inputText" name="name">
-                <h4 class="inputAlert">查無此帳號</h4>
+                <input type="text" placeholder="請輸入電子信箱" class="inputText" name="account">
+                <h4 class="inputAlert">信箱格式錯誤</h4>
             </section>
             <section class="input01">
-                <input type="text" placeholder="請輸入您的手機號碼*" class="inputText" name="email">
-                <h4 class="inputAlert">手機號碼格式錯誤</h4>
+                <input type="text" placeholder="請輸入密碼" class="inputText" name="passeord">
+                <h4 class="inputAlert">密碼格式錯誤</h4>
             </section>
             
             <section>                
-                <button class="resetpw"><h4><a href="#">重設密碼</a></h4></button>
-            </section> 
+                <button class="forgotpw"><h4><a href="company_forgotpw.html">忘記密碼</a></h4></button>
+            </section>    
+
             <section>
-                <input type="submit" class="btn17" value="送出" name="submit">
+                <input type="submit" class="btn17" value="登入" name="submit">
             </section>
 
-            
+            <div class="gosign">
+                <h4>還沒有註冊帳號嗎?</h4>
+                <h4><a href="#">註冊</a></h4>
+            </div>
         </form>   
     </div>
 </main> 

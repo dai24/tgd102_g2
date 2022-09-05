@@ -1,9 +1,7 @@
-.sign{
-    width: 100vw;
+.landing_page{    
     background-color: $primary01;
     padding-top: $space08; //main到header
-    // padding-bottom: $space08; //main到footer
-
+    padding-bottom: $space08; //main到footer
     a{
         text-decoration: none;
     }

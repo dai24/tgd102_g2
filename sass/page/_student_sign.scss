@@ -33,8 +33,6 @@
     }
     //主標題
     .title{        
-        padding-top:$space04;
-        margin-bottom:$space04;
         @include m(){
             margin-top:$R-space04;
             margin-bottom:$R-space04;
@@ -57,21 +55,25 @@
     //驗證碼
     .sendcode{
         width: 120px;
-        height:48px;        
+        height:51px;        
         border-radius: 0 5px 5px 0;
         color:$secondary02;
         position: absolute;
-        @include m(){
-        background-color:$R-primary02;
+        right: 0;
+        background-color:$primary02;
+        &:hover{
+            background-color:$primary02H;
         }
         h4{
             color:$secondary02;
             background-color:$primary02;
         }
-}
+
+    }
     //同意條款
-    .agree01{
-        display: inline-block;
+    .agree{
+        margin-top:$space04;
+        @include disflex(row, none, none);
         a{
             color: $focus01;
         }

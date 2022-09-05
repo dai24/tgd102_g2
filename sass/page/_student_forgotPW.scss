@@ -1,6 +1,9 @@
-.student_login{    
+.student_forgotPW{    
     padding-top: $space08; //main到header
     padding-bottom: $space08; //main到footer
+    a{
+        background-color:$secondary02;
+    }
     @include m(){
         padding-top: $R-space08; //main到header
         padding-bottom: $R-space08; //main到footer
@@ -32,7 +35,15 @@
             @include disflex(column, center, none);
         }
     }
-    
+    //重設密碼
+    .resetpw{
+        background-color:$secondary02;
+        float: right;
+        a{
+            color:$focus01;
+        }
+        
+    }
     .btn17{        
         margin-top:$space02;
         margin-bottom:$space05;
