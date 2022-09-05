@@ -60,3 +60,47 @@
         margin-bottom: 96px;
     }
 }
+
+// 履歷診療室 搜尋欄
+.searchbar{
+    background-color: $primary02;
+    border-radius: 5px;
+}
+
+//履歷診療室 顧問老師
+.consultant{
+
+    img{
+        width: 272px;
+        display: block;
+        border-radius: 5px 5px 0 0;
+    }
+
+    .consultantSource{
+        background: $secondary01;
+        color: $secondary02;
+        width: 272px;
+        margin-bottom: 16px;
+        border-radius: 0 0 5px 5px;
+        padding-bottom: 16px;
+        
+
+        h3{
+            font-size: $fontSize03;
+            margin-left: 16px;
+            margin-bottom: 8px;
+            padding-top: 16px;
+        }
+    
+        h4{
+            font-size: $fontSize05;
+            margin-left: 16px;
+            margin-bottom: 8px;
+        }
+        
+    }
+    
+    margin-bottom: 64px;
+    
+    
+}
