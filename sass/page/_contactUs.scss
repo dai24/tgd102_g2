@@ -1,0 +1,39 @@
+.cardInner{
+    text-align: center;
+    .contactUSInner{
+        z-index: 7;
+        position: fixed;
+        background-color: rgba(0, 0, 0, 0.5);
+        bottom: 0%;
+        width: 100%;
+        height: 100%;
+    }
+    h2{
+        font-size: $fontSize03;
+    }
+    .contactUSG{
+        margin: 30px 0 30px;
+        input{
+            border: 0;
+            max-width: 575px;
+            width: 100%;
+            font-size: $fontSize05;
+            padding: 8px;
+            outline: none;
+        }
+    }
+    .contactUSM{
+        textarea{
+            resize: none;
+            border: 0;
+            max-width: 575px;
+            width: 100%;
+            font-size: $fontSize05;
+            padding: 8px;
+            outline: none;
+        }
+    }
+}
+.out{
+
+}

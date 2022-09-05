@@ -142,7 +142,6 @@
     @include btn2(440px ,$fontSize02, $space01, #FFA800, $secondary03,0px, $primary02H,$secondary03);
     @include m(){
         @include btn2(104px ,$fontSize02, $space01, #FFA800, $secondary03,0px, $primary02H,$secondary03);
-       
     }
     margin: 0 auto;
     border: 4px solid black;
@@ -150,3 +149,14 @@
     font-weight: bold;
     
 }
+
+.btn19{
+    @include btn1(288px ,$fontSize05, $space01, $secondary02, $focus01,5px,null,null);
+    border: 1.5px solid $focus01;
+    @include m(){
+        @include btn1(104px ,$fontSize05, $space01, $primary02, $focus01, 5px,null,null);
+        border: 1.5px solid $focus01;
+    }
+}
+    
+

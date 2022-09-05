@@ -1,23 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
-    <title>fullpage</title>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+<link rel="stylesheet" href="css/style.css">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
+<title>@@title</title>
 </head>
 
 <body>
    
     
-    @@include('./layout/header.html')
+    
     <div id="example">
-
+        @@include('./layout/header.html')
         <div class="section indexBgc01">
+            
             <div class="section1">
-                <div>
+                
+                <div class="test">
                     <img src="./images/index/test.png" alt="">
                 </div>
                 <div class="section1_test">
@@ -29,7 +33,7 @@
         </div>
         <div class="section indexBgc01">
             <h1>如何製作履歷 ?</h1>
-            <div class="section1">
+            <div class="section1 section2">
                 <div class="section1_resume">
                     <img src="./images/index/resume01.png" alt="">
                     <button class="btn2">履歷範本</button>
@@ -39,13 +43,16 @@
                     <button class="btn2">製作履歷</button>
                 </div>
                 <div class="section1_resume">
-                    <img src="./images/index/resume01.png" alt="">
+                    <img src="./images/index/resume03.png" alt="">
                     <button class="btn2">履歷診療室</button>
                 </div>
             </div>
         </div>
-        <div class="section">
+        <div class="section indexBgc01 stepTotal">
             <h1>求職指南</h1>
+            <div class="section1">
+                <img src="./images/index/step.png" alt="">
+            </div>
         </div>
         <div class="section indexBgc01">
             <div class="section1">
@@ -56,12 +63,12 @@
                     <h3 class="resumeFontSize3">討論趣分享工作變得更有趣</h3>
                     <button class="btn2">討論趣</button>
                 </div>
-                <div class="section1_test">
+                <div class="section1_test discuss">
                     <img src="./images/index/discuss.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="section">
+        <div class="section indexBgc01">
             <div class="section1">
                 <div>
                     <h2 class="resumeFontSize1">不知道怎麼踏出第一步嗎 ?</h2>
@@ -69,25 +76,27 @@
                     <h2 class="resumeFontSize1">由InternGo為您解答!!</h2>
                     <button class="btn2">找工作囉</button>
                 </div>
-                <div class="section1_test">
+                <div class="section1_test findJob">
                     <img src="./images/index/findjob.png" alt="">
                 </div>
             </div>
-   
-                
-             
+        </div>
+        <div class="section indexBgc01">
+            <div class="section1">
+               @@include('./layout/footer.html')
+            </div>
         </div>
         
-
+        
     </div>
 
-    @@include('./layout/footer.html')
+    
     
 
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/jquery.easings.min.jss"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/jquery.easings.min.js"></script>
     <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/vendors/scrolloverflow.min.js"></script> -->
 
     <script>
@@ -95,10 +104,11 @@
             // 參數設定[註1]
             navigation: true, // 顯示導行列
             navigationPosition: "right", // 導行列位置
-            scrollHorizontally: false,
-            continuousVertical: false,
             autoScrolling: true,
-            scrollBar: true
+            scrollBar: true,
+            keyboardScrolling:true,
+            // loopTop:true,
+            resize:true,
         });
     </script>
 </body>
