@@ -1,4 +1,4 @@
-.student_sign{    
+.company_sign{    
     padding-top: $space08; //main到header
     padding-bottom: $space08; //main到footer
     @include m(){
@@ -37,7 +37,7 @@
             margin-top:$R-space04;
             margin-bottom:$R-space04;
         }
-    }
+    }    
     //input表單區
     form{
         margin-top:$space04;
@@ -51,6 +51,46 @@
             @include disflex(column, center, none);
         }
         
+    }    
+    //每列表單的容器
+    .inputwra{
+        @include disflex(row, none, space-between);
+        width: 656px;
+        @include m(){
+            width: 224px;
+        };
+        &:first-child{ //公司名稱
+            ul{
+                display: flex;
+            }
+        }
+        
+    }
+    //欄位標題
+    .ctitle{
+        height:$space06;
+        line-height:$space06;
+    }    
+    //公司列表
+    .clist{
+        width: 112px;
+        height: 48px;
+        background-color:$primary02;
+        border-radius: 5px;
+        margin-left: 8px;
+    }
+    //表單：公司名稱
+    .inputA{
+        width:248px;
+    }
+    //表單：公司統一編號
+    .inputB{
+        width: 152px;
+        margin-left: 8px;
+    }
+    //表單：公司名稱
+    .inputC{
+        width:544px;
     }
     //驗證碼
     .sendcode{
@@ -74,11 +114,6 @@
     .agree{
         margin-top:$space04;
         @include disflex(row, none, none);
-        .agreeid{
-            height: 16px;
-            width: 16px;
-            margin-top: 0;
-        }
         a{
             color: $focus01;            
         }
