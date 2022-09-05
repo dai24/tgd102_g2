@@ -1,13 +1,19 @@
+.contactUSInner{
+    z-index: 7;
+    position: fixed;
+    background-color: $secondary01;
+    opacity: 0.8;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+.card{
+    z-index: 9;
+    position: relative;
+}
 .cardInner{
     text-align: center;
-    .contactUSInner{
-        z-index: 7;
-        position: fixed;
-        background-color: rgba(0, 0, 0, 0.5);
-        bottom: 0%;
-        width: 100%;
-        height: 100%;
-    }
     h2{
         font-size: $fontSize03;
     }
