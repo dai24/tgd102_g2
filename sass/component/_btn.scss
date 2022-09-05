@@ -150,3 +150,14 @@
     font-weight: bold;
     
 }
+
+.btn19{
+    @include btn1(288px ,$fontSize05, $space01, $secondary02, $focus01,5px,null,null);
+    border: 1.5px solid $focus01;
+    @include m(){
+        @include btn1(104px ,$fontSize05, $space01, $primary02, $focus01, 5px,null,null);
+        border: 1.5px solid $focus01;
+    }
+}
+    
+
