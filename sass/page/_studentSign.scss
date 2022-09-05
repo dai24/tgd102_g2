@@ -1,12 +1,12 @@
 .student_sign{    
     padding-top: $space08; //main到header
-    padding-top: 40px;
     padding-bottom: $space08; //main到footer
+    @include m(){
+        padding-top: $R-space08; //main到header
+        padding-bottom: $R-space08; //main到footer
+    }
     a{
         background-color:$secondary02;
-    }
-    @include disflex(){
-
     }
     @include m(){
         padding-top: $R-space08; //main到header
