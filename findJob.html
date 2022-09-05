@@ -1,19 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>找實習</title>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-        <link rel="stylesheet" href="./css/style.css">
-    </head>
+    @@include('./layout/head.html',{
+        "title" : "找實習"
+    })
 <body>
     @@include('./layout/header.html')
+    
     <div class="findJobWrapper">
+        @@include('./layout/breadcrumb2.html',{
+            'home' : "首頁",
+            'nav' : "找實習",
+        })
         <div class="findJob">
             <div class="findJobMain">
-                <div class="findJobSearch btn15">
+                <div class="findJobSearch btna15">
                     <i class="fa-solid fa-magnifying-glass"></i>
                     <input type="text" name="" value="" placeholder="搜尋職稱或公司">
                 </div>
@@ -22,16 +22,16 @@
                         <h3>熱門職務類別</h3>
                     </div>
                     <div class="findJobClassMain">
-                        <div class="btn16">前端工程師</div>
-                        <div class="btn16">半導體</div>
-                        <div class="btn16">金融</div>
-                        <div class="btn16">餐飲</div>
-                        <div class="btn16">設計</div>
-                        <div class="btn16">業務</div>
+                        <div class="btna16">前端工程師</div>
+                        <div class="btna16">半導體</div>
+                        <div class="btna16">金融</div>
+                        <div class="btna16">餐飲</div>
+                        <div class="btna16">設計</div>
+                        <div class="btna16">業務</div>
                     </div>
                 </div>
                 <ul class="findJobType">
-                    <li class="findJobTypeTitle"><div class="btn16">地點<i class="fa-solid fa-chevron-down"></i></div>
+                    <li class="findJobTypeTitle"><div class="btna16">地點<i class="fa-solid fa-chevron-down"></i></div>
                         <ul class="findJobTypeArea" style="display: none;">
                             <li><input type="checkbox" ><label for="">北部</label></li></li>
                             <li><input type="checkbox" ><label for="">中部</label></li></li>
@@ -39,7 +39,7 @@
                             <li><input type="checkbox" ><label for="">南部</label></li></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btn16">職務類別<i class="fa-solid fa-chevron-down"></i></div>
+                    <li class="findJobTypeTitle"><div class="btna16">職務類別<i class="fa-solid fa-chevron-down"></i></div>
                         <ul class="findJobTypeSort" style="display: none;">
                             <li><div class="findJobTypeSortTitle">軟體<i class="fa-solid fa-chevron-right"></i></div>
                                 <ul>
@@ -61,14 +61,14 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btn16">公司規模<i class="fa-solid fa-chevron-down"></i></div>
+                    <li class="findJobTypeTitle"><div class="btna16">公司規模<i class="fa-solid fa-chevron-down"></i></div>
                         <ul class="findJobTypeArea" style="display: none;">
                             <li><input type="checkbox"><label for="">大</label></li>
                             <li><input type="checkbox"><label for="">中</label></li>
                             <li><input type="checkbox"><label for="">小</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btn16">薪資<i class="fa-solid fa-chevron-down"></i></div>
+                    <li class="findJobTypeTitle"><div class="btna16">薪資<i class="fa-solid fa-chevron-down"></i></div>
                         <ul class="findJobTypeArea" style="display: none;">
                             <li><input type="checkbox"><label for="">168 / h</label></li>
                             <li><input type="checkbox"><label for="">200 / h</label></li>
@@ -76,7 +76,7 @@
                             <li><input type="checkbox"><label for="">300 / h</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btn16">遠端工作<i class="fa-solid fa-chevron-down"></i></div>
+                    <li class="findJobTypeTitle"><div class="btna16">遠端工作<i class="fa-solid fa-chevron-down"></i></div>
                         <ul class="findJobTypeArea" style="display: none;">
                             <li><input type="checkbox" name="remote"><label for="">是</label></li>
                             <li><input type="checkbox" name="remote"><label for="">否</label></li>
@@ -130,8 +130,8 @@
                 </div>
                 
                 <div class="findJobVacanciesBtn">
-                    <div class="btn5">儲存職缺</div>
-                    <div class="btn6">立即應徵</div>
+                    <div class="btna5">儲存職缺</div>
+                    <div class="btna6">立即應徵</div>
                 </div>
             </div>
         </div>
@@ -161,8 +161,8 @@
                 </div>
                 
                 <div class="findJobVacanciesBtn">
-                    <div class="btn5">儲存職缺</div>
-                    <div class="btn6">立即應徵</div>
+                    <div class="btna5">儲存職缺</div>
+                    <div class="btna6">立即應徵</div>
                 </div>
             </div>
         </div>
@@ -194,11 +194,12 @@
                 </div>
                 
                 <div class="findJobVacanciesBtn">
-                    <div class="btn5">儲存職缺</div>
-                    <div class="btn6">立即應徵</div>
+                    <div class="btna5">儲存職缺</div>
+                    <div class="btna6">立即應徵</div>
                 </div>
             </div>
         </div>
+        @@include('./layout/pagination.html') 
     </div>
     @@include('./layout/footer.html')
 </body>

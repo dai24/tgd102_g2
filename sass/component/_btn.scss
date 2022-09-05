@@ -159,5 +159,11 @@
         border: 1.5px solid $focus01;
     }
 }
-    
+
+.btna20{
+    @include btn1(144px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,$secondary02);
+    @include m(){
+        @include btn1(104px ,$fontSize05, $space01, $focus01, $secondary02, 5px, $focus01H,$secondary02)
+    }
+}
 
