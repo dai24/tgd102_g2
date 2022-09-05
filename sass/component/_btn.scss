@@ -59,9 +59,9 @@
 }
 
 .btn9{
-    @include btn1(256px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
+    @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02,5px,$focus01H,null);
     @include m(){
-        @include btn1(256px ,$fontSize02, $space01, $focus01, $secondary02, 5px,$focus01H,null);
+        @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02, 5px,$focus01H,null);
     }
 }
 
