@@ -3,12 +3,12 @@
 
 <head>
     @@include('./layout/head.html',{
-        "title" : "履歷"
-    })  
+    "title" : "履歷"
+    })
 </head>
 
 <body>
-    @@include('./layout/header.html')
+   
     <!-- <div class="container">100% wide until container breakpoint</div>
     <div class="container-sm">100% wide until small breakpoint</div>
     <div class="container-md">100% wide until medium breakpoint</div>
@@ -16,34 +16,34 @@
     <div class="container-xl">100% wide until extra large breakpoint</div>
     <div class="container-xxl">100% wide until extra extra large breakpoint</div>
     <div class="container-fluid">100% wide until extra extra large breakpoint</div> -->
-    <div class="container-fluid">
+    <!-- <div class="container-fluid"> -->
 
         <div class="resume_wrapper">
+            @@include('./layout/header.html')
             @@include('./layout/breadcrumb2.html',{
-                'home' : "首頁",
-                'nav' : "履歷",
-            })  
+            'home' : "首頁",
+            'nav' : "履歷",
+            })
 
             <div class="row resume_banner1">
-                <div class="offset-1 col-7">
+                <div class="col-8 align-self-center">
                     <h1 class="h1-1">線上製作一份能幫你獲得面試機會的履歷</h1>
                 </div>
-                <div class="col">
-                    <button type="button" class="btn11">製作履歷</button>
+                <div class="col align-self-center">
+                    <button type="button" class="btn11" id="resume_btn">製作履歷</button>
+                    <!-- <a href="resume_work_space.html"  class="btn11">製作履歷</a> -->
                 </div>
             </div>
             <div class="row resume_banner2">
-                <div class="col-1">
-                </div>
-                <div class="col-7">
+                <div class="col-8 align-self-center">
                     <h1 class="h1-2">履歷範本</h1>
                     <h4 class="h4-1">瀏覽可用於往後設計中的履歷範本</h4>
                 </div>
-                <div class="col">
+                <div class="col align-self-center">
                     <img src="images/resume/resume_banner1.png" alt="">
                 </div>
             </div>
-            
+
             <main class="resume">
                 <div class="row category">
                     <div class="col-1"><button class="btn13">全部</button></div>
@@ -57,19 +57,202 @@
                     <div class="col-1"><button class="btn13">科技</button></div>
                     <div class="col-1"><button class="btn13">服務</button></div>
                 </div>
-                
-                <div class="card" style="width: 18rem;">
-                    <img src="images/resume/resume_1.png" class="card-img-top" alt="...">
-                    <div class="card-body">                     
-                      <button><i class="fa-solid fa-heart"></i></button>
+                <!--  justify-content-centerr align-items-center -->
+                    <div class="row resume_sample_row">
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_1.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_2.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_3.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_4.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_5.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_6.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_1.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col">
+                            <div class="resume_card">
+                                <img src="images/resume/resume_2.png" class="" alt="resume_1">
+                                <div class="card_body">
+                                    <div class="row">
+                                        <div class="col-2"><button class="fa-solid fa-heart"></button></div>
+                                        <div class="col-1 align-self-center"><span>0</span></div>
+                                        <div class="offset-7 col-1">
+                                            <button class="resume_zoom_btn">
+                                                <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+                                                    fill="currentColor" class="bi bi-box-arrow-up-right"
+                                                    viewBox="0 0 16 16">
+                                                    <path fill-rule="evenodd"
+                                                        d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                                                    <path fill-rule="evenodd"
+                                                        d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                                                </svg>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
+
+                @@include('./layout/pagination.html')   
+
             </main>
+            @@include('./layout/footer.html')
         </div>
 
-        @@include('./layout/footer.html')
-
-    </div>
+    <!-- </div> -->
 </body>
 
 </html>

@@ -44,3 +44,19 @@
 .testbox{
     @include testbox();
 }
+
+//職涯測驗問題
+.testboxQA{
+   
+    height: 592px;
+    margin: 48px auto;
+}
+
+
+.testQA{
+    margin-top: 56px;
+
+    .testqusetion{
+        margin-bottom: 96px;
+    }
+}

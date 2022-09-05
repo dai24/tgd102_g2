@@ -6,21 +6,28 @@
         "title" : "履歷工作區"
     })  
     <style>
-        div{
+        /* div{
             border: 1px solid red;
-        }
+        } */
     </style>
 </head>
 
 <body>
 
     <div class="resume_wrapper">
+        @@include('./layout/header.html')
         @@include('./layout/breadcrumb3.html',{
             'home' : "首頁",
             'nav' : "履歷",
             'active' : "履歷工作台",
             'nav_url' : "resume.html",
-        })      
+        })    
+        @@include('./layout/footer.html')
+    </div>
+
+
+     
+     
     
 </body>
 
