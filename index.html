@@ -17,7 +17,7 @@
 
         <div class="section indexBgc01">
             <div class="section1">
-                <div>
+                <div class="test">
                     <img src="./images/index/test.png" alt="">
                 </div>
                 <div class="section1_test">
@@ -29,7 +29,7 @@
         </div>
         <div class="section indexBgc01">
             <h1>如何製作履歷 ?</h1>
-            <div class="section1">
+            <div class="section1 section2">
                 <div class="section1_resume">
                     <img src="./images/index/resume01.png" alt="">
                     <button class="btn2">履歷範本</button>
@@ -39,13 +39,16 @@
                     <button class="btn2">製作履歷</button>
                 </div>
                 <div class="section1_resume">
-                    <img src="./images/index/resume01.png" alt="">
+                    <img src="./images/index/resume03.png" alt="">
                     <button class="btn2">履歷診療室</button>
                 </div>
             </div>
         </div>
-        <div class="section">
+        <div class="section indexBgc01 stepTotal">
             <h1>求職指南</h1>
+            <div class="section1">
+                <img src="./images/index/step.png" alt="">
+            </div>
         </div>
         <div class="section indexBgc01">
             <div class="section1">
@@ -56,12 +59,12 @@
                     <h3 class="resumeFontSize3">討論趣分享工作變得更有趣</h3>
                     <button class="btn2">討論趣</button>
                 </div>
-                <div class="section1_test">
+                <div class="section1_test discuss">
                     <img src="./images/index/discuss.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="section">
+        <div class="section indexBgc01">
             <div class="section1">
                 <div>
                     <h2 class="resumeFontSize1">不知道怎麼踏出第一步嗎 ?</h2>
@@ -69,13 +72,10 @@
                     <h2 class="resumeFontSize1">由InternGo為您解答!!</h2>
                     <button class="btn2">找工作囉</button>
                 </div>
-                <div class="section1_test">
+                <div class="section1_test findJob">
                     <img src="./images/index/findjob.png" alt="">
                 </div>
             </div>
-   
-                
-             
         </div>
         
 
@@ -95,10 +95,11 @@
             // 參數設定[註1]
             navigation: true, // 顯示導行列
             navigationPosition: "right", // 導行列位置
-            scrollHorizontally: false,
-            continuousVertical: false,
             autoScrolling: true,
-            scrollBar: true
+            scrollBar: true,
+            keyboardScrolling:true,
+            loopTop:true,
+            resize:true,
         });
     </script>
 </body>
