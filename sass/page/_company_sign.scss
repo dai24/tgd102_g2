@@ -1,6 +1,7 @@
 .company_sign{    
     padding-top: $space08; //main到header
     padding-bottom: $space08; //main到footer
+    $inputwidth:"544px";
     @include m(){
         padding-top: $R-space08; //main到header
         padding-bottom: $R-space08; //main到footer
@@ -51,7 +52,10 @@
             @include disflex(column, center, none);
         }
         
-    }    
+    }   
+    .inputText{
+        margin-bottom: 24px;
+    } 
     //每列表單的容器
     .inputwra{
         @include disflex(row, none, space-between);
@@ -113,6 +117,9 @@
         max-width: 555px;
 
     }   
+
+    //--------------------------
+
     //表單：公司名稱
     .inputA{
         width:248px;
@@ -127,6 +134,7 @@
         width:544px;
         height:96px;
         padding-top:11px;
+        resize: none;
     }
     //表單：公司負責人
     .inputD{
@@ -137,26 +145,35 @@
     .inputE{
         width:104px;
     }
-    //縣市區
+    //表單：縣市區
     .inputF{
         width:168px;
         margin-bottom: 8px; 
     }
-    //鄉鎮市區
+    //表單：鄉鎮市區
     .inputG{
         width:168px;
         margin-bottom:8px;
     }
-    //地址
+    //表單：地址
     .inputH{
-        width: 536px;
+        width: 544px;
     }
-    //服務項目
+    //表單：服務項目
     .inputI{
         width:544px;
         height:96px;
         padding-top:11px;
+        resize: none;
     }
+    //表單：公司聯絡人
+    .inputJ{
+        width:192px;
+        margin-left:5px;
+    }
+
+    //------------------------------
+
     //驗證碼
     .sendcode{
         width: 120px;
@@ -173,7 +190,10 @@
             color:$secondary02;
             background-color:$primary02;
         }
-
+    }
+    //公司聯絡人
+    .contacter{
+        justify-content: start;
     }
     //同意條款
     .agree{
