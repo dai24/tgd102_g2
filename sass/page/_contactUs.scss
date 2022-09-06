@@ -9,10 +9,11 @@
     height: 100%;
 }
 .card{
+    
     z-index: 9;
     position: relative;
 }
-.cardInner{
+.contact{
     text-align: center;
     h2{
         font-size: $fontSize03;
@@ -21,7 +22,7 @@
         margin: 30px 0 30px;
         input{
             border: 0;
-            max-width: 575px;
+            max-width: 620px;
             width: 100%;
             font-size: $fontSize05;
             padding: 8px;
@@ -32,14 +33,15 @@
         textarea{
             resize: none;
             border: 0;
-            max-width: 575px;
+            max-width: 624px;
             width: 100%;
             font-size: $fontSize05;
             padding: 8px;
             outline: none;
+            margin-bottom: 32px;
         }
     }
-}
-.out{
-
+    .btna3{
+        margin: 0 auto;
+    }
 }

@@ -1,16 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>職缺內容</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="./css/style.css">
+    @@include('./layout/head.html',{
+        "title" : "職缺內容"
+    })
 </head>
 <body>
     @@include('./layout/header.html')
     <div class="jobMainWrapper">
+        @@include('./layout/breadcrumb3.html',{
+            'home' : "首頁",
+            'nav' : "找實習",
+            'active' : "職缺內容",
+        })
         <div class="jobMainWrapperTitle">
             <h2>醫療客服專案管理師(諮商師)</h2>
             <div>
@@ -67,8 +69,8 @@
                     </div>
                 </div>
                 <div class="jobMainVacanciesBtn">
-                    <div class="btn5">儲存職缺</div>
-                    <div class="btn6">應徵職缺</div>
+                    <div class="btna5">儲存職缺</div>
+                    <div class="btna6">應徵職缺</div>
                 </div>
             </div>
 
@@ -138,8 +140,8 @@
                         </div>
                     </div>
                     <div class="jobMainWrapperOthBtn">
-                        <div class="btn5">儲存職缺</div>
-                        <div class="btn6">立即應徵</div>
+                        <div class="btna5">儲存職缺</div>
+                        <div class="btna6">立即應徵</div>
                     </div>
                 </div>
                 <div class="jobMainWrapperOthMain">
@@ -159,13 +161,13 @@
                         </div>
                     </div>
                     <div class="jobMainWrapperOthBtn">
-                        <div class="btn5">儲存職缺</div>
-                        <div class="btn6">立即應徵</div>
+                        <div class="btna5">儲存職缺</div>
+                        <div class="btna6">立即應徵</div>
                     </div>
                     
                 </div>
                 <div class="jobMainWrapperOthMain">
-                    <div class="btn19">查看更多職缺</div>
+                    <div class="btna19">查看更多職缺</div>
                 </div>
             </div>
             

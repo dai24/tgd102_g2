@@ -1,22 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
-<link rel="stylesheet" href="css/style.css">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
-<title>@@title</title>
-</head>
-
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="icon" href="../images/index/logo.ico">
+        <title>首頁</title>
+    </head>
 <body>
     
-<<<<<<< HEAD
     
-=======
->>>>>>> chuang
     <div id="example">
         @@include('./layout/header.html')
         <div class="section indexBgc01">
@@ -29,7 +25,7 @@
                 <div class="section1_test">
                     <h2 class="resumeFontSize1">職業適性測驗</h2>
                     <h3 class="resumeFontSize3">InternGO 為您找到最適合的職業</h3>
-                    <button class="btn2">去測驗</button>
+                    <button class="btna20">去測驗</button>
                 </div>
             </div>
         </div>
@@ -38,23 +34,20 @@
             <div class="section1 section2">
                 <div class="section1_resume">
                     <img src="./images/index/resume01.png" alt="">
-                    <button class="btn2">履歷範本</button>
+                    <button class="btna20">履歷範本</button>
                 </div>
                 <div class="section1_resume">
                     <img src="./images/index/resume02.png" alt="">
-                    <button class="btn2">製作履歷</button>
+                    <button class="btna20">製作履歷</button>
                 </div>
                 <div class="section1_resume">
                     <img src="./images/index/resume03.png" alt="">
-                    <button class="btn2">履歷診療室</button>
+                    <button class="btna20">履歷診療室</button>
                 </div>
             </div>
         </div>
-        <div class="section indexBgc01 stepTotal">
+        <div class="section indexBgc01">
             <h1>求職指南</h1>
-            <div class="section1">
-                <img src="./images/index/step.png" alt="">
-            </div>
         </div>
         <div class="section indexBgc01">
             <div class="section1">
@@ -63,7 +56,7 @@
                     <h3 class="resumeFontSize3">一條龍的服務讓"找實習"變得簡單</h3>
                     <h3 class="resumeFontSize3">著手打造容易上手的免費履歷工具</h3>
                     <h3 class="resumeFontSize3">討論趣分享工作變得更有趣</h3>
-                    <button class="btn2">討論趣</button>
+                    <button class="btna20">討論趣</button>
                 </div>
                 <div class="section1_test discuss">
                     <img src="./images/index/discuss.png" alt="">
@@ -76,15 +69,14 @@
                     <h2 class="resumeFontSize1">不知道怎麼踏出第一步嗎 ?</h2>
                     <h2 class="resumeFontSize1">找實習過程中碰壁了嗎 ?</h2>
                     <h2 class="resumeFontSize1">由InternGo為您解答!!</h2>
-                    <button class="btn2">找工作囉</button>
+                    <button class="btna20">找工作囉</button>
                 </div>
                 <div class="section1_test findJob">
                     <img src="./images/index/findjob.png" alt="">
                 </div>
             </div>
         </div>
-        <div class="section indexBgc01">
-        </div>
+        
         
         
     @@include('./layout/footer.html')
@@ -109,7 +101,12 @@
             keyboardScrolling:true,
             // loopTop:true,
             resize:true,
+            paddingBottom:'10px',
         });
+        const head = document.getElementsByTagName('header')[0]
+        // console.log(head);
+        head.style.position='fixed'
+        
     </script>
 </body>
 

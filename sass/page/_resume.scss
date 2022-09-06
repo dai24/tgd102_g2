@@ -11,7 +11,7 @@
 }
 
 .resume_banner1 {
-    background-color: #EAA565;
+    background-color: $primary02;
     color: white;
     // outline: 2px solid rgb(111, 17, 252);
     height: 125px;
@@ -92,11 +92,21 @@
     }
 }
 
+.bread-crumb a{
+    color: $primary02;
+
+}
+
+.bread-crumb a:hover{
+    color: $focus01;
+
+}
 
 .resume {
-    margin: 64px 0;
-    @include m(){       
-        margin: 32px 0;
+    margin-top: 64px;
+
+    @include m() {
+        margin-top: 32px;
     }
 }
 
@@ -119,12 +129,12 @@
 
 }
 
-.resume .resume_sample_row{
+.resume_sample_row{
     margin: 0 auto;
     
 }
 
-.resume .resume_sample_row .col{
+.resume_sample_row .col{
     padding: 0 12px;
     margin-top: 30px;
     @include m(){   
@@ -133,40 +143,38 @@
     }
 }
 
-.resume .resume_card {
-    // outline: 2px solid rgb(64, 17, 252);
+.resume_card {
     width: 18rem;
     @include m(){   
         width: 22rem;    
         margin: 0 auto;
-        // outline: 2px solid rgb(64, 17, 252);
     }
 }
 
-.resume .resume_card > img {
+.resume_card > img {
     width: 100%;
     display: block;
    
 }
 
-.resume .card_body {  
+.card_body {  
     background-color: rgb(255, 255, 255);
     height: 48px;
 
 }
 
-.resume .card_body .row{
+.card_body .row{
     margin-right: 0;
     margin-left: 0;
     padding: 8px 0;
     // outline: 2px solid rgb(64, 17, 252);
 }
 
-.resume .card_body span {
+.card_body span {
     font-size: $fontSize05;
 }
 
-.resume .card_body button{
+.card_body button{
     background-color: rgba(255, 255, 255,0);
 }
 
@@ -176,16 +184,17 @@
     color: red;   
 }
 
-.resume .card_body .resume_zoom_btn {
+.card_body .resume_zoom_btn {
     
     @include m(){   
         display: none;
     }
 }
 
-.resume .pagination-div{
+.pagination-div{
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
+    grid-template-columns: repeat(7, 1fr);
     grid-template-rows: 1fr;
     margin-top: 60px;
     @include m(){   
@@ -208,4 +217,10 @@
 
 .pagination-div .pagination-ul li a{
     color: #313131;
+}
+
+
+.pagination-div .pagination-ul li:hover a {
+    color: $primary02;
+    // background-color: #EAA565;
 }

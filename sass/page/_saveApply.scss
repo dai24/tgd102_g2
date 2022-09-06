@@ -1,0 +1,25 @@
+.contact{
+    .title{
+        display: flex;
+        justify-content: center;
+        color: $focus01;
+        margin-bottom: 36px;
+        i{
+            margin-right: 8px;
+            font-size: $fontSize02;
+        }
+        h2{
+            font-size: $fontSize02;
+        }
+    }
+    h3{
+        font-size: $fontSize03;
+        margin-bottom: 18px;
+    }
+    a{
+        display: block;
+        color: $focus01;
+        font-size: $fontSize04;
+        margin-bottom: 40px;
+    }
+}
