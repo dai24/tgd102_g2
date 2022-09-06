@@ -85,6 +85,9 @@
 }
 .box_5{
     grid-column:17 ;
+    @include m(){
+        grid-column: 5;
+    }
     
     
 }
@@ -159,7 +162,7 @@
 
 .work_space_a4_2 button{
     background-color: rgba(1,1,1,0);
-    margin: 50px;
+    margin: 43%;
 }
 .fa-file-circle-plus{
     align-items: center;
@@ -179,7 +182,6 @@
     padding: 10px;
     @include m(){
         width: 350px;
-        height: auto;
         margin: 0px 10px 0;
     }
    
