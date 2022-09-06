@@ -60,14 +60,14 @@
 
 
 .btna9{
-    @include btn1(272px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
+    @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02,5px,$focus01H,null);
     @include m(){
         @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02, 5px,$focus01H,null);
     }
 }
 
 .btna10{
-    @include btn1(448px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
+    @include btn1(520px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
     height: 60px;
     @include m(){
         @include btn1(256px ,$fontSize02, $space01, $focus01, $secondary02, 5px,$focus01H,null);
@@ -167,3 +167,11 @@
     }
 }
 
+.btna21{
+    @include btn2(288px ,$fontSize03, $space01, transparent, $secondary02,5px,$primary02,null);
+    @include m(){
+        @include btn2(36px ,$fontSize05, $space01, transparent, $secondary02, 5px,$secondary02,null);
+        height: 22px;
+    }
+   
+}

@@ -6,10 +6,45 @@
 
 .resumeConsultants{
     
-    margin-top: 64px;
+    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     max-width: 1280px;
+}
+
+.searchbar{
+    display: flex;
+    padding: 16px;
+    
+
+
+    .searchbarInner{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 30px;
+        // background-color: red;
+        width: 1200px;
+        margin: 0 32px;
+
+        .searchbarLeft{
+            display: flex;
+        }
+
+        .fa-solid{
+            margin-left: 64px;
+        }
+
+        li{
+            margin: auto 0 ; 
+        }
+
+        .btna8{
+            margin-right: 24px;
+            
+        }
+
+    }
+    
 }
