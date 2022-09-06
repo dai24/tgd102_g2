@@ -1,0 +1,65 @@
+.wrapper_consultant{
+    max-width: 1360px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+
+.consultant_info{
+    display: flex;
+    flex-direction: row;
+    max-width: 1280px;
+    justify-content: space-between;
+}
+
+.consultant_left{
+    color: $secondary01;
+    
+    img{
+        width: 520px;
+        margin-bottom: 24px;
+    }
+    
+    h1{
+        font-size: $fontSize01;
+        margin-bottom: 24px;
+    }
+
+    h2{
+        font-size: $fontSize02;
+        margin-bottom: 24px;
+    }
+
+}
+
+.consultant_right{
+
+    width: 520px;
+
+    article{
+        
+        border-bottom: 4px solid $primary02;
+        margin-bottom: 64px;
+        
+
+        h1{
+            font-size: $fontSize01;
+            color: $primary02;
+            font-weight: bold;
+            margin-bottom: 32px;
+        }
+
+        
+        p{
+            font-size: $fontSize03;
+            color: $secondary01;
+            line-height: 1.6;
+            padding-bottom: 32px;
+        }
+    
+    }
+
+
+
+
+}
