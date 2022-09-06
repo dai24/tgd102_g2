@@ -1,0 +1,50 @@
+
+.shareresumeform{
+    max-width: 405px;
+    width: 100%;
+    margin: 0 auto;
+    
+    #shareresumeform_select{
+        width: 160px;
+        height: 40px;
+        font-size: $fontSize05;
+    }
+}
+
+.shareresumeform_1{
+    span{
+        font-size: $fontSize05;
+
+    }
+}
+
+.fa-earth-asia{
+    padding: 30px 0;
+}
+
+.share_ig_fb{
+    display: flex;
+    align-items: center;
+    margin-bottom: 32px;
+    h3{
+        font-size: $fontSize05;
+        margin-right: 20px;
+    }
+
+    img{
+        font-size: 50px;
+        margin-right: 20px;
+        
+    }
+    .fa-facebook{
+        font-size: 50px;
+        color: #1877F2;
+        
+    }
+
+}
+
+.btna3{
+    margin: 0 auto;
+}
+

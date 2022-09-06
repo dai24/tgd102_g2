@@ -1,0 +1,25 @@
+
+
+.applyfor{
+    max-width: 405px;
+    width: 100%;
+    margin: 0 auto;
+  
+
+}
+
+.applyfor .applyTitle{
+    justify-content: center;
+}
+.deleteTitleMain h3{
+    font-size: $fontSize02;
+    color: $secondary01;
+    // padding:$space04;
+    margin-bottom: $space04;
+    margin-left: 10px;
+}
+
+.fa-circle-check{
+    color: #D25541;
+}
+

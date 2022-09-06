@@ -24,6 +24,46 @@
     color: #ffff;
 }
 
+.work_space_header button:hover {
+    color: $focus01;
+}
+
+.work_space_make{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    outline: 1px solid rgb(106, 0, 255);
+}
+
+.resume_model-border {
+    padding: 10px;
+    background-color: $primary01;
+    width: 13rem;
+    height: 465px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    box-shadow:0px 0px 3px rgba(57, 57, 57, 0.5);
+    display:none;
+
+}
+
+.resume_make{
+    grid-column: 2; 
+}
+
+.resume_model img {
+    display: block;
+    width: 166px;
+    height: 218px;
+    margin: 0 auto;
+    margin-bottom: 10px;
+    
+}
+
+.resume_model img:hover{
+    box-shadow:0px 0px 5px rgba(57, 57, 57, 0.5);
+}
+
 .resume_name_div label{
     margin-right: 10px;
 }
@@ -45,6 +85,9 @@
 }
 .box_5{
     grid-column:17 ;
+    @include m(){
+        grid-column: 5;
+    }
     
     
 }
@@ -61,7 +104,7 @@
 }
 .resume_name_div{
     display: flex;
-    justify-content: center;
+    // justify-content: center;
     align-items: center;
     margin-top: 20px;
     font-size: 20px;
@@ -119,7 +162,7 @@
 
 .work_space_a4_2 button{
     background-color: rgba(1,1,1,0);
-    margin: 50px;
+    margin: 43%;
 }
 .fa-file-circle-plus{
     align-items: center;
@@ -139,7 +182,6 @@
     padding: 10px;
     @include m(){
         width: 350px;
-        height: auto;
         margin: 0px 10px 0;
     }
    
