@@ -11,7 +11,7 @@
 }
 
 .resume_banner1 {
-    background-color: #EAA565;
+    background-color: $primary02;
     color: white;
     // outline: 2px solid rgb(111, 17, 252);
     height: 125px;
@@ -93,10 +93,14 @@
 }
 
 .bread-crumb a{
-    color: #EAA565;
+    color: $primary02;
 
 }
 
+.bread-crumb a:hover{
+    color: $focus01;
+
+}
 
 .resume {
     margin-top: 64px;
@@ -125,12 +129,12 @@
 
 }
 
-.resume .resume_sample_row{
+.resume_sample_row{
     margin: 0 auto;
     
 }
 
-.resume .resume_sample_row .col{
+.resume_sample_row .col{
     padding: 0 12px;
     margin-top: 30px;
     @include m(){   
@@ -139,40 +143,38 @@
     }
 }
 
-.resume .resume_card {
-    // outline: 2px solid rgb(64, 17, 252);
+.resume_card {
     width: 18rem;
     @include m(){   
         width: 22rem;    
         margin: 0 auto;
-        // outline: 2px solid rgb(64, 17, 252);
     }
 }
 
-.resume .resume_card > img {
+.resume_card > img {
     width: 100%;
     display: block;
    
 }
 
-.resume .card_body {  
+.card_body {  
     background-color: rgb(255, 255, 255);
     height: 48px;
 
 }
 
-.resume .card_body .row{
+.card_body .row{
     margin-right: 0;
     margin-left: 0;
     padding: 8px 0;
     // outline: 2px solid rgb(64, 17, 252);
 }
 
-.resume .card_body span {
+.card_body span {
     font-size: $fontSize05;
 }
 
-.resume .card_body button{
+.card_body button{
     background-color: rgba(255, 255, 255,0);
 }
 
@@ -213,13 +215,12 @@
     margin: 10px 20px;
 }
 
-.resume .pagination-div .pagination-ul li:hover a {
-    color: #EAA565;
-    // background-color: #EAA565;
+.pagination-div .pagination-ul li a{
+    color: #313131;
 }
 
 
-
-.pagination-div .pagination-ul li a{
-    color: #313131;
+.pagination-div .pagination-ul li:hover a {
+    color: $primary02;
+    // background-color: #EAA565;
 }

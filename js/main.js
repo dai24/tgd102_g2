@@ -19,7 +19,13 @@ $(function () {
    // 履歷放大
    $('.resume_zoom_btn').on('click', function () {
       let img_src = $(this).parents('.resume_card').children("img").attr('src')
-      
+
+   })
+
+   // 打開關閉履歷模組
+   $('#resume_model-btn').on('click', function () {
+      $('.resume_model-border').toggle('blind',{percent: 50},500 )
+
    })
 
 })
