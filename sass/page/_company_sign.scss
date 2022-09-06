@@ -1,7 +1,8 @@
 .company_sign{    
     padding-top: $space08; //main到header
     padding-bottom: $space08; //main到footer
-    $inputwidth:"544px";
+    $inputwidth:544px; //統一input最大寬度
+    $inputml:10px;
     @include m(){
         padding-top: $R-space08; //main到header
         padding-bottom: $R-space08; //main到footer
@@ -74,18 +75,17 @@
                 max-width: 236px;
                 };
             }
-        }
-        
+        }        
     }
     //欄位標題
     .ctitle{
         height:$space06;
-        line-height:$space06;
+        line-height:$space05;
     }    
     //按鈕：公司列表
     .clist{
         width: 112px;
-        height: 48px;
+        height: 44px;
         color:$primary01;
         background-color:$primary02;
         border-radius: 5px;
@@ -94,6 +94,14 @@
             background-color:$primary02H;
         }
     }
+    
+    //section：註冊
+    .submitsec{
+        text-align: center;
+        margin-top: $space03;
+    }
+    //--------------------------
+
     .wrapper1{
         display: flex;
         //公司負責人列
@@ -111,12 +119,46 @@
             }
         }
     } 
+    //容器：公司地址
     .wrapper2{
         display: flex;
         flex-wrap: wrap;
         max-width: 555px;
-
     }   
+    //容器：公司電話
+    .wrapper3{
+        display: flex;
+        .inputwra{
+            &:first-child{
+                width:65%;
+                justify-content: start;
+            }
+            &:last-child{ //手機表單
+                width:40%;
+                justify-content: flex-end;
+            }
+            .ext{ //分機
+                margin-left:15px;
+            }
+        }        
+    }
+    //容器：年費
+    .wrapper4{
+        margin-left:16px;
+        @include disflex(column, none, start);
+        li{
+            display: flex;
+        }
+        input{
+            width: 20px; //checkbox大小
+            height: 20px;
+            margin-bottom: 8px;
+        }
+        h4{
+            margin-left:4px;
+            line-height:25px;
+        }
+    }
 
     //--------------------------
 
@@ -131,7 +173,7 @@
     }
     //表單：公司介紹
     .inputC{
-        width:544px;
+        width:$inputwidth;
         height:96px;
         padding-top:11px;
         resize: none;
@@ -153,15 +195,16 @@
     //表單：鄉鎮市區
     .inputG{
         width:168px;
+        margin-left:4px;
         margin-bottom:8px;
     }
     //表單：地址
     .inputH{
-        width: 544px;
+        width:$inputwidth;
     }
     //表單：服務項目
     .inputI{
-        width:544px;
+        width:$inputwidth;
         height:96px;
         padding-top:11px;
         resize: none;
@@ -171,7 +214,36 @@
         width:192px;
         margin-left:5px;
     }
-
+    //表單：區碼
+    .inputK1{
+        width: 24px;
+        margin-left: 20px;
+        margin-right: 4px;
+    }
+    //表單：市話
+    .inputK2{
+        width: 100px;
+        margin-left: 4px;
+    }
+    //表單：分機
+    .inputK3{
+        width:70px;
+    }
+    //表單：手機
+    .inputK4{
+        width: 125px;
+    }
+    //section：年費
+    .fee{
+        justify-content: start;
+        .ctitle{            
+            line-height:28px;
+        }
+    }
+    //聯絡信箱
+    .inputL{
+        width:$inputwidth;
+    }
     //------------------------------
 
     //驗證碼
@@ -195,14 +267,15 @@
     .contacter{
         justify-content: start;
     }
-    //同意條款
+    //section：同意條款
     .agree{
         margin-top:$space04;
-        @include disflex(row, none, none);
+        @include disflex(row, none, center);
         a{
             color: $focus01;            
         }
     }
+
     .btn17{        
         margin-top:$space02;
         margin-bottom:$space05;
