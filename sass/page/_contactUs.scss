@@ -9,10 +9,11 @@
     height: 100%;
 }
 .card{
+    
     z-index: 9;
     position: relative;
 }
-.cardInner{
+.contact{
     text-align: center;
     h2{
         font-size: $fontSize03;
@@ -39,5 +40,8 @@
             outline: none;
             margin-bottom: 32px;
         }
+    }
+    .btna3{
+        margin: 0 auto;
     }
 }
