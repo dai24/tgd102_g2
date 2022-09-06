@@ -29,43 +29,29 @@ body{
         width: 100%;
     }
     .step2{
-        // position: absolute;
-        // top: 0px;
-        // left: 0px;
         img{
             max-width: 310px;
             width: 100%;
         }
     } 
     .step3{
-        position: absolute;
-        top: 0;
-        left: 0;
         img{
             max-width: 325px;
             width: 100%;
         }
     } 
     .step4{
-        position: absolute;
-        top: 0;
-        left: 0;
         img{
             max-width: 325px;
             width: 100%;
         }
     } 
     .step5{
-        position: absolute;
-        top: 0;
-        left: 0;
         img{
             max-width: 325px;
             width: 100%;
         }
     } 
-    
-    
 }
 .section1 .section1_test{
     margin-left: 180px;
@@ -84,6 +70,38 @@ body{
 }
 .section2{
     margin: 0 auto;
+    i{
+        margin: 0 20px;
+        font-size: 50px;
+        color: $secondary01;
+    }
+    .resume{
+        margin: 0 130px;
+    }
+    .resumeMain{
+        display: flex;
+        align-items: center;
+    }
+    .resumeStepOneTwo{
+        display: flex;
+    }
+}
+.resumeAll{
+    display: flex;
+    flex-direction: column;
+    .upHead{
+        margin-top: 20px;
+        img{
+            display: block;
+            max-width: 200px;
+            width: 100%;
+            margin-top: 32px;
+        }
+        
+    }
+    .section1_resume{
+        margin: 0 50px;
+    }
 }
 .section1_resume{
     display: flex;
@@ -94,19 +112,16 @@ body{
         width: 100%;
         margin-bottom: 24px;
     }
-    
-}
-
-.section1_resume:nth-child(2){
-    margin: 0 130px;
 }
 
 .indexBgc01 h1{
     font-size: $fontSize01;
     text-align: center;
     letter-spacing: 2px;
-    margin-bottom: 72px;
+    margin-bottom: 20px;
 }
+
+
 
 #fp-nav ul li a span{
     background-color: $focus01 !important; 
@@ -114,11 +129,125 @@ body{
 
 
 @include m(){
-    .section1{
-        flex-direction: column;
-    }
     .section1 .section1_test{
         margin-left: 0px;
         text-align: center;
+    }
+    .section1{
+        margin: 0 auto;
+        flex-direction: column;
+        line-height: 2;
+        text-align: center;
+        .test img{
+            max-width: 200px;
+            width: 100%;
+        }
+        .step2{
+            // position: absolute;
+            // top: 0px;
+            // left: 0px;
+            img{
+                max-width: 310px;
+                width: 100%;
+            }
+        } 
+        .step3{
+            position: absolute;
+            top: 0;
+            left: 0;
+            img{
+                max-width: 325px;
+                width: 100%;
+            }
+        } 
+        .step4{
+            position: absolute;
+            top: 0;
+            left: 0;
+            img{
+                max-width: 325px;
+                width: 100%;
+            }
+        } 
+        .step5{
+            position: absolute;
+            top: 0;
+            left: 0;
+            img{
+                max-width: 325px;
+                width: 100%;
+            }
+        }
+        
+        
+        
+    }
+    .resumeAll{
+        .section1_resume{
+            margin-bottom: 24px;
+            img{
+                max-width: 150px;
+                width: 100%;
+                margin: 16px;
+            }
+        }
+    }
+    .resumeStep{
+        // .section1_resume{
+        //     margin-bottom: 16px;
+        // }
+        img{
+            display: block;
+            max-width: 150px;
+            width: 100%;
+            margin-bottom: 16px;
+        }
+    }
+    .resumeStep > div{
+        margin-bottom: 16px;
+    }
+    .resumeStep > div:nth-child(2){
+        margin-bottom: 16px;
+    }
+    .indexBgc01 h1{
+        font-size: $fontSize02;
+        text-align: center;
+        letter-spacing: 2px;
+        margin-bottom: 20px;
+    }
+    .resumeStep{
+        
+    }
+    .section2{
+        .resume{
+            margin: 0 0px;
+        }
+        .resumeMain{
+            display: flex;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+    }
+    .resumeAll .section1_resume{
+        margin: 0;
+    }
+    .resumeStep .rS{
+        margin: 0;
+    }
+    .resumeFontSize1{
+        font-size: $fontSize04;
+    }
+    .resumeFontSize3{
+        font-size: $fontSize04;
+    }
+    .discuss{
+        img{
+            max-width: 320px;
+            width: 100%;
+        }
+    }
+    .discussBtn{
+        margin: 24px 0;
     }
 }

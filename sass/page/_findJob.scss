@@ -1,15 +1,32 @@
 .findJobWrapper{
     max-width: 1280px;
     width: 100%;
-    margin: 0 auto;
     margin: 32px auto 0px;
+    @include m(){
+        max-width: 375px;
+        margin: 0px auto 0px;
+    }
     .findJob{
         position: relative;
         background-color: $primary02;
         border-radius: 5px;
         display: flex;
         padding: 26px 70px;
+        @include m(){
+            display: flex;
+            padding: 8px;
+        }
         .findJobMain{
+            .btna15{
+                @include m(){
+                    width: 100%;
+                }
+                i{
+                    @include m(){
+                        margin-left: 8px;
+                    }
+                }
+            }
             .findJobSearch{
                 text-align: left;
                 padding-left: 24px ;
@@ -17,36 +34,71 @@
                 ::placeholder { 
                     color: $primary02;
                 }
+                @include m(){
+                    padding-left: 0px ;
+                    margin-bottom: 8px;
+                }
                 input{
                     margin-left: 30px;
                     outline: none;
                     border: 0px;
                     font-size: $fontSize03;
                     color: $primary02;
+                    @include m(){
+                        margin-left: 0px;
+                        font-size: $fontSize05;
+                        color: $primary02;
+                    }
                 }
             }
             .findJobClass{
                 color: $secondary02;
                 margin-bottom: 10px;
+                @include m(){
+                    margin-bottom: 0px;
+                }
                 h3{
                     font-size: $fontSize03;
                 }
                 .findJobClassMain{
                     display: flex;
+                    @include m(){
+                        margin-bottom: 8px;
+                    }
+                    .btna16{
+                        width: auto;
+                    }
                     div{
                         margin-right: 10px;
+                        @include m(){
+                            margin-right: 15px;
+                        }
                     }
                 }
             }
             
             .findJobType{
                 display: flex;
+                @include m(){
+                    flex-wrap: wrap;
+                    
+                }
+                .findJobTypeTitle .btna16{
+                    width: auto;
+                }
                 .findJobTypeTitle > div{
                     color: $secondary02;
                     text-align: left;
                     margin-right: 40px;
+                    @include m(){
+                        margin-right: 36px;
+                        
+                    }
                     i{
                         padding-left: 15px;
+                        @include m(){
+                            padding-left: 8px;
+                        }
                     }
                 }
                 .findJobTypeTitle > ul{
@@ -130,6 +182,9 @@
         flex-wrap: wrap;
         margin-top: 10px;
         margin-bottom: 60px;
+        @include m(){
+            margin-bottom: 48px;
+        }
         .findJobFindSort{
             cursor: pointer;
             display: flex;
@@ -165,13 +220,28 @@
         border-radius: 5px;
         padding: 54px 65px;
         margin-bottom: 16px;
+        @include m(){
+            flex-direction: column;
+            padding: 24px 8px;
+            margin: 0 8px 16px;
+        }
         .findJobVacanciesPicture img{
             width: 170px;
+            @include m(){
+                width: 38px;
+                position: absolute;
+                left: 28px;
+            }
         }
         .findJobVacanciesTitle{
             max-width: 700px;
             width: 100%;
             margin-left: 28px;
+            @include m(){
+                max-width: 270px;
+                width: 100%;
+                margin-left: 72px;
+            }
             h3{
                 font-size: $fontSize03;
                 margin-bottom: 12px;
@@ -190,6 +260,10 @@
         .findJobVacanciesIcon{
             line-height: 2;
             margin-left: 70px;
+            @include m(){
+                margin-left: 0px;
+                margin-top: 8px;
+            }
             a{
                 display: flex;
                 color: $secondary01;
@@ -202,6 +276,9 @@
         .findJobVacanciesBtn{
             display: flex;
             margin-top: 55px;
+            @include m(){
+                margin: 16px 0 ;
+            }
             .btna5{
                 margin-right: 20px;
             }
