@@ -1,16 +1,18 @@
+
 header {
+    width: 100%;
     background-color: #F4F1EC;
+    height: 100px;
+    z-index: 99;
+    position: relative;
 }
 
 //header 最外層
 .header_inner {
     // border: solid 1px black;
     position: relative;
-    z-index: 99;
     width: 1280px;
     margin: 0 auto;
-    height: 100px;
-    background-color: #F4F1EC;
 
     @include m(){
         position: relative;
