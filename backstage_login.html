@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html',{
+        "title" : "後台登入"
+        })
+</head>
+<body>
+<main class="backstage_login">
+    <div class="logincard">
+        <h1 class="cardH1">管理員登入</h1>
+        <form method="post" action="#">
+            <section class="input01">
+                <input type="text" placeholder="請輸入帳號" class="inputText" name="account">
+                <h4 class="inputAlert">帳號錯誤</h4>
+            </section>
+            <section class="input01">
+                <input type="text" placeholder="請輸入密碼" class="inputText" name="passeord">
+                <h4 class="inputAlert">密碼錯誤</h4>
+            </section>
+
+            <section>                
+                <button class="btna17" name="submit">
+                    <a href="./landing_page.html">登入</a>
+                </button>
+            </section>
+            
+        </form>   
+    </div>
+</main> 
+</body>
+</html>
