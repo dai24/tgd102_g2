@@ -3,44 +3,109 @@
 
 <head>
     @@include('./layout/head.html',{
-        "title" : "履歷工作區"
-    })  
-    <style>
-        /* div{
-            border: 1px solid red;
-        } */
-    </style>
-</head>
+    "title" : "履歷工作區"
+    })
+
+
 
 <body>
 
     <div class="resume_wrapper">
         @@include('./layout/header.html')
         @@include('./layout/breadcrumb3.html',{
-            'home' : "首頁",
-            'nav' : "履歷",
-            'active' : "履歷工作台",
-            'nav_url' : "resume.html",
-        })   
+        'home' : "首頁",
+        'nav' : "履歷",
+        'active' : "履歷工作台",
+        'nav_url' : "resume.html",
+        })
 
 
         <div class="work_space">
 
             <div class="work_space_header">
-                
-                <div class="box_1"><button class="">模板</button> </div>
+
+                <div class="box_1"><button id="resume_model-btn">模板</button> </div>
                 <div class="box_2"><button class="">儲存</button> </div>
                 <div class="box_3"><button class="">分享</button> </div>
                 <div class="box_4"><button><i class="fa-regular fa-file-pdf"></i></button></div>
                 <div class="box_5"><button id="delect_icon"><i class="fa-regular fa-trash-can"></i></button> </div>
- 
+
             </div>
 
+            <div class="work_space_make">
+                <div class="resume_model-border toggler">
+                    <div class="resume_model">
+                        <button><img src="images/resume/resume_1.png" class="" alt="resume_1"></button>
+                    </div>
+                    <div class="resume_model">
+                        <button><img src="images/resume/resume_2.png" class="" alt="resume_1"></button>
+                    </div>
+                    <div class="resume_model">
+                        <button><img src="images/resume/resume_3.png" class="" alt="resume_1"></button>
+                    </div>
+                </div>
 
+                <div class="resume_make">
+                    <div class="resume_name_div">
+                        <label for="resume_name">檔案名稱: </label><input type="text" id="resume_name" name="resume_name">
+                    </div>
+
+                    <div class="work_space_a4">
+
+                        <div class="work_space_a4_1">
+                            <h3>緯小育</h3>
+                            <h4>業務經理</h4>
+                            <h5>聯絡方式</h5>
+                            <p>地址：408 新北市板橋區商業街 100 號
+                                <br>電話：(886) 1234-5678
+                                <br>信箱：hello@reallygreatsite.com.tw
+                                <br>作品：www.reallygreatsite.com.tw
+                            </p>
+                        </div>
+
+                        <div class="work_space_a4_2">
+                            <button><i class="fa-solid fa-file-circle-plus"></i></button>
+                        </div>
+
+                        <div class="work_space_a4_3">
+
+                            <div class="work_space_a4_3_1">
+                                <h4>專業背景</h4>
+                                <p>擅長控管門市的運營和實現既定的目標，了解市場需求，並制定策略來提高利潤。</p>
+                            </div>
+
+                            <div class="work_space_a4_3_2">
+                                <h4>工作技能</h4>
+                                <p>觀眾參與內容的研究競爭對手分析組織與領導</p>
+                            </div>
+
+                            <div class="work_space_a4_3_3">
+                                <h4>學習經歷</h4>
+                                <p>新店大學平均成績3.2分以優異的成績畢業發表論文《室內設計對門市銷售和運營的影響》2016年獲品牌與產品管理碩士學位</p>
+                            </div>
+
+                            <div class="work_space_a4_3_4">
+                                <h4>工作經歷</h4>
+                                <p>門市及銷售經理負責門市的整體運營培訓和管理10名門市員工協助客戶並做好門市各項服務工作工作時間 - 2016-2018年</p>
+                            </div>
+
+                            <div class="work_space_a4_3_5">
+                                <h4>新店高中</h4>
+                                <p>新店大學平均成績3.2分以優異的成績畢業發表論文《室內設計對門市銷售和運營的影響》2016年獲品牌與產品管理碩士學位</p>
+                            </div>
+
+                            <div class="work_space_a4_3_6">
+
+                                <h4>專業背景
+                                </h4>
+                                <p>每週的庫存管理確保有效管理現金集思廣益、實施策略，將門市成本降到最低，提高利潤工作時間 - 2015-2016年</p>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        
-
     </div>
     @@include('./layout/footer.html')
 

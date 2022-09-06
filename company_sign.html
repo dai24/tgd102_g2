@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>企業註冊</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="">
+    <script src="https://kit.fontawesome.com/1ded507973.js" crossorigin="anonymous"></script>
+    <!-- 縣市區套件 -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.15-rc1/jquery.twzipcode.min.js"></script>
+</head>
+<body>
+@@include('./layout/header.html')
+<main class="company_sign">
+    <div class="logincard">
+        <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
+        <h1 class="cardH1 title">企業註冊</h1>
+        <form method="post" action="#">
+
+            <section class="inputwra">
+                <h4 class="ctitle">公司名稱：</h4>
+                <ul>
+                    <li class="input01">
+                        <input type="text" placeholder="請填寫營業登記名稱" class="inputText inputA" name="name">
+                    </li>
+                    <button class="clist">公司列表</button>
+                    <li class="input01">
+                        <input type="text" placeholder="請輸入公司統編" class="inputText inputB" name="unit_num">
+                    </li>
+                </ul>                                
+            </section>
+
+            <section class="inputwra">
+                <h4 class="ctitle">公司介紹：</h4>
+                <div class="input01">
+                    <textarea type="text" placeholder="請簡單介紹公司服務項目(最多500字)" class="inputText inputC" name="intro"></textarea>
+                </div>                
+            </section>
+
+            <div class="wrapper1">
+                <section class="inputwra principle">
+                    <h4 class="ctitle">公司負責人：</h4>     
+                    <div class="input01">
+                        <input type="text" placeholder="請輸入負責人姓名" class="inputText inputD" name="principle">
+                    </div>                               
+                </section>
+    
+                <section class="inputwra property">
+                    <h4 class="ctitle">資本額：</h4> 
+                    <div class="input01">
+                        <input type="text" class="inputText inputE" name="property" maxlength="12"> 
+                    </div>            
+                    <h4 class="ctitle">萬</h4>        
+                </section>
+            </div>
+
+            <section class="inputwra">
+                <h4 class="ctitle">公司地址：</h4>
+                <div class="wrapper2">
+                    <div class="input01">
+                        <input class="f3 inputText inputF" placeholder="請選擇縣市區" data-role="county" name="city">
+                        <input class="f4 inputText inputG" placeholder="請選擇鄉鎮市區" data-role="district" name="district">
+                    </div>    
+                    <div class="input01">
+                        <input type="text" placeholder="請輸入公司地址" class="inputText inputH" name="address">
+                    </div>
+                </div>                            
+            </section> 
+            
+            <section class="inputwra">
+                <h4 class="ctitle">服務項目：</h4>
+                <div class="input01">
+                    <textarea type="text" placeholder="建議用條列式說明公司所提供的服務項目，能增加找到合適求職者的機會(最多500字)" class="inputText inputI" name="serve"></textarea>
+                </div>                
+            </section>
+
+            <section class="inputwra">
+                <h4 class="ctitle">員工福利：</h4>
+                <div class="input01">
+                    <textarea type="text" placeholder="請說明員工福利(最多500字)" class="inputText inputI" name="welfare"></textarea>
+                </div>                
+            </section>
+            
+            
+
+            <section class="agree">
+                <input type="radio" name="agree"><h4>我已閱讀並同意<span><a href="">INTERNGO會員條款</a></span></h4>
+            </section>
+            <section>
+                <input type="submit" class="btna17" value="註冊" name="submit">
+            </section>
+
+            
+        </form>   
+    </div>
+</main> 
+@@include('./layout/footer.html')
+<script src="./js/header.js"></script>
+<script src="./js/company_sign.js"></script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+.applyfor{
+    max-width: 405px;
+    width: 100%;
+    margin: 0 auto;
+    .btna3{
+        margin: 0 auto;
+    }
+    .applyTitle{
+        display: flex;
+        img{
+            max-width: 70px;
+            width: 100%;
+        }
+        .applyTitleMain{
+            text-align: left;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            margin-left: 24px;
+            h2{
+                font-size: $fontSize02;
+            }
+            h3{
+                font-size: $fontSize03;
+            }   
+        }
+    }
+    .resumeChoose{
+        text-align: left;
+        display: flex;
+        flex-direction: column;
+        margin: 24px 0;
+        div{
+            margin: 8px 0;
+        }
+        a{
+            margin-left: 16px;
+            color: $focus01;
+            svg{
+                width: 16px;
+            }
+        }
+    }
+    h2{
+        text-align: left;
+        font-size: $fontSize03;
+    }
+    textarea{
+        resize: none;
+        border: 0;
+        max-width: 405px;
+        width: 100%;
+        font-size: $fontSize05;
+        padding: 8px;
+        outline: none;
+        margin: 8px 0 24px;
+    }
+    .mail{
+        margin-top: 8px;
+        margin-bottom: 32px;
+        border: 0;
+        max-width: 405px;
+        width: 100%;
+        font-size: $fontSize05;
+        outline: none;
+        padding: 8px;
+    }
+}
+.applyfor{
+    text-align: left;
+}

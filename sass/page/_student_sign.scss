@@ -74,8 +74,13 @@
     .agree{
         margin-top:$space04;
         @include disflex(row, none, none);
+        .agreeid{
+            height: 16px;
+            width: 16px;
+            margin-top: 0;
+        }
         a{
-            color: $focus01;
+            color: $focus01;            
         }
     }
     .btn17{        

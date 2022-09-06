@@ -1,32 +1,32 @@
-.btn1{
+.btna1{
     @include btn1(144px ,$fontSize02, $space01, $primary02, $secondary02,5px,$primary02H,$secondary02);
     @include m(){
         @include btn1(104px ,$fontSize05, $space01, $primary02, $secondary02, 5px, $primary02H,$secondary02)
     }
 }
 
-.btn2{
+.btna2{
     @include btn1(144px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,$secondary02);
     @include m(){
         @include btn1(104px ,$fontSize05, $space01, $primary02, $secondary02, 5px, $focus01H,$secondary02)
     }
 }
 
-.btn3{
+.btna3{
     @include btn2(144px ,$fontSize02, $space01, $primary02, $secondary02, 5px,$primary02H,$secondary02);
     @include m(){
         @include btn2(104px ,$fontSize05, $space01, $primary02, $secondary02, 5px, $primary02H,$secondary02)
     }
 }
 
-.btn4{
+.btna4{
     @include btn2(144px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,$secondary02);
     @include m(){
         @include btn2(104px ,$fontSize05, $space01, $primary02, $secondary02, 5px, $focus01H,$secondary02)
     }
 }
 
-.btn5{
+.btna5{
     @include btn1(104px ,$fontSize05, $space01, $secondary02, $focus01,5px,null,null);
     border: 1.5px solid $focus01;
     @include m(){
@@ -35,7 +35,7 @@
     }
 }
 
-.btn6{
+.btna6{
     @include btn1(104px ,$fontSize05, $space01, $focus01, $secondary02,5px,$focus01H,null);
     border: 1.5px solid $focus01;
     @include m(){
@@ -44,28 +44,29 @@
     }
 }
 
-.btn7{
+.btna7{
     @include btn1(104px ,$fontSize03, $space01, $primary02, $secondary02,5px,$primary02H,null);
     @include m(){
         @include btn1(104px ,$fontSize05, $space01, $primary02, $secondary02, 5px,$primary02H,null);
     }
 }
 
-.btn8{
+.btna8{
     @include btn1(144px ,$fontSize02, $space01, $secondary02, $primary02,5px,null,null);
     @include m(){
         @include btn1(144px ,$fontSize02, $space01, $secondary02, $primary02, 5px,null,null);
     }
 }
 
-.btn9{
-    @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02,5px,$focus01H,null);
+
+.btna9{
+    @include btn1(272px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
     @include m(){
         @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02, 5px,$focus01H,null);
     }
 }
 
-.btn10{
+.btna10{
     @include btn1(448px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
     height: 60px;
     @include m(){
@@ -74,7 +75,7 @@
     }
 }
 
-.btn11{
+.btna11{
     @include btn3(172px ,$fontSize02, $space01, $secondary02, $focus01,5px,null,null);
     height: 60px;
     @include m(){
@@ -83,14 +84,14 @@
     }
 }
 
-.btn12{
+.btna12{
     @include btn1(144px ,$fontSize05, $space01, $secondary02, $focus01,5px,null,null);
     @include m(){
         @include btn1(144px ,$fontSize05, $space01, $secondary02, $focus01, 5px,null,null);
     }
 }
 
-.btn13{
+.btna13{
     @include btn4(70px ,$fontSize02, $space01, rgba(255, 255, 255, 0), $secondary01,5px,null,$primary02);
     height: 40px;
     @include m(){
@@ -100,7 +101,7 @@
 }
 
 
-.btn14{
+.btna14{
     @include btn2(440px ,$fontSize02, $space01, #DB361B, $secondary02,0px, $focus01H,$secondary02);
     @include m(){
         @include btn2(104px ,$fontSize02, $space01, #DB361B, $secondary02,0px, $focus01H,$secondary02);
@@ -112,14 +113,14 @@
     
 }
 
-.btn15{
+.btna15{
     @include btn2(540px ,$fontSize02, $space01, $secondary02, $primary02,5px,null,null);
     @include m(){
         @include btn2(144px ,$fontSize02, $space01, $secondary02, $primary02, 5px,null,null);
     }
 }
 
-.btn16{
+.btna16{
     @include btn2(auto ,$fontSize05, $space01, transparent, $secondary02,5px,$primary02,null);
     @include m(){
         @include btn2(36px ,$fontSize05, $space01, transparent, $secondary02, 5px,$secondary02,null);
@@ -127,7 +128,7 @@
     }
 }
 
-.btn17{
+.btna17{
     @include btn1(456px ,$fontSize02, $primary02, $primary02, $secondary02,5px,$primary02,null);
     border-width: 0px;
     height: 56px;
@@ -138,7 +139,7 @@
 }
 
 
-.btn18{
+.btna18{
     @include btn2(440px ,$fontSize02, $space01, #FFA800, $secondary03,0px, $primary02H,$secondary03);
     @include m(){
         @include btn2(104px ,$fontSize02, $space01, #FFA800, $secondary03,0px, $primary02H,$secondary03);
@@ -150,7 +151,7 @@
     
 }
 
-.btn19{
+.btna19{
     @include btn1(288px ,$fontSize05, $space01, $secondary02, $focus01,5px,null,null);
     border: 1.5px solid $focus01;
     @include m(){
@@ -158,5 +159,11 @@
         border: 1.5px solid $focus01;
     }
 }
-    
+
+.btna20{
+    @include btn1(144px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,$secondary02);
+    @include m(){
+        @include btn1(104px ,$fontSize05, $space01, $focus01, $secondary02, 5px, $focus01H,$secondary02)
+    }
+}
 

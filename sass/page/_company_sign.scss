@@ -1,0 +1,193 @@
+.company_sign{    
+    padding-top: $space08; //main到header
+    padding-bottom: $space08; //main到footer
+    @include m(){
+        padding-top: $R-space08; //main到header
+        padding-bottom: $R-space08; //main到footer
+    }
+    a{
+        background-color:$secondary02;
+    }
+    @include m(){
+        padding-top: $R-space08; //main到header
+        padding-bottom: $R-space08; //main到footer
+    }
+    h1{
+        font-size: $fontSize01;
+    }
+    h4{
+        font-size: $fontSize05;
+        @include m(){
+            font-size: $R-fontSize05;
+        }
+    }
+    .figure{
+        width: 168px;
+        height: 168px;
+        margin-bottom:$space04;
+        @include m(){
+            width: 104px;
+            height: 104px;
+            margin-bottom:$R-space04;
+        }
+    }
+    //主標題
+    .title{        
+        @include m(){
+            margin-top:$R-space04;
+            margin-bottom:$R-space04;
+        }
+    }    
+    //input表單區
+    form{
+        margin-top:$space04;
+        section{
+            &:nth-child(4){ //輸入手機號碼
+                position: relative;            
+        }
+        }
+        @include m(){
+            margin-top:$R-space04;
+            @include disflex(column, center, none);
+        }
+        
+    }    
+    //每列表單的容器
+    .inputwra{
+        @include disflex(row, none, space-between);
+        width: 656px;
+        @include m(){
+            width: 224px;
+        };
+        &:first-child{ //公司名稱
+            @include m(){
+                flex-direction: column;
+            }
+            ul{
+                display: flex;
+                @include m(){
+                    flex-wrap: wrap;
+                max-width: 236px;
+                };
+            }
+        }
+        
+    }
+    //欄位標題
+    .ctitle{
+        height:$space06;
+        line-height:$space06;
+    }    
+    //按鈕：公司列表
+    .clist{
+        width: 112px;
+        height: 48px;
+        color:$primary01;
+        background-color:$primary02;
+        border-radius: 5px;
+        margin-left: 8px;
+        &:hover{
+            background-color:$primary02H;
+        }
+    }
+    .wrapper1{
+        display: flex;
+        //公司負責人列
+        .principle{
+            width: 50%;
+            justify-content:start;
+        }
+        //資本額列
+        .property{
+            width: 50%;
+            justify-content:end;
+            h4{
+                //"萬"
+                &:last-child{ padding-left:8px;}
+            }
+        }
+    } 
+    .wrapper2{
+        display: flex;
+        flex-wrap: wrap;
+        max-width: 555px;
+
+    }   
+    //表單：公司名稱
+    .inputA{
+        width:248px;
+    }
+    //表單：公司統一編號
+    .inputB{
+        width: 152px;
+        margin-left: 8px;
+    }
+    //表單：公司介紹
+    .inputC{
+        width:544px;
+        height:96px;
+        padding-top:11px;
+    }
+    //表單：公司負責人
+    .inputD{
+        width:192px;
+        margin-left: 5px;
+    }
+    //表單：資本額
+    .inputE{
+        width:104px;
+    }
+    //縣市區
+    .inputF{
+        width:168px;
+        margin-bottom: 8px; 
+    }
+    //鄉鎮市區
+    .inputG{
+        width:168px;
+        margin-bottom:8px;
+    }
+    //地址
+    .inputH{
+        width: 536px;
+    }
+    //服務項目
+    .inputI{
+        width:544px;
+        height:96px;
+        padding-top:11px;
+    }
+    //驗證碼
+    .sendcode{
+        width: 120px;
+        height:51px;        
+        border-radius: 0 5px 5px 0;
+        color:$secondary02;
+        position: absolute;
+        right: 0;
+        background-color:$primary02;
+        &:hover{
+            background-color:$primary02H;
+        }
+        h4{
+            color:$secondary02;
+            background-color:$primary02;
+        }
+
+    }
+    //同意條款
+    .agree{
+        margin-top:$space04;
+        @include disflex(row, none, none);
+        a{
+            color: $focus01;            
+        }
+    }
+    .btn17{        
+        margin-top:$space02;
+        margin-bottom:$space05;
+        @include m(){
+            margin-bottom:$R-space05;
+        }
+    }    
+}

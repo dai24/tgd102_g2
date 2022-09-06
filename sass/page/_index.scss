@@ -112,9 +112,7 @@ body{
     background-color: $focus01 !important; 
 }
 
-.stepTotal h1{
-    margin-bottom: 40px;
-}
+
 @include m(){
     .section1{
         flex-direction: column;
