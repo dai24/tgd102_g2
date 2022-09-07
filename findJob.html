@@ -88,11 +88,11 @@
                 <img src="./images/index/findjob.png" alt="">
             </div>
         </div>
-        <div class="findJobFind">
-            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+        <div class="findJobFind" id="findJobFind">
+            <!-- <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
             <div class="findJobFindSort"><p>前端</p><i class="fa-solid fa-xmark"></i></div>
             <div class="findJobFindSort"><p>280 / h</p><i class="fa-solid fa-xmark"></i></div>
-            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
+            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div> -->
         </div>
         <div class="findJobVacancies">
             <div class="findJobVacanciesPicture">
@@ -193,4 +193,44 @@
     </div>
     @@include('./layout/footer.html')
 </body>
+<script>
+const findJobTypeTitle = document.getElementsByClassName('findJobTypeTitle');
+
+for(let i = 0;  i < findJobTypeTitle.length ; i++){
+    findJobTypeTitle[i].firstChild.addEventListener('click',function(){
+        findJobTypeTitle[i].children[1].classList.add('on')
+        if(findJobTypeTitle[i].children[1].style.display === 'none'){
+            findJobTypeTitle[i].children[1].style.display = 'block'
+        }else if(findJobTypeTitle[i].children[1].style.display === 'block' || findJobTypeTitle[i].children[1].classList.contains('on')){
+            findJobTypeTitle[i].children[1].style.display = 'none'
+            findJobTypeTitle[i].children[1].classList.remove('on')
+        }
+    })
+}
+
+const check = document.querySelectorAll('input[type="checkbox"]')
+const findJobFind = document.getElementById('findJobFind')
+
+for(let i = 0; i < check.length; i++){
+    check[i].addEventListener('click',function(e){
+        let sortList = check[i].nextElementSibling.innerHTML
+        console.log(sortList);
+        let li_html = `<div class="findJobFindSort"><p>${sortList}</p><i class="fa-solid fa-xmark cancel"></i></div>`;
+        if(check[i].checked == true){
+            findJobFind.insertAdjacentHTML("beforeend", li_html)
+        }else if(check[i].checked == false){
+            
+        }
+        const cancel = document.getElementsByClassName('cancel')
+        for(let a = 0 ; a < cancel.length; a++){
+            cancel[a].addEventListener('click',function(e){
+                e.target.parentElement.remove('findJobFindSort')
+                console.log(e.target.parentElement);
+                check[i].checked = false
+            })
+        }
+    })
+}
+
+</script>
 </html>
