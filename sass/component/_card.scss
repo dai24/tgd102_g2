@@ -1,4 +1,4 @@
-//橘色彈窗
+//橘色彈窗1
 .card{
     @include card(800px);
     .cardUl{ 
@@ -17,6 +17,29 @@
     //     @include btn1(144px, 4px, white,#EAA565, 5px, #E58C39)
     // }
 }
+
+//橘色彈窗2
+.card2{
+    @include card(800px);
+    .card2Ul{ 
+        @include cardUl();
+        .card2H1{
+            @include cardH1($fontSize01);
+        }
+        .card2Xmark{ 
+            @include cardXmark(16px);
+        }
+    }
+    .card2Inner{ 
+        @include cardInner(504px);
+    }
+    // @include m(){
+    //     @include btn1(144px, 4px, white,#EAA565, 5px, #E58C39)
+    // }
+}
+
+
+
 
 //會員登入白色方框 
 .logincard{    
