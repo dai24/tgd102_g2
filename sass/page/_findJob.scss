@@ -4,17 +4,19 @@
     margin: 32px auto 0px;
     @include m(){
         max-width: 375px;
-        margin: 0px auto 0px;
+        margin: 16px auto 0px;
     }
     .findJob{
+        
         position: relative;
         background-color: $primary02;
         border-radius: 5px;
         display: flex;
         padding: 26px 70px;
         @include m(){
-            display: flex;
+            // display: none;
             padding: 8px;
+            
         }
         .findJobMain{
             .btna15{
@@ -68,6 +70,9 @@
                     .btna16{
                         width: auto;
                     }
+                    .btna16:hover{
+                        background-color: transparent;
+                    }
                     div{
                         margin-right: 10px;
                         @include m(){
@@ -85,6 +90,10 @@
                 }
                 .findJobTypeTitle .btna16{
                     width: auto;
+                    margin-bottom: 8px;
+                }
+                .findJobTypeTitle .btna16:hover{
+                    background-color: transparent;
                 }
                 .findJobTypeTitle > div{
                     color: $secondary02;
@@ -108,10 +117,15 @@
                     
                 }
                 .findJobTypeArea{
-                    padding: 5px;
+                    width: 90px;
+                    padding: 8px;
+                    z-index: 40;
+                    position: absolute;
+                    box-shadow:2px 2px 2px $shadow01;
                     li{
                         border-bottom: 0.5px solid $primary02;
                         line-height: 2;
+                        text-align: center;
                         &:last-child{
                             border-bottom: 0px solid $primary02;
                         }
@@ -123,6 +137,9 @@
                     overflow-x: hidden;
                     height: 200px;
                     padding: 5px;
+                    z-index: 40;
+                    position: absolute;
+                    box-shadow:2px 2px 2px $shadow01;
                     .findJobTypeSortTitle{
                         text-align: center;
                         cursor: pointer;
@@ -146,6 +163,9 @@
             position: absolute;
             top: 35px;
             left:1000px;
+            @include m(){
+                display: none;
+            }
         }
         input[type=checkbox] {
             margin-right: 10px;
@@ -170,7 +190,7 @@
         }
 
         input[type=checkbox]:checked:after {
-        content: "V";
+        content: "";
         color: #FFFFFF;
         background-color: $primary02;
         font-size: $R-fontSize06;
@@ -206,6 +226,7 @@
                 
             }
             i{
+                display: block;
                 font-size: 12px;
                 margin-left: 10px;
                 border-radius: 50%;
