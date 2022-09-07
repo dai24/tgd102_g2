@@ -1,26 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="./css/style.css">
     <title>Document</title>
 </head>
+
 <body>
 
     @@include('./layout/header.html')
 
     <div class="wrapper_consultant">
         @@include('./layout/breadcrumb4.html',{
-            'home' : "首頁",
-            'nav' : "資源",
-            'item1': "履歷診療室",
-            'active' : "顧問",
-            'nav_url' : "resumeReview.html",
-            'item1_url' : "resumeReview.html",
+        'home' : "首頁",
+        'nav' : "資源",
+        'item1': "履歷診療室",
+        'active' : "顧問",
+        'nav_url' : "resumeReview.html",
+        'item1_url' : "resumeReview.html",
         })
 
 
@@ -34,37 +38,123 @@
                 <h2>已健診5人</h2>
                 <button class="btna10">我要健診</button>
             </div>
-    
+
             <div class="consultant_right">
                 <article>
                     <h1>經歷</h1>
-                    <p></p>
+                    <p>關鍵評論網、Cheers雜誌 專欄作家</p>
+                    <p>TimeMap科系探索與生涯教育協會 生涯顧問</p>
+                    <p>ACDC 亞洲職業生涯發展中心 研發總監</p>
+                    <p>勵活課程設計中心 講師</p>
+                    <p>擺渡人生設計股份有限公司 特約職涯顧問</p>
                 </article>
-    
+
                 <article>
                     <h1>擅長產業</h1>
-                    <p></p>
+                    <p>
+                        電子科技／資訊／軟體／半導體一般傳統製造礦業
+                        土石能源採取政治／宗教／社福金融投顧
+                        保險相關法律／會計／顧問／研發
+                        設計運輸物流／倉儲／貿易建築營造／不動產相關醫療照護
+                        環境衛生農林漁牧／水電資源一般服務業旅遊／休閒／運動餐飲
+                        住宿服務大眾傳播相關教育／出版／藝文相關批發／零售／傳直銷
+                    </p>
                 </article>
-    
+
                 <article>
                     <h1>擅長職務</h1>
-                    <p></p>
+                    <p>
+                        管理幕僚／人資／行政金融保險／財會／稽核業務
+                        貿易／客服／門市行銷／企劃／專案管理電腦系統／資訊
+                        軟硬體光電IC／電子通訊機械模具／生產製程操作／維修
+
+                    </p>
                 </article>
-    
+
                 <article>
                     <h1>簡介</h1>
                     <p>「履歷不是產品規格說明書，而是襯托個人價值的行銷文案。」在幫忙修改履歷自傳的過程中，發現許多朋友不太清楚履歷的定位和目標、不曉得要抽取哪些經驗、也沒有使用更具實體感的表達技巧，導致最終呈現出來的履歷內容無法彰顯自己專業和經歷的價值。
-
-                        只要透過深入訪談，就可以重新優化安排履歷自傳的組成元素，突顯最相關、最有價值的部份，讓對方快速看見你的價值。透過履歷證明你的專業實力和經驗，並透過自傳展現軟實力和個人特質，兩相合一就能最大幅度地提高邀約面試的機會！</p>
+                        <br>
+                        <br>
+                        只要透過深入訪談，就可以重新優化安排履歷自傳的組成元素，突顯最相關、最有價值的部份，讓對方快速看見你的價值。透過履歷證明你的專業實力和經驗，並透過自傳展現軟實力和個人特質，兩相合一就能最大幅度地提高邀約面試的機會！
+                    </p>
                 </article>
             </div>
 
         </div>
 
+
+        <!-- 我要健診 橘色彈窗 -->
+        <div class="resumeReviewCard">
+            <div class="card2">
+                <ul class="card2Ul">
+                    <li><h1 class="card2H1">履歷健診</h1></li>
+                    <li><i class="fa-solid fa-xmark card2Xmark"></i></li>
+                </ul>
+
+                <div class="card2Inner">
+
+                    <div class="resumeChoose">
+                        <label class="resumeChooseTitle">選擇履歷:</label>
+                        
+                        <label><input type="radio" name="resume" value="resume1"><span>履歷一</span></label>
+                        
+                        <label><input type="radio" name="resume" value="resume2"><span>履歷二</span></label>
+                        
+                        <label><input type="radio" name="resume" value="resume3"><span>履歷三</span></label>
+                        
+                        <label><input type="radio" name="resume" value="resume4"><span>履歷四</span></label>
+                        
+                        <label><input type="radio" name="resume" value="resume4"><span>履歷五</span></label>
+                    </div>
+                    
+        
+                    <h1 class="resumeChooseQuestion">諮詢問題</h1>
+                   <textarea name="" id="" cols="30" rows="6" placeholder="請輸入問題"></textarea>
+                    
+        
+                    <h1 class="resumeChooseQuestion">回覆信箱</h1>
+                    <input class="mail" type="input" name="" id="" placeholder="請輸入信箱">
+        
+        
+                    <h1 class="btna3">送出</h2>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+
+
     </div>
 
 
+
     @@include('./layout/footer.html')
-    
+
+    <script>
+
+        $(document).ready(function () {
+            $('.resumeReviewCard').hide();
+            $(".btna10").click(function () {
+                $(".resumeReviewCard").toggle();
+            })
+        });
+
+        $(document).ready(function () {
+            $(".card2Xmark").click(function () {
+                $(".resumeReviewCard").hide();
+            })
+        });
+
+
+    </script>
+
+
+
 </body>
+
 </html>

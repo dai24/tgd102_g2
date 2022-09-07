@@ -40,21 +40,23 @@
         
         border-bottom: 4px solid $primary02;
         margin-bottom: 64px;
+        padding-bottom: 24px;
         
 
         h1{
             font-size: $fontSize01;
             color: $primary02;
             font-weight: bold;
-            margin-bottom: 32px;
+            margin-bottom: 24px;
         }
 
+ 
         
         p{
             font-size: $fontSize03;
             color: $secondary01;
             line-height: 1.6;
-            padding-bottom: 32px;
+            padding-bottom: 8px;
         }
     
     }

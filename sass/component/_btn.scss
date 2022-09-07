@@ -171,10 +171,23 @@
 }
 
 .btna21{
-    @include btn2(288px ,$fontSize03, $space01, transparent, $secondary02,5px,$primary02,null);
+    @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
     @include m(){
-        @include btn2(36px ,$fontSize05, $space01, transparent, $secondary02, 5px,$secondary02,null);
+        @include btn2(36px ,$fontSize05, $space01,$primary02, $secondary02, 5px,$secondary02,$primary02);
         height: 22px;
     }
+
+    
    
+    
+}
+
+.btna22{
+    @include btn2(192px ,$fontSize03, $space02,$secondary02, $primary02,null,#dbdbdb,null);
+    @include m(){
+        @include btn2(36px ,$fontSize05, $space02,$secondary02, $primary02, null, #dbdbdb,null);
+        height: 22px;
+    }
+    text-align: left;
+    padding-left: 28px;
 }
