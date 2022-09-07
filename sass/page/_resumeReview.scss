@@ -30,10 +30,13 @@
 
         .searchbarLeft{
             display: flex;
+            width: 500px;
+            // background-color: green;
+            justify-content: space-between;
         }
 
         .fa-solid{
-            margin-left: 64px;
+            margin-left: 32px;
         }
 
         li{
@@ -45,6 +48,88 @@
             
         }
 
+
+        .consultantIndustry{
+            background-color: white;
+            position: absolute;
+            z-index: 2;
+        }
+
+        .consultantJob{
+            background-color: white;
+            position:  absolute;
+            z-index: 2;
+        }
+
     }
     
 }
+
+// 我要健診 橘色彈窗
+
+.resumeReviewCard{
+    background-color: $maskcolor;
+    z-index: 200;
+    height: 100 vh;
+    position: fixed;
+    top:0;
+    bottom: 0;
+    left:0;
+    right: 0;
+    margin: auto;
+}
+
+.card2Inner{
+    .resumeChoose{
+        margin-bottom: 32px;
+        display: flex;
+        flex-direction: column;
+
+    }
+
+    .resumeChooseTitle{
+        font-size: 30px;
+        margin-bottom: 16px;
+        
+    }
+
+    input{
+        width: 16px;
+        height: 16px;
+        margin-bottom: 16px;
+    }
+
+    span{
+        font-size: 24px;
+        margin-left: 16px;
+    }
+
+
+    .resumeChooseQuestion{
+        font-size: 30px;
+        margin-bottom: 16px;
+    }
+
+    textarea{
+        width: 504px;
+        margin-bottom: 32px;
+        font-size: 16px;
+        line-height: 1.6;
+        font-family: $fontFamily ;
+        padding-top: 8px;
+        padding-left: 8px;
+    }
+
+    .mail{
+        font-family: arial ;
+        width: 504px;
+        height: 40px;
+        font-size: 16px;
+        line-height: 1.6;
+        margin-bottom: 32px;
+        font-family: arial;
+        padding-left: 8px;
+    }
+
+}
+

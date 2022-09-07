@@ -1,12 +1,12 @@
 $(function () {
    // 履歷製作按鈕連結
-   $('#resume_btn').on('click', function () {
-      location.href = "../resume_work_space.html"
-   })
+   // $('#resume_btn').on('click', function () {
+   //    location.href = "../resume_work_space.html"
+   // })
 
    // 履歷範本分類按鈕(未完成)
-   $('.btn13').on('click', function () {
-      $('.btn13').css('background-color', 'rgba(255, 255, 255, 0)').css('color', '#313131')
+   $('.btna13').on('click', function () {
+      $('.btna13').css('background-color', 'rgba(255, 255, 255, 0)').css('color', '#313131')
       $(this).css('background-color', '#EAA565').css('color', '#FFFFFF')
    })
 
@@ -22,11 +22,18 @@ $(function () {
 
    })
 
-   // 打開關閉履歷模組
+   // 打開關閉履歷模組視窗
    $('#resume_model-btn').on('click', function () {
       $('.resume_model-border').toggle('blind',{percent: 50},500 )
 
    })
+
+   // RWD 關閉履歷模組視窗
+   $('.xmark_btn').on('click', function () {
+      $('.resume_model-border').toggle('blind',{percent: 50},500 )
+
+   })
+  
 
 })
 

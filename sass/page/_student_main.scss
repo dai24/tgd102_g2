@@ -1,0 +1,145 @@
+.studentMainWrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 32px auto 0px;
+    @include m(){
+        max-width: 350px;
+        margin: 0px auto 0px;
+    }
+}
+
+.studenMainWrapperTitle{
+    position: relative;
+    background-color: $primary02;
+    height: 300px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 26px 70px;
+    @include m(){
+        flex-wrap: wrap;
+        height: 475px;
+        padding: 0;
+       
+    }
+}
+
+.studenMainWrapperTitle_left{
+    
+    display: flex;
+    @include m(){
+      padding: 10px 0 0 0;
+    }
+}
+.studenMainWrapperTitle img{
+    width: 230px;
+    border-radius: 11px;
+    @include m(){
+        width: 120px;
+        margin-right: 10px;
+    }
+  
+}
+.studenMainWrapperTitle ul{
+    margin-left: 40px;
+    @include m(){
+        width: 180px;
+        margin-left:10px;
+        margin-right: 10px;
+    }
+    
+}
+.studenMainWrapperTitle h3{
+    font-size: $fontSize03;
+    color: white;
+    line-height: 1.8;
+    @include m(){
+        font-size: $R-fontSize05;
+    }
+    
+}
+.btna11{
+    padding: 15px 0;
+    margin: 20px 0;
+    @include m(){
+        font-size: $R-fontSize05;
+        position: relative;
+        top: -64px;
+        left: -140px;
+        width: 120px;
+        padding: 10px 0;
+    }
+
+}
+.studenMainWrapperTitle_right{
+    display: flex;
+    flex-wrap: wrap;
+    width: 300px;
+    @include m(){
+
+        justify-content: center;
+        margin-top: -50px;
+
+      
+        
+    }
+}
+.studenMainWrapperTitle_right h1{
+    margin-top: 15px;
+    font-size: $fontSize01;
+}
+.studenMainWrapperTitle_right button{
+    outline: 1px solid #D25541;
+    margin: 10px 10px;
+    width: 130px;
+    height: 100px;
+    background-color: #FFFFFF;
+    @include m(){
+
+        width: 100px;
+        height: 90px;
+        
+    }
+
+}
+
+.studenMainWrapperTitle_right a{
+    font-size: $fontSize05 ;
+    color: $secondary01;
+}
+
+.studentMainWrapper{
+    h2{
+        font-size: $fontSize02;
+        margin: 50px 0;
+        @include m(){
+
+           text-align: center;
+            
+        }
+    }
+}
+
+.studenMainWrapper_resumebottom button{
+    width: 200px;
+    height: 300px;
+    border: 3px dashed #313131;
+    @include m(){
+        width: 145px;
+        height: 240px;
+
+        padding: 10px;
+         
+     }
+
+}
+
+.fa-file-circle-plus{
+    font-size: 60px;
+    @include m(){
+        font-size: 30px;
+         
+     }
+}
+
