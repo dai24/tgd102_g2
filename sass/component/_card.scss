@@ -24,6 +24,8 @@
         @include cardInner(800px);
         @include m(){
             padding: 20px 0;
+            max-width: 375px;
+            width: 100%;
         }
     }
     // @include m(){
