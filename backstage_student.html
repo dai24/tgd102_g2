@@ -3,7 +3,8 @@
 <head>
     @@include('./layout/head.html',{
         "title" : "後台主畫面"
-        })
+        })        
+    <script src="https://unpkg.com/vue@2"></script>
 </head>
 <body>
 <main  class="backstage_student">
@@ -11,41 +12,56 @@
     <div  class="wrapper">
         <h1 class="title">學生會員資料</h1>
         <form method="post" action="#">
-            <table>
-                <tr>
-                    <th><input type="search" placeholder="搜尋會員名稱或編號"></th>
-                </tr>            
-    
-                <tr class="titleT">
-                    <td><h3 class="id">會員編號</h3></td>
-                    <td><h3 class="name">會員姓名</h3></td>
-                    <td><h3 class="gender">性別</h3></td>
-                    <td><h3 class="birthday">生日</h3></td>
-                    <td><h3 class="coin">點數</h3></td>
-                    <td><h3 class="blacklist">被檢舉數</h3></td>
-                    <td><h3 class="record">加值紀錄</h3></td>
-                    <td><h3 class="detail"></h3></td>
-                    <td><h3 class="create-date">建立日期</h3></td>
-                    <td><h3 class="ban">停權</h3></td>
-                </tr>
-    
-                <tr class="item">
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                    <td></td>
-                </tr>
+            <div class="block"><input type="search" placeholder="搜尋會員名稱或編號"></div>
+            <table id="table">     
+                <thead>
+                    <tr>
+                        <th class="id"><h3>會員編號</h3></th>
+                        <th class="name"><h3 >會員姓名</h3></th>
+                        <th class="gender"><h3>性別</h3></th>
+                        <th class="birthday"><h3>生日</h3></th>
+                        <th class="coin"><h3>點數</h3></th>
+                        <th class="blacklist"><h3>被檢舉數</h3></th>
+                        <th class="record"><h3>加值紀錄</h3></th>
+                        <th class="detail"><h3></h3></th>
+                        <th class="create-date"><h3>建立日期</h3></th>
+                        <th class="ban"><h3 >停權</h3></th>
+                    </tr> 
+                </thead>
+                 
+                <tbody>
+                    <tr class="item">
+                        <td class="id"><h3>C11108160986</h3></td>
+                        <td class="name"><h3>王淨忠</h3></td>
+                        <td class="gender"><h3>男</h3></td>
+                        <td class="birthday"><h3>1999/8/9</h3></td>
+                        <td class="coin"><h3>500</h3></td>
+                        <td class="blacklist"><h3>0</h3></td>
+                        <td class="record"><h3>10</h3></td>
+                        <td class="detail"><h3><button class="btna3"><h2><a href="#">詳細資料</a></h2></button></h3></td>
+                        <td class="create-date"><h3>2022/08/20</h3></td>
+                        <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
+                    </tr>
+
+                    <tr class="item">
+                        <td class="id"><h3>C11108160986</h3></td>
+                        <td class="name"><h3>王淨忠</h3></td>
+                        <td class="gender"><h3>男</h3></td>
+                        <td class="birthday"><h3>1999/8/9</h3></td>
+                        <td class="coin"><h3>500</h3></td>
+                        <td class="blacklist"><h3>0</h3></td>
+                        <td class="record"><h3>10</h3></td>
+                        <td class="detail"><h3><button class="btna3"><h2><a href="#">詳細資料</a></h2></button></h3></td>
+                        <td class="create-date"><h3>2022/08/20</h3></td>
+                        <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
+                    </tr>
+                </tbody>
+                
+                <student-data></student-data>
             </table>
         </form>        
-    </div>
-
-    
+    </div>    
 </main> 
+<script src="./js/backstage_student.js"></script>
 </body>
 </html>
