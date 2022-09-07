@@ -93,6 +93,13 @@
 //履歷診療室 顧問老師
 .consultant{
 
+    a{
+        transition: all 1s 0 ease;
+        overflow: hidden;
+        display: block;
+        border-radius: 5px 5px 0 0;
+    }
+
     img{
         width: 272px;
         display: block;
@@ -124,6 +131,16 @@
     }
     
     margin-top: 64px;
+   
+    
+
+    // hover
+
+    img:hover{
+        transform: scale(1.1);
+        
+        
+    }
     
     
 }
