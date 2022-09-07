@@ -1,0 +1,64 @@
+.backstage_student{    
+    height: 100rem;
+    background-color:$secondary02;
+    display: flex;
+    $tableWidth:1500px; //table最大寬度
+    h1{
+        font-size:$fontSize01;
+        margin-top:44px;
+        margin-bottom:28px;
+    }
+    h3{ //統一h3
+        font-size:$fontSize03;
+        text-align:center;
+    }
+    .wrapper{
+        margin-left: 36px; //與左側nav的距離
+        table{
+            
+            th{
+                width:$tableWidth;
+                height: 60px;
+                background-color:$focus01;
+                color:$secondary02;
+                input{
+                    height: 40px;
+                    float: right;
+                    margin-top: 10px;
+                    margin-right: 20px;
+                    padding-left: 10px;
+                    z-index: 2;
+                }
+            };
+            tr{
+                width:$tableWidth;
+                height: 60px;
+            };
+        }
+        .titleT{ //表單各種欄位
+            width:$tableWidth;
+            // float: left;
+            display: flex;
+            justify-content: space-between;
+            background-color:$primary02;
+            color:$secondary01;
+            td{ //統一td
+                // margin-left: 20px;
+                line-height: 60px;
+            }
+            h3{ //統一標題
+                line-height: 60px;
+                font-weight: bold;
+            }
+            //欄位：會員編號
+            .id{ 
+                width: 200px;
+            }
+            //欄位：是否停權
+            .ban{
+                width: 80px;
+                float: right;
+            }
+        }
+    }
+}

@@ -1,0 +1,52 @@
+/* --------------後台導覽列-------------- */
+
+.backstage-nav{
+    width:260px;
+    height:100rem;
+    float: left;
+    background-color:$primary01;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    $navWidth:260px; //統一nav寬度 
+    h2{
+        font-size:$fontSize02;
+        font-weight:bold;
+        @include m(){
+            font-size:$R-fontSize02;
+        }
+    }
+    //LOGO
+    .backstage_logo{
+        width: 180px;
+        height: 40px;
+        margin-top:44px;
+        margin-bottom:100px;
+    }
+
+    ul{}     
+    li{
+        width: 100%;
+    }
+    button{
+        height:80px;
+        width:$navWidth;
+        color:$secondary01;
+        background-color:$secondary02;
+        text-align: center;
+        border-right:3px solid $primary02;
+        border-bottom:3px solid $primary02;       
+        &:hover{
+            background-color:$primary02;
+        }
+    }
+    .company{
+        border-top:3px solid $primary02;
+    }
+}
+
+
+
+
+
+

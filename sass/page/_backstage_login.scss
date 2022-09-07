@@ -1,0 +1,35 @@
+.backstage_login{    
+    padding-top: $space08; //main到header
+    padding-bottom: $space08; //main到footer
+    @include m(){
+        padding-top: $R-space08; //main到header
+        padding-bottom: $R-space08; //main到footer
+    }
+    h1{
+        font-size: $fontSize01;
+    }
+    h4{
+        font-size: $fontSize05;
+        @include m(){
+            font-size: $R-fontSize05;
+        }
+    }
+    //input表單區
+    form{
+        margin-top:$space04;
+        @include m(){
+            margin-top:$R-space04;
+            @include disflex(column, center, none);
+        }
+    }
+    .btna17{        
+        margin-top:$space02;
+        margin-bottom:$space05;
+        @include m(){
+            margin-bottom:$R-space05;
+        }
+        a{
+            color: $secondary02;
+        }
+    }
+}

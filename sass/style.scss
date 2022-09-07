@@ -21,6 +21,7 @@
 //layout
 @import 'layout/header';
 @import 'layout/footer';
+@import 'layout/backstage_nav';
 
 //page
 @import 'page/index';
@@ -52,6 +53,10 @@
 @import 'page/contactUs';
 @import 'page/applyFor';
 @import 'page/saveApply';
+
+@import 'page/backstage_login';
+@import 'page/backstage';
+@import 'page/backstage_student';
 a {
     text-decoration: none;
 }
