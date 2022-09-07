@@ -1,7 +1,11 @@
+
 .applyfor{
     max-width: 405px;
     width: 100%;
     margin: 0 auto;
+    @include m(){
+        max-width: 375px;
+    }
     .btna3{
         margin: 0 auto;
     }
@@ -10,6 +14,9 @@
         img{
             max-width: 70px;
             width: 100%;
+            @include m(){
+                max-width: 32px;
+            }
         }
         .applyTitleMain{
             text-align: left;
@@ -19,9 +26,16 @@
             margin-left: 24px;
             h2{
                 font-size: $fontSize02;
+                @include m(){
+                    font-size: $R-fontSize02;
+                    margin-left: 0px;
+                }
             }
             h3{
                 font-size: $fontSize03;
+                @include m(){
+                    font-size: $R-fontSize03;
+                }
             }   
         }
     }
@@ -30,6 +44,9 @@
         display: flex;
         flex-direction: column;
         margin: 24px 0;
+        @include m(){
+            margin: 30px 18px;
+        }
         div{
             margin: 8px 0;
         }
@@ -40,10 +57,17 @@
                 width: 16px;
             }
         }
+        h2{
+            margin-left: 0px;
+        }
     }
     h2{
         text-align: left;
         font-size: $fontSize03;
+        @include m(){
+            font-size: $R-fontSize03;
+            margin-left: 20px;
+        }
     }
     textarea{
         resize: none;
@@ -54,6 +78,10 @@
         padding: 8px;
         outline: none;
         margin: 8px 0 24px;
+        @include m(){
+            max-width: 320px;
+            margin: 18px 18px;
+        }
     }
     .mail{
         margin-top: 8px;
@@ -64,6 +92,10 @@
         font-size: $fontSize05;
         outline: none;
         padding: 8px;
+        @include m(){
+            max-width: 320px;
+            margin: 18px 18px;
+        }
     }
 }
 .applyfor{

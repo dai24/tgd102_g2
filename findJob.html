@@ -199,11 +199,12 @@ const findJobTypeTitle = document.getElementsByClassName('findJobTypeTitle');
 for(let i = 0;  i < findJobTypeTitle.length ; i++){
     findJobTypeTitle[i].firstChild.addEventListener('click',function(){
         findJobTypeTitle[i].children[1].classList.add('on')
+        // console.log(findJobTypeTitle[i].children[1]);
         if(findJobTypeTitle[i].children[1].style.display === 'none'){
             findJobTypeTitle[i].children[1].style.display = 'block'
         }else if(findJobTypeTitle[i].children[1].style.display === 'block' || findJobTypeTitle[i].children[1].classList.contains('on')){
             findJobTypeTitle[i].children[1].style.display = 'none'
-            findJobTypeTitle[i].children[1].classList.remove('on')
+            // findJobTypeTitle[i].children[1].classList.remove('on')
         }
     })
 }

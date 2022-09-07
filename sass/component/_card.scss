@@ -1,10 +1,20 @@
 //橘色彈窗1
 .card{
     @include card(800px);
+    @include m(){
+        max-width: 375px;
+        width: 100%;
+    }
     .cardUl{ 
         @include cardUl();
+        @include m(){
+            padding: 24px 0;
+        }
         .cardH1{
             @include cardH1($fontSize01);
+            @include m(){
+                font-size: $R-fontSize01;
+            }
         }
         .cardXmark{ 
             @include cardXmark(16px);
@@ -12,6 +22,9 @@
     }
     .cardInner{ 
         @include cardInner(800px);
+        @include m(){
+            padding: 20px 0;
+        }
     }
     // @include m(){
     //     @include btn1(144px, 4px, white,#EAA565, 5px, #E58C39)

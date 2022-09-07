@@ -14,12 +14,17 @@
         border-radius: 5px;
         background-color: $primary02;
         @include m(){
-            margin-bottom: 0px;
-            padding: 0px;
+            margin-bottom: 16px;
+            padding: 8px 0;
+            padding-left: 32px;
+            text-align: left;
         }
         h2{
             font-size: $fontSize02;
             line-height: 2;
+            @include m(){
+                font-size: $fontSize03;
+            }
         }
         div{
             display: flex;
@@ -40,16 +45,26 @@
         background-color: $secondary02;
         display: flex;
         border-radius: 5px;
+        @include m(){
+            padding: 24px 16px;
+            margin: 0 8px 16px;
+            display: block;
+            position: relative;
+        }
         .jobMainContent{
             max-width: 900px;
             width: 100%;
+            @include m(){
+                max-width: 100%;
+                
+            }
             .jobMain{
-                margin-bottom: 25px;
+                margin-bottom: 32px;
                 .jobMainStatement{
                     display: flex;
                     h3{
                         font-size: $fontSize03;
-                        margin-bottom: 24px;
+                        margin-bottom: 16px;
                     }
                 }
                 p{
@@ -60,15 +75,29 @@
             .jobMainVacanciesBtn{
                 display: flex;
                 margin-top: 60px;
+                @include m(){
+                    margin-top: 0px;
+                    position: absolute;
+                    top: 1068px;
+                    left: 50%;
+                    transform: translateX(-50%);
+                }
                 .btna6{
                     margin-left: 20px;
                 }
             }
         }
         .jobMainItem{
+            @include m(){
+                margin-bottom: 80px;
+          
+            }
             .jobMainIcon{
                 line-height: 3;
                 margin-left: 40px;
+                @include m(){
+                    margin-left: 0px;
+                }
                 a{
                     color: $secondary01;
                     display: flex;
@@ -85,29 +114,53 @@
         background-color: $secondary02;
         border-radius: 5px;
         margin-bottom: 64px;
+        @include m(){
+            padding: 24px 16px;
+            margin: 0 8px 16px;
+        }
         .jobMainWrapperComTitle{
             display: flex;
             margin-bottom: 50px;
+            @include m(){
+                display: block;
+                position: relative;
+            }
             img{
                 width: 112px;
+                @include m(){
+                    width: 44px;
+                    position: absolute;
+                    top:8px;
+                    left: 0px;
+                }
             }
             .jobMainWrapperComIconT{
                 margin-left: 35px;
                 align-self: center;
-                
+                @include m(){
+                    margin-left: 0px;
+                }
                 a{
                     color: $secondary01;
                     h2{
                         font-size: $fontSize02;
                         line-height: 3;
-                        
+                        @include m(){
+                            font-size: $fontSize03;
+                            margin-left: 60px;
+                        }
                     }
                 }
                     
                 .jobMainWrapperComIconTM{
                     display: flex;
-                    
+                    @include m(){
+                        display: block;
+                    }
                     .jobMainWrapperComIcon{
+                        @include m(){
+                            margin: 16px 0;
+                        }
                         a{
                             display: flex;
                             color: $secondary01;
@@ -125,7 +178,11 @@
             h3{
                 font-size: $fontSize03;
                 margin-bottom: 24px;
+                @include m(){
+                    margin-bottom: 16px;
+                }
             }
+            
             p{
                 font-size: $fontSize05;
                 line-height: 1.6;
@@ -134,6 +191,9 @@
     }
     .jobMainWrapperOther{
         margin-bottom: 64px;
+        @include m(){
+            margin-bottom: 0px;
+        }
         .jobMainWrapperOthSec{
             width: 100%;
             border-radius: 5px;
@@ -146,17 +206,30 @@
                 background-color: $primary02;
                 color: $secondary02;
                 border-radius: 5px 5px 0 0;
+                @include m(){
+                    padding: 24px 16px;
+                }
                 img{
                     width: 50px;
+                    @include m(){
+                        width: 30px;
+                    }
                 };
                 h2{
                     font-size: $fontSize02;
                     margin-left: 15px;
+                    @include m(){
+                        font-size: $fontSize03;
+                        margin-left: 8px;
+                    }
                 }
             }
             .jobMainWrapperOthMain{
                 padding: 30px 130px;
                 background-color: $secondary02;
+                @include m(){
+                    padding: 24px 16px;
+                }
                 p{
                     line-height: 2;
                 }
@@ -178,12 +251,18 @@
                     justify-content: end;
                     padding-bottom: 20px;
                     border-bottom: 1px solid $secondary01;
+                    @include m(){
+                        margin-top: 20px;
+                        padding-bottom: 20px;
+                    }
                     .btna5{
                         margin-right: 20px;
                     }
                 }
                 .btna19{
                     margin: 0 auto;
+                    background-color: $secondary02;
+                    margin-bottom: 8px;
                 }
                 
             
