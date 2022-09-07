@@ -74,7 +74,7 @@
         height: 60px;
     }
 }
-
+// 履歷製作
 .btna11{
     @include btn3(172px ,$fontSize02, $space01, $secondary02, $focus01,5px,null,null);
     height: 60px;
@@ -90,7 +90,7 @@
         @include btn1(144px ,$fontSize05, $space01, $secondary02, $focus01, 5px,null,null);
     }
 }
-
+// 履歷範本分類
 .btna13{
     @include btn4(70px ,$fontSize02, $space01, rgba(255, 255, 255, 0), $secondary01,5px,null,$primary02);
     height: 40px;
