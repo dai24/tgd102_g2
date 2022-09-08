@@ -5,6 +5,12 @@ header {
     height: 100px;
     z-index: 99;
     position: relative;
+    @include m(){
+        position: relative;
+        height: 60px;
+        width: 100%;
+
+    }
 }
 
 //header 最外層
