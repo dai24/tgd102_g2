@@ -1,49 +1,215 @@
-$(function () {
-    // 履歷製作按鈕連結
-    // $('#resume_btn').on('click', function () {
-    //    location.href = "../resume_work_space.html"
-    // })
- 
-    // 履歷範本分類按鈕(未完成)
-    $('.btna13').on('click', function () {
-       $('.btna13').css('background-color', 'rgba(255, 255, 255, 0)').css('color', '#313131')
-       $(this).css('background-color', '#EAA565').css('color', '#FFFFFF')
-    })
- 
-    // 頁碼
-    $('.pagination-ul a').on('click', function () {
-       $('.pagination-ul a').css('color', '#313131')
-       $(this).css('color', '#EAA565')
-    })
- 
-    // 履歷範本放大
-    $('.resume_zoom_btn').on('click', function () {
-       let img_src = $(this).parents('.resume_card').children("img").attr('src')
-       $('.m-a-s-k').show()
-       $('.m-a-s-k img').attr('src',img_src)
-    })
 
-    // 履歷範本放大關閉
-    $('.resume_zoom .fa-xmark').on('click', function () {
-       console.log('123')
-       $('.m-a-s-k').hide()
-    })
-    
-    // 打開關閉履歷模組視窗
-    $('#resume_model-btn').on('click', function () {
-       $('.resume_model-border').toggle('blind',{percent: 50},500 )
- 
-    })
- 
-    // RWD 關閉履歷模組視窗
-    $('.xmark_btn').on('click', function () {
-       $('.resume_model-border').toggle('blind',{percent: 50},500 )
- 
-    })
+let resume_zoome_window = `
+<div class="m-a-s-k"></div>
+<div class="resume_zoom">
+   <button class=""><i class="fa-solid fa-xmark"></i></button>
+   <img src="">
+</div> 
+`
+
+let resume_save_window = `
+<div class="m-a-s-k"></div>
+<div class="card resume_window">
+   <ul class="cardUl">
+      <li>
+         <h1 class="cardH1">儲存</h1>
+      </li>
+      <li>
+         <i class="fa-solid fa-xmark cardXmark"></i>
+      </li>
+   </ul>
+   <div class="cardInner applyfor">
+      <div class="applyTitle">
+         <div class="messageTitleMain">
+            <h3>儲存成功</h3>
+            <h3>要到會員的我的履歷檢視嗎？</h3>
+         </div>
+      </div>
+      <div class="btna3">確定</div>
+   </div> 
+      
+   </div>
+`
+
+let resume_pay_window =`
+<div class="m-a-s-k"></div>
+<div class="card resume_window">
+   <ul class="cardUl">
+      <li>
+         <h1 class="cardH1">金幣不足</h1>
+      </li>
+      <li>
+         <i class="fa-solid fa-xmark cardXmark"></i>
+      </li>
+      </ul>
+      <div class="cardInner applyfor">
+         <div class="applyTitle">
+            <div class="messageTitleMain">
+               <h3>001模板需100金幣</h3>
+            </div>
+         </div>
+         <div class="btna3">確定加值</div>
+      </div>
+</div>
+`
+
+let resume_delere_window =`
+<div class="m-a-s-k"></div>
+<div class="card resume_window">
+   <ul class="cardUl">
+      <li>
+         <h1 class="cardH1">刪除</h1>
+      </li>
+      <li>
+         <i class="fa-solid fa-xmark cardXmark"></i>
+      </li>
+   </ul>
+   <div class="cardInner applyfor">
+      <div class="applyTitle">
+         <div>
+            <i class="fa-regular fa-circle-check"></i>
+         </div>
+         <div class="messageTitleMain">
+            <h3>確定刪除履歷嗎？</h3>
+         </div>
+      </div>
+      <div class="btna3">確定</div>
+   </div>
+</div>
+`
+
+let resume_share_window =`
+<div class="m-a-s-k"></div>
+<div class="card resume_window">
+        <ul class="cardUl">
+            <li>
+                <h1 class="cardH1">分享您的履歷</h1>
+            </li>
+            <li>
+                <i class="fa-solid fa-xmark cardXmark"></i>
+            </li>
+        </ul>
+        <div class="cardInner shareresumeform ">
+            <div class="applyTitle">
+                <select name="" id="shareresumeform_select"><option value="設計">請選擇履歷種類</option>
+                    <option value="工程">工程</option>
+                    <option value="管理">管理</option>
+                    <option value="媒體">媒體</option>
+                    <option value="銷售">銷售</option>
+                    <option value="金融">金融</option>
+                    <option value="行政">行政</option>
+                    <option value="科技">科技</option>
+                    <option value="服務">服務</option>
+                </select>    
+            </div>
+            <div class="shareresumeform_1">
+                <input type="radio">
+                <i class="fa-solid fa-earth-asia"></i>
+                <span>公開 網站上的人都可以找到並檢視。</span>
+                <div class="share_ig_fb">
+                    <h3>分享至</h3>
+                    <img src="/images/header_icon/ig.jpg" alt="">
+                    <i class="fa-brands fa-facebook"></i>
+                </div>
+                <div class="btna3">確定</div>
+            </div>
+        </div>
+    </div>
+`
+
+$(function () {
+
+
+   // 履歷範本分類按鈕
+   $('.btna13').on('click', function () {     
+      $('.btna13').css('background-color', 'rgba(255, 255, 255, 0)').css('color', '#313131')
+      $(this).css('background-color', '#EAA565').css('color', '#FFFFFF')
+      
+   })
+
+   // 履歷範本放大
+   $('.resume_zoom_btn').on('click', function () {
+      $('.resume_wrapper').append(resume_zoome_window)     
+      let img_src = $(this).parents('.resume_card').children("img").attr('src')
+      $('.resume_zoom img').attr('src', img_src)
+      $('.m-a-s-k').show()
+      
+      // 履歷範本放大關閉
+      $('.resume_zoom .fa-xmark').on('click', function () {
+         $('.m-a-s-k').hide()
+         $('.resume_zoom').hide()
+      })
+      
+   })
+
+
+   // 打開關閉履歷模組視窗
+   $('#resume_model-btn').on('click', function () {
+      $('.resume_model-border').toggle('blind', { percent: 50 }, 500)
+
+   })
+
+   // RWD 關閉履歷模組視窗
+   $('.xmark_btn').on('click', function () {
+      $('.resume_model-border').toggle('blind', { percent: 50 }, 500)
+
+   })
+
+   // 頁碼
+   $('.pagination-ul a').on('click', function () {
+      $('.pagination-ul a').css('color', '#313131')
+      $(this).css('color', '#EAA565')
+   })
+
+   // 模板付費視窗
+   $('.resume_model-border .resume_pay').on('click', function () {
+      $('.resume_wrapper').append(resume_pay_window) 
+
+      // 儲存視窗確認或關閉
+      closeWindows()
+   })
+
+   // 儲存履歷視窗
+   $('#resume_save').on('click', function () {
+      $('.resume_wrapper').append(resume_save_window)
+      $('.m-a-s-k').show()
+
+      // 儲存視窗確認或關閉
+      closeWindows()
+   })
+
+   // 分享履歷視窗
+   $('#resume_share').on('click', function () {
+      $('.resume_wrapper').append(resume_share_window)
+      $('.m-a-s-k').show()
+
+      // 儲存視窗確認或關閉
+      closeWindows()
+   })
+
+   // 刪除履歷視窗
+   $('#resume_delect').on('click', function () {
+      $('.resume_wrapper').append(resume_delere_window)
+      $('.m-a-s-k').show()
+
+      // 儲存視窗確認或關閉
+      closeWindows()
+   })
+
    
- 
- })
- 
+
+})
+
+
+// 關閉跟確認視窗
+function closeWindows(){
+   $('.resume_window .fa-xmark,.resume_window .btna3').on('click', function () {
+      $('.resume_window').remove()
+      $('.m-a-s-k').remove()
+   
+   })
+}
+
  // new Vue({
  //    el: '#app',
  //    data: {     // 變數放這裡

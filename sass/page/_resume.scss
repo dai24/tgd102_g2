@@ -1,206 +1,221 @@
-// .container-fluid {
-//     // outline: 1px solid red;
-//     padding-left: 0;
-//     padding-right: 0;
+a {
+    text-decoration: none;
+}
 
-// }
 .resume_wrapper {
     max-width: 1280px;
     margin: 0 auto;
-    // outline: 2px solid red;
-}
+    
+    //  麵包屑
+    .bread-crumb {
+        // outline: 2px solid rgb(64, 17, 252);
+        --bs-breadcrumb-divider: '>';
+        font-size: 20px;
+        margin: 32px 0;
 
-.resume_banner1 {
-    background-color: $primary02;
-    color: white;
-    // outline: 2px solid rgb(111, 17, 252);
-    height: 125px;
-    margin-left: 0;
-    margin-right: 0;
-
-    @include m() {
-        height: 77px;
-    }
-
-}
-
-.resume_banner1 .h1-1 {
-    margin-left: 70px;
-    font-size: $fontSize01;
-
-    @include m() {
-        line-height: 1.6;
-        font-size: $R-fontSize04;
-        margin-left: 0;
-    }
-
-}
-
-.resume_banner2 {
-    background-color: #EAA565;
-    color: white;
-    // outline: 2px solid rgb(64, 17, 252);
-    height: 230px;
-    margin-left: 0;
-    margin-right: 0;
-    margin-top: 30px;
-
-    @include m() {
-        height: 119px;
-        margin-top: 15px;
-    }
-
-}
-
-.resume_banner2 .h1-2 {
-    font-size: $fontSize01;
-    margin-left: 70px;
-
-    @include m() {
-        font-size: $R-fontSize02;
-        // margin-top: 35px;
-        margin-left: 0;
-    }
-}
-
-.resume_banner2 .h4-1 {
-    margin-top: 3%;
-    font-size: $fontSize02;
-    margin-left: 70px;
-
-    @include m() {
-        margin-top: 5%;
-        line-height: 1.3;
-        font-size: $R-fontSize04;
-        margin-left: 0;
-    }
-}
-
-.resume_banner2 img {
-    @include m() {
-        width: 72px;
-        height: 92px;
-
-    }
-}
-
-//  麵包屑
-.bread-crumb {
-    // outline: 2px solid rgb(64, 17, 252);
-    --bs-breadcrumb-divider: '>';
-    font-size: 20px;
-    margin: 32px 0;
-
-    @include m() {
-        margin: 16px 0;
-        margin-left: 10px;
-    }
-}
-
-.bread-crumb a {
-    color: $primary02;
-
-}
-
-.bread-crumb a:hover {
-    color: $focus01;
-
-}
-
-.resume {
-    margin-top: 64px;
-
-    @include m() {
-        margin-top: 32px;
-    }
-}
-
-.btna11 {
-    display: block;
-    line-height: 2;
-}
-
-.category {
-    // outline: 2px solid rgb(3, 3, 3);
-    margin-left: 0;
-    margin-right: 0;
-
-    @include m() {
-        margin: 0 10px;
-        flex-wrap: nowrap;
-        overflow-y: hidden;
-        overflow-x: scroll;
-        box-shadow: 0px 0px 5px $shadow01 inset;
-
-        &::-webkit-scrollbar {
-            display: none;
-            /* Chrome Safari */
+        @include m() {
+            margin: 16px 0;
+            margin-left: 10px;
         }
 
+        a {
+            color: $primary02;
+            &:hover {
+                color: $focus01;
+        
+            }
+        }
+    
+    }
+
+    .resume_banner1 {
+        background-color: $primary02;
+        color: white;
+        // outline: 2px solid rgb(111, 17, 252);
+        height: 125px;
+        margin-left: 0;
+        margin-right: 0;
+    
+        @include m() {
+            height: 77px;
+        }
+    
+        .h1-1 {
+            margin-left: 70px;
+            font-size: $fontSize01;
+        
+            @include m() {
+                line-height: 1.6;
+                font-size: $R-fontSize04;
+                margin-left: 0;
+            }
+        
+        }
+        .btna11 {
+            display: block;
+            line-height: 2;
+        }
+    
+    }
+
+    .resume_banner2 {
+        background-color: #EAA565;
+        color: white;
+        // outline: 2px solid rgb(64, 17, 252);
+        height: 230px;
+        margin-left: 0;
+        margin-right: 0;
+        margin-top: 30px;
+    
+        @include m() {
+            height: 119px;
+            margin-top: 15px;
+        }
+    
+        .h1-2 {
+            font-size: $fontSize01;
+            margin-left: 70px;
+        
+            @include m() {
+                font-size: $R-fontSize02;
+                // margin-top: 35px;
+                margin-left: 0;
+            }
+        }
+    
+        .h4-1 {
+            margin-top: 3%;
+            font-size: $fontSize02;
+            margin-left: 70px;
+        
+            @include m() {
+                margin-top: 5%;
+                line-height: 1.3;
+                font-size: $R-fontSize04;
+                margin-left: 0;
+            }
+        }
+    
+        img {
+            @include m() {
+                width: 72px;
+                height: 92px;
+        
+            }
+        }
+    
+    }
+
+    .resume {
+        margin-top: 64px;
+    
+        @include m() {
+            margin-top: 32px;
+        }
+    
+        .category {
+            // outline: 2px solid rgb(3, 3, 3);
+            margin-left: 0;
+            margin-right: 0;
+        
+            @include m() {
+                margin: 0 10px;
+                flex-wrap: nowrap;
+                overflow-y: hidden;
+                overflow-x: scroll;
+                box-shadow: 0px 0px 5px $shadow01 inset;
+        
+                &::-webkit-scrollbar {
+                    display: none;
+                    /* Chrome Safari */
+                }
+        
+            }
+    
+            .col-1 {
+                // outline: 2px solid rgb(241, 0, 0);
+                padding: 0;
+            
+                @include m() {
+                    margin: 0 15px;
+                }
+            
+            }
+        }
+
+        .resume_sample_row {
+            margin: 0 auto;
+        
+            .col {
+                padding: 0 12px;
+                margin-top: 30px;
+            
+                @include m() {
+                    // margin: 15px auto 15px auto;
+            
+                }
+        
+                .resume_card {
+                    width: 18rem;
+                
+                    @include m() {
+                        width: 22rem;
+                        margin: 0 auto;
+                    }
+        
+                    img {
+                        width: 100%;
+                        display: block;
+                    
+                    }
+                    .card_body {
+                        background-color: rgb(255, 255, 255);
+                        height: 48px;
+        
+                        .row {
+                            margin-right: 0;
+                            margin-left: 0;
+                            padding: 8px 0;
+                            // outline: 2px solid rgb(64, 17, 252);
+        
+                            button {
+                                background-color: rgba(255, 255, 255, 0);
+                            }
+                            span {
+                                font-size: $fontSize05;
+                            }
+        
+                            .resume_zoom_btn {
+        
+                                @include m() {
+                                    display: none;
+                                }
+                            }
+                        }
+                    
+                    }
+                }
+            }
+        
+        }
+        
+    
+        
     }
 }
 
 
-.category .col-1 {
-    // outline: 2px solid rgb(241, 0, 0);
-    padding: 0;
 
-    @include m() {
-        margin: 0 15px;
-    }
 
-}
 
-.resume_sample_row {
-    margin: 0 auto;
 
-}
 
-.resume_sample_row .col {
-    padding: 0 12px;
-    margin-top: 30px;
 
-    @include m() {
-        // margin: 15px auto 15px auto;
 
-    }
-}
 
-.resume_card {
-    width: 18rem;
 
-    @include m() {
-        width: 22rem;
-        margin: 0 auto;
-    }
-}
 
-.resume_card>img {
-    width: 100%;
-    display: block;
 
-}
-
-.card_body {
-    background-color: rgb(255, 255, 255);
-    height: 48px;
-
-}
-
-.card_body .row {
-    margin-right: 0;
-    margin-left: 0;
-    padding: 8px 0;
-    // outline: 2px solid rgb(64, 17, 252);
-}
-
-.card_body span {
-    font-size: $fontSize05;
-}
-
-.card_body button {
-    background-color: rgba(255, 255, 255, 0);
-}
 
 .fa-heart:before {
     content: "\f004";
@@ -208,13 +223,8 @@
     color: red;
 }
 
-.card_body .resume_zoom_btn {
 
-    @include m() {
-        display: none;
-    }
-}
-
+// 分頁頁碼
 .pagination-div {
     display: grid;
     // grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr; 
@@ -225,71 +235,28 @@
     @include m() {
         display: none;
     }
-}
 
-.pagination-div .pagination-ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    grid-column: 1 /8;
-    grid-row: 1/2;
+    .pagination-ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid-column: 1 /8;
+        grid-row: 1/2;
+        
+        li {
+            margin: 10px 20px;
 
-}
-
-.pagination-div .pagination-ul li {
-    margin: 10px 20px;
-}
-
-.pagination-div .pagination-ul li a {
-    color: #313131;
-}
-
-
-.pagination-div .pagination-ul li:hover a {
-    color: $primary02;
-    // background-color: #EAA565;
-}
-
-.m-a-s-k {
-    position: fixed;
-    top: 0;
-    left: 0;
-    z-index: 100;
-    width: 100%;
-    height: 100%;
-    background-color: $maskcolor;
-    display: none;
-    .resume_zoom{
-        width: 400px;
-        height: 563px;
-        position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            margin: auto;
-        button {
-            background-color: rgba(255, 255, 255, 0);
-            margin-left: 97%;
-            // color: white;
-            // margin-left: 900px;
-            // margin-top: 20px;
-            // position: fixed;
-            // top: 208px;
-            // left: 996px;
-            // z-index: 101;
-            .fa-xmark{
-                color:white
+            a {
+                color: #313131;
+            }
+            &:hover a {
+                color: $primary02;
+            
             }
         }
-        img {
-            
-        }
     }
-    
-
 }
 
-.cursor-pointer {
-    cursor: pointer;
-}
+
+
+

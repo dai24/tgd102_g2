@@ -32,11 +32,12 @@
 @import 'page/resume';
 @import 'page/resume_work_space';
 @import 'page/findJob';
-@import 'page/deleteform';
-@import 'page/saveform';
+@import 'page/popup_window';
+// @import 'page/deleteform';
+// @import 'page/saveform';
 @import 'page/addmodelform';
-@import 'page/nomoneyform';
-@import 'page/shareresumeform';
+// @import 'page/nomoneyform';
+// @import 'page/shareresumeform';
 @import 'page/pdfform';
 @import 'page/resumeform';
 
@@ -65,7 +66,5 @@
 @import 'page/backstage_student';
 @import 'page/backstage_company';
 @import 'page/backstage_com_job';
-a {
-    text-decoration: none;
-}
+
 
