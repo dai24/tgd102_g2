@@ -4,3 +4,41 @@
     margin: 0 auto;
     margin: 32px auto 0px;
 }
+
+.interviewinviteWrapper h1{
+    font-size: $fontSize01;
+    margin-bottom: 30px;
+    @include m(){
+        text-align: center;
+    }
+}
+.interviewinviteWrapper_1{
+    height: 100%;
+    background-color: #ffffff;
+    margin-bottom: 15px;
+    border-radius: 5px;
+}
+
+.interviewinviteWrapperTitle{
+    padding: 20px;
+
+}
+
+.interviewinviteWrapperTitle h3{
+    font-size: $fontSize03;
+    margin-bottom: 20px;
+}
+
+.interviewinviteWrapperTitle p{
+    font-size: $fontSize05;
+    line-height: 1.2;
+}
+
+.interviewinviteWrapper .btna1{
+    margin: 0 auto;
+
+    @include m(){
+        @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
+    }
+
+}

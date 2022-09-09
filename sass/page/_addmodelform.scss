@@ -11,12 +11,15 @@
 .applyfor .applyTitle{
     justify-content: center;
 }
-.deleteTitleMain h3{
+
+.applyfor .deleteTitleMain h3{
     font-size: $fontSize02;
     color: $secondary01;
-    // padding:$space04;
     margin-bottom: $space04;
     margin-left: 10px;
+    @include m(){
+        font-size: $fontSize04;
+    }
 }
 
 .fa-circle-check{

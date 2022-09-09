@@ -1,0 +1,51 @@
+
+.applyfor{
+    max-width: 405px;
+    width: 100%;
+    margin: 0 auto;
+    @include m(){
+        max-width: 375px;
+    }
+
+
+  
+   
+    h2{
+        text-align: left;
+        font-size: $fontSize03;
+        margin-bottom: 15px;
+        @include m(){
+            font-size: $R-fontSize03;
+            margin-left: 20px;
+        }
+    }
+    textarea{
+        resize: none;
+        border: 0;
+        max-width: 405px;
+        width: 100%;
+        font-size: $fontSize05;
+        padding: 8px;
+        outline: none;
+        margin: 8px 0 24px;
+        @include m(){
+            max-width: 320px;
+            margin: 18px 18px;
+        }
+    }
+  
+}
+.interviewinviteform .btna21{
+    margin: 0 auto;
+    @include m(){
+        width: 200px;
+    }
+  
+   
+}
+
+
+
+.applyfor{
+    text-align: left;
+}
