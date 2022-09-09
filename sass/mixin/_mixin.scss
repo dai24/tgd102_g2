@@ -191,7 +191,46 @@
     left: 10px;    
 }
 
-
+//apple style toggle switch
+@mixin appleSwitch {
+    position:absolute;
+    left:50%;
+    top:40%;
+    transform:translateX(-50%);
+}
+@mixin appleToggle {
+    display:none;
+    &:checked ~ .appleContainer{
+    background:#2ecc71;
+    border:1px solid #2ecc71;
+    transition:.2s cubic-bezier(.55,0,.1,1);
+    }
+    &:checked ~ .appleContainer{ 
+    transform:translate(30px);
+    transition:.2s cubic-bezier(.55,0,.1,1);
+  }
+}
+@mixin appleControl{
+    background:white;
+    border-radius:40px;
+    display:block;
+    height:34px;
+    margin-left:4px;
+    position:relative;
+    transition:.2s cubic-bezier(.55,0,.1,1);
+    width:34px;
+    z-index:2;
+}
+@mixin appleContainer{
+    background:#bdc3c7;
+    border-radius:40px;
+    border:1px solid #bdc3c7;
+    height:40px;
+    position:relative;
+    transform:translateY(-38px);
+    transition:.2s cubic-bezier(.55,0,.1,1);
+    width:70px;
+}
 
 //手機板
 

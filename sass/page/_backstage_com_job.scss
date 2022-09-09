@@ -1,4 +1,4 @@
-.backstage_company{    
+.backstage_com_job{    
     height: 1190px;
     background-color:$secondary02;
     display: flex;
@@ -34,9 +34,6 @@
         padding-left:36px;
         display: flex;
         flex-direction: column;
-        @media screen and (max-width:1700px) {
-            width: calc(100% - 220px);
-        }
         //分頁標題
         .title{
             font-weight:bold;
@@ -50,16 +47,16 @@
             height: 60px;
             background-color:$focus01;
             color:$secondary02;
-        };
-        thead{
-            h3{
-                @media screen and (max-width: 1820px) {
-                    font-size:$fontSize04;                    
-                }
-            }            
-        }
+        };        
         table{
             width: 100%;
+            thead{
+                h3{
+                    @media screen and (max-width: 1820px) {
+                        font-size:$fontSize04;                  
+                    }
+                }            
+            }
             th{ //表單各種欄位名稱
                 height: 60px;
                 background-color:$primary02;
