@@ -2,21 +2,39 @@
     max-width: 1360px;
     margin: 0 auto;
     padding: 0 40px;
+
+    @include m(){
+        max-width: 375px;
+        margin: 0 auto;
+        padding: 0;
+    } 
+
 }
 
 .resumeConsultants{
-    
-    
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     flex-wrap: wrap;
     max-width: 1280px;
+
+    @include m(){
+        width: 350px;
+        margin:  0 auto;
+    } 
 }
 
 .searchbar{
     display: flex;
     padding: 16px;
+
+    @include m(){
+        padding: 0px;
+        margin: 0 auto;
+        width: 350px;
+    } 
+
+
     
 
 
@@ -28,15 +46,31 @@
         width: 1200px;
         margin: 0 32px;
 
+        @include m(){
+            max-width: 350px;
+            padding: 0;
+            flex-direction: column;
+            margin: 0;
+        } 
+
+
         .searchbarLeft{
             display: flex;
             width: 500px;
             // background-color: green;
             justify-content: space-between;
+            @include m(){
+                max-width: 350px;
+                justify-content: 0;
+                margin-bottom: 8px;
+            } 
         }
 
         .fa-solid{
             margin-left: 32px;
+            @include m(){
+                margin-left: 0 px;
+            } 
         }
 
         li{
@@ -45,7 +79,10 @@
 
         .btna8{
             margin-right: 24px;
-            
+            @include m(){
+                margin-right: 0px;
+              
+            } 
         }
 
 
@@ -77,11 +114,18 @@
     left:0;
     right: 0;
     margin: auto;
+
+    @include m(){
+       position: absolute;
+       background-size: contain;
+       height: 2348px;  // 怎麼滿版?
+       margin: 0;
+    }
 }
 
 .card2Inner{
     .resumeChoose{
-        margin-bottom: 32px;
+        margin-bottom: 16px;
         display: flex;
         flex-direction: column;
 
@@ -90,24 +134,41 @@
     .resumeChooseTitle{
         font-size: 30px;
         margin-bottom: 16px;
+
+        @include m(){
+          font-size: $R-fontSize04;
+          
+        }
         
+    }
+
+    label{
+        margin-bottom: 16px;
     }
 
     input{
         width: 16px;
         height: 16px;
-        margin-bottom: 16px;
+   
     }
 
     span{
         font-size: 24px;
         margin-left: 16px;
+
+        @include m(){
+            font-size: $R-fontSize05;
+        }
     }
 
 
     .resumeChooseQuestion{
         font-size: 30px;
         margin-bottom: 16px;
+
+        @include m(){
+            font-size: $R-fontSize04;
+        }
     }
 
     textarea{
@@ -118,6 +179,13 @@
         font-family: $fontFamily ;
         padding-top: 8px;
         padding-left: 8px;
+
+        @include m(){
+           width: 310px;
+
+        }
+
+        
     }
 
     .mail{
@@ -129,6 +197,11 @@
         margin-bottom: 32px;
         font-family: arial;
         padding-left: 8px;
+
+        @include m(){
+            width: 310px;
+
+        } 
     }
 
 }
