@@ -7,7 +7,7 @@
     <script src="https://unpkg.com/vue@2"></script>
 </head>
 <body>
-<main  class="backstage_resume">
+<main  class="backstage_template">
     @@include('./layout/backstage_nav.html')
     <div  class="wrapper">
         <h1 class="title">履歷專區</h1>
@@ -18,11 +18,21 @@
             </ul>
             <div class="inputsearch">
                 <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="Text" class="inputText" placeholder="搜尋模板名稱或編號" name="search">
+                <input type="Text" class="inputText" placeholder="搜尋範本名稱或編號" name="search">
             </div>                
         </div>
-        <div class="category">            
-        </div>
+        <ul class="category">       
+            <li><h3 class="all">全部</h3></li>
+            <li><h3>設計</h3></li>
+            <li><h3>工程</h3></li>
+            <li><h3>管理</h3></li>
+            <li><h3>媒體</h3></li>
+            <li><h3>銷售</h3></li>
+            <li><h3>金融</h3></li>
+            <li><h3>行政</h3></li>
+            <li><h3>科技</h3></li>
+            <li><h3>服務</h3></li>     
+        </ul>
         <ul class="content">
             <li>
                 <img src="./images/resume/resume_1.jpg" alt="模板">
