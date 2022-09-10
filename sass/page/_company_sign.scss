@@ -62,17 +62,19 @@
         @include disflex(row, none, space-between);
         width: 656px;
         @include m(){
-            width: 224px;
+            flex-direction: column;
+            width: 250px;
         };
         &:first-child{ //公司名稱
             @include m(){
                 flex-direction: column;
+                
             }
             ul{
                 display: flex;
                 @include m(){
                     flex-wrap: wrap;
-                max-width: 236px;
+                    max-width: 250px;
                 };
             }
         }        
@@ -93,6 +95,11 @@
         &:hover{
             background-color:$primary02H;
         }
+        @include m(){
+            height: 40px;
+           width: 40%;
+           margin-left: 0;
+        }
     }
     
     //section：註冊
@@ -104,10 +111,15 @@
 
     .wrapper1{
         display: flex;
+        @include m(){
+            width: 250px;
+            flex-direction: column; 
+        }
         //公司負責人列
         .principle{
             width: 50%;
             justify-content:start;
+            
         }
         //資本額列
         .property{
@@ -117,21 +129,50 @@
                 //"萬"
                 &:last-child{ padding-left:8px;}
             }
+            @include m(){
+                width: 250px;
+                /* justify-content: end; */
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                justify-content: flex-start;
+                
+            }
         }
+
+      
     } 
     //容器：公司地址
     .wrapper2{
         display: flex;
         flex-wrap: wrap;
         max-width: 555px;
+        @include m(){
+            width: 250px;
+            flex-direction: column; 
+        }
     }   
     //容器：公司電話
     .wrapper3{
         display: flex;
+        @include m(){
+            display: flex;
+            width: 250px;
+            flex-direction: row;
+            flex-wrap: wrap;
+
+        }
         .inputwra{
             &:first-child{
                 width:65%;
                 justify-content: start;
+                @include m(){
+                    display: flex;
+                    width: 250px;
+                    flex-direction: row;
+                    flex-wrap: wrap;
+
+                }
             }
             &:last-child{ //手機表單
                 width:40%;
@@ -139,12 +180,20 @@
             }
             .ext{ //分機
                 margin-left:15px;
+                @include m(){
+                    margin-left:0;
+        
+                }
             }
         }        
     }
     //容器：年費
     .wrapper4{
         margin-left:16px;
+        @include m(){
+            margin-left:0;
+
+        }
         @include disflex(column, none, start);
         li{
             display: flex;
@@ -165,11 +214,19 @@
     //表單：公司名稱
     .inputA{
         width:248px;
+        @include m(){
+            width: 245px;
+           
+         }
     }
     //表單：公司統一編號
     .inputB{
         width: 152px;
         margin-left: 8px;
+        @include m(){
+            width: 130px;
+            margin-left: 12px;
+         }
     }
     //表單：公司介紹
     .inputC{
@@ -177,6 +234,10 @@
         height:96px;
         padding-top:11px;
         resize: none;
+        @include m(){
+            width: 240px;
+           
+         }
     }
     //表單：公司負責人
     .inputD{
@@ -191,16 +252,26 @@
     .inputF{
         width:168px;
         margin-bottom: 8px; 
+        @include m(){
+            width: 115px;
+        }
     }
+
     //表單：鄉鎮市區
     .inputG{
         width:168px;
         margin-left:4px;
         margin-bottom:8px;
+        @include m(){
+            width: 115px;
+        }
     }
     //表單：地址
     .inputH{
         width:$inputwidth;
+        @include m(){
+                width: 250px;
+        }
     }
     //表單：服務項目
     .inputI{
@@ -208,22 +279,41 @@
         height:96px;
         padding-top:11px;
         resize: none;
+        @include m(){
+            width: 250px;
+        }
     }
     //表單：公司聯絡人
     .inputJ{
         width:192px;
         margin-left:5px;
+        @include m(){
+            width: 245px;
+            margin-left:0;
+
+        }
     }
     //表單：區碼
     .inputK1{
         width: 24px;
         margin-left: 20px;
         margin-right: 4px;
+        @include m(){
+            width: 40px;
+            margin-left: 0;
+
+
+        }
+       
     }
     //表單：市話
     .inputK2{
         width: 100px;
         margin-left: 4px;
+        @include m(){
+            width: 100px;
+
+        }
     }
     //表單：分機
     .inputK3{
@@ -232,6 +322,11 @@
     //表單：手機
     .inputK4{
         width: 125px;
+        @include m(){
+            margin-left:0;
+            width: 250px;
+
+        }
     }
     //section：年費
     .fee{
@@ -243,6 +338,10 @@
     //聯絡信箱
     .inputL{
         width:$inputwidth;
+        @include m(){
+            width: 250px;
+
+        }
     }
     //------------------------------
 
