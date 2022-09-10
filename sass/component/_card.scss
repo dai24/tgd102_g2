@@ -33,20 +33,37 @@
     // }
 }
 
-//橘色彈窗2
+//橘色彈窗2 (履歷健診)
 .card2{
     @include card(800px);
+    @include m(){
+       width: 350px;
+    }
     .card2Ul{ 
         @include cardUl();
+        @include m(){
+           padding: 16px 0;
+        }
         .card2H1{
             @include cardH1($fontSize01);
+
+            @include m(){
+                font-size: $R-fontSize02;
+            }
         }
         .card2Xmark{ 
             @include cardXmark(16px);
+            @include m(){
+                font-size: $R-fontSize05;
+            }
         }
     }
     .card2Inner{ 
         @include cardInner(504px);
+        @include m(){
+            width: 310px;
+            padding: 24px 0;
+        }
     }
     // @include m(){
     //     @include btn1(144px, 4px, white,#EAA565, 5px, #E58C39)
@@ -103,10 +120,20 @@
 .searchbar{
     background-color: $primary02;
     border-radius: 5px;
+    @include m(){
+        background-color: transparent;
+        border-radius: 0px;
+    } 
 }
 
 //履歷診療室 顧問老師
 .consultant{
+
+    margin-top: 64px;
+
+    @include m(){
+        margin-top: 24px;
+    } 
 
     a{
         transition: all 1s 0 ease;
@@ -119,6 +146,10 @@
         width: 272px;
         display: block;
         border-radius: 5px 5px 0 0;
+
+        @include m(){
+            width: 165px;
+        } 
     }
 
     .consultantSource{
@@ -128,6 +159,11 @@
         margin-bottom: 16px;
         border-radius: 0 0 5px 5px;
         padding-bottom: 16px;
+
+        @include m(){
+            width: 165px;
+            margin-bottom: 12px;
+        } 
         
 
         h3{
@@ -145,7 +181,7 @@
         
     }
     
-    margin-top: 64px;
+   
    
     
 
