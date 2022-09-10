@@ -2,6 +2,12 @@
     max-width: 1360px;
     margin: 0 auto;
     padding: 0 40px;
+
+    @include m(){
+        max-width: 375px;
+        margin: 0 auto;
+        padding: 0;
+    }  
 }
 
 
@@ -10,24 +16,51 @@
     flex-direction: row;
     max-width: 1280px;
     justify-content: space-between;
+
+    @include m(){
+        max-width: 350px;
+        flex-direction: column;
+        margin:  0 auto;
+    }
+
 }
 
 .consultant_left{
     color: $secondary01;
+
+    @include m (){
+        max-width: 350px;
+        margin-bottom: $R-space05;
+    }
+
     
     img{
         width: 520px;
         margin-bottom: 24px;
+
+        @include m(){
+            width: 350px;
+        }
     }
     
     h1{
         font-size: $fontSize01;
         margin-bottom: 24px;
+
+        @include m (){
+            font-size: $R-fontSize02;
+            margin-bottom: $R-space04;
+        }
     }
 
     h2{
         font-size: $fontSize02;
         margin-bottom: 24px;
+
+        @include m (){
+            font-size: $R-fontSize02;
+            margin-bottom: $R-space04;
+        }
     }
 
 }
@@ -36,11 +69,21 @@
 
     width: 520px;
 
+    @include m (){
+        max-width: 350px;
+       
+    }
+
     article{
         
         border-bottom: 4px solid $primary02;
         margin-bottom: 64px;
         padding-bottom: 24px;
+
+        @include m(){
+            margin-bottom: $R-space06;
+            padding-bottom:  $R-space02;
+        }
         
 
         h1{
@@ -48,6 +91,11 @@
             color: $primary02;
             font-weight: bold;
             margin-bottom: 24px;
+
+            @include m(){
+                font-size: $R-fontSize02;
+                margin-bottom: $R-space04;
+            }
         }
 
  
@@ -57,6 +105,10 @@
             color: $secondary01;
             line-height: 1.6;
             padding-bottom: 8px;
+
+            @include m(){
+                font-size: $R-fontSize05;
+            }
         }
     
     }

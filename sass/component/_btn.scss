@@ -54,7 +54,9 @@
 .btna8{
     @include btn1(144px ,$fontSize02, $space01, $secondary02, $primary02,5px,null,null);
     @include m(){
-        @include btn1(144px ,$fontSize02, $space01, $secondary02, $primary02, 5px,null,null);
+        @include btn1(350px ,$R-fontSize05, $space01, $primary02, $secondary02, 5px,$primary02H,$secondary02);
+        box-shadow: 0px 0px 0px;
+        
     }
 }
 
@@ -62,7 +64,7 @@
 .btna9{
     @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02,5px,$focus01H,null);
     @include m(){
-        @include btn1(272px ,$fontSize02, $space02, $focus01, $secondary02, 5px,$focus01H,null);
+        @include btn1(165px ,$R-fontSize04, $space02, $focus01, $secondary02, 5px,$focus01H,null);
     }
 }
 
@@ -70,7 +72,7 @@
     @include btn1(520px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
     height: 60px;
     @include m(){
-        @include btn1(256px ,$fontSize02, $space01, $focus01, $secondary02, 5px,$focus01H,null);
+        @include btn1(350px ,$fontSize02, $space01, $focus01, $secondary02, 5px,$focus01H,null);
         height: 60px;
     }
 }
@@ -173,8 +175,8 @@
 .btna21{
     @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
     @include m(){
-        @include btn2(36px ,$fontSize05, $space01,$primary02, $secondary02, 5px,$secondary02,$primary02);
-        height: 22px;
+        @include btn2(165px ,$fontSize05, $space01,$primary02, $secondary02, 5px,$secondary02,$primary02);
+        
     }
 
     
@@ -185,8 +187,8 @@
 .btna22{
     @include btn2(192px ,$fontSize03, $space02,$secondary02, $primary02,null,#dbdbdb,null);
     @include m(){
-        @include btn2(36px ,$fontSize05, $space02,$secondary02, $primary02, null, #dbdbdb,null);
-        height: 22px;
+        @include btn2(165px ,$fontSize05, $space02,$secondary02, $primary02, null, #dbdbdb,null);
+        
     }
     text-align: left;
     padding-left: 28px;
