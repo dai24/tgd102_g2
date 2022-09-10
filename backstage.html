@@ -4,12 +4,24 @@
     @@include('./layout/head.html',{
         "title" : "後台主畫面"
         })
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/chart.js@3.9.1/dist/chart.min.js">
 </head>
 <body>
 <main class="backstage">
-    <div>
-        <h1>hi</h1>
-    </div>
+    @@include('./layout/backstage_nav.html')
+    <div  class="wrapper">
+        <h1 class="title">網站營運分析</h1>
+          <div class="container">
+            <div class="char1">1</div>
+            <div class="char2">2</div>
+            <div class="char3">3</div>
+            <div class="char4">4</div>
+            <div class="char5">5</div>
+            <div class="char6"></div>
+            <div class="char7"><canvas id="myChart"></canvas></div>
+          </div>
+    </div>   
 </main> 
+<script src="./js/backstage.js"></script>
 </body>
 </html>

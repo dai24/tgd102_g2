@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html',{
+        "title" : "後台學生會員資料"
+        })        
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<main  class="backstage_resume">
+    @@include('./layout/backstage_nav.html')
+    <div  class="wrapper">
+        <h1 class="title">履歷專區</h1>
+        <div class="block">
+            <ul>
+                <li class="model"><a href="#"><h3>模板預覽</h3></a></li>
+                <li class="template"><a href="#"><h3>範本預覽</h3></a></li>
+            </ul>
+            <div class="inputsearch">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="Text" class="inputText" placeholder="搜尋模板名稱或編號" name="search">
+            </div>                
+        </div>
+        <div class="category">            
+        </div>
+        <ul class="content">
+            <li>
+                <img src="./images/resume/resume_1.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            <li>
+                <img src="./images/resume/resume_2.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            <li>
+                <img src="./images/resume/resume_3.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            <li>
+                <img src="./images/resume/resume_4.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            <li>
+                <img src="./images/resume/resume_5.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            <li>
+                <img src="./images/resume/resume_6.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            <li>
+                <img src="./images/resume/resume_1.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            <li>
+                <img src="./images/resume/resume_2.jpg" alt="模板">
+                <div class="edit">
+                    <h3>2022/10/03</h3>
+                    <div class="editIcon">
+                        <a href="#"><i class="fa-solid fa-pen"></a></i>
+                        <a href="#"><i class="fa-solid fa-trash"></i></a>
+                    </div>                    
+                </div>
+            </li>
+            @@include('./layout/pagination.html')
+        </ul>
+        
+    </div>   
+    
+</main> 
+<script src="./js/backstage_student.js"></script>
+</body>
+</html>

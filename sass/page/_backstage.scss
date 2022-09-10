@@ -1,3 +1,61 @@
 .backstage{    
+    height: 1190px;
+    background-color:$secondary02;
+    display: flex;
+    $trheight:80px; //每筆資料高度
+    $winheight:1190px; //網頁高度
+    h1{
+        font-size:$fontSize01;
+        margin-top:44px;
+        margin-bottom:28px;
+    }
+    h2{
+        font-size:$fontSize02;
+    }
+    h3{ //統一h3
+        font-size:$fontSize03;
+        text-align:center;
+        @media screen and (max-width: 1400px) {
+            font-size:$fontSize04;  
+        }
+        @media screen and (max-width: 1280px) {
+            font-size:$fontSize05;  
+        }
+    }
+    h4{
+        font-size: $fontSize04;
+    }
+    a{
+        color:$secondary01;
+    }
+    .wrapper{
+        width: calc(100% - 250px);
+        padding-right:36px; //與左側nav的距離
+        padding-left:36px;
+        display: flex;
+        flex-direction: column;
+        //分頁標題
+        .title{
+            font-weight:bold;
+        }
+        .container{ //設定grid環境
+            // width: 100%;
+            height: 1000px;
+            background-color: antiquewhite;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+            grid-template-rows: 1fr 1fr 1fr;
+            grid-template-areas:'char1 char2 char3 char4 char4 char5'
+                                'char6 char6 char7 char7 char7 char7'
+                                'char6 char6 char7 char7 char7 char7';
+            grid-gap: 10px;
+
+            .char7{
+                background-color: aliceblue;
+            }            
+        }
+    }
+
     
 }
+
