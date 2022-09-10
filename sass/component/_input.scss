@@ -29,16 +29,7 @@
         margin-bottom: 0; //消除原設
     }
 }
-//apple style toggle switch
-.appleSwitch{
-    @include appleSwitch();
-    .appleToggle{
-        @include appleToggle();
-    }
-    .appleControl{
-        @include appleControl();
-    }
-    .appleContainer{
-        @include appleContainer();
-    }
+//打開停權icon
+.banOpen{
+    opacity: 100% !important;
 }
