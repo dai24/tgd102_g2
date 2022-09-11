@@ -1,3 +1,12 @@
+.bodyCareertest{
+    @include m(){
+        // background-color: black;
+        background-color: #FFA800;
+    }
+   
+}
+
+
 .careertest{
     background-color: #FFA800;
     font-family: $fontFamily;
@@ -6,6 +15,11 @@
     padding-top: 48px;
     box-sizing: border-box;
     
+
+    @include m(){
+        height: auto;
+        padding: 24px 0;
+    }
 }
 
 
@@ -17,12 +31,21 @@
 .testbox_logo{
     width: 232px;
     margin: 0px auto 0;    
+
+    @include m(){
+        width: 164px;
+    }
 }
 
 .testbox_pic1{
     width: 280px;
     margin: 0 auto 24px;
     padding: 40px 0 40px;
+
+    @include m(){
+        width: 160px;
+        padding: 40px 0 32px;
+    }
 }
 
 .testbox h1{
@@ -30,11 +53,19 @@
     font-size: $fontSize01;
     text-align: center;
     font-weight: bold;
-    margin-bottom: 32px;
+    margin-bottom: 28px;
+
+    @include m(){
+        font-size: $R-fontSize03;
+    }
 }
 
-.testbox a{
+.testbox .careertestSubmit{
     display: block;
     margin-top: 64px;
+
+    @include m(){
+        margin-top: 48px;
+    }
 }
 
