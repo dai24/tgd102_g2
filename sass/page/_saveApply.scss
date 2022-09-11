@@ -4,17 +4,32 @@
         justify-content: center;
         color: $focus01;
         margin-bottom: 36px;
+        @include m(){
+            margin-bottom: 16px;
+            display: block;
+        }
         i{
             margin-right: 8px;
             font-size: $fontSize02;
+            @include m(){
+                font-size: $R-fontSize02;
+                margin-right: 0px;
+            }
         }
         h2{
             font-size: $fontSize02;
+            @include m(){
+                font-size: $R-fontSize02;
+            }
         }
     }
     h3{
         font-size: $fontSize03;
         margin-bottom: 18px;
+        @include m(){
+            font-size: $R-fontSize04;
+            padding: 4px;
+        }
     }
     a{
         display: block;
