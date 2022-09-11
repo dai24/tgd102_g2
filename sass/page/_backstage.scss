@@ -38,24 +38,107 @@
         .title{
             font-weight:bold;
         }
-        .container{ //設定grid環境
-            // width: 100%;
-            height: 1000px;
-            background-color: antiquewhite;
-            display: grid;
-            grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
-            grid-template-rows: 1fr 1fr 1fr;
-            grid-template-areas:'char1 char2 char3 char4 char4 char5'
-                                'char6 char6 char7 char7 char7 char7'
-                                'char6 char6 char7 char7 char7 char7';
-            grid-gap: 10px;
-
-            .char7{
-                background-color: aliceblue;
-            }            
+        //圖表群的容器
+        .wraChart{
+            width: 100%;
+            // height: 9000px; //圖表群的最大高度
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            h2{
+                text-align: center;
+            }
+            .chartData{ //定義每個圖表
+                width:23%;
+                height: 250px;
+                display: flex;
+                flex-direction: column;
+                border-radius: 10px;
+                outline: 3px solid $primary02;
+                margin-left: 18px;
+                margin-bottom: 18px;
+                overflow: hidden;
+                @media screen and (max-width: 1600px) {
+                    width:20%;
+                }
+                //圖表標題
+                .chartTitle{
+                    height: 60px; //圖表標題高度
+                    line-height: 60px;
+                    color: $secondary02;
+                    background-color: $primary02;
+                    text-align: center;
+                    @media screen and (max-width: 1600px) {
+                        font-size: 20px;
+                    }
+                }
+                //圖表內容區塊
+                .chartContent{
+                    width: 100%;
+                    height: 100%;  
+                    
+                    background-color: $secondary02;                
+                    //圖表數據內容
+                    .chartText{
+                        font-size: 64px;
+                        line-height: calc(250px - 60px);
+                        @media screen and (max-width: 1600px) {
+                            font-size: 50px;
+                        }
+                    }
+                }                                               
+            }
+            //圖表容器
+            .chart{
+                width: 100%;
+                display: flex;
+                @media screen and (max-width:1700px) {
+                    flex-direction:column;
+                }
+                //圓餅圖
+                .chartPie{ 
+                    $chartPieWidth:calc(100% - 950px); //以長條圖寬度為參考，動態調整寬度
+                    width:$chartPieWidth;
+                    min-width: 350px;
+                    height: auto; //取消原設
+                    // height:675px;
+                    // height:calc($chartPieWidth + 34vw);
+                    background-color: $secondary02;
+                    outline: 0;
+                    #chart_gender{
+                        width:400px;
+                        height: 400px;
+                        margin-top: 24px;
+                        margin-left: auto;
+                        margin-right: auto;
+                    }
+                } 
+                //長條圖
+                .chartBar{
+                    width:900px;
+                    height: 675px;
+                    background-color: $secondary02;
+                    outline: 0;
+                    #chart_todayVisit{
+                        margin-top: 24px;
+                    }
+                }
+            }       
         }
+        //grid(未完成)
+        // .container{ //設定grid環境
+        //     // width: 100%;
+        //     height: 1000px;
+        //     background-color: antiquewhite;
+        //     display: grid;
+        //     grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        //     grid-template-rows: 1fr 1fr 1fr;
+        //     grid-template-areas:'char1 char2 char3 char4 char4 char5'
+        //                         'char6 char6 char7 char7 char7 char7'
+        //                         'char6 char6 char7 char7 char7 char7';
+        //     grid-gap: 10px;                       
+        // }
     }
-
     
 }
 
