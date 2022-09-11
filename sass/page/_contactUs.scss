@@ -19,8 +19,9 @@
         @include m(){
             font-size: $R-fontSize04;
             display: block;
-            width: 200px;
+            width: 320px;
             margin: 0 auto;
+            line-height: 1.6;
         }
     }
     .contactUSG{
