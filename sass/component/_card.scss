@@ -97,14 +97,16 @@
 
 // 職涯測驗白底黑框
 .testbox{
-    @include testbox();
+    @include testbox(
+       
+    );
 }
 
 //職涯測驗問題
 .testboxQA{
    
-    height: 592px;
-    margin: 48px auto;
+    max-height: 740px;
+    margin: 80px auto;
 }
 
 

@@ -1,16 +1,38 @@
+.testboxQA{
 
-.btn18{
-    margin-bottom: 72px;
+    .btna18{
+        margin-bottom: 104px;
+    }
+
 }
 
-.question2{
-    display: none;
-}
 
-.question3{
-    display: none;
-}
+// .question2{
+//     display: none;
+// }
 
-.question4{
-    display: none;
+// .question3{
+//     display: none;
+// }
+
+// .question4{
+//     display: none;
+// }
+
+
+.testfinish{
+    margin-top: 56px;
+
+    h1{
+        margin-bottom: 72px;
+    }
+    input{
+        font-size: 24px;
+        text-align: center;
+        width: 440px;
+        padding: 8px 0;
+        
+        margin: 32px 180px 104px;;
+
+    }
 }
