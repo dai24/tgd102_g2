@@ -7,25 +7,24 @@
 </head>
 <body>
     @@include('./layout/header.html')
-    <div class="studentMainWrapper">
+    <div class="student_main">
        
         <div class="studenMainWrapperTitle">
 
             <div class="studenMainWrapperTitle_left">
 
                 <div class="student_photo">
-                    <img src="/images/student-login/student.jpg" alt="">
+                    <img src="/images/student-login/student.jpg" alt="大頭貼">
                 </div>
                 <ul>
-                    <li><h3>會員名稱：林立人</h3></li>
-                    <li><h3>電話：0988247518</h3></li>
-                    <li><h3>信箱：dsfvvfe@gmail.com</h3></li>
-                    <li><h3>點數：500 歷史加值紀錄</h3></li>
+                    <li><h3>會員名稱：<span>林立人</span></h3></li>
+                    <li><h3>電話：<span>0988247518</span></h3></li>
+                    <li><h3>信箱：<span>dsfvvfe@gmail.com</span></h3></li>
+                    <li><h3>點數：<span><a href="#">500</a></span><a href="#"><span>歷史加值紀錄</span></a></h3></li>
                     <div class="btna11">
-                        <h4>編輯個人檔案</h4>
+                        <a href="#"><h4>編輯個人檔案</h4></a>
                     </div>
                 </ul>
-
             </div>
 
             <div class="studenMainWrapperTitle_right">
@@ -40,14 +39,9 @@
         </div>
 
         <h2>我的履歷</h2>
-
-
         <div class="studenMainWrapper_resumebottom">
             <button><i class="fa-solid fa-file-circle-plus"></i></button>
-
         </div>
-
-       
     </div>
     @@include('./layout/footer.html')
 </body>
