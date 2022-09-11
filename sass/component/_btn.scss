@@ -22,7 +22,7 @@
 .btna4{
     @include btn2(144px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,$secondary02);
     @include m(){
-        @include btn2(104px ,$fontSize05, $space01, $primary02, $secondary02, 5px, $focus01H,$secondary02)
+        @include btn2(104px ,$fontSize05, $space01, $focus01, $secondary02, 5px, $focus01H,$secondary02)
     }
 }
 
