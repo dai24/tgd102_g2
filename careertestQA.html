@@ -9,11 +9,11 @@
     <title>Document</title>
 </head>
 
-<body>
+<body class="bodyCareertest">
     <main class="careertest">
 
-        <div class="testbox testboxQA">
-            <img src="./images/logo/interngo.png" alt="" class="testbox_logo">
+        <div class="testboxQA">
+            <a href="index.html" target="_blank"><img src="./images/logo/interngo.png" alt="" class="testboxQA_logo"></a>
 
             
             <div class="question1 testQA">
@@ -54,28 +54,32 @@
                 <button class="btna14 tfBtn">查看結果</button>
             </div>
 
+        </div>
+
+        <div class="textboxResult">
+            <a href="index.html" target="_blank"><img src="./images/logo/interngo.png" alt="" class="testboxQA_logo"></a>
             <div class="testResult">
 
                 <div class="testresult_left">
-                    <img src="" alt="" class="testresultImg">
+                    <img src="./images/careertest/16MBTI/ENFJ.png" alt="" class="testresultImg">
                 </div>
     
                 <div class="testresult_right">
-                    <div class="txt1"></div>
-                    <div class="txt2"></div>
-                    <div class="txt3"></div>
-                    <ul>
-                        <div class="txt4">分享讓更多人知道</div>
-                        <!-- facebook icon
-                        Instagram icon -->
+                    <div class="txt1">王威比是領導者</div>
+                    <div class="txt2">天生的領導者，具備超卓的組織力和領導才能，擅長於組織及策劃事活動，可以用上最有效率方式達致最大效益，也懂得控制大局，成為團隊中不可或缺的領袖。</div>
+                    <div class="txt3">最適合做 : 律師 、法官、CEO</div>
+                    
+                    <ul class="testresult_share">
+                        <div class="txt4">分享讓更多人知道 !</div>
+                        <ul class="iconFI">
+                            <li><img src="./images/careertest/icon_facebook.svg" alt=""></li>
+                            <li><img src="./images/careertest/icon_instagram.svg" alt=""></li>
+                        </ul>
                    </ul>
                         
                 </div> 
 
             </div>
-
-            
-
         </div>
 
     </main>
@@ -121,6 +125,14 @@
             $(".tfBtn").click(function () {
                 $('.testfinish').hide();
                 $(".testResult").toggle();
+            })
+        })
+
+        $(document).ready(function () {
+            $('.textboxResult').hide();
+            $(".tfBtn").click(function () {
+                $('.testboxQA').hide();
+                $(".textboxResult").toggle();
             })
         })
 

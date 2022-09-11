@@ -97,16 +97,33 @@
 
 // 職涯測驗白底黑框
 .testbox{
-    @include testbox(
-       
-    );
+    @include testbox();
+    width: 800px;
+    height: 920px;
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: 80vh;
+
+    }
 }
 
 //職涯測驗問題
 .testboxQA{
-   
-    max-height: 740px;
+    @include testbox();
+    // max-height: 740px;
     margin: 80px auto;
+    width: 800px;
+    height: 740px;
+
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: 80vh;
+
+    }
 }
 
 
@@ -115,8 +132,36 @@
 
     .testqusetion{
         margin-bottom: 96px;
+
+        @include m(){
+            margin-bottom: 64px;
+    
+        }
+
     }
 }
+
+//職涯測驗答案
+.textboxResult{
+    @include testbox();
+    max-width: 1504px;
+    padding: 32px 40px;
+    height: 960px;
+    box-sizing: border-box;
+
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: auto;
+        padding: 32px 0;
+
+    }
+
+
+    
+}
+
 
 // 履歷診療室 搜尋欄
 .searchbar{
