@@ -15,7 +15,7 @@
     <div class="logincard">
         <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
         <h1 class="cardH1">學生登入</h1>
-        <form method="post" action="#">
+        <div class="wrapper">
             <section class="input01">
                 <input type="text" placeholder="請輸入電子信箱" class="inputText" name="account">
                 <h4 class="inputAlert">信箱格式錯誤</h4>
@@ -32,21 +32,22 @@
                 <li><a href="#"><i class="fa-brands fa-google"></i></a></li>
             </ul>
             <section>                
-                <button class="forgotpw"><h4><a href="#">忘記密碼</a></h4></button>
+                <button class="forgotpw"><h4><a href="./student_forgotpw.html">忘記密碼</a></h4></button>
             </section>    
 
             <section>
-                <input type="submit" class="btna17" value="登入" name="submit">
+                <input type="submit" class="btna17 submit" value="登入" name="submit">
             </section>
 
             <div class="gosign">
                 <h4>還沒有註冊帳號嗎?</h4>
                 <h4><a href="student_sign.html">註冊</a></h4>
             </div>
-        </form>   
+        </div>   
     </div>
 </main> 
 @@include('./layout/footer.html')
 <script src="./js/header.js"></script>
+<script src="./js/student_login.js"></script>
 </body>
 </html>

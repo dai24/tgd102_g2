@@ -35,20 +35,20 @@
         //"會員登入"
         h1{
             font-size: $fontSize02;
+            font-weight: bold;
             text-align: center;
             margin-top:$space05; 
             margin-bottom: $space05;
             @include m(){
+                font-size: $R-fontSize03;
                 margin-top:$R-space04;
                 margin-bottom:$R-space04;
             }
         }
 
-       
-
         .choose{
             display: flex;
-            margin-left: 3vw; //讓兩個按鈕置中
+            margin-left: 4vw; //讓兩個按鈕置中
 
             //"企業 學生"
             h2{
@@ -69,6 +69,9 @@
                 position: relative;
                 margin-bottom: $space04;
                 color: $secondary02;
+                @include m(){
+                    margin-bottom: 10px;
+                }
             }
 
             //左側區塊
@@ -109,25 +112,25 @@
         
         .sign{
             display: flex;
+            flex-direction: row;
+            justify-content: center;
             padding-top:0;
             h4{
                 font-size: $fontSize05;
                 line-height: $fontSize05; //文字高度置中
             }
-
             //註冊按鈕
-            button{
-                background-color:$secondary02;
-            }
-
-            //"註冊"
-            .alert{
-                color: $focus01;
+            a{
                 margin-left: $space04;
+                color: $focus01;
+                font-weight: bold;
                 &:hover{
                     color:#922b1b ;
                 }
-            }
+                @include m(){
+                    margin-left: 10px;
+                }
+            }            
         }
     }
 }
