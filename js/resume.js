@@ -117,6 +117,31 @@ let resume_share_window =`
     </div>
 `
 
+let resume_pdf_window =`
+<div class="m-a-s-k"></div>
+<div class="card  resume_window">
+        <ul class="cardUl">
+            <li>
+                <h1 class="cardH1">您的履歷 PDF 已就緒</h1>
+            </li>
+            <li>
+                <i class="fa-solid fa-xmark cardXmark"></i>
+            </li>
+        </ul>
+        <div class="cardInner applyfor">
+            <div class="applyTitle">
+                <div>
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                </div>
+                <div class="deleteTitleMain">
+                    <h3>新鮮人履歷.pdf</h3>
+                </div>
+            </div>
+            <div class="btna3 pdf_dowload">下載 PDF</div>
+        </div>
+    </div>
+`
+
 $(function () {
 
 
@@ -136,8 +161,9 @@ $(function () {
       
       // 履歷範本放大關閉
       $('.resume_zoom .fa-xmark').on('click', function () {
-         $('.m-a-s-k').hide()
-         $('.resume_zoom').hide()
+         // $('.resume_zoom').remove()
+         // $('.m-a-s-k').remove()
+         closeWindows()
       })
       
    })
@@ -187,6 +213,20 @@ $(function () {
       closeWindows()
    })
 
+   // pdf下載視窗
+   $('#resume_pdf_dowload').on('click', function () {
+      $('.resume_wrapper').append(resume_pdf_window)
+      $('.m-a-s-k').show()
+
+      // 儲存視窗確認或關閉
+      closeWindows()
+   })
+
+   // pdf_dowload 下載
+   $('.pdf_dowload').on('click',function(){
+      window.print();
+   })
+
    // 刪除履歷視窗
    $('#resume_delect').on('click', function () {
       $('.resume_wrapper').append(resume_delere_window)
@@ -195,6 +235,7 @@ $(function () {
       // 儲存視窗確認或關閉
       closeWindows()
    })
+   
 
    
 
@@ -203,15 +244,11 @@ $(function () {
 
 // 關閉跟確認視窗
 function closeWindows(){
-   $('.resume_window .fa-xmark,.resume_window .btna3').on('click', function () {
+   $('.resume_window .fa-xmark,.resume_window .btna3,.resume_zoom').on('click', function () {
+      $('.resume_zoom').remove()
       $('.resume_window').remove()
       $('.m-a-s-k').remove()
    
    })
 }
 
- // new Vue({
- //    el: '#app',
- //    data: {     // 變數放這裡
- //    }
- // })
