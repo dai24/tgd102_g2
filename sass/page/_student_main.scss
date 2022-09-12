@@ -15,6 +15,9 @@
             
         }
     }
+    a{
+        color: $secondary01;
+    }
     .studenMainWrapperTitle{
         position: relative;
         background-color: $primary02;
@@ -32,11 +35,15 @@
         }
     }
     
-    .studenMainWrapperTitle_left{
-        
+    .studenMainWrapperTitle_left{        
         display: flex;
         @include m(){
           padding: 10px 0 0 0;
+        }
+        .btna11{
+            a{
+                color:$focus01;
+            }
         }
     }
     .studenMainWrapperTitle img{
