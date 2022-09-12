@@ -4,8 +4,36 @@
         "title" : "找實習"
     })
 <body>
+    <div id="app">
     @@include('./layout/header.html')
-    
+
+
+    <!-- contactUS -->
+    <!-- <div class="contactUSInner" v-if="isShow" @click="close" ></div>
+    <div class="card" v-if="isShow"  >
+        <ul class="cardUl" >
+            <li>
+                <h1 class="cardH1">聯絡我們</h1>
+            </li>
+            <li>
+                <i class="fa-solid fa-xmark cardXmark" @click="close"></i>
+            </li>
+        </ul>
+        <div class="cardInner contact">
+            <h2>謝謝您的主動聯絡，請留下要諮詢的問題，我們會用以下資訊進行回覆。</h2>
+            <form action="">
+            <div class="contactUSG">
+                <input type="text" name="" value="" placeholder="請輸入電子郵件">
+            </div>
+            <div class="contactUSM">
+                <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !!" ></textarea>
+            </div>
+            <div class="btna3" @click="close">送出</div>
+            </form>
+        </div>
+    </div> -->
+
+
     <div class="findJobWrapper">
         @@include('./layout/breadcrumb2.html',{
             'home' : "首頁",
@@ -31,16 +59,16 @@
                     </div>
                 </div>
                 <ul class="findJobType">
-                    <li class="findJobTypeTitle"><div class="btna16">地點<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea on" style="display: none;">
+                    <li class="findJobTypeTitle dd_btn"  data-name="dd_1"><div class="btna16" >地點<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea  dd dd_1" >
                             <li><input type="checkbox" ><label for="">北部</label></li></li>
                             <li><input type="checkbox" ><label for="">中部</label></li></li>
                             <li><input type="checkbox" ><label for="">東部</label></li></li>
                             <li><input type="checkbox" ><label for="">南部</label></li></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btna16">職務類別<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeSort on" style="display: none;">
+                    <li class="findJobTypeTitle dd_btn" data-name="dd_2"><div class="btna16">職務類別<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeSort dd dd_2" >
                             <li><div class="findJobTypeSortTitle">軟體<i class="fa-solid fa-chevron-right"></i></div>
                                 <ul>
                                     <li><input type="checkbox"><label for="">前端開發人員</label></li>
@@ -61,23 +89,23 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btna16">公司規模<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea on" style="display: none;">
+                    <li class="findJobTypeTitle dd_btn" data-name="dd_3"><div class="btna16" >公司規模<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea dd dd_3">
                             <li><input type="checkbox"><label for="">大</label></li>
                             <li><input type="checkbox"><label for="">中</label></li>
                             <li><input type="checkbox"><label for="">小</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle on"><div class="btna16">薪資<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea" style="display: none;">
+                    <li class="findJobTypeTitle dd_btn" data-name="dd_4"><div class="btna16" >薪資<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea dd dd_4" >
                             <li><input type="checkbox"><label for="">168 / h</label></li>
                             <li><input type="checkbox"><label for="">200 / h</label></li>
                             <li><input type="checkbox"><label for="">250 / h</label></li>
                             <li><input type="checkbox"><label for="">300 / h</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btna16">遠端工作<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea on" style="display: none;">
+                    <li class="findJobTypeTitle dd_btn" data-name="dd_5"><div class="btna16" >遠端工作<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea dd dd_5" >
                             <li><input type="checkbox" name="remote"><label for="">是</label></li>
                             <li><input type="checkbox" name="remote"><label for="">否</label></li>
                         </ul>
@@ -89,10 +117,7 @@
             </div>
         </div>
         <div class="findJobFind" id="findJobFind">
-            <!-- <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div>
-            <div class="findJobFindSort"><p>前端</p><i class="fa-solid fa-xmark"></i></div>
-            <div class="findJobFindSort"><p>280 / h</p><i class="fa-solid fa-xmark"></i></div>
-            <div class="findJobFindSort"><p>前端開發人員</p><i class="fa-solid fa-xmark"></i></div> -->
+
         </div>
         <div class="findJobVacancies">
             <div class="findJobVacanciesPicture">
@@ -191,48 +216,118 @@
         </div>
         @@include('./layout/pagination.html') 
     </div>
+    
     @@include('./layout/footer.html')
+    </div>
 </body>
 <script>
-const findJobTypeTitle = document.getElementsByClassName('findJobTypeTitle');
+// const findJobTypeTitle = document.getElementsByClassName('findJobTypeTitle');
 
-for(let i = 0;  i < findJobTypeTitle.length ; i++){
-    findJobTypeTitle[i].firstChild.addEventListener('click',function(){
-        // findJobTypeTitle[i].children[1].classList.add('on')
-        // console.log(findJobTypeTitle[i].children[1]);
-        if(findJobTypeTitle[i].children[1].style.display === 'none'|| findJobTypeTitle[i].children[1].classList.contains('on')){
-            findJobTypeTitle[i].children[1].style.display = 'block'
-            findJobTypeTitle[i].children[1].classList.remove('on')
-        }else if(findJobTypeTitle[i].children[1].style.display === 'block'){
-            findJobTypeTitle[i].children[1].style.display = 'none'
-            findJobTypeTitle[i].children[1].classList.add('on')
-        }
-    })
-}
-
-const check = document.querySelectorAll('input[type="checkbox"]')
-const findJobFind = document.getElementById('findJobFind')
-
-for(let i = 0; i < check.length; i++){
-    check[i].addEventListener('click',function(e){
-        let sortList = check[i].nextElementSibling.innerHTML
-        console.log(sortList);
-        let li_html = `<div class="findJobFindSort"><p>${sortList}</p><i class="fa-solid fa-xmark cancel"></i></div>`;
-        if(check[i].checked == true){
-            findJobFind.insertAdjacentHTML("beforeend", li_html)
-        }else if(check[i].checked == false){
+// for(let i = 0;  i < findJobTypeTitle.length ; i++){
+//     findJobTypeTitle[i].firstChild.addEventListener('click',function(e){
+//         console.log(this.parentNode);
+//         if(!this.parentNode){
             
-        }
-        const cancel = document.getElementsByClassName('cancel')
-        for(let a = 0 ; a < cancel.length; a++){
-            cancel[a].addEventListener('click',function(e){
-                e.target.parentElement.remove('findJobFindSort')
-                console.log(e.target.parentElement);
-                check[i].checked = false
-            })
-        }
-    })
+//         }
+//         if(findJobTypeTitle[i].children[1].style.display === 'none'|| findJobTypeTitle[i].children[1].classList.contains('on')){
+//             findJobTypeTitle[i].children[1].style.display = 'block'
+//             findJobTypeTitle[i].children[1].classList.remove('on')
+//         }else if(findJobTypeTitle[i].children[1].style.display === 'block'){
+//             findJobTypeTitle[i].children[1].style.display = 'none'
+//             findJobTypeTitle[i].children[1].classList.add('on')
+//         }
+//     })
+// }
+let navigate = (function() {
+	$('.dd').slideToggle();
+	$('.dd_btn').click(function() {
+		let dataName = $(this).attr('data-name');
+		$('.dd').hide();
+		$('.' + dataName).slideToggle();
+	});
+})();
+const check = document.querySelectorAll('input[type="checkbox"]')
+    console.log(check);
+    const findJobFind = document.getElementById('findJobFind')
+
+    for(let i = 0; i < check.length; i++){
+        check[i].addEventListener('click',function(e){
+            let sortList = check[i].nextElementSibling.innerHTML
+            console.log(sortList);
+            let li_html = `<div class="findJobFindSort"><p>${sortList}</p><i class="fa-solid fa-xmark cancel"></i></div>`;
+            if(check[i].checked == true){
+                findJobFind.insertAdjacentHTML("beforeend", li_html)
+            }else if(check[i].checked == false){
+                
+            }
+            const cancel = document.getElementsByClassName('cancel')
+            for(let a = 0 ; a < cancel.length; a++){
+                cancel[a].addEventListener('click',function(e){
+                    e.target.parentElement.remove('findJobFindSort')
+                    console.log(e.target.parentElement);
+                    check[i].checked = false
+                })
+            }
+        })
 }
+
+
+    // new Vue({
+    //     el: '#app',
+    //     data:{
+    //         isShow: false,
+    //         // tab_1: false,
+    //         // tab_2: false,
+    //         // tab_3: false,
+    //         // tab_4: false,
+    //         // tab_5: false,
+    //     },
+    //     methods: {
+    //         open(){
+    //             this.isShow =!this.isShow
+    //         },
+    //         close(){
+    //             this.isShow =!this.isShow
+    //         },
+    //         // place(){
+    //         //     this.tab_1 = !this.tab_1
+    //         //     this.tab_2 = false
+    //         //     this.tab_3 = false
+    //         //     this.tab_4 = false
+    //         //     this.tab_5 = false
+    //         // },
+    //         // sort(){
+    //         //     this.tab_2 = !this.tab_2
+    //         //     this.tab_1 = false
+    //         //     this.tab_3 = false
+    //         //     this.tab_4 = false
+    //         //     this.tab_5 = false
+    //         // },
+    //         // scale(){
+    //         //     this.tab_3 = !this.tab_3
+    //         //     this.tab_1 = false
+    //         //     this.tab_2 = false
+    //         //     this.tab_4 = false
+    //         //     this.tab_5 = false
+    //         // },
+    //         // money(){
+    //         //     this.tab_4 = !this.tab_4
+    //         //     this.tab_1 = false
+    //         //     this.tab_2 = false
+    //         //     this.tab_3 = false
+    //         //     this.tab_5 = false
+    //         // },
+    //         // distance(){
+    //         //     this.tab_5 = !this.tab_5
+    //         //     this.tab_1 = false
+    //         //     this.tab_2 = false
+    //         //     this.tab_3 = false
+    //         //     this.tab_4 = false
+    //         // },
+    //     },
+    // })
+
+    
 
 </script>
 </html>

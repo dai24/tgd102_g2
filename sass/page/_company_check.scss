@@ -1,4 +1,4 @@
-.companyWrapper{
+.companyCheckWrapper{
     max-width: 1280px;
     width: 100%;
     margin: 32px auto 0px;
@@ -82,10 +82,6 @@
             
             td{
                 padding: 0 20px;
-                i{
-                    margin-left: 20px;
-                    cursor: pointer;
-                }
             }
             .item{
                 padding: 20px 0;
@@ -97,7 +93,12 @@
             }
             .btna20{
                 font-size: $fontSize03;
+                margin-left: 32px;
             }
+            .detail{
+                text-align: right;
+            }
+            
         }
     }
     

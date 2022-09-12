@@ -1,4 +1,5 @@
 .contactUSInner{
+    // display: none;
     z-index: 7;
     position: fixed;
     background-color: $secondary01;
@@ -10,7 +11,11 @@
 }
 .card{
     z-index: 9;
-    position: relative;
+    position: fixed;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    // display: none;
 }
 .contact{
     text-align: center;

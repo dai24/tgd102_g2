@@ -1,0 +1,82 @@
+.companyEditWrapper{
+    max-width: 1280px;
+    width: 100%;
+    margin: 32px auto 0px;
+    .companyEditTitle{
+        font-size: $fontSize02;
+        margin-bottom: 16px;
+        h3{
+            font-weight: bold;
+        }
+        
+    }
+    table{
+        width: 100%;
+        border: 2px solid $focus01;
+        tbody{
+            .item{
+                line-height: 80px;
+                border-bottom: 2px solid $focus01;
+                .id{
+                    background-color: $primary02;
+                    color: $secondary02;
+                    font-size: $fontSize03;
+                    text-align: center;
+                    width: 12%;
+                    vertical-align: middle;
+                }
+                .detail{
+                    background-color: $secondary02;
+                    padding: 8px;
+                    vertical-align: middle;
+                    width: 800px;
+                    .area{
+                        border: 0;
+                        outline: none;
+                        font-size: $fontSize03;
+                        width: 100%;
+                        resize: none;
+                        vertical-align: middle;
+                        padding: 10px 20px;
+                        line-height: 1;
+                        margin-left: 16px;
+                        overflow-y: hidden;
+                        display: none;
+                    }
+                    .para{
+                        font-size: $fontSize03;
+                        margin-left: 16px;
+                        line-height: 1;
+                        padding: 10px 20px;
+                        vertical-align: middle;
+                    }
+                    .area.on{
+                        border-radius: 5px;
+                        outline: 1px solid $secondary01;
+                    }
+                    
+                    img{
+                        max-width: 200px;
+                        width: 100%;
+                    }
+                }
+                .editIcon{
+                    background-color: $secondary02;
+                    font-size: $fontSize03;
+                    vertical-align: middle;
+                    text-align: center;
+                    i{
+                        cursor: pointer;
+                    }
+                    .fa-plus{
+                        border: 2px solid black;
+                        border-radius: 50%;
+                        margin-right: 8px;
+                    }
+                    
+                }
+            }
+        }
+    }
+    
+}

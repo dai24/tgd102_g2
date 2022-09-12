@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    @@include('./layout/head.html',{
+        "title" : "企業會員-編輯公司資訊"
+    })
+<body>
+    @@include('./layout/header.html')
+    
+    <div class="companyEditWrapper">
+        <div class="companyEditTitle">
+            <h3>會員資訊</h3>
+        </div>
+        <table id="table">     
+            <tbody>
+                <tr class="item">
+                    <td class="id"><h3>公司名稱</h3></td>
+                    <td class="detail"><h3 class="para">小野水產</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+
+                <tr class="item">
+                    <td class="id"><h3>公司介紹</h3></td>
+                    <td class="detail"><h3 class="para">小野水產是來自基隆的在地漁夫，在崁仔頂漁市經營三十餘年 2021年推廣食育觀念，希望讓更多家庭能夠認識當季的魚貨 當日現撈的海產靠港立即用低溫冷凍宅配 幾個小時就出現在您的餐桌</h3><textarea type="text" class="area" ></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+
+                <tr class="item">
+                    <td class="id"><h3>公司規模</h3></td>
+                    <td class="detail"><h3 class="para">小規模</h3><textarea type="text"  class="area" ></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+
+                <tr class="item">
+                    <td class="id"><h3>服務項目</h3></td>
+                    <td class="detail"><h3 class="para">生鮮漁獲及加工品販售</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>職業種類</h3></td>
+                    <td class="detail"><h3 class="para">生鮮漁獲及加工品販售</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>部門種類</h3></td>
+                    <td class="detail"><h3 class="para">銷售部門</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr> 
+                <tr class="item">
+                    <td class="id"><h3>資本額</h3></td>
+                    <td class="detail"><h3 class="para">1000萬</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>               
+                <tr class="item">
+                    <td class="id"><h3>公司地址</h3></td>
+                    <td class="detail"><h3 class="para">基隆市仁愛區孝一路</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>聯絡信箱</h3></td>
+                    <td class="detail"><h3 class="para">kobayashi.seafood@gmail.com</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>負責人</h3></td>
+                    <td class="detail"><h3 class="para">王威宏</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>公司電話</h3></td>
+                    <td class="detail"><h3 class="para">(02)26789348 分機103</h3><textarea type="text" disabled="disabled" class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>負責人手機</h3></td>
+                    <td class="detail"><h3 class="para">0988273788</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>年費方案</h3></td>
+                    <td class="detail"><h3 class="para">A方案</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                </tr>
+                <tr class="item">
+                    <td class="id"><h3>公司照片</h3></td>
+                    <td class="detail">
+                        <div>
+                            <img src="./images/company/company1.jpg" alt="">
+                        </div>
+                    </td>
+                    <td class="editIcon"><i class="fa-solid fa-plus"></i></td>
+
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    @@include('./layout/footer.html')
+    <script>
+        let editIcon = document.getElementsByClassName('fa-solid fa-pen')
+
+        for(let i = 0; i < editIcon.length; i++){
+            editIcon[i].addEventListener('click', function(e){
+                let areaEdit = e.target.parentNode.parentNode.children[1].lastChild
+                let paraTextFirst = e.target.parentNode.parentNode.children[1].firstChild
+                console.log(paraTextFirst);
+                console.log(this);
+                let editIconThis = this
+                if(areaEdit.classList.contains('on')){
+                    console.log(this);
+                    areaEdit.classList.remove("on")
+                    editIconThis.style.color='black'
+                    areaEdit.style.display = 'none'
+                    paraTextFirst.style.display = 'block'
+                }else{
+                        editIconThis.style.color='#EAA565'
+                        areaEdit.classList.add("on")
+                        let codePath = document.getElementsByClassName('area');
+                        paraTextFirst.style.display = 'none'
+                        areaEdit.style.display = 'block'
+                        areaEdit.value = paraTextFirst.innerText
+                        for(let i = 0; i < codePath.length; i++){
+                            let para = document.getElementsByClassName('para');
+                            codePath[i].addEventListener('input', function(){
+                                this.style.height = 'auto';
+                                this.style.height = `${this.scrollHeight}px`;
+                            })
+                            codePath[i].addEventListener('blur', function(e){
+                                console.log('123');
+                                editIconThis.style.color='black'
+                                let paraText = e.target.parentNode.children[0]
+                                paraText.innerText = codePath[i].value
+                                codePath[i].style.display = 'none'
+                                paraTextFirst.style.display = 'block'
+                                codePath[i].classList.remove("on")
+                            })
+                            codePath[i].addEventListener('keyup', function(e){
+                                if(e.which == '13'){
+                                    console.log('123');
+                                    editIconThis.style.color='black'
+                                    let paraText = e.target.parentNode.children[0]
+                                    paraText.innerText = codePath[i].value
+                                    codePath[i].style.display = 'none'
+                                    paraTextFirst.style.display = 'block'
+                                    codePath[i].classList.remove("on")
+                                }
+                            })
+                            
+
+                        }
+                    }
+                    
+            })
+        }
+    </script>
+</body>
+</html>
