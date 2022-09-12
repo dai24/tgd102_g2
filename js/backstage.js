@@ -84,7 +84,7 @@ var myChart = new Chart(ctx1, {
       x: {
         display: true,
         title: {
-          display: true
+          display: true,
           text: '時間(hr)'
         }
       },
