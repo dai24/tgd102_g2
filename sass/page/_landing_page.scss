@@ -34,19 +34,19 @@
         h1{
             font-size: $fontSize02;
             text-align: center;
+            font-weight: bold;
             margin-top:$space05; 
-            margin-bottom: $space05;
+            margin-bottom: $space05;            
             @include m(){
+                font-size: $R-fontSize03;
                 margin-top:$R-space04;
                 margin-bottom:$R-space04;
             }
         }
 
-       
-
         .choose{
             display: flex;
-            margin-left: 3vw; //讓兩個按鈕置中
+            margin-left: 4vw; //讓兩個按鈕置中
 
             //"企業 學生"
             h2{
