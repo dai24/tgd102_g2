@@ -24,10 +24,10 @@
             margin-left: 85px;
             padding-top: 24px;
             form{
-                div{
+                >div{
                     display: flex;
                     align-items: center;
-                    margin-bottom: 32px;
+                    margin-bottom: 16px;
                     label{
                         color: $secondary02;
                         font-size: $fontSize03;
@@ -61,11 +61,14 @@
         .block{
             display: flex;
             align-items: center;
-            padding: 16px 50px;
+            padding: 16px 22px;
             justify-content: space-between;
             color: $secondary02;
             background-color: $focus01;
             border-radius: 5px 5px 0 0;
+            a{
+                color: $secondary02;
+            }
             h3{
                 font-size: $fontSize03;
             }

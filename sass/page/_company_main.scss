@@ -24,10 +24,10 @@
             margin-left: 85px;
             padding-top: 24px;
             form{
-                div{
+                >div{
                     display: flex;
                     align-items: center;
-                    margin-bottom: 32px;
+                    margin-bottom: 16px;
                     label{
                         color: $secondary02;
                         font-size: $fontSize03;
@@ -39,14 +39,13 @@
                         color: $secondary02;
                         font-size: $fontSize03;
                     }
-                }
-                
+                }                
             }
             
         }
         .companyHeaderBtn{
             align-self: center;
-            padding-left: 230px;
+            padding-left: 320px;
             .btna11{
                 margin: 30px 0;
                 height: auto;
@@ -61,7 +60,7 @@
         .block{
             display: flex;
             align-items: center;
-            padding: 16px 50px;
+            padding: 16px 22px;
             justify-content: space-between;
             color: $secondary02;
             background-color: $focus01;
@@ -109,12 +108,23 @@
                 .edit{
                     width: 12%;
                 }
-            }
+            }            
+
+                //按鈕 詳細資訊
+                .detail{
+                    width: 150px;
+                } 
+                //編輯 刪除icon
+                .edit{
+                    width: 140px;
+                }
+            
             .btna20{
-                font-size: 16px;
+                font-size: $fontSize03;
+                a{
+                    color: $secondary02;
+                }
             }
         }
-    }
-    
-    
+    }   
 }
