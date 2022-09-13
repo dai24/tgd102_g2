@@ -77,11 +77,17 @@
 }
 
 //橘色彈窗
-@mixin card ($w){
-    width:$w ;
+@mixin card (){
+    max-width: 800px;
     background-color: #F4F1EC;
-    margin: 100px auto 0;
+    /* margin: 100px auto 0; */
     border-radius: 5px;
+    z-index: 40;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 @mixin cardInner($w){

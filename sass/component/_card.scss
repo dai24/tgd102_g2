@@ -1,6 +1,6 @@
 //橘色彈窗1
 .card{
-    @include card(800px);
+    @include card();
     @include m(){
         max-width: 375px;
         width: 100%;
@@ -35,7 +35,7 @@
 
 //橘色彈窗2 (履歷健診)
 .card2{
-    @include card(800px);
+    @include card();
     @include m(){
        width: 350px;
     }
