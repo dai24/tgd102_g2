@@ -15,7 +15,7 @@
     <div class="logincard">
         <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
         <h1 class="cardH1">忘記密碼</h1>
-        <form method="post" action="#">
+        <div class="wrapper">
             <section class="input01">
                 <input type="text" placeholder="請輸入您的姓名*" class="inputText" name="name">
                 <h4 class="inputAlert">查無此帳號</h4>
@@ -29,14 +29,13 @@
                 <button class="resetpw"><h4><a href="#">重設密碼</a></h4></button>
             </section> 
             <section>
-                <input type="submit" class="btna17" value="送出" name="submit">
+                <input type="submit" class="btna17 submit" value="送出" name="submit">
             </section>
-
-            
-        </form>   
+        </div>   
     </div>
 </main> 
 @@include('./layout/footer.html')
 <script src="./js/header.js"></script>
+<script src="./js/student_forgotpw.js"></script>
 </body>
 </html>

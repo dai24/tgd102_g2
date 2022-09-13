@@ -28,7 +28,7 @@
         }
     }
     //input表單區
-    form{
+    .wrapper{
         margin-top:$space04;
         @include m(){
             margin-top:$R-space04;
@@ -39,12 +39,15 @@
     .resetpw{
         background-color:$secondary02;
         float: right;
+        @include m(){
+            margin-top: 16px;
+        }
         a{
             color:$focus01;
         }
         
     }
-    .btn17{        
+    .btna17{        
         margin-top:$space02;
         margin-bottom:$space05;
         @include m(){

@@ -51,6 +51,9 @@
                 margin: 30px 0;
                 height: auto;
                 font-size: $fontSize03;
+                a{
+                    color: $focus01;
+                }
             }
         }
     }
@@ -61,7 +64,7 @@
         .block{
             display: flex;
             align-items: center;
-            padding: 16px 70px;
+            padding: 16px 50px;
             justify-content: space-between;
             color: $secondary02;
             background-color: $focus01;
@@ -81,22 +84,40 @@
             border-bottom: 2px solid $focus01;
             
             td{
-                padding: 0 20px;
+                padding: 0 0px;
                 i{
                     margin-left: 20px;
                     cursor: pointer;
                 }
             }
             .item{
-                padding: 20px 0;
+                padding: 20px 0px;
                 border-bottom: 2px solid $focus01;
                 h3{
                     font-size: $fontSize03;
                     line-height: 80px;
                 }
+                .b{
+                    margin-left: 24px;
+                    a{ //"查看求職者"
+                        color: $secondary02;
+                    }
+                }
+                .id{
+                    padding: 0 50px;
+                }
+                .detail{
+                    width: 26%;
+                }
+                .fa-trash{
+                    margin-left: 32px;
+                }
+                .edit{
+                    width: 12%;
+                }
             }
             .btna20{
-                font-size: $fontSize03;
+                font-size: 16px;
             }
         }
     }

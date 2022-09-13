@@ -10,26 +10,33 @@
     <script src="https://kit.fontawesome.com/1ded507973.js" crossorigin="anonymous"></script>
 </head>
 <body>
+    <div class="maskWhole"></div>
 @@include('./layout/header.html')
 <main class="student_sign">
+    </div>
     <div class="logincard">
         <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
         <h1 class="cardH1 title">學生註冊</h1>
-        <form method="post" action="#">
+        <div class="wrapper">
             <section class="input01">
-                <input type="text" placeholder="姓名*" class="inputText" name="name">
+                <input type="text" placeholder="姓名*" class="inputText name" name="name">
             </section>
             <section class="input01">
-                <input type="text" placeholder="請輸入電子信箱*" class="inputText" name="email">
+                <input type="email" placeholder="請輸入電子信箱*" class="inputText email" name="email">
                 <h4 class="inputAlert">信箱格式錯誤</h4>
             </section>
             <section class="input01">
-                <input type="text" placeholder="請輸入由6~12個英文或數字組成的密碼*" class="inputText" name="passeord">
+                <input type="text" placeholder="請輸入由6~12個英文或數字組成的密碼*" class="inputText password" name="passeord">
                 <!-- <h4 class="inputAlert alert1">密碼格式錯誤</h4> -->
                 <h4 class="inputAlert alert2">請輸入由6~12個英文或數字組成的密碼</h4>
             </section>
+            <section class="input01">
+                <input type="password" placeholder="請再次輸入密碼*" class="inputText checkpw" name="passeord">
+                <!-- <h4 class="inputAlert alert1">密碼格式錯誤</h4> -->
+                <h4 class="inputAlert alert2">密碼不符</h4>
+            </section>
             <section class="input01 phone">
-                <input type="text" placeholder="請輸入手機號碼*" class="inputText" name="email">
+                <input type="text" placeholder="請輸入手機號碼*" class="inputText cellphone" name="phone">
                 <h4 class="inputAlert">手機號碼格式錯誤，請重新輸入</h4>
                 <button type="button" class="sendcode" name="code">寄送驗證信</button>                
             </section> 
@@ -41,14 +48,13 @@
                     </label>
             </section>
             <section>
-                <input type="submit" class="btna17" value="註冊" name="submit">
+                <input type="submit" class="btna17 submit" value="註冊" name="submit">
             </section>
-
-            
-        </form>   
+        </div>   
     </div>
 </main> 
 @@include('./layout/footer.html')
 <script src="./js/header.js"></script>
+<script src="./js/student_sign.js"></script>
 </body>
 </html>

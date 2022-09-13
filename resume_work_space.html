@@ -65,8 +65,11 @@
                     <div class="work_space_a4">
 
                         <div class="work_space_a4_1">
-                            <h3 title="姓名">緯小育</h3>
-                            <h4 title="職務">商業開發助理</h4>
+                           
+                                <div id="summernote2"><h3 title="姓名">緯小育</h3></div>
+                            
+                            
+                                <div id="summernote3"><h4 title="職務">商業開發助理</h4></div>
                             <h5>聯絡方式</h5>
                             <p class="p1">地址：<span class="span1">新北市板橋區</span></p>
                             <p class="p2">電話：<span class="span2">(886) 1234-5678</span></p>
@@ -75,7 +78,8 @@
                         </div>
 
                         <div title="上傳圖片" class="work_space_a4_2">
-                            <button><i class="fa-solid fa-file-circle-plus"></i></button>
+                            <!-- <button><i class="fa-solid fa-file-circle-plus"></i></button> -->
+                            <label><input id="upload_img" style="display:none;" type="file" accept="image/*"><i class="fa-solid fa-file-circle-plus"></i></label>
                         </div>
 
                         <div class="work_space_a4_3">
@@ -96,7 +100,8 @@
                             <div class="work_space_a4_3_2">
                                 <h4>自傳</h4>
                                 <p>在學時期曾參與校園活動策劃與組織團隊任務，協助完成企劃、活動與團隊溝通、合作；後期加入創新創業跨域學程，整合不同科系及背景的學生團隊，使用設計思考、以人為本為核心思考完成產品設計。
-                                    為了突破自我，願意學習及嘗試不同的挑戰，運用大學課餘時間自學  Adobe illustrator 、C# 、Notion等，並參與不同性質的活動、課程及競賽。</p>
+                                    為了突破自我，願意學習及嘗試不同的挑戰，運用大學課餘時間自學  Adobe illustrator 、C# 、Notion等，並參與不同性質的活動、課程及競賽。
+                                </p>
                             </div>
 
                             <div class="work_space_a4_3_3">
@@ -129,15 +134,13 @@
                             </div> -->
 
                         </div>
+                       
                     </div>
                 </div>
-
-                <template>
-                    <div>
-                      <button @click="setEditorContent">Set Editor Content</button>
-                      <vue-editor v-model="content" />
-                    </div>
-                  </template>
+                <div class="sumEdit">
+                    <div id="summernote1"></div>
+                </div>
+                
             </div>
         </div>
     </div>

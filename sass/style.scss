@@ -31,6 +31,7 @@
 @import 'page/careertest';
 @import 'page/resume';
 @import 'page/resume_work_space';
+@import 'page/editTool.scss';
 @import 'page/findJob';
 @import 'page/popup_window';
 // @import 'page/deleteform';
@@ -38,13 +39,14 @@
 @import 'page/addmodelform';
 // @import 'page/nomoneyform';
 // @import 'page/shareresumeform';
-@import 'page/pdfform';
+// @import 'page/pdfform';
 @import 'page/resumeform';
 
 @import 'page/student_login';
 @import 'page/student_sign';
 @import 'page/student_forgotPW';
 @import 'page/company_sign';
+@import 'page/company_login';
 @import 'page/student_addmoney';
 @import 'page/student_main';
 @import 'page/student_interviewinvite';
@@ -72,4 +74,4 @@
 @import 'page/company_main';
 @import 'page/backstage_addArticle';
 @import 'page/company_check';
-@import 'page/company_edit'
+@import 'page/company_edit';

@@ -7,31 +7,8 @@
     <div id="app">
     @@include('./layout/header.html')
 
-
-    <!-- contactUS -->
-    <!-- <div class="contactUSInner" v-if="isShow" @click="close" ></div>
-    <div class="card" v-if="isShow"  >
-        <ul class="cardUl" >
-            <li>
-                <h1 class="cardH1">聯絡我們</h1>
-            </li>
-            <li>
-                <i class="fa-solid fa-xmark cardXmark" @click="close"></i>
-            </li>
-        </ul>
-        <div class="cardInner contact">
-            <h2>謝謝您的主動聯絡，請留下要諮詢的問題，我們會用以下資訊進行回覆。</h2>
-            <form action="">
-            <div class="contactUSG">
-                <input type="text" name="" value="" placeholder="請輸入電子郵件">
-            </div>
-            <div class="contactUSM">
-                <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !!" ></textarea>
-            </div>
-            <div class="btna3" @click="close">送出</div>
-            </form>
-        </div>
-    </div> -->
+    @@include('./layout/contactUs.html')    
+    
 
 
     <div class="findJobWrapper">
@@ -59,16 +36,16 @@
                     </div>
                 </div>
                 <ul class="findJobType">
-                    <li class="findJobTypeTitle dd_btn"  data-name="dd_1"><div class="btna16" >地點<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea  dd dd_1" >
-                            <li><input type="checkbox" ><label for="">北部</label></li></li>
-                            <li><input type="checkbox" ><label for="">中部</label></li></li>
+                    <li class="findJobTypeTitle "><div class="btna16 dd_btn" data-name="dd_1">地點<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea  dd dd_1" data-name="dd_1">
+                            <li><input type="checkbox" data-id="1"><label for="">北部</label></li></li>
+                            <li><input type="checkbox" data-id="2"><label for="">中部</label></li></li>
                             <li><input type="checkbox" ><label for="">東部</label></li></li>
                             <li><input type="checkbox" ><label for="">南部</label></li></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle dd_btn" data-name="dd_2"><div class="btna16">職務類別<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeSort dd dd_2" >
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_2">職務類別<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeSort dd dd_2" data-name="dd_2">
                             <li><div class="findJobTypeSortTitle">軟體<i class="fa-solid fa-chevron-right"></i></div>
                                 <ul>
                                     <li><input type="checkbox"><label for="">前端開發人員</label></li>
@@ -89,23 +66,23 @@
                             </li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle dd_btn" data-name="dd_3"><div class="btna16" >公司規模<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea dd dd_3">
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_3">公司規模<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea dd dd_3" data-name="dd_3">
                             <li><input type="checkbox"><label for="">大</label></li>
                             <li><input type="checkbox"><label for="">中</label></li>
                             <li><input type="checkbox"><label for="">小</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle dd_btn" data-name="dd_4"><div class="btna16" >薪資<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea dd dd_4" >
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_4">薪資<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea dd dd_4" data-name="dd_4" >
                             <li><input type="checkbox"><label for="">168 / h</label></li>
                             <li><input type="checkbox"><label for="">200 / h</label></li>
                             <li><input type="checkbox"><label for="">250 / h</label></li>
                             <li><input type="checkbox"><label for="">300 / h</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle dd_btn" data-name="dd_5"><div class="btna16" >遠端工作<i class="fa-solid fa-chevron-down"></i></div>
-                        <ul class="findJobTypeArea dd dd_5" >
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn"  data-name="dd_5">遠端工作<i class="fa-solid fa-chevron-down"></i></div>
+                        <ul class="findJobTypeArea dd dd_5" data-name="dd_5">
                             <li><input type="checkbox" name="remote"><label for="">是</label></li>
                             <li><input type="checkbox" name="remote"><label for="">否</label></li>
                         </ul>
@@ -146,7 +123,7 @@
                 
                 <div class="findJobVacanciesBtn">
                     <div class="btna5">儲存職缺</div>
-                    <div class="btna6">立即應徵</div>
+                    <div class="btna6 jobMain">立即應徵</div>
                 </div>
             </div>
         </div>
@@ -177,7 +154,7 @@
                 
                 <div class="findJobVacanciesBtn">
                     <div class="btna5">儲存職缺</div>
-                    <div class="btna6">立即應徵</div>
+                    <div class="btna6 jobMain">立即應徵</div>
                 </div>
             </div>
         </div>
@@ -210,45 +187,38 @@
                 
                 <div class="findJobVacanciesBtn">
                     <div class="btna5">儲存職缺</div>
-                    <div class="btna6">立即應徵</div>
+                    <div class="btna6 jobMain">立即應徵</div>
                 </div>
             </div>
         </div>
         @@include('./layout/pagination.html') 
     </div>
-    
     @@include('./layout/footer.html')
     </div>
 </body>
 <script>
-// const findJobTypeTitle = document.getElementsByClassName('findJobTypeTitle');
-
-// for(let i = 0;  i < findJobTypeTitle.length ; i++){
-//     findJobTypeTitle[i].firstChild.addEventListener('click',function(e){
-//         console.log(this.parentNode);
-//         if(!this.parentNode){
-            
-//         }
-//         if(findJobTypeTitle[i].children[1].style.display === 'none'|| findJobTypeTitle[i].children[1].classList.contains('on')){
-//             findJobTypeTitle[i].children[1].style.display = 'block'
-//             findJobTypeTitle[i].children[1].classList.remove('on')
-//         }else if(findJobTypeTitle[i].children[1].style.display === 'block'){
-//             findJobTypeTitle[i].children[1].style.display = 'none'
-//             findJobTypeTitle[i].children[1].classList.add('on')
-//         }
-//     })
-// }
 let navigate = (function() {
-	$('.dd').slideToggle();
+	$('.dd').hide();
 	$('.dd_btn').click(function() {
+
+        // alert('sss')
 		let dataName = $(this).attr('data-name');
-		$('.dd').hide();
+        console.log(dataName);
 		$('.' + dataName).slideToggle();
+		$(`.dd:not(.${dataName})`).hide();
+
 	});
 })();
+
+const jobMain = document.getElementsByClassName('jobMain')
+for(let i = 0; i < jobMain.length; i++){
+    jobMain[i].addEventListener('click', function(){
+        location = './jobMain.html';
+    })
+}
+
 const check = document.querySelectorAll('input[type="checkbox"]')
-    console.log(check);
-    const findJobFind = document.getElementById('findJobFind')
+const findJobFind = document.getElementById('findJobFind')
 
     for(let i = 0; i < check.length; i++){
         check[i].addEventListener('click',function(e){
@@ -257,12 +227,17 @@ const check = document.querySelectorAll('input[type="checkbox"]')
             let li_html = `<div class="findJobFindSort"><p>${sortList}</p><i class="fa-solid fa-xmark cancel"></i></div>`;
             if(check[i].checked == true){
                 findJobFind.insertAdjacentHTML("beforeend", li_html)
+                // console.log(i);
+                // console.log(findJobFind.children);
             }else if(check[i].checked == false){
-                
+                for(let j = 0; j < findJobFind.children.length; j++){
+                    findJobFind.children[j].remove('findJobFindSort')
+                }
             }
             const cancel = document.getElementsByClassName('cancel')
             for(let a = 0 ; a < cancel.length; a++){
                 cancel[a].addEventListener('click',function(e){
+                    console.log(e.target.parentElement);
                     e.target.parentElement.remove('findJobFindSort')
                     console.log(e.target.parentElement);
                     check[i].checked = false
@@ -326,8 +301,5 @@ const check = document.querySelectorAll('input[type="checkbox"]')
     //         // },
     //     },
     // })
-
-    
-
 </script>
 </html>
