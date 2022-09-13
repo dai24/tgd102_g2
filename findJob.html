@@ -38,8 +38,8 @@
                 <ul class="findJobType">
                     <li class="findJobTypeTitle dd_btn"  data-name="dd_1"><div class="btna16" >地點<i class="fa-solid fa-chevron-down"></i></div>
                         <ul class="findJobTypeArea  dd dd_1" >
-                            <li><input type="checkbox" ><label for="">北部</label></li></li>
-                            <li><input type="checkbox" ><label for="">中部</label></li></li>
+                            <li><input type="checkbox" data-id="1"><label for="">北部</label></li></li>
+                            <li><input type="checkbox" data-id="2"><label for="">中部</label></li></li>
                             <li><input type="checkbox" ><label for="">東部</label></li></li>
                             <li><input type="checkbox" ><label for="">南部</label></li></li>
                         </ul>
@@ -218,7 +218,7 @@
 
 
 let navigate = (function() {
-	$('.dd').slideToggle();
+	$('.dd').hide();
 	$('.dd_btn').click(function() {
 		let dataName = $(this).attr('data-name');
 		// $('.dd').hide();
@@ -235,8 +235,8 @@ for(let i = 0; i < jobMain.length; i++){
 }
 
 const check = document.querySelectorAll('input[type="checkbox"]')
-    console.log(check);
-    const findJobFind = document.getElementById('findJobFind')
+console.log(check);
+const findJobFind = document.getElementById('findJobFind')
 
     for(let i = 0; i < check.length; i++){
         check[i].addEventListener('click',function(e){
@@ -245,12 +245,18 @@ const check = document.querySelectorAll('input[type="checkbox"]')
             let li_html = `<div class="findJobFindSort"><p>${sortList}</p><i class="fa-solid fa-xmark cancel"></i></div>`;
             if(check[i].checked == true){
                 findJobFind.insertAdjacentHTML("beforeend", li_html)
+                console.log(findJobFind.children[i]);
             }else if(check[i].checked == false){
-                
+                // console.log(findJobFind.children[i+1]);
+                // findJobFind.remove('findJobFindSort')
+
+                findJobFind.childNodes[i+1].remove('findJobFindSort')
+                // console.log(findJobFind.childNodes[i]);
             }
             const cancel = document.getElementsByClassName('cancel')
             for(let a = 0 ; a < cancel.length; a++){
                 cancel[a].addEventListener('click',function(e){
+                    console.log(e.target.parentElement);
                     e.target.parentElement.remove('findJobFindSort')
                     console.log(e.target.parentElement);
                     check[i].checked = false
