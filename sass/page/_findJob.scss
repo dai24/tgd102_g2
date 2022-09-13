@@ -64,6 +64,7 @@
                 }
                 .findJobClassMain{
                     display: flex;
+                    flex-wrap: wrap;
                     @include m(){
                         margin-bottom: 8px;
                     }
@@ -244,6 +245,7 @@
         border-radius: 5px;
         padding: 54px 65px;
         margin-bottom: 16px;
+        color: $secondary01;
         @include m(){
             flex-direction: column;
             padding: 24px 8px;

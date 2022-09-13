@@ -1,6 +1,6 @@
 .contactUSInner{
-    // display: none;
-    z-index: 7;
+    display: none;
+    z-index: 120;
     position: fixed;
     background-color: $secondary01;
     opacity: 0.8;
@@ -10,12 +10,12 @@
     height: 100%;
 }
 .card{
-    z-index: 9;
+    z-index: 123;
     position: fixed;
     top: 40%;
     left: 50%;
     transform: translate(-50%, -50%);
-    // display: none;
+    display: none;
 }
 .contact{
     text-align: center;

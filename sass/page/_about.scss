@@ -5,6 +5,16 @@
     width: 100%;
     margin: 64px auto;
     border-radius: 5px;
+    @include m(){
+        max-width: 375px;
+        margin: 16px auto 0px;
+    }
+    h2{
+        color: $secondary01;
+    }
+    h3{
+        color: $secondary01;
+    }
     
     .title{
         font-size: $fontSize01;
@@ -13,6 +23,10 @@
         background-color: $primary02;
         border-radius: 5px 5px 0 0;
         padding: 25px 0;
+        @include m(){
+            padding: 16px 0;
+            font-size: $fontSize02;
+        }
     }
     .main{
         font-size: $fontSize03;
@@ -20,6 +34,9 @@
         color: $secondary01;
         padding: $space08;
         border-radius: 0 0 5px 5px;
+        @include m(){
+            padding: 16px
+        }
         div{
             margin-bottom: 50px;
             letter-spacing: 2px;
