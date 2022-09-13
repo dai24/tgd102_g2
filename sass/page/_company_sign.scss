@@ -2,6 +2,7 @@
     padding-top: $space08; //main到header
     padding-bottom: $space08; //main到footer
     $inputwidth:544px; //統一input最大寬度
+    $inputwidthR:250px;  //統一input最大寬度(手機板)
     $inputml:10px;
     @include m(){
         padding-top: $R-space08; //main到header
@@ -23,7 +24,7 @@
             font-size: $R-fontSize05;
         }
     }
-    .figure{
+    .figure{ //圖片
         width: 168px;
         height: 168px;
         margin-bottom:$space04;
@@ -35,13 +36,15 @@
     }
     //主標題
     .title{        
+        font-weight: bold;
         @include m(){
             margin-top:$R-space04;
             margin-bottom:$R-space04;
         }
     }    
     //input表單區
-    form{
+    .wrapper{
+        width: 656px;
         margin-top:$space04;
         section{
             &:nth-child(4){ //輸入手機號碼
@@ -49,40 +52,47 @@
         }
         }
         @include m(){
-            margin-top:$R-space04;
+            // margin-top:$R-space04;
+            margin-top: 0px;
             @include disflex(column, center, none);
         }
         
-    }   
-    .inputText{
-        margin-bottom: 24px;
-    } 
+    }      
+    
     //每列表單的容器
     .inputwra{
         @include disflex(row, none, space-between);
         width: 656px;
         @include m(){
             flex-direction: column;
-            width: 250px;
+            width: 260px; //表單的最大寬度
         };
         &:first-child{ //公司名稱
             @include m(){
-                flex-direction: column;
-                
+                flex-direction: column;                
             }
             ul{
                 display: flex;
                 @include m(){
                     flex-wrap: wrap;
-                    max-width: 250px;
+                    width: 255px;
                 };
             }
-        }        
+        }  
+        .inputText{
+            @include m(){
+                font-size: 12px; //手機板input內的字體大小
+            };
+        }
     }
     //欄位標題
     .ctitle{
         height:$space06;
         line-height:$space05;
+        @include m() {
+            height: 40px;
+            margin-top: 8px;
+        }
     }    
     //按鈕：公司列表
     .clist{
@@ -96,9 +106,9 @@
             background-color:$primary02H;
         }
         @include m(){
-            height: 40px;
-           width: 40%;
-           margin-left: 0;
+            height: 36px;
+            width: 40%;
+            margin-left: 0;
         }
     }
     
@@ -131,11 +141,13 @@
             }
             @include m(){
                 width: 250px;
-                /* justify-content: end; */
                 display: flex;
                 flex-direction: row;
                 flex-wrap: wrap;
                 justify-content: flex-start;
+                .propertyTitle{ //"資本額"
+                    width:$inputwidthR;
+                }
                 
             }
         }
@@ -146,9 +158,9 @@
     .wrapper2{
         display: flex;
         flex-wrap: wrap;
-        max-width: 555px;
+        max-width: 545px;
         @include m(){
-            width: 250px;
+            width: 255px;
             flex-direction: column; 
         }
     }   
@@ -160,9 +172,13 @@
             width: 250px;
             flex-direction: row;
             flex-wrap: wrap;
-
         }
         .inputwra{
+            .cK1{ //"公司電話"
+                @include m(){
+                    width:$inputwidthR;
+                }                
+            }
             &:first-child{
                 width:65%;
                 justify-content: start;
@@ -171,25 +187,26 @@
                     width: 250px;
                     flex-direction: row;
                     flex-wrap: wrap;
-
+                    margin-left: -5px;
                 }
             }
             &:last-child{ //手機表單
                 width:40%;
                 justify-content: flex-end;
+                margin-left: -5px;
             }
             .ext{ //分機
                 margin-left:15px;
                 @include m(){
                     margin-left:0;
-        
+                    margin-top: 0;
                 }
             }
         }        
     }
     //容器：年費
     .wrapper4{
-        margin-left:16px;
+        margin-left:32px;
         @include m(){
             margin-left:0;
 
@@ -197,6 +214,7 @@
         @include disflex(column, none, start);
         li{
             display: flex;
+            margin-bottom: 8px;
         }
         input{
             width: 20px; //checkbox大小
@@ -204,8 +222,8 @@
             margin-bottom: 8px;
         }
         h4{
-            margin-left:4px;
-            line-height:25px;
+            margin-left:8px;
+            line-height:22px;
         }
     }
 
@@ -213,10 +231,11 @@
 
     //表單：公司名稱
     .inputA{
-        width:248px;
+        width:264px;
         @include m(){
-            width: 245px;
-           
+            width:$inputwidthR;
+            margin-top: 0;
+            margin-bottom:8px;
          }
     }
     //表單：公司統一編號
@@ -224,8 +243,9 @@
         width: 152px;
         margin-left: 8px;
         @include m(){
-            width: 130px;
-            margin-left: 12px;
+            width: 136px;
+            margin-left: 13px;
+            margin-bottom: 0px;
          }
     }
     //表單：公司介紹
@@ -235,18 +255,26 @@
         padding-top:11px;
         resize: none;
         @include m(){
-            width: 240px;
-           
+            width:$inputwidthR;
+            margin-bottom: 0;
          }
     }
     //表單：公司負責人
     .inputD{
         width:192px;
-        margin-left: 5px;
+        margin-left: 15px;
+        @include m(){
+            width:$inputwidthR;
+            margin-left: -4px;
+            margin-bottom: 8px;
+        }
     }
     //表單：資本額
     .inputE{
         width:104px;
+        @include m(){
+            margin-bottom: 0;
+        }
     }
     //表單：縣市區
     .inputF{
@@ -263,14 +291,16 @@
         margin-left:4px;
         margin-bottom:8px;
         @include m(){
-            width: 115px;
+            width: 126px;
+            margin-bottom: 8px;
         }
     }
     //表單：地址
     .inputH{
         width:$inputwidth;
         @include m(){
-                width: 250px;
+                width:$inputwidthR;
+                margin-bottom: 0;
         }
     }
     //表單：服務項目
@@ -280,29 +310,31 @@
         padding-top:11px;
         resize: none;
         @include m(){
-            width: 250px;
+            width:$inputwidthR;
+            margin-bottom: 0;
         }
     }
     //表單：公司聯絡人
     .inputJ{
         width:192px;
-        margin-left:5px;
+        margin-left:15px;
         @include m(){
-            width: 245px;
+            width:$inputwidthR;
             margin-left:0;
-
+            margin-bottom: 0;
         }
     }
     //表單：區碼
     .inputK1{
-        width: 24px;
-        margin-left: 20px;
+        width: 42px;
+        margin-left: 32px;
         margin-right: 4px;
+        text-align: center;
+        letter-spacing: 2px;
         @include m(){
             width: 40px;
             margin-left: 0;
-
-
+            margin-bottom: 8px;
         }
        
     }
@@ -311,21 +343,33 @@
         width: 100px;
         margin-left: 4px;
         @include m(){
-            width: 100px;
-
+            width: 196px;
+            margin-bottom: 8px;
         }
     }
     //表單：分機
     .inputK3{
         width:70px;
+        @include m(){
+            margin-bottom: 0px;
+        }
     }
     //表單：手機
     .inputK4{
         width: 125px;
         @include m(){
-            margin-left:0;
-            width: 250px;
-
+            width:$inputwidthR;
+            margin-left:0;            
+            margin-bottom: 0;
+        }
+    }
+    //表單：聯絡信箱
+    .inputL{
+        width:$inputwidth;
+        @include m(){
+            width: $inputwidthR;
+            // width: 250px;
+            margin-bottom: 8px;
         }
     }
     //section：年費
@@ -335,14 +379,7 @@
             line-height:28px;
         }
     }
-    //聯絡信箱
-    .inputL{
-        width:$inputwidth;
-        @include m(){
-            width: 250px;
-
-        }
-    }
+    
     //------------------------------
 
     //驗證碼

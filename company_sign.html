@@ -1,15 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>企業註冊</title>
-    <link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="">
-    <script src="https://kit.fontawesome.com/1ded507973.js" crossorigin="anonymous"></script>
+    @@include('./layout/head.html',{
+        "title" : "企業註冊"
+        })
     <!-- 縣市區套件 -->
-    <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.15-rc1/jquery.twzipcode.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/jquery-twzipcode@1.7.15-rc1/jquery.twzipcode.min.js"></script> -->
 </head>
 <body>
 @@include('./layout/header.html')
@@ -17,7 +13,7 @@
     <div class="logincard">
         <img src="./images/student-login/student.jpg" alt="學生圖案" class="figure">
         <h1 class="cardH1 title">企業註冊</h1>
-        <form method="post" action="#">
+        <div class="wrapper">
 
             <section class="inputwra">
                 <h4 class="ctitle">公司名稱：</h4>
@@ -48,11 +44,11 @@
                 </section>
     
                 <section class="inputwra property">
-                    <h4 class="ctitle">資本額：</h4> 
+                    <h4 class="ctitle propertyTitle">資本額：</h4> 
                     <div class="input01">
                         <input type="text" class="inputText inputE" name="property" maxlength="12"> 
                     </div>            
-                    <h4 class="ctitle">萬</h4>        
+                    <h4 class="ctitle ">萬</h4>        
                 </section>
             </div>
 
@@ -92,9 +88,9 @@
 
             <div class="wrapper3">
                 <section class="inputwra contacter">
-                    <h4 class="ctitle">公司電話：</h4>
+                    <h4 class="ctitle cK1">公司電話：</h4>
                     <div class="input01">
-                        <input type="text" class="inputText inputK1" name="phone[]" maxlength="2">
+                        <input type="text"   class="inputText inputK1" name="phone[]" maxlength="2">
                     </div>
                     <h4 class="ctitle">-</h4>
                     <div class="input01">
@@ -109,7 +105,7 @@
                 <section class="inputwra">
                     <h4 class="ctitle">負責人手機：</h4>
                     <div class="input01">
-                        <input type="text"  class="inputText inputK4" name="principle_tel" maxlength="10">
+                        <input type="text"  placeholder="請輸入電話" class="inputText inputK4" name="principle_tel" maxlength="10">
                     </div>                
                 </section>
             </div>
@@ -142,11 +138,11 @@
             </section>
 
             <section class="submitsec">
-                <input type="submit" class="btna17" value="註冊" name="phone">
+                <input type="submit" class="btna17 submit" value="註冊" name="phone">
             </section>
 
             
-        </form>   
+        </div>   
     </div>
 </main> 
 @@include('./layout/footer.html')

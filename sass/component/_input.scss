@@ -1,7 +1,7 @@
 .input01{
     @include input01();
     .inputText{ //表單欄位
-        @include inputText(448px);
+        @include inputText(456px);
     }
     @include m(){
         .inputText{
