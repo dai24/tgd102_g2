@@ -24,10 +24,10 @@
             margin-left: 85px;
             padding-top: 24px;
             form{
-                >div{
+                div{
                     display: flex;
                     align-items: center;
-                    margin-bottom: 16px;
+                    margin-bottom: 32px;
                     label{
                         color: $secondary02;
                         font-size: $fontSize03;
@@ -39,17 +39,21 @@
                         color: $secondary02;
                         font-size: $fontSize03;
                     }
-                }                
+                }
+                
             }
             
         }
         .companyHeaderBtn{
             align-self: center;
-            padding-left: 320px;
+            padding-left: 230px;
             .btna11{
                 margin: 30px 0;
                 height: auto;
                 font-size: $fontSize03;
+                a{
+                    color: $focus01;
+                }
             }
         }
     }
@@ -60,7 +64,7 @@
         .block{
             display: flex;
             align-items: center;
-            padding: 16px 22px;
+            padding: 16px 50px;
             justify-content: space-between;
             color: $secondary02;
             background-color: $focus01;
@@ -95,6 +99,9 @@
                 }
                 .b{
                     margin-left: 24px;
+                    a{ //"查看求職者"
+                        color: $secondary02;
+                    }
                 }
                 .id{
                     padding: 0 50px;
@@ -108,23 +115,12 @@
                 .edit{
                     width: 12%;
                 }
-            }            
-
-                //按鈕 詳細資訊
-                .detail{
-                    width: 150px;
-                } 
-                //編輯 刪除icon
-                .edit{
-                    width: 140px;
-                }
-            
+            }
             .btna20{
-                font-size: $fontSize03;
-                a{
-                    color: $secondary02;
-                }
+                font-size: 16px;
             }
         }
-    }   
+    }
+    
+    
 }

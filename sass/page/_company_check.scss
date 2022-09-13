@@ -51,6 +51,9 @@
                 margin: 30px 0;
                 height: auto;
                 font-size: $fontSize03;
+                a{
+                    color: $focus01;
+                }
             }
         }
     }
@@ -61,7 +64,7 @@
         .block{
             display: flex;
             align-items: center;
-            padding: 16px 22px;
+            padding: 16px 52px;
             justify-content: space-between;
             color: $secondary02;
             background-color: $focus01;
@@ -97,6 +100,9 @@
             .btna20{
                 font-size: 16px;
                 margin-left: 32px;
+                a{ //按鈕的a連結顏色
+                    color: $secondary02;
+                }
             }
             .detail{
                 text-align: right;
