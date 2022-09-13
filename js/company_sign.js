@@ -1,10 +1,10 @@
 //選擇縣市區套件
-$("#zipcode").twzipcode({
-    "zipcodeIntoDistrict": true,
-    "css": ["city form-control", "town form-control"],
-    "countyName": "city", // 指定城市 select name
-    "districtName": "town" // 指定地區 select name
-    });
+// $("#zipcode").twzipcode({
+//     "zipcodeIntoDistrict": true,
+//     "css": ["city form-control", "town form-control"],
+//     "countyName": "city", // 指定城市 select name
+//     "districtName": "town" // 指定地區 select name
+//     });
 
 /*
     {
@@ -78,3 +78,10 @@ $("#zipcode").twzipcode({
         'database'  : {}
     }
 */
+
+//按下"送出"按鈕，跳轉頁面
+let submit = document.querySelector(".submit");
+
+submit.addEventListener("click", () => {
+    location = "../company_login.html";
+})
