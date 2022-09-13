@@ -32,10 +32,114 @@
             margin-bottom: 72px;
     
         }
+        line-height: 1.5;
+    }
 
+    .btna14{
+      
+        line-height: 1.5;
     }
 
 }
+
+//職涯測驗問題
+.testboxQA{
+    @include testbox();
+    // max-height: 740px;
+    margin: 80px auto;
+    width: 800px;
+    height: 740px;
+
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: 80vh;
+
+    }
+}
+
+
+.testQA{
+    margin-top: 56px;
+    text-align: center;
+
+    .testqusetion{
+        // margin-bottom: 96px;
+        margin: 0 auto 96px;
+        
+
+        @include m(){
+            margin-bottom: 64px;
+    
+        }
+
+    }
+
+    .tQA1{
+        width: 14ch;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 1s steps(15),caret 1s steps(1) infinite;
+    }
+
+    .tQA2{
+        width: 24ch;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
+    }
+
+    .tQA3{
+        width: 24ch;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
+    }
+
+    .tQA4{
+        width: 18ch;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
+    }
+
+
+}
+
+//職涯測驗答案
+.textboxResult{
+    @include testbox();
+    max-width: 1504px;
+    padding: 32px 40px;
+    height: 960px;
+    box-sizing: border-box;
+
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: auto;
+        padding: 32px 0;
+
+    }
+
+
+    
+}
+
 
 .question1{
     // display: none;
@@ -60,9 +164,17 @@
 
 .testfinish{
     margin-top: 56px;
+    text-align: center;
 
     h1{
         margin-bottom: 72px;
+        width: 10ch;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 0.9s steps(15),caret 1s steps(1) infinite;
     }
     input{
         font-size: 24px;
@@ -71,6 +183,7 @@
         padding: 8px 0;
         display: block;
         margin: 32px auto 104px;
+        line-height: 1.5;
 
         @include m(){
            
@@ -202,4 +315,12 @@
         }
     }
 
+}
+
+@keyframes typing {
+    from { width: 0; }
+}
+
+@keyframes caret {
+    50% { border-color: transparent; }
 }

@@ -22,6 +22,19 @@
     }
 }
 
+// 職涯測驗白底黑框
+.testbox{
+    @include testbox();
+    width: 800px;
+    height: 920px;
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: 80vh;
+
+    }
+}
 
 
 .testbox img{
@@ -63,7 +76,7 @@
 .testbox .careertestSubmit{
     display: block;
     margin-top: 64px;
-
+    line-height: 1.5;
     @include m(){
         margin-top: 48px;
     }

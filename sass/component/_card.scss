@@ -39,6 +39,7 @@
     @include m(){
        width: 350px;
     }
+    display: none;
     .card2Ul{ 
         @include cardUl();
         @include m(){
@@ -95,150 +96,7 @@
     
 }
 
-// 職涯測驗白底黑框
-.testbox{
-    @include testbox();
-    width: 800px;
-    height: 920px;
-    @include m(){
-        margin: 0px auto 0;
-    
-        width: 325px;
-        height: 80vh;
-
-    }
-}
-
-//職涯測驗問題
-.testboxQA{
-    @include testbox();
-    // max-height: 740px;
-    margin: 80px auto;
-    width: 800px;
-    height: 740px;
-
-    @include m(){
-        margin: 0px auto 0;
-    
-        width: 325px;
-        height: 80vh;
-
-    }
-}
 
 
-.testQA{
-    margin-top: 56px;
-
-    .testqusetion{
-        margin-bottom: 96px;
-
-        @include m(){
-            margin-bottom: 64px;
-    
-        }
-
-    }
-}
-
-//職涯測驗答案
-.textboxResult{
-    @include testbox();
-    max-width: 1504px;
-    padding: 32px 40px;
-    height: 960px;
-    box-sizing: border-box;
-
-    @include m(){
-        margin: 0px auto 0;
-    
-        width: 325px;
-        height: auto;
-        padding: 32px 0;
-
-    }
 
 
-    
-}
-
-
-// 履歷診療室 搜尋欄
-.searchbar{
-    background-color: $primary02;
-    border-radius: 5px;
-    @include m(){
-        background-color: transparent;
-        border-radius: 0px;
-    } 
-}
-
-//履歷診療室 顧問老師
-.consultant{
-
-    margin-top: 64px;
-
-    @include m(){
-        margin-top: 24px;
-    } 
-
-    a{
-        transition: all 1s 0 ease;
-        overflow: hidden;
-        display: block;
-        border-radius: 5px 5px 0 0;
-    }
-
-    img{
-        width: 272px;
-        display: block;
-        border-radius: 5px 5px 0 0;
-
-        @include m(){
-            width: 165px;
-        } 
-    }
-
-    .consultantSource{
-        background: $secondary01;
-        color: $secondary02;
-        width: 272px;
-        margin-bottom: 16px;
-        border-radius: 0 0 5px 5px;
-        padding-bottom: 16px;
-
-        @include m(){
-            width: 165px;
-            margin-bottom: 12px;
-        } 
-        
-
-        h3{
-            font-size: $fontSize03;
-            margin-left: 16px;
-            margin-bottom: 8px;
-            padding-top: 16px;
-        }
-    
-        h4{
-            font-size: $fontSize05;
-            margin-left: 16px;
-            margin-bottom: 8px;
-        }
-        
-    }
-    
-   
-   
-    
-
-    // hover
-
-    img:hover{
-        transform: scale(1.1);
-        
-        
-    }
-    
-    
-}
