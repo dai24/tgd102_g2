@@ -17,7 +17,7 @@
         })
         <div class="jobMainWrapperTitle">
             <h2>醫療客服專案管理師(諮商師)</h2>
-            <div>
+            <div class="moveToCom">
                 <img src="./images/findJob/comLogo.jpg" alt=""><p>Dr. Right 精準關懷</p>
             </div>
         </div>
@@ -91,15 +91,15 @@
         </div>
         <div class="jobMainWrapperCom">
             <div class="jobMainWrapperComTitle">
-                <div><a href=""><img src="./images/findJob/comLogo.jpg" alt=""></a></div>
+                <div><a><img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom"></a></div>
                 <div class="jobMainWrapperComIconT">
-                        <a href=""><h2>Dr. Right 精準關懷</h2></a>
+                        <a><h2 class="moveToCom">Dr. Right 精準關懷</h2></a>
                     <div class="jobMainWrapperComIconTM">
                         <div class="jobMainWrapperComIcon">
-                            <a href="" title="總人數"><i class="fa-solid fa-users"></i><p>50</p></a>
+                            <a title="總人數"><i class="fa-solid fa-users"></i><p>50</p></a>
                         </div>
                         <div class="jobMainWrapperComIcon">
-                            <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>100台北市中正區濟南路一段321號</p></a>
+                            <a title="地點"><i class="fa-solid fa-location-dot"></i><p>100台北市中正區濟南路一段321號</p></a>
                         </div>
                     </div>
                 </div>
@@ -112,7 +112,7 @@
                     
                     在網路社群越來越開放的環境底下，醫病關係反而是逐漸惡化的。醫師與患者間，經常是因為就診溝通時的誤解或是不順暢，患者們就直接上網發出公開的負面評論。醫師們也因此感到挫折甚至憤怒，最後轉為雙方對簿公堂。因而往往患者的疑問沒得到解答，醫師也陷入情緒中無法專心看診，社群平台上盡是充斥著醫病關係的仇恨言論。
                     
-                    Dr. Right 為醫病間搭起了一個新橋樑，患者離診後有任何疑問或是不愉快，都可以透過專屬的手機應用程式直接反映給院所端。溫馨的醫療客服團隊會立即在黃金 48 小時內，協助院所透過電話關心病患的現況、照顧不安的情緒、協助釐清問題確切點後，馬上反映至院內做後續處理。不但即時解決醫病雙方資訊不對稱的問題，醫療單位也因此有依據來改善醫療品質。
+                    Dr. Right 為醫病間搭起了一個新橋樑，可以透過專屬的手機應用程式直接反映給院所端。溫馨的醫療客服團隊會立即在黃金 48 小時內，協助院所透過電話關心病患的現況、照顧不安的情緒、協助釐清問題確切點後，馬上反映至院內做後續處理。不但即時解決醫病雙方資訊不對稱的問題，醫療單位也因此有依據來改善醫療品質。
                     
                     我們希望透過這個服務，讓整個社會產生更多的好醫師與好病患。醫病關係能不再緊張，民眾也能夠接受到更好的醫療品質照護 !
                 </p>
@@ -142,7 +142,7 @@
                         </div>
                     </div>
                     <div class="jobMainWrapperOthBtn">
-                        <div class="btna5">儲存職缺</div>
+                        <div class="btna5 saveApplyOpen">儲存職缺</div>
                         <div class="btna6">立即應徵</div>
                     </div>
                 </div>
@@ -163,7 +163,7 @@
                         </div>
                     </div>
                     <div class="jobMainWrapperOthBtn">
-                        <div class="btna5">儲存職缺</div>
+                        <div class="btna5 saveApplyOpen">儲存職缺</div>
                         <div class="btna6">立即應徵</div>
                     </div>
                     
@@ -177,4 +177,13 @@
     </div>
     @@include('./layout/footer.html')
 </body>
+<script>
+let moveToCom = document.getElementsByClassName('moveToCom')
+console.log(moveToCom);
+for(let i = 0; i < moveToCom.length; i++){
+    moveToCom[i].addEventListener('click', function(){
+        location='./company.html'
+    })
+}
+</script>
 </html>

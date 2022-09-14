@@ -100,7 +100,7 @@
                 <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
             </div>
             <div class="findJobVacanciesTitle">
-                <h3>醫療客服專案實習師</h3>
+                <h3 class="moveToJob">醫療客服專案實習師</h3>
                 <p class="moveToCom">Dr. Right 精準關懷</p>
                 <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
             </div>
@@ -131,7 +131,7 @@
                 <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
             </div>
             <div class="findJobVacanciesTitle">
-                <h3>醫療客服專案實習師</h3>
+                <h3 class="moveToJob">醫療客服專案實習師</h3>
                 <p class="moveToCom">Dr. Right 精準關懷</p>
                 <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
             </div>
@@ -162,7 +162,7 @@
                 <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
             </div>
             <div class="findJobVacanciesTitle">
-                <h3>醫療客服專案實習師</h3>
+                <h3 class="moveToJob">醫療客服專案實習師</h3>
                 <p class="moveToCom">Dr. Right 精準關懷</p>
                 <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
             </div>
@@ -201,11 +201,25 @@ let navigate = (function() {
 	$('.dd_btn').click(function() {
         // alert('sss')
 		let dataName = $(this).attr('data-name');
-        let dataArrow = $(this).children('.fa-chevron-right').attr('data-arrow')
+        // let dataArrow = $(this).children('.fa-chevron-right').attr('data-arrow')
 		$('.' + dataName).slideToggle();
         $(`.dd:not(.${dataName})`).hide();
 	});
+    
 })();
+// $('.dd_btn').click(function() {
+//     // alert('sss')
+//     $('.dd').hide();
+
+//     let dataName = $(this).attr('data-name');
+//     $('.' + dataName).slideToggle();
+//     $(`.dd:not(.${dataName})`).hide();
+// });
+// $('body').click(function(event){
+//     $('.dd').hide();
+//     $('.dd').not($('.dd').has(event.target)).hide();
+// });
+
 
 const jobMain = document.getElementsByClassName('jobMain')
 for(let i = 0; i < jobMain.length; i++){
@@ -217,35 +231,51 @@ for(let i = 0; i < jobMain.length; i++){
 const check = document.querySelectorAll('input[type="checkbox"]')
 const findJobFind = document.getElementById('findJobFind')
 
-    for(let i = 0; i < check.length; i++){
-        check[i].addEventListener('click',function(e){
+for(let i = 0; i < check.length; i++){
+    check[i].addEventListener('click',function(e){
+        let cancel = document.getElementsByClassName('cancel')
+        
+        if(check[i].checked == true){
             let sortList = check[i].nextElementSibling.innerHTML
-            console.log(sortList);
             let li_html = `<div class="findJobFindSort"><p>${sortList}</p><i class="fa-solid fa-xmark cancel"></i></div>`;
-            if(check[i].checked == true){
-                findJobFind.insertAdjacentHTML("beforeend", li_html)
-                // console.log(i);
-                // console.log(findJobFind.children);
-            }else if(check[i].checked == false){
-                for(let j = 0; j < findJobFind.children.length; j++){
-                    findJobFind.children[j].remove('findJobFindSort')
-                }
+            findJobFind.insertAdjacentHTML("afterbegin", li_html)
+            // for(let a = 0 ; a < cancel.length; a++){
+            // cancel[a].addEventListener('click',function(e){
+            //         e.target.parentElement.remove()
+            //         check[i].checked = false
+            //     })
+            // }
+        }else if(check[i].checked == false){
+            for(let j = 0; j < findJobFind.children.length; j++){
+                findJobFind.children[j].remove()
+                console.log([j]);
             }
-            const cancel = document.getElementsByClassName('cancel')
-            for(let a = 0 ; a < cancel.length; a++){
-                cancel[a].addEventListener('click',function(e){
-                    console.log(e.target.parentElement);
-                    e.target.parentElement.remove('findJobFindSort')
-                    console.log(e.target.parentElement);
-                    check[i].checked = false
-                })
-            }
-        })
+            // findJobFind.children[i].remove()
+        }
+        for(let a = 0 ; a < cancel.length; a++){
+        cancel[a].addEventListener('click',function(e){
+                e.target.parentElement.remove()
+                check[i].checked = false
+            })
+        }
+    })
 }
 
-let moveToCom = document.querySelector('.moveToCom')
+let moveToCom = document.getElementsByClassName('moveToCom')
+console.log(moveToCom);
 for(let i = 0; i < moveToCom.length; i++){
-    console.log('123');
+    moveToCom[i].addEventListener('click', function(){
+        location='./company.html'
+    })
+}
+
+
+let moveToJob = document.getElementsByClassName('moveToJob')
+console.log(moveToJob);
+for(let i = 0; i < moveToJob.length; i++){
+    moveToJob[i].addEventListener('click', function(){
+        location='./jobMain.html'
+    })
 }
     // new Vue({
     //     el: '#app',

@@ -5,6 +5,7 @@
     })
 <body>
     @@include('./layout/header.html')
+    @@include('./layout/saveApply.html')
     <div class="companyWrapper">
         <div class="companyWrapperTitle">
             <div class="companyWrapperTitImg">
@@ -37,7 +38,7 @@
             <div class="companyWrapperContent">
                 <div class="company">
                     <div class="companyStatement"><h3>公司介紹</h3></div>
-                    <div><p>我們的使命是發揚高品質醫療資源，使人人受惠。
+                    <div><p>
                         Dr.Right 成立於 2016 年，是由精品公關、醫管顧問、數據分析師所組成的團隊。協助醫療團隊第一時間與患者關懷溝通，改善院所執行流程、進而提升營運績效，使得醫病雙方都能夠從中受益的 CRM 服務。我們期許能用創新技術與高端服務思維，來打造美好的醫病互動關係。
                         
                         在網路社群越來越開放的環境底下，醫病關係反而是逐漸惡化的。醫師與患者間，經常是因為就診溝通時的誤解或是不順暢，患者們就直接上網發出公開的負面評論。醫師們也因此感到挫折甚至憤怒，最後轉為雙方對簿公堂。因而往往患者的疑問沒得到解答，醫師也陷入情緒中無法專心看診，社群平台上盡是充斥著醫病關係的仇恨言論。
@@ -170,8 +171,8 @@
                         </div>
                     </div>
                     <div class="jobMainWrapperOthBtn">
-                        <div class="btna5">儲存職缺</div>
-                        <div class="btna6">立即應徵</div>
+                        <div class="btna5 saveApplyOpen">儲存職缺</div>
+                        <div class="btna6 moveToJob">立即應徵</div>
                     </div>
                 </div>
                 <div class="jobMainWrapperOthMain">
@@ -191,8 +192,8 @@
                         </div>
                     </div>
                     <div class="jobMainWrapperOthBtn">
-                        <div class="btna5">儲存職缺</div>
-                        <div class="btna6">立即應徵</div>
+                        <div class="btna5 saveApplyOpen">儲存職缺</div>
+                        <div class="btna6 moveToJob">立即應徵</div>
                     </div>
                 </div>
                 <div class="jobMainWrapperOthMain">
@@ -204,5 +205,15 @@
         
     </div>
     @@include('./layout/footer.html')
+    <script>
+        console.log(saveApplyOpen);
+        let moveToJob = document.getElementsByClassName('moveToJob')
+console.log(moveToJob);
+for(let i = 0; i < moveToJob.length; i++){
+    moveToJob[i].addEventListener('click', function(){
+        location='./jobMain.html'
+    })
+}
+    </script>
 </body>
 </html>
