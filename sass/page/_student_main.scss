@@ -30,8 +30,31 @@
         @include m(){
             flex-wrap: wrap;
             height: 475px;
-            padding: 0;
-           
+            padding: 0;           
+        }
+        img{
+            width: 230px;
+            border-radius: 11px;
+            @include m(){
+                width: 120px;
+                margin-right: 10px;
+            }          
+        }
+        ul{
+            margin-left: 40px;
+            @include m(){
+                width: 180px;
+                margin-left:10px;
+                margin-right: 10px;
+            }        
+        }
+        h3{
+            font-size: $fontSize03;
+            color: white;
+            line-height: 1.8;
+            @include m(){
+                font-size: $R-fontSize05;
+            }        
         }
     }
     
@@ -49,53 +72,68 @@
                     color:#202020;
                 }
             }
+            @include m(){
+                h3{
+                    a:first-child{
+                        margin-right: 77px;
+                    }
+                }
+            }            
         }
         .btna11{
+            height: auto;
+            padding: 15px 0;
+            margin: 20px 0;
+            @include m(){
+                font-size: $R-fontSize05;
+                position: relative;
+                top: -64px;
+                left: -140px;
+                width: 120px;
+                padding: 10px 0;
+            } 
             a{
                 color:$focus01;
-            }
+            }   
         }
     }
-    .studenMainWrapperTitle img{
-        width: 230px;
-        border-radius: 11px;
-        @include m(){
-            width: 120px;
-            margin-right: 10px;
-        }
+    // .studenMainWrapperTitle img{
+    //     width: 230px;
+    //     border-radius: 11px;
+    //     @include m(){
+    //         width: 120px;
+    //         margin-right: 10px;
+    //     }
       
-    }
-    .studenMainWrapperTitle ul{
-        margin-left: 40px;
-        @include m(){
-            width: 180px;
-            margin-left:10px;
-            margin-right: 10px;
-        }
-        
-    }
-    .studenMainWrapperTitle h3{
-        font-size: $fontSize03;
-        color: white;
-        line-height: 1.8;
-        @include m(){
-            font-size: $R-fontSize05;
-        }
-        
-    }
-    .studenMainWrapperTitle_left .btna11{
-        padding: 15px 0;
-        margin: 20px 0;
-        @include m(){
-            font-size: $R-fontSize05;
-            position: relative;
-            top: -64px;
-            left: -140px;
-            width: 120px;
-            padding: 10px 0;
-        }
-    
-    }
+    // }
+    // .studenMainWrapperTitle ul{
+    //     margin-left: 40px;
+    //     @include m(){
+    //         width: 180px;
+    //         margin-left:10px;
+    //         margin-right: 10px;
+    //     }        
+    // }
+    // .studenMainWrapperTitle h3{
+    //     font-size: $fontSize03;
+    //     color: white;
+    //     line-height: 1.8;
+    //     @include m(){
+    //         font-size: $R-fontSize05;
+    //     }        
+    // }
+    // .studenMainWrapperTitle_left .btna11{
+    //     padding: 15px 0;
+    //     margin: 20px 0;
+    //     @include m(){
+    //         font-size: $R-fontSize05;
+    //         position: relative;
+    //         top: -64px;
+    //         left: -140px;
+    //         width: 120px;
+    //         padding: 10px 0;
+    //     }    
+    // }
     .studenMainWrapperTitle_right{
         display: flex;
         flex-wrap: wrap;
@@ -128,27 +166,31 @@
         }
     }
     
-    .studenMainWrapper_resumebottom button{
-        width: 200px;
-        height: 300px;
-        border: 3px dashed #313131;
-        @include m(){
-            width: 145px;
-            height: 240px;
+    .studenMainWrapper_resumebottom{
+        button{
+            width: 200px;
+            height: 300px;
+            border: 3px dashed #313131;
+            @include m(){
+                width: 145px;
+                height: 240px;    
+                padding: 10px;
+             }    
+        }
+        .fa-file-circle-plus{
+            font-size: 60px;
+            @include m(){
+                font-size: 30px;             
+             }
+        }
+    } 
     
-            padding: 10px;
-             
-         }
-    
-    }
-    
-    .studenMainWrapper_resumebottom .fa-file-circle-plus{
-        font-size: 60px;
-        @include m(){
-            font-size: 30px;
-             
-         }
-    }
+    // .studenMainWrapper_resumebottom .fa-file-circle-plus{
+    //     font-size: 60px;
+    //     @include m(){
+    //         font-size: 30px;             
+    //      }
+    // }
 }
 
 
