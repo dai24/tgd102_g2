@@ -102,7 +102,37 @@
     }    
 }
 
-
+.card_resume{
+    @include card_resume(650px);    
+   
+    @include m(){
+        max-width: 375px;
+        width: 100%;
+    }
+    .cardUl{ 
+        @include cardUl();
+        @include m(){
+            padding: 24px 0;
+        }
+        .cardH1{
+            @include cardH1($fontSize01);
+            @include m(){
+                font-size: $R-fontSize01;
+            }
+        }
+        .cardXmark{ 
+            @include cardXmark(16px);
+        }
+    }
+    .cardInner{ 
+        @include cardInner(100%);
+        @include m(){
+            padding: 20px 0;
+            max-width: 375px;
+            width: 100%;
+        }
+    }    
+}
 
 //會員登入白色方框 
 .logincard{    

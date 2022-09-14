@@ -90,6 +90,14 @@
     width: 100%;
 }
 
+
+@mixin card_resume ($w){
+    max-width:$w ;
+    background-color: #F4F1EC;
+    margin: 100px auto 0;
+    border-radius: 5px;
+}
+
 @mixin cardInner($w){
     width: $w;
     margin: 0 auto;

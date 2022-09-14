@@ -9,7 +9,7 @@ let resume_zoome_window = `
 
 let resume_save_window = `
 <div class="m-a-s-k"></div>
-<div class="card resume_window">
+<div class="card_resume resume_window">
    <ul class="cardUl">
       <li>
          <h1 class="cardH1">儲存</h1>
@@ -33,7 +33,7 @@ let resume_save_window = `
 
 let resume_pay_window =`
 <div class="m-a-s-k"></div>
-<div class="card resume_window">
+<div class="card_resume resume_window">
    <ul class="cardUl">
       <li>
          <h1 class="cardH1">金幣不足</h1>
@@ -55,7 +55,7 @@ let resume_pay_window =`
 
 let resume_delere_window =`
 <div class="m-a-s-k"></div>
-<div class="card resume_window">
+<div class="card_resume resume_window">
    <ul class="cardUl">
       <li>
          <h1 class="cardH1">刪除</h1>
@@ -80,7 +80,7 @@ let resume_delere_window =`
 
 let resume_share_window =`
 <div class="m-a-s-k"></div>
-<div class="card resume_window">
+<div class="card_resume resume_window">
         <ul class="cardUl">
             <li>
                 <h1 class="cardH1">分享您的履歷</h1>
@@ -119,7 +119,7 @@ let resume_share_window =`
 
 let resume_pdf_window =`
 <div class="m-a-s-k"></div>
-<div class="card  resume_window">
+<div class="card_resume  resume_window">
         <ul class="cardUl">
             <li>
                 <h1 class="cardH1">您的履歷 PDF 已就緒</h1>
