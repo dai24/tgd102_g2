@@ -177,9 +177,10 @@ a {
                             margin-left: 0;
                             padding: 8px 0;
                             // outline: 2px solid rgb(64, 17, 252);
-        
+
                             button {
                                 background-color: rgba(255, 255, 255, 0);
+                                
                             }
                             span {
                                 font-size: $fontSize05;
@@ -205,22 +206,10 @@ a {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 .fa-heart:before {
     content: "\f004";
     font-size: 30px;
-    color: red;
+    color: #D25541;
 }
 
 

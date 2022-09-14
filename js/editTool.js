@@ -21,32 +21,32 @@ $(function () {
         placeholder: "",
       });
 
-    var markupStr2 = $('#summernote2').summernote({
-        height: 300,
-    tabsize: 2,
-    airMode: true,
-    popover: {
-        air: [
-            ['color', ['color']],
-            ['font', ['bold', 'underline', 'clear']]
-        ]
-    },
+    // var markupStr2 = $('#summernote2').summernote({
+    //     height: 300,
+    // tabsize: 2,
+    // airMode: true,
+    // popover: {
+    //     air: [
+    //         ['color', ['color']],
+    //         ['font', ['bold', 'underline', 'clear']]
+    //     ]
+    // },
         
-    });
+    // });
     
 
-    var markupStr3 = $('#summernote3').summernote({
-        height: 300,
-    tabsize: 2,
-    airMode: true,
-    popover: {
-        air: [
-            ['color', ['color']],
-            ['font', ['bold', 'underline', 'clear']]
-        ]
-    },
+    // var markupStr3 = $('#summernote3').summernote({
+    //     height: 300,
+    // tabsize: 2,
+    // airMode: true,
+    // popover: {
+    //     air: [
+    //         ['color', ['color']],
+    //         ['font', ['bold', 'underline', 'clear']]
+    //     ]
+    // },
         
-    });
+    // });
     
 
 

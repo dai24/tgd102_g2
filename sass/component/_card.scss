@@ -36,7 +36,7 @@
     @include m(){
        width: 350px;
     }
-    display: none;
+    
     .card2Ul{ 
         @include cardUl();
         @include m(){
