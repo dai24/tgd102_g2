@@ -66,6 +66,10 @@
                 position: relative;
                 margin-bottom: $space04;
                 color: $secondary02;
+                @include m(){
+                    width: 120px;
+                    height: 112px;
+                }
             }
 
             //左側區塊
@@ -77,8 +81,11 @@
                 background-color: $focus01;
                 left: 25px;
                 @include m(){
-                    width: 120px;
-                    height: 112px;
+                    // width: 120px;
+                    width: 176px;
+                    // height: 112px;
+                    height: 149.6px;
+                    left: 13px;
                 }
                 &:hover{
                     background-color:$focus01H ;
@@ -95,8 +102,10 @@
                 right: 25px; //和企業的區塊重疊
                 z-index: 1;
                 @include m(){
-                    width: 120px;
-                    height: 112px;
+                    // width: 120px;
+                    width: 176px;
+                    // height: 112px;
+                    height: 149.6px;
                     left: -12px; //保持左右按鈕的間距
                 }
                 &:hover{

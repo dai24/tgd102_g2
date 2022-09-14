@@ -6,13 +6,14 @@
         max-width: 350px;
         margin: 0px auto 0px;
     }
-    h2{
-        font-size: $fontSize02;
-        margin: 50px 0;
+    h2{ //"我的履歷"
+        font-size: $fontSize01;
+        font-weight: bold;
+        margin: 40px 0;
         @include m(){
-
-           text-align: center;
-            
+            font-size: $R-fontSize01;
+            text-align: center;
+            margin: 20px 0;
         }
     }
     a{
@@ -97,43 +98,7 @@
             }   
         }
     }
-    // .studenMainWrapperTitle img{
-    //     width: 230px;
-    //     border-radius: 11px;
-    //     @include m(){
-    //         width: 120px;
-    //         margin-right: 10px;
-    //     }
-      
-    // }
-    // .studenMainWrapperTitle ul{
-    //     margin-left: 40px;
-    //     @include m(){
-    //         width: 180px;
-    //         margin-left:10px;
-    //         margin-right: 10px;
-    //     }        
-    // }
-    // .studenMainWrapperTitle h3{
-    //     font-size: $fontSize03;
-    //     color: white;
-    //     line-height: 1.8;
-    //     @include m(){
-    //         font-size: $R-fontSize05;
-    //     }        
-    // }
-    // .studenMainWrapperTitle_left .btna11{
-    //     padding: 15px 0;
-    //     margin: 20px 0;
-    //     @include m(){
-    //         font-size: $R-fontSize05;
-    //         position: relative;
-    //         top: -64px;
-    //         left: -140px;
-    //         width: 120px;
-    //         padding: 10px 0;
-    //     }    
-    // }
+    
     .studenMainWrapperTitle_right{
         display: flex;
         flex-wrap: wrap;
@@ -185,12 +150,12 @@
         }
     } 
     
-    // .studenMainWrapper_resumebottom .fa-file-circle-plus{
-    //     font-size: 60px;
-    //     @include m(){
-    //         font-size: 30px;             
-    //      }
-    // }
+    .studenMainWrapper_resumebottom .fa-file-circle-plus{
+        font-size: 60px;
+        @include m(){
+            font-size: 30px;             
+         }
+    }
 }
 
 

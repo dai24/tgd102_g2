@@ -69,6 +69,8 @@
                 margin-bottom: $space04;
                 color: $secondary02;
                 @include m(){
+                    width: 120px;
+                    height: 112px;
                     margin-bottom: 10px;
                 }
             }
@@ -82,8 +84,9 @@
                 background-color: $focus01;
                 left: 25px;
                 @include m(){
-                    width: 120px;
-                    height: 112px;
+                    width: 176px;
+                    height: 149.6px;
+                    left: 13px;
                 }
                 &:hover{
                     background-color:$focus01H ;
@@ -100,8 +103,8 @@
                 right: 25px; //和企業的區塊重疊
                 z-index: 1;
                 @include m(){
-                    width: 120px;
-                    height: 112px;
+                    width: 176px;
+                    height: 149.6px;
                     left: -12px; //保持左右按鈕的間距
                 }
                 &:hover{
@@ -118,6 +121,9 @@
             h4{
                 font-size: $fontSize05;
                 line-height: $fontSize05; //文字高度置中
+                @include m(){
+                    font-size: $R-fontSize05;
+                }
             }
             //註冊按鈕
             a{
