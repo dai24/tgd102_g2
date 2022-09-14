@@ -2,10 +2,6 @@
 
 .backstage-nav{
     $navWidth:250px; //統一nav寬度
-    // @media screen and (max-width:1700px) {
-    //     $navWidth:220px;
-    //     width:$navWidth;
-    // }
     width:$navWidth;
     background-color:$primary01;
     border-right:3px solid $primary02;    
