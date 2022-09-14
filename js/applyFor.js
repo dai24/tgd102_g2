@@ -44,3 +44,22 @@ applyForSubmit.addEventListener('click', function(){
         applyForCard.style.display = 'block'
     }
 })
+
+$('.resume_zoom_browser_btn').on('click', function () {
+    $('.jobMainWrapper').append(resume_zoome_browser)     
+    $('.m-a-s-k').show()
+    console.log('123');
+    // 履歷範本放大關閉
+    $('.m-a-s-k').on('click', function(){
+        $(this).hide()
+        $('.resume_zoom_imggg').hide()
+    })
+    
+})
+
+let resume_zoome_browser = `
+    <div class="m-a-s-k"></div>
+    <div class="resume_zoom">
+    <img src="../images/resume/resume_1.jpg" class='resume_zoom_imggg'>
+    </div> 
+`
