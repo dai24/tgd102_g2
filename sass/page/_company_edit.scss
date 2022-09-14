@@ -5,17 +5,32 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    
+    @include m(){
+            max-width: 400px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: normal;
+    }
     .companyEditTitle{
         font-size: $fontSize02;
         margin-bottom: 16px;
         h3{
             font-weight: bold;
+            
         }
         
     }
     table{
         width: 100%;
         border: 2px solid $focus01;
+        @include m(){
+            width: 400px;
+            
+          
+        }
         tbody{
             .item{
                 line-height: 80px;
@@ -27,12 +42,21 @@
                     text-align: center;
                     width: 12%;
                     vertical-align: middle;
+                    @include m(){
+                        width: 50px;
+                        text-align: left;
+                      
+                    }
                 }
                 .detail{
                     background-color: $secondary02;
                     padding: 8px;
                     vertical-align: middle;
                     width: 974px;
+                    @include m(){
+                        width: 400px;
+                      
+                    }
                     .area{
                         border: 0;
                         outline: none;
@@ -45,6 +69,10 @@
                         margin-left: 16px;
                         overflow-y: hidden;
                         display: none;
+                        @include m(){
+                            width: 100px;
+                          
+                        }
                     }
                     .para{
                         font-size: $fontSize03;
@@ -52,6 +80,8 @@
                         line-height: 1;
                         padding: 10px 20px;
                         vertical-align: middle;
+
+
                     }
                     .area.on{
                         border-radius: 5px;
@@ -61,6 +91,10 @@
                     img{
                         max-width: 200px;
                         width: 100%;
+                        @include m(){
+                            width: 150px;
+                          
+                        }
                     }
                 }
                 .editIcon{
@@ -85,6 +119,9 @@
     .save{
         width: 240px;
         margin-top: 40px;
+      
+        
+        
     }
     
 }

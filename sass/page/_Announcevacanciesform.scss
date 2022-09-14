@@ -1,112 +1,134 @@
 
-.Announcevacancies{
-    width: 100%;
-    margin: 0 auto;
-    @include m(){
-        max-width: 415px;
-    }
-    .btna3{
-        margin: 0 auto;
-    }
-    
-    
-    .Announcevacancies_question{
-        font-size: $fontSize03;
-        margin-right: 20px;
-        @include m(){
-            font-size: $R-fontSize03;
-            margin-left: 15px;
-        }
 
-      
-    }
 
-    
-}
-
-.Announcevacancies_main:nth-child(3) > textarea{
-    margin: 0;
-    @include m(){
-        max-width: 320px;
-        margin: 18px 18px;
-        
-    }
- }
-
-.Announcevacancies_h2{
-    font-size: $fontSize05;
-    color: #EAA565;
-    text-align: center;
-    margin-right: 142px;
-    margin-bottom: 15px;
-    @include m(){
-        
-        margin-left: -29px;
-    }
-   
-    
-}
-
-.Announcevacancies_main{
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    @include m(){
-        justify-content: flex-start;
-        flex-wrap: wrap;
-    }
-    textarea{
-        resize: none;
-        border-radius: 5px;
-        max-width: 405px;
+    .Announcevacancies{
         width: 100%;
-        font-size: $fontSize05;
-        outline: none;
-        margin: 0 0 24px;
+        margin: 0 auto;
+        @include m(){
+            max-width: 415px;
+        }
+        .btna3{
+            margin: 0 auto;
+        }
+        
+        
+        .Announcevacancies_question{
+            font-size: $fontSize03;
+            margin-right: 20px;
+            @include m(){
+                font-size: $R-fontSize03;
+                margin-left: 15px;
+            }
+    
+          
+        }
+    
+        
+    }
+    
+    .Announcevacancies_main:nth-child(3) > textarea{
+        margin: 0;
         @include m(){
             max-width: 320px;
             margin: 18px 18px;
+            
         }
+     }
+    
+    .Announcevacancies_h2{
+        font-size: $fontSize05;
+        color: #EAA565;
+        text-align: center;
+        margin-right: 142px;
+        margin-bottom: 15px;
+        @include m(){
+            
+            margin-left: -29px;
+        }
+       
+        
     }
     
-}
-
-.Announcevacancies_main:nth-child(8){
-   justify-content: left;
-   margin-left: 147px;
-   margin-bottom: 15px;
-   @include m(){
-   margin-left: 0;
-
-   }
-   input{
-    height: 18px;
-    width: 18px;
+    .Announcevacancies_main{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        @include m(){
+            justify-content: flex-start;
+            flex-wrap: wrap;
+        }
+        textarea{
+            resize: none;
+            border-radius: 5px;
+            max-width: 405px;
+            width: 100%;
+            font-size: $fontSize05;
+            outline: none;
+            margin: 0 0 24px;
+            @include m(){
+                max-width: 320px;
+                margin: 18px 18px;
+            }
+        }
+        
     }
-    label{
-        margin-top: 4px;
-        margin-left: 6px;
+    
+    .Announcevacancies_main:nth-child(8){
+       justify-content: left;
+       margin-left: 147px;
+       margin-bottom: 15px;
+       @include m(){
+       margin-left: 0;
+    
+       }
+       input{
+        height: 18px;
+        width: 18px;
+        }
+        label{
+            margin-top: 4px;
+            margin-left: 6px;
+        }
+    
+    }
+    
+    .Announcevacancies .btna21{
+        margin: 0 auto;
+        @include m(){
+            @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
+        }
+      
+    }
+    
+    .Announcevacanciesform_contactUSInner{
+        z-index: 30;
+        position: fixed;
+        background-color: $secondary01;
+        opacity: 0.8;
+        top: 0%;
+        left: 0%;
+        width: 100%;
+        height: 100%;
+    }
+    
+
+    .Announcevacanciesformwrapper .Announcevacanciesform {
+      
+        max-width: 800px;
+        background-color: #F4F1EC;
+        /* margin: 100px auto 0; */
+        border-radius: 5px;
+        z-index: 40;
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+
     }
 
-}
-
-.Announcevacancies .btna21{
-    margin: 0 auto;
-    @include m(){
-        @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
+    .cardUl li a i{
+        color: #ffffff;
     }
-  
-}
-
-.Announcevacanciesform_contactUSInner{
-    z-index: 30;
-    position: fixed;
-    background-color: $secondary01;
-    opacity: 0.8;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-}
 
 

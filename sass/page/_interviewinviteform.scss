@@ -15,7 +15,7 @@
             h2{
                 text-align: left;
                 font-size: $fontSize03;
-                margin-bottom: 15px;
+                margin-top: 30px;
                 @include m(){
                     font-size: $R-fontSize03;
                     margin-left: 20px;
@@ -67,6 +67,12 @@
                 color:$secondary02;
             }
         }
+
+
+
+
+
+
 
     }
 
