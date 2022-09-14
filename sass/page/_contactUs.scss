@@ -12,10 +12,14 @@
 .card{
     z-index: 123;
     position: fixed;
-    top: 40%;
+    top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    
+    .cardUl{
+        @include m(){
+            padding: 16px 0 ;
+        }
+    }
 }
 .contactUSInnerCard{
     display: none;
