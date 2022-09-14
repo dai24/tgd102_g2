@@ -1,5 +1,4 @@
 .backstage{    
-    height: 1190px;
     background-color:$secondary02;
     display: flex;
     $trheight:80px; //每筆資料高度
@@ -49,10 +48,11 @@
                 text-align: center;
             }
             .chartData{ //定義每個圖表
-                width:23%;
+                // width:23%;
                 height: 250px;
                 display: flex;
                 flex-direction: column;
+                flex-grow: 1;
                 border-radius: 10px;
                 outline: 3px solid $primary02;
                 margin-left: 18px;
@@ -99,26 +99,42 @@
                 .chartPie{ 
                     $chartPieWidth:calc(100% - 950px); //以長條圖寬度為參考，動態調整寬度
                     // width:$chartPieWidth;
-                    min-width: 350px;
-                    height: auto; //取消原設
-                    // height:675px;
+                    // min-width: 350px;
+                    flex-grow: 3;
+                    // height: auto; //取消原設
+                    height:675px;
                     // height:calc($chartPieWidth + 34vw);
                     background-color: $secondary02;
                     outline: 0;
+                    @media screen and (max-width:1700px) {
+                        width: 100%;
+                        height: auto;
+                    }
                     #chart_gender{
                         width:400px;
                         height: 400px;
                         margin-top: 24px;
                         margin-left: auto;
                         margin-right: auto;
+                        @media screen and (max-width:1700px) {
+                            width: 350px;
+                            height: 350px;
+                        }
                     }
+                    
                 } 
                 //長條圖
                 .chartBar{
                     width:900px;
-                    height: 675px;
+                    // flex-grow: 3;
+                    height:675px;
                     background-color: $secondary02;
                     outline: 0;
+                                        @media screen and (max-width:1700px) {
+                        margin-top: 16px;
+                        width: 100%;
+                        height: auto;
+                    }
                     #chart_todayVisit{
                         margin-top: 24px;
                     }

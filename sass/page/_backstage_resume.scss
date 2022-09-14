@@ -4,6 +4,7 @@
     $trheight:80px; //每筆資料高度
     $winheight:1190px; //網頁高度
     $editHeight:48px; //編輯區塊的高度
+    $block2LineHeight:60px;
     h1{
         font-size:$fontSize01;
         margin-top:44px;
@@ -46,7 +47,7 @@
             color:$secondary02;
             display: flex;
             justify-content: space-between;
-            >ul{
+            .block-left{
                 display: flex;
                 li{
                     width: 120px;
@@ -63,7 +64,10 @@
                     opacity: 50%;
                 }
             }
-            
+            .block-right{
+                display: flex;
+                
+            }
         };
         //模板種類
         .category{

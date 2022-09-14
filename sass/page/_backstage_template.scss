@@ -124,22 +124,13 @@
                             font-size:17px;
                         }
                     }
-                    //icon 編輯 刪除 
-                    .editIcon{
-                        display: flex;
+                    
+                    .fa-ban{
+                        font-size: 20px;
+                        margin-top: 14px;
                         margin-right: 16px;
-                        line-height:$editHeight;
-                        @media screen and (max-width:1500px) {
-                            margin-right: 8px;
-                        }
-                        .fa-solid{
-                            font-size: 20px;
-                            margin-left: 16px;
-                            @media screen and (max-width:1500px) {
-                                margin-left: 8px;
-                            }                            
-                        }                       
-                    }
+                        opacity: 10%;
+                    } 
                 }                    
             }
         }

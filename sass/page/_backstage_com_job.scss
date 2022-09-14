@@ -98,72 +98,32 @@
                     }
                 }
                 h3{
-                    height:$trheight;
+                    // height:$trheight;
                     line-height: 1.6;
-                    padding-top: 18px;
+                    padding: 12px 0;
                     @media screen and (max-width: 1800px) {
                         font-size:$fontSize04;                 
                     }
                 }
-                //年費方案
-                .fee{
-                    h3{
-                        font-weight: bold;
-                    }                    
-                }
-                //switch
+                //職缺狀態
                 .state{
-                    .appleSwitch{
-                        width: 72px;
-                        height: 40px;
-                        border-radius: 20px;
-                        background-color:gray;
-                        margin: 0 auto;
-                        position: relative;
-                        top: 12px;
-                        left: 0;
-                        z-index: 5;               
-                              
-                        @keyframes openColor{ //open時的開關背景色
-                            0% {background-color:gray;}
-                            75%{ background-color: #30BD00;}
-                            100%{ background-color: #30BD00;}
-                        }
-                        @keyframes switch{ //開關位移
-                            0% { left:2px;}
-                            100% { left: 34px;}
-                        }   
-                        .appleCircle{
-                            width: 35px;
-                            height: 35px;
-                            border-radius: 50%;
-                            background-color: white;
-                            transform: translate(0, o);
-                            box-shadow: 1px 1px 5px $secondary01;
-                            position: absolute;
-                            top: 2px;
-                            left: 2px;
-                            z-index: 6;                            
-                            
-                        }                        
-                    }                                        
-                }
-                //持續應徵中
-                .openSwitch{
-                    .appleSwitch{
-                        animation: openColor 1s 1 ease-in-out forwards;
-                        .appleCircle{
-                            animation: switch 1s 1 ease-in-out forwards;
-                        }
+                    text-align: center;
+                    .fa-lightbulb{
+                        font-size: 30px;
+                        opacity: 100%;
+                        color:$focus01;
+                    }
+                    .closeBulb{
+                        opacity: 20%;
+                        color:#313131;
                     }
                 }
-                
             }                
         }
         
         //按鈕：詳細資料
         .btna3{
-            height: 50px;
+            height: 40px;
             line-height: 40px;
             a{
                 color:$secondary01;
