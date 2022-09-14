@@ -98,7 +98,7 @@
                 //圓餅圖
                 .chartPie{ 
                     $chartPieWidth:calc(100% - 950px); //以長條圖寬度為參考，動態調整寬度
-                    width:$chartPieWidth;
+                    // width:$chartPieWidth;
                     min-width: 350px;
                     height: auto; //取消原設
                     // height:675px;

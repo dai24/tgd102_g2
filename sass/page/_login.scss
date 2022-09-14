@@ -48,7 +48,6 @@
 
         .choose{
             display: flex;
-            margin-left: 4vw; //讓兩個按鈕置中
 
             //"企業 學生"
             h2{
@@ -81,6 +80,7 @@
                 clip-path: polygon(0 1%, 80% 0, 100% 100%, 0% 100%);
                 border-radius:10px 0 0 5px;
                 background-color: $focus01;
+                left: 25px;
                 @include m(){
                     width: 120px;
                     height: 112px;
@@ -97,7 +97,7 @@
                 clip-path: polygon(0 1%, 100% 0, 100% 100%, 20% 100%);
                 border-radius: 0 5px 5px 0;
                 background-color:$primary02;
-                left: -45px; //和企業的區塊重疊
+                right: 25px; //和企業的區塊重疊
                 z-index: 1;
                 @include m(){
                     width: 120px;

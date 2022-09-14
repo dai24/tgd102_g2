@@ -40,6 +40,16 @@
         @include m(){
           padding: 10px 0 0 0;
         }
+        //點數
+        .coin{
+            a{ //歷史加值紀錄
+                color:$secondary02;
+                margin-right: 16px;
+                &:hover{
+                    color:#202020;
+                }
+            }
+        }
         .btna11{
             a{
                 color:$focus01;
@@ -94,27 +104,28 @@
             justify-content: center;
             margin-top: -50px;
         }
-    }
-    .studenMainWrapperTitle_right h1{
-        margin-top: 15px;
-        font-size: $fontSize01;
-    }
-    .studenMainWrapperTitle_right button{
-        // outline: 1px solid #D25541;
-        margin: 10px 10px;
-        width: 130px;
-        height: 100px;
-        background-color: #FFFFFF;
-        @include m(){
-            width: 100px;
-            height: 90px;
+        h1{
+            margin-top: 15px;
+            font-size: $fontSize01;
         }
-    
-    }
-    
-    .studenMainWrapperTitle_right a{
-        font-size: $fontSize05 ;
-        color: $secondary01;
+        button{
+            // outline: 1px solid #D25541;
+            margin: 10px 10px;
+            width: 130px;
+            height: 100px;
+            background-color: #FFFFFF;
+            &:hover{
+                background-color: #B5B1A6;
+            }
+            @include m(){
+                width: 100px;
+                height: 90px;                
+            }
+        }
+        a{
+            font-size: $fontSize05 ;
+            color: $secondary01;
+        }
     }
     
     .studenMainWrapper_resumebottom button{
