@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="./css/style.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js"integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
-    <title>Document</title>
+    @@include('./layout/head.html',{
+        "title" : "職涯適應測驗"
+    })
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
 </head>
 
 <body class="bodyCareertest">
@@ -18,7 +16,7 @@
             
             <div class="question1 testQA">
                 <h1>1 / 4</h1>
-                <h1 class="testqusetion">你比較喜歡...?</h1>
+                <h1 class="testqusetion tQA1">你比較喜歡...?</h1>
                 
                 <button class="btna18 a1" data-value="I">獨處</button>  <!-- I -->
                 <button class="btna18 a1" data-value="E">與他人相處</button> <!-- E -->
@@ -26,7 +24,7 @@
 
             <div class="question2 testQA">
                 <h1>2 / 4</h1>
-                <h1 class="testqusetion">當你學習新事物時，你傾向...?</h1>
+                <h1 class="testqusetion tQA2">當你學習新事物時，你傾向...?</h1>
 
                 <button class="btna18 a2" data-value="N">專注了解概念與理論</button> <!-- N -->
                 <button class="btna18 a2"data-value="S">注重實際用途</button> <!-- S -->
@@ -34,7 +32,7 @@
 
             <div class="question3 testQA">
                 <h1>3 / 4</h1>
-                <h1 class="testqusetion">當你在做決策時，你傾向...?</h1>
+                <h1 class="testqusetion tQA3">當你在做決策時，你傾向...?</h1>
 
                 <button class="btna18 a3" data-value="T">重視邏輯理論</button> <!-- T -->
                 <button class="btna18 a3" data-value="F">重視相處融洽</button> <!-- F -->
@@ -42,7 +40,7 @@
 
             <div class="question4 testQA">
                 <h1>4 / 4</h1>
-                <h1 class="testqusetion">你的生活方向傾向...?</h1>
+                <h1 class="testqusetion tQA4">你的生活方向傾向...?</h1>
 
                 <button class="btna18 a4" data-value="J">先工作，再玩耍，做事著重結果</button> <!-- J -->
                 <button class="btna18 a4" data-value="P">先玩耍，再工作，做事享受過程</button> <!-- P -->
@@ -50,8 +48,8 @@
 
             <div class="testfinish">
                 <h1>測驗完成 !</h1>
-                <input type="text" placeholder="你的名字是...?" class="testName">
-                <button class="btna14 tfBtn">查看結果</button>
+                <input type="text" placeholder="你的名字是...?" class="testName" id="testanswerName">
+                <button class="btna14 tfBtn" id="answerSubmit">查看結果</button>
             </div>
 
         </div>
@@ -61,13 +59,13 @@
             <div class="testResult">
 
                 <div class="testresult_left">
-                    <img src="./images/careertest/16MBTI/ESTJ.png" alt="" class="testresultImg">
+                    <img src="./images/careertest/16MBTI/ESTJ.png" alt="" class="testresultImg" id="img_mbti">
                 </div>
     
                 <div class="testresult_right">
-                    <div class="txt1">王威比是總經理</div>
-                    <div class="txt2">天生的領導者，具備超卓的組織力和領導才能，擅長於組織及策劃事活動，可以用上最有效率方式達致最大效益，也懂得控制大局，成為團隊中不可或缺的領袖。</div>
-                    <div class="txt3">最適合做 : 法官、教練、財務專員</div>
+                    <div class="txt1"><span id="txt1_name"></span><span>是</span><span id="txt1_mbti"></span></div>
+                    <div class="txt2"><span id="txt2_mbti"></span></span></div>
+                    <div class="txt3"><span>最適合做 :</span><span id="txt3_mbti"></span></div>
                     
                     <ul class="testresult_share">
                         <div class="txt4">分享讓更多人知道 !</div>
@@ -84,62 +82,9 @@
 
     </main>
 
-    <script>
 
 
-
-        $(document).ready(function () {
-            $('.question2').hide();
-            $(".a1").click(function () {
-                $('.question1').hide();
-                $(".question2").toggle();
-            })
-        })
-
-        $(document).ready(function () {
-            $('.question3').hide();
-            $(".a2").click(function () {
-                $('.question2').hide();
-                $(".question3").toggle();
-            })
-        })
-
-        $(document).ready(function () {
-            $('.question4').hide();
-            $(".a3").click(function () {
-                $('.question3').hide();
-                $(".question4").toggle();
-            })
-        })
-
-        $(document).ready(function () {
-            $('.testfinish').hide();
-            $(".a4").click(function () {
-                $('.question4').hide();
-                $(".testfinish").toggle();
-            })
-        })
-
-        $(document).ready(function () {
-            $('.testResult').hide();
-            $(".tfBtn").click(function () {
-                $('.testfinish').hide();
-                $(".testResult").toggle();
-            })
-        })
-
-        $(document).ready(function () {
-            $('.textboxResult').hide();
-            $(".tfBtn").click(function () {
-                $('.testboxQA').hide();
-                $(".textboxResult").toggle();
-            })
-        })
-
-
-    </script>
-
-
+    <script src="./js/careertestQA.js"></script>
 </body>
 
 </html>

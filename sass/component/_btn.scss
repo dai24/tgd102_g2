@@ -68,6 +68,8 @@
     }
 }
 
+
+// 顧問 我要健診按鈕
 .btna10{
     @include btn1(520px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
     height: 60px;
