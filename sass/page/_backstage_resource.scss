@@ -185,8 +185,9 @@
                 background-color:$primary02;
                 color:$secondary01;                        
                 h3{ //統一標題
-                    line-height: 60px;
+                    // line-height: 60px;
                     font-weight: bold;
+                    padding: 20px 0;
                 }                
             } 
             //每筆資料
@@ -200,7 +201,8 @@
                     }
                 }
                 h3{
-                    line-height:  $trheight; //每筆資料垂直置中
+                    // line-height:  $trheight; //每筆資料垂直置中
+                    padding: 25px 0;
                 }
                 //文章標題
                 .name{                    
