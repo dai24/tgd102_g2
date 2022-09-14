@@ -6,8 +6,7 @@
 <body>
     <div id="app">
     @@include('./layout/header.html')
-
-    @@include('./layout/contactUs.html')    
+  
     @@include('./layout/saveApply.html') 
 
 
@@ -98,11 +97,11 @@
         </div>
         <div class="findJobVacancies">
             <div class="findJobVacanciesPicture">
-                <img src="./images/findJob/comLogo.jpg" alt="">
+                <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
             </div>
             <div class="findJobVacanciesTitle">
                 <h3>醫療客服專案實習師</h3>
-                <p>Dr. Right 精準關懷</p>
+                <p class="moveToCom">Dr. Right 精準關懷</p>
                 <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
             </div>
             <div class="findJobVacanciesItem">
@@ -129,11 +128,11 @@
         </div>
         <div class="findJobVacancies">
             <div class="findJobVacanciesPicture">
-                <img src="./images/findJob/comLogo.jpg" alt="">
+                <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
             </div>
             <div class="findJobVacanciesTitle">
                 <h3>醫療客服專案實習師</h3>
-                <p>Dr. Right 精準關懷</p>
+                <p class="moveToCom">Dr. Right 精準關懷</p>
                 <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
             </div>
             <div class="findJobVacanciesItem">
@@ -160,11 +159,11 @@
         </div>
         <div class="findJobVacancies">
             <div class="findJobVacanciesPicture">
-                <img src="./images/findJob/comLogo.jpg" alt="">
+                <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
             </div>
             <div class="findJobVacanciesTitle">
                 <h3>醫療客服專案實習師</h3>
-                <p>Dr. Right 精準關懷</p>
+                <p class="moveToCom">Dr. Right 精準關懷</p>
                 <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
             </div>
             <div class="findJobVacanciesItem">
@@ -203,15 +202,8 @@ let navigate = (function() {
         // alert('sss')
 		let dataName = $(this).attr('data-name');
         let dataArrow = $(this).children('.fa-chevron-right').attr('data-arrow')
-
-        console.log(dataName);
-        console.log(dataArrow);
 		$('.' + dataName).slideToggle();
         $(`.dd:not(.${dataName})`).hide();
-
-        
-
-        
 	});
 })();
 
@@ -251,7 +243,10 @@ const findJobFind = document.getElementById('findJobFind')
         })
 }
 
-
+let moveToCom = document.querySelector('.moveToCom')
+for(let i = 0; i < moveToCom.length; i++){
+    console.log('123');
+}
     // new Vue({
     //     el: '#app',
     //     data:{

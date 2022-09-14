@@ -15,7 +15,7 @@
     
     <div id="example">
         @@include('./layout/header.html')
-        @@include('./layout/contactUs.html') 
+        
         <div class="section indexBgc01">
             
             <div class="section1">
@@ -98,14 +98,13 @@
                     <h2 class="resumeFontSize1">不知道怎麼踏出第一步嗎 ?</h2>
                     <h2 class="resumeFontSize1">找實習過程中碰壁了嗎 ?</h2>
                     <h2 class="resumeFontSize1">由InternGo為您解答!!</h2>
-                    <button class="btna20 discussBtn">找工作囉</button>
+                    <button class="btna20 discussBtn" id="findJobBtn">找工作囉</button>
                 </div>
                 <div class="section1_test findJob ">
                     <img src="./images/index/findjob.png" alt="">
                 </div>
             </div>
         </div>
-        
         
         
     @@include('./layout/footer.html')
@@ -137,6 +136,10 @@
         // console.log(head);
         head.style.position='fixed'
         
+        const findJobBtn = document.getElementById('findJobBtn');
+        findJobBtn.addEventListener('click', function(){
+            location='./findJob.html'
+        })
     </script>
 </body>
 

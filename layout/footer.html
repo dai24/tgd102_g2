@@ -1,5 +1,27 @@
 <!----- footer ----->
-
+<div class="contactUSInner" v-if="isShow" @click="close" id="contactUSInner"></div>
+<div class="card contactUSInnerCard" v-if="isShow" id="contactUSCard">
+    <ul class="cardUl" >
+        <li>
+            <h1 class="cardH1">聯絡我們</h1>
+        </li>
+        <li>
+            <i class="fa-solid fa-xmark cardXmark" @click="close" id="contactUsClose"></i>
+        </li>
+    </ul>
+    <div class="cardInner contact">
+        <h2>謝謝您的主動聯絡，請留下要諮詢的問題，我們會用以下資訊進行回覆。</h2>
+        <form action="">
+        <div class="contactUSG">
+            <input type="text" name="" value="" placeholder="請輸入電子郵件">
+        </div>
+        <div class="contactUSM">
+            <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !!" ></textarea>
+        </div>
+        <div class="btna3" @click="close" id="contactUsSubmit">送出</div>
+        </form>
+    </div>
+</div>
 <footer>
 
     <div class="footer_inner">
