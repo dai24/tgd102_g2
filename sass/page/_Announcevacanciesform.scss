@@ -17,6 +17,8 @@
             font-size: $R-fontSize03;
             margin-left: 15px;
         }
+
+      
     }
 
     
@@ -37,6 +39,10 @@
     text-align: center;
     margin-right: 142px;
     margin-bottom: 15px;
+    @include m(){
+        
+        margin-left: -29px;
+    }
    
     
 }
@@ -73,6 +79,14 @@
    margin-left: 0;
 
    }
+   input{
+    height: 18px;
+    width: 18px;
+    }
+    label{
+        margin-top: 4px;
+        margin-left: 6px;
+    }
 
 }
 
@@ -95,13 +109,4 @@
     height: 100%;
 }
 
-.nomoneyform_contactUSInner{
-    z-index: 30;
-    position: fixed;
-    background-color: $secondary01;
-    opacity: 0.8;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-}
+

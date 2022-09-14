@@ -1,33 +1,57 @@
+.studentaddmoneywrapper{
 
-.applyfor{
-    max-width: 405px;
-    width: 100%;
-    margin: 0 auto;
-  
-
-}
-
-.studentaddmoney_applyTitle .applyTitle_main{
-    display: flex;
-    justify-content: center;
-    img{
-        width: 30px;
-        height: 30px;
-        margin: 0 30px;
+    .contactUSInner{
+        display: block;
     }
-}
-.applyTitle_main h2{
-    font-size: $fontSize02;
-    color: $secondary01;
-    // padding:$space04;
-    margin-bottom: $space04;
 
-}
+    .applyfor{
+        max-width: 405px;
+        width: 100%;
+        margin: 0 auto;
+      
+    
+    }
+    .cardUl li a{
+        color: #ffff;
+    }
+    
+    .studentaddmoney_applyTitle .applyTitle_main{
+        display: flex;
+        justify-content: space-evenly;
+        img{
+            width: 30px;
+            height: 30px;
+            margin: 0 30px;
+        }
+        input{
+            width: 18px;
+            height: 18px;
+            margin-right: 10px;
+        }
+    }
+    .studentaddmoney_applyTitle > .applyTitle_main:nth-child(3){
 
-.fa-circle-check{
-    color: #D25541;
-}
+        margin-left: 8px;
+    }
+    .applyTitle_main h2{
+        font-size: $fontSize02;
+        color: $secondary01;
+        // padding:$space04;
+        margin-bottom: $space04;
+    
+    }
+    
+    .fa-circle-check{
+        color: #D25541;
+    }
+    
+    .studentaddmoney .btna3{
+        margin: 0 auto;
+    }
+    
 
-.studentaddmoney .btna3{
-    margin: 0 auto;
+
+
+
+    
 }
