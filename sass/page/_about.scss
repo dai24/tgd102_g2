@@ -11,9 +11,18 @@
     }
     h2{
         color: $secondary01;
+        margin-bottom: 8px;
+        @include m(){
+            font-size: $fontSize03;
+        }
     }
     h3{
         color: $secondary01;
+        line-height: 1.4;
+        @include m(){
+            font-size: $fontSize04;
+            line-height: 1.2;
+        }
     }
     
     .title{

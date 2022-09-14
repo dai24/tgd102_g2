@@ -46,7 +46,7 @@
                     width: 195px;
                     @include m(){
                         position: static;
-                        width: 45px;
+                        width: 40px;
                         margin-left: 20px;
                     }
                 }
@@ -112,7 +112,7 @@
     .companyWrapperMain{
         display: flex;
         border-radius: 5px;
-        padding: 30px 130px;
+        padding: 20px 124px;
         background-color: $secondary02;
         margin-bottom: 64px;
         @include m(){
@@ -175,12 +175,12 @@
             background-color: $secondary02;
         }
         .jobMainWrapperOthTitle{
-            padding: 30px 130px;
+            padding: 20px 124px;
             background-color: $primary02;
             color: $secondary02;
             border-radius: 5px 5px 0 0;
             @include m(){
-                padding: 24px 16px;
+                padding: 16px 16px;
             }
             h2{
                 font-size: $fontSize02;
@@ -190,7 +190,7 @@
             }
         }
         .jobMainWrapperOthMain{
-            padding: 30px 130px;
+            padding: 20px 124px;
             @include m(){
                 padding: 24px 16px;
             }
@@ -214,10 +214,11 @@
                 display: flex;
                 justify-content: end;
                 padding-bottom: 20px;
-                border-bottom: 1px solid $secondary01;
+                border-bottom: 1px solid rgba(0, 0, 0, 0.308);
                 @include m(){
-                    margin-top: 20px;
+                    margin-top: 24px;
                     padding-bottom: 20px;
+                    justify-content: center;
                 }
                 .btna5{
                     margin-right: 20px;

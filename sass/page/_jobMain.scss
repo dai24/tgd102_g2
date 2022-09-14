@@ -10,7 +10,7 @@
     .jobMainWrapperTitle{
         color: $secondary02;
         margin-bottom: 64px;
-        padding: 30px 130px;
+        padding: 30px 124px;
         border-radius: 5px;
         background-color: $primary02;
         @include m(){
@@ -30,6 +30,7 @@
         div{
             display: flex;
             align-items: center;
+            cursor: pointer;
             img{
                 width: 40px;
                 @include m(){
@@ -47,7 +48,7 @@
         
     }
     .jobMainWrapperMain{
-        padding: 30px 130px;
+        padding: 30px 124px;
         margin-bottom: 64px;
         background-color: $secondary02;
         display: flex;
@@ -119,7 +120,7 @@
         }
     }
     .jobMainWrapperCom{
-        padding: 30px 130px;
+        padding: 30px 124px;
         background-color: $secondary02;
         border-radius: 5px;
         margin-bottom: 64px;
@@ -137,6 +138,7 @@
             }
             img{
                 width: 112px;
+                cursor: pointer;
                 @include m(){
                     width: 44px;
                     position: absolute;
@@ -146,13 +148,14 @@
             }
             .jobMainWrapperComIconT{
                 margin-left: 35px;
-                align-self: center;
+                // align-self: center;
                 @include m(){
                     margin-left: 0px;
                 }
                 a{
                     color: $secondary01;
                     h2{
+                        cursor: pointer;
                         font-size: $fontSize02;
                         line-height: 3;
                         @include m(){
@@ -212,14 +215,14 @@
             background-color: $secondary02;
         }
             .jobMainWrapperOthTitle{
-                padding: 30px 130px;
+                padding: 20px 124px;
                 display: flex;
                 align-items: center;
                 background-color: $primary02;
                 color: $secondary02;
                 border-radius: 5px 5px 0 0;
                 @include m(){
-                    padding: 24px 16px;
+                    padding: 16px 16px;
                 }
                 img{
                     width: 50px;
@@ -237,7 +240,7 @@
                 }
             }
             .jobMainWrapperOthMain{
-                padding: 30px 130px;
+                padding: 30px 124px;
                 background-color: $secondary02;
                 color: $secondary01;
                 @include m(){
@@ -263,10 +266,12 @@
                     display: flex;
                     justify-content: end;
                     padding-bottom: 20px;
-                    border-bottom: 1px solid $secondary01;
+                    border-bottom: 1px solid rgba(0, 0, 0, 0.308);
+                    
                     @include m(){
-                        margin-top: 20px;
+                        margin-top: 24px;
                         padding-bottom: 20px;
+                        justify-content: center;
                     }
                     .btna5{
                         margin-right: 20px;
