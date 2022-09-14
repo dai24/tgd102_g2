@@ -33,10 +33,10 @@ $(document).ready(function () {
 })
 
 $(document).ready(function () {
-    $('.testResult').hide();
+    $('.careertestresult').hide();
     $(".tfBtn").click(function () {
         $('.testfinish').hide();
-        $(".testResult").toggle();
+        $(".careertestresult").toggle();
     })
 })
 

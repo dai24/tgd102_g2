@@ -158,9 +158,7 @@
 }
 
 
-.question1{
-    // display: none;
-}
+
 
 .question2{
     display: none;
@@ -216,6 +214,23 @@
 }
 
 
+.careertestresult{
+    display: none;
+    background-color: #FFA800;
+    font-family: $fontFamily;
+    width: 100vw;
+    // height: 100vh;
+    padding: 28px 0 24px;
+    box-sizing: border-box;
+    
+
+    @include m(){
+        height: auto;
+        padding: 24px 0;
+    }
+}
+
+
 .textboxResult{
     display: none;
     
@@ -239,7 +254,7 @@
 
     @include m(){
         flex-direction: column;
-        margin: 20px auto 0;
+        margin: 0px auto 0;
         width: 264px;
     }
     
@@ -254,6 +269,7 @@
 
     @include m(){
         width: 100%;
+        margin-top: 0px; 
         
 
     }
@@ -266,6 +282,7 @@
         width: 172px;
         margin: 0 auto;
         display: block;
+        margin-bottom: 12px;
 
     }
 }
@@ -278,15 +295,17 @@
     margin-top: 72px;
     margin-left: 56px;
 
+    
+
+    @media screen and (max-width: 1600px) {
+        max-width: 60%;    
+    }
+
     @include m(){
        
         max-width: 256px;
         margin:0 auto;
-        margin-top: 40px;
-    }
-
-    @media screen and (max-width: 1500px) {
-        max-width: 60%;    
+        margin-top: 16px;
     }
 
     .txt1{
@@ -300,7 +319,7 @@
         }
         @include m(){
             
-            margin-bottom: 40px;
+            margin-bottom: 24px;
             text-align: center;
             font-size: 24px;
         }
@@ -316,7 +335,7 @@
             margin-bottom: 48px; 
         }
         @include m(){
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             font-size: 16px;
         }
     }
@@ -330,7 +349,7 @@
             margin-bottom: 48px;
         }
         @include m(){
-            margin-bottom: 40px;
+            margin-bottom: 28px;
             font-size: 16px;
         }
     }
