@@ -115,6 +115,7 @@
                     background-color: $secondary02;
                     border-radius: 5px;
                     color: $primary02;
+                    display: none;
                     
                 }
                 .findJobTypeArea{
@@ -252,6 +253,7 @@
             margin: 0 8px 16px;
         }
         .findJobVacanciesPicture img{
+            cursor: pointer;
             width: 170px;
             @include m(){
                 width: 38px;
@@ -271,12 +273,14 @@
             h3{
                 font-size: $fontSize03;
                 margin-bottom: 12px;
+                cursor: pointer;
             }
             p{
                 font-size: $fontSize05;
             }
             h3 + p{
                 margin-bottom: 24px;
+                cursor: pointer;
             }
             p + p{
                 line-height: 1.4;

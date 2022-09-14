@@ -7,7 +7,9 @@
 </head>
 <body>
     @@include('./layout/header.html')
-    @@include('./layout/contactUs.html')    
+    @@include('./layout/contactUs.html')
+    @@include('./layout/applyFor.html')
+    @@include('./layout/saveApply.html')      
     <div class="jobMainWrapper">
         @@include('./layout/breadcrumb3.html',{
             'home' : "首頁",
@@ -70,8 +72,8 @@
                     </div>
                 </div>
                 <div class="jobMainVacanciesBtn">
-                    <div class="btna5">儲存職缺</div>
-                    <div class="btna6">應徵職缺</div>
+                    <div class="btna5 saveApplyOpen">儲存職缺</div>
+                    <div class="btna6" id="applyForOpen">應徵職缺</div>
                 </div>
             </div>
 
