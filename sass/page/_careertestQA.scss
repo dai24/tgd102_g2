@@ -214,6 +214,23 @@
 }
 
 
+.careertestresult{
+    display: none;
+    background-color: #FFA800;
+    font-family: $fontFamily;
+    width: 100vw;
+    // height: 100vh;
+    padding: 28px 0 24px;
+    box-sizing: border-box;
+    
+
+    @include m(){
+        height: auto;
+        padding: 24px 0;
+    }
+}
+
+
 .textboxResult{
     display: none;
     
