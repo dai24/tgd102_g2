@@ -48,6 +48,7 @@
             height: 60px;
             background-color:$focus01;
             color:$secondary02;
+            border-right: 3px solid $focus01;
         };
         table{
             width: 100%;
@@ -113,7 +114,7 @@
         
         //按鈕：詳細資料
         .btna3{
-            height: 50px;
+            height: 40px;
             line-height: 40px;
             a{
                 color:$secondary01;
