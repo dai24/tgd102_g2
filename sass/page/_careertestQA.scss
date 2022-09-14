@@ -25,15 +25,31 @@
         }
     }
 
+    // 職涯測驗答案按鈕
     .btna18{
+        
         margin-bottom: 104px;
+        line-height: 1.5;
 
         @include m(){
-            margin-bottom: 72px;
-    
+            margin-bottom: 72px;      
         }
-        line-height: 1.5;
+
+        br{
+            display: none;
+
+            @include m(){
+                display: block;      
+            }
+        }
+       
+
+       
     }
+
+
+
+
 
     .btna14{
       
@@ -46,7 +62,7 @@
 .testboxQA{
     @include testbox();
     // max-height: 740px;
-    margin: 80px auto;
+    margin: 20px auto;
     width: 800px;
     height: 740px;
 
@@ -122,9 +138,10 @@
 //職涯測驗答案
 .textboxResult{
     @include testbox();
-    max-width: 1504px;
-    padding: 32px 40px;
-    height: 960px;
+    max-width: 80%;
+    padding: 32px 40px 40px;
+    margin: 0 auto ;
+    // height: 860px;
     box-sizing: border-box;
 
     @include m(){
@@ -189,6 +206,7 @@
            
             font-size: 20px;
             width: 264px;
+            margin: 0px auto 72px;
 
     
         }
@@ -215,19 +233,34 @@
 .testResult{
 
     display: flex;
-    max-width: 1200px;
-    margin: 64px auto 0;
+    max-width: 85%;
+    // margin: 8px auto 0;
+    margin: 0 auto;
 
     @include m(){
         flex-direction: column;
         margin: 20px auto 0;
-        // width: 264px;
+        width: 264px;
     }
     
 }
 
+.testResult .testresult_left{
+    width: 40%;
+    @media screen and (max-width: 1500px) {
+        width: 60%;  
+        margin-top: 30px;  
+    }
+
+    @include m(){
+        width: 100%;
+        
+
+    }
+}
+
 .testResult .testresult_left img{
-    width: 480px;
+    width: 100%;
 
     @include m(){
         width: 172px;
@@ -238,25 +271,35 @@
 }
 
 .testresult_right{
-    max-width: 600px;
+    // max-width: 600px;
+    max-width: 50%;
     font-family: $fontFamily;
     font-weight: bold;
-    margin-top: 64px;
-    margin-left: 72px;
+    margin-top: 72px;
+    margin-left: 56px;
 
     @include m(){
        
-        width: 256px;
+        max-width: 256px;
         margin:0 auto;
         margin-top: 40px;
+    }
+
+    @media screen and (max-width: 1500px) {
+        max-width: 60%;    
     }
 
     .txt1{
         
         font-size: 48px;
         margin-bottom: 72px;
+
+        @media screen and (max-width: 1600px) {
+           font-size: 32px;  
+           margin-bottom: 48px;
+        }
         @include m(){
-           
+            
             margin-bottom: 40px;
             text-align: center;
             font-size: 24px;
@@ -267,6 +310,11 @@
         font-size: 32px;
         margin-bottom: 72px;
         line-height: 1.6;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 26px; 
+            margin-bottom: 48px; 
+        }
         @include m(){
             margin-bottom: 40px;
             font-size: 16px;
@@ -276,6 +324,11 @@
     .txt3{
         font-size: 32px;
         margin-bottom: 72px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 26px;  
+            margin-bottom: 48px;
+        }
         @include m(){
             margin-bottom: 40px;
             font-size: 16px;
@@ -291,6 +344,10 @@
         font-size: 32px;
         margin-right: 32px;
         line-height: 40px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 26px;  
+        }
         @include m(){
 
             font-size: 16px;
