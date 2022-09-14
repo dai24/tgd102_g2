@@ -41,12 +41,21 @@
     }
     .btna1{
         margin: 0 auto;
+
+        a{
+            color: #ffffff;
+
+        }
+
+        
+        
     
         @include m(){
             @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
         }
     
     }
+  
 }
 
 
