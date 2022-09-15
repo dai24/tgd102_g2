@@ -21,8 +21,15 @@
         }
     }
 }
+.cardInner{
+    border-radius: 5px 5px 0 0;
+}
 .contactUSInnerCard{
     display: none;
+    @include m(){
+        padding: 0px 8px ;
+        
+    }
 }
 .contact{
     text-align: center;
@@ -62,9 +69,17 @@
             font-size: $fontSize05;
             padding: 8px;
             outline: none;
-            margin-bottom: 32px;
             @include m(){
                 max-width: 320px;
+            }
+        }
+        p{  
+            text-align: right;
+            margin-top: 8px;
+            margin-bottom: 32px;
+            padding-right: 80px;
+            @include m(){
+                padding-right: 30px;
             }
         }
     }
