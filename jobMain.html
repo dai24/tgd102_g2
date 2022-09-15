@@ -176,6 +176,10 @@
             </div>
             
         </div>
+        <div class="m-a-s-k_applyFor" id="m-a-s-k_applyFor"></div>
+        <div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn">
+            <img src="../images/resume/resume_1.jpg" class='resume_zoom_imggg'>
+        </div>
     </div>
     @@include('./layout/footer.html')
 </body>
@@ -187,5 +191,25 @@ for(let i = 0; i < moveToCom.length; i++){
         location='./company.html'
     })
 }
+
+let mask_applyFor = document.getElementById('m-a-s-k_applyFor')
+let mask_applyForIn = document.getElementById('m-a-s-k_applyForIn')
+for(let i = 0; i < resume_zoom_browser_btn.length;i++){
+    resume_zoom_browser_btn[i].addEventListener('click', function(){
+        if(mask_applyFor.style.display === 'block'){
+            mask_applyFor.style.display = 'none'
+            mask_applyForIn.style.display = 'none'
+        }else{
+            mask_applyFor.style.display = 'block'
+            mask_applyForIn.style.display = 'block'
+        }
+    })
+}
+
+mask_applyFor.addEventListener('click', function(){
+    this.style.display = 'none'
+    mask_applyForIn.style.display = 'none'
+})
+
 </script>
 </html>
