@@ -139,16 +139,12 @@
             @include m(){
                 color: #FFFFFF;
                 flex-direction: column;
-                
-             
              }
-            h3{
+            h3{ //"職缺列表"
                 font-size: $fontSize03;
                 @include m(){
                     margin-bottom: 15px;
-                    font-size: $fontSize01;
-                    
-                 
+                    font-size: $R-fontSize02;
                 }
             }
             .inputsearch{
@@ -160,10 +156,13 @@
                     position: relative;
                     
                 }
-                
+                .inputText{
+                    @include m(){
+                        padding-left: 35px;
+                        width: 355px;
+                    }    
+                }
             }   
-
-            
         }
 
         table{
@@ -172,14 +171,18 @@
             border-left: 2px solid $focus01;
             border-right: 2px solid $focus01;
             border-bottom: 2px solid $focus01;
-           
-            
+                       
             td{
                 padding: 0 0px;
-                i{
+                .fa-solid{ //icon 編輯、刪除
                     margin-left: 20px;
                     cursor: pointer;
-                }
+                    @include m(){
+                        font-size: 24px;
+                        padding: 0 70px;
+                        margin-left: 0;
+                    }
+                }                
             }
             .item{
                 padding: 20px 0px;
@@ -191,19 +194,19 @@
                     flex-direction: row;
                     flex-wrap: wrap;
                 }
-                    
-                 
-            }
-                h3{
+                h3{ //職缺的名稱
                     font-size: $fontSize03;
                     line-height: 80px;
-                    margin-left: 30px;
                     @include m(){
                         margin-left: 0;
+                        line-height: normal;
                     }
                 }
-                .b{
+                .btncheck{
                     margin-left: 24px;
+                    @include m(){
+                        margin-left: 24px;
+                    }
                     a{ //"查看求職者"
                         color: $secondary02;
                     }
@@ -212,14 +215,21 @@
                     padding: 0 50px;
                     @include m(){
                         padding: 0px 0px;
+                        h3{ 
+                            font-weight: bold;
+                            padding: 16px auto;
+                            padding-left: 18px;
+                        }
                     }
+                    
                 }
                 .detail{
-                    width: 26%;
+                    width: 26%;                    
                     @include m(){
                         width: 100%;
                         display: flex;
                         justify-content: center;
+                        order: 1;
                     }
                 }
                 .fa-trash{
@@ -228,28 +238,31 @@
                         margin-left: 0;
                     }
                 }
-                .edit{
+                .edit{ //編輯
                     width: 12%;
+                    order: 0;
                     @include m(){
                         width: 100%;
                         display: flex;
-                        justify-content: center;
+                        flex-direction: column;
+                        justify-content: space-between;
                     }
-
-                    
+                    // button{
+                    //     width: 50%;
+                    // }                    
                 }
+            }
+                
         }       
             .btna20{
                 font-size: 16px;
                 @include m(){
                     font-size: 20px;
-                    width: 170px;
-                    margin: 28px 0;
+                    width: 170px;                    
                 }
             }
         
     }
-
 
     //switch
     .state{
@@ -291,7 +304,7 @@
             }                        
         }                                        
     }
-    //持續應徵中
+    //按鈕：持續應徵中
     .openSwitch{
         .appleSwitch{
             animation: openColor 1s 1 ease-in-out forwards;
@@ -300,47 +313,14 @@
             }
         }
     }
-
-
-
-
-
-
-
-
-       
-}
-
-.companyWrapper .companyFooter table .item .b{
-    @include m(){
-        margin-left: 24px;
-    }
-}
-.companyWrapper .companyFooter table td i{
-    @include m(){
-        font-size: 35px;
-        padding: 0 70px;
-        margin-left: 0;
-    }
-
-}
-.companyWrapper .companyFooter table .item .id{
-    padding: 0px 15px;
-    @include m(){
-        padding: 0px 15px;
-    }
-}
-.companyWrapper .pagination-div{
-    display: block;
-}
-
-.inputsearch .inputText{
-    @include m(){
-        padding-left: 35px;
-        width: 355px;
-    }
     
+    .pagination-div{ //分頁頁碼
+        display: block; 
+    }
 }
+
+
+
 
 
 
