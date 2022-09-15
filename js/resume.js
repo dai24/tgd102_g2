@@ -25,7 +25,7 @@ let resume_save_window = `
             <h3>要到會員的我的履歷檢視嗎？</h3>
          </div>
       </div>
-      <div class="btna3">確定</div>
+      <div class="btna3 check_btn">確定</div>
    </div> 
       
    </div>
@@ -48,12 +48,12 @@ let resume_pay_window =`
                <h3>001模板需100金幣</h3>
             </div>
          </div>
-         <div class="btna3">確定加值</div>
+         <div class="btna3 addpay">確定加值</div>
       </div>
 </div>
 `
 
-let resume_delere_window =`
+let resume_delete_window =`
 <div class="m-a-s-k"></div>
 <div class="card_resume resume_window">
    <ul class="cardUl">
@@ -73,7 +73,7 @@ let resume_delere_window =`
             <h3>確定刪除履歷嗎？</h3>
          </div>
       </div>
-      <div class="btna3">確定</div>
+      <div class="btna3 check_btn">確定</div>
    </div>
 </div>
 `
@@ -111,7 +111,7 @@ let resume_share_window =`
                     <img src="/images/header_icon/ig.jpg" alt="">
                     <i class="fa-brands fa-facebook"></i>
                 </div>
-                <div class="btna3">確定</div>
+                <div class="btna3 check_btn">確定</div>
             </div>
         </div>
     </div>
@@ -137,10 +137,48 @@ let resume_pdf_window =`
                     <h3>新鮮人履歷.pdf</h3>
                 </div>
             </div>
-            <div class="btna3 pdf_dowload">下載 PDF</div>
+            <div class="btna3 check_btn pdf_dowload">下載 PDF</div>
         </div>
     </div>
 `
+
+
+let resume_addmoney_window =`
+<div class="m-a-s-k"></div>
+<div class="card_resume  resume_window">
+        <ul class="cardUl">
+            <li>
+                <h1 class="cardH1">加值點數</h1>
+            </li>
+            <li>
+                <a href="./student_main.html"><i class="fa-solid fa-xmark cardXmark"></i></a>
+            </li>
+        </ul>
+        <div class="cardInner studentaddmoney">
+            <div class="studentaddmoney_applyTitle">
+        
+                <div class="applyTitle_main">
+                    <input type="radio" name="123">
+                    <h2>NT 399</h2>
+                    <img src="/images/header_icon/money.png" alt="">
+                    <h2>200金幣</h2>
+                </div>
+                <div class="applyTitle_main">
+                    <input type="radio" name="123">
+                    <h2>NT 899</h2>
+                    <img src="/images/header_icon/money.png" alt="">
+                    <h2>500金幣</h2>
+                </div>
+                <div class="applyTitle_main">
+                    <input type="radio" name="123">
+                    <h2>NT 1599</h2>
+                    <img src="/images/header_icon/money.png" alt="">
+                    <h2>1000金幣</h2>
+                </div>
+            </div>
+            <div class="btna3 check_btn">確定</div>
+        </div>
+</div>`
 
 $(function () {
 
@@ -191,7 +229,13 @@ $(function () {
    $('.resume_model-border .resume_pay').on('click', function () {
       $('.resume_wrapper').append(resume_pay_window) 
 
-      // 儲存視窗確認或關閉
+      closeWindows()
+   })
+
+   // 儲值視窗
+   $('.addpay').on('click', function () {
+      console.log('123')
+      $('.resume_wrapper').append(resume_pay_window) 
       closeWindows()
    })
 
@@ -209,7 +253,6 @@ $(function () {
       $('.resume_wrapper').append(resume_share_window)
       $('.m-a-s-k').show()
 
-      // 儲存視窗確認或關閉
       closeWindows()
    })
 
@@ -218,7 +261,6 @@ $(function () {
       $('.resume_wrapper').append(resume_pdf_window)
       $('.m-a-s-k').show()
 
-      // 儲存視窗確認或關閉
       closeWindows()
    })
 
@@ -229,10 +271,9 @@ $(function () {
 
    // 刪除履歷視窗
    $('#resume_delect').on('click', function () {
-      $('.resume_wrapper').append(resume_delere_window)
+      $('.resume_wrapper').append(resume_delete_window)
       $('.m-a-s-k').show()
 
-      // 儲存視窗確認或關閉
       closeWindows()
    })
    
@@ -244,7 +285,7 @@ $(function () {
 
 // 關閉跟確認視窗
 function closeWindows(){
-   $('.resume_window .fa-xmark,.resume_window .btna3,.resume_zoom').on('click', function () {
+   $('.resume_window .fa-xmark,.resume_window .check_btn,.resume_zoom').on('click', function () {
       $('.resume_zoom').remove()
       $('.resume_window').remove()
       $('.m-a-s-k').remove()

@@ -5,7 +5,10 @@ a {
 .resume_wrapper {
     max-width: 1280px;
     margin: 0 auto;
-    
+    *{
+         box-sizing: border-box;
+    }
+   
     //  麵包屑
     .bread-crumb {
         // outline: 2px solid rgb(64, 17, 252);
@@ -54,6 +57,7 @@ a {
         .btna11 {
             display: block;
             line-height: 2;
+           
         }
     
     }
