@@ -73,9 +73,9 @@
 
         </div>
 
-
+ 
         <!-- 我要健診 橘色彈窗 -->
-        <div class="resumeReviewCard">
+        <div class="resumeReviewCard2">
             <div class="card2">
                 <ul class="card2Ul">
                     <li><h1 class="card2H1">履歷健診</h1></li>
@@ -128,22 +128,25 @@
     <script>
 
         $(document).ready(function () {
-            $('.resumeReviewCard').hide();
+            $('.resumeReviewCard2').hide();
+            $('.card2').hide();
             $(".btna10").click(function () {
-                $(".resumeReviewCard").toggle();
+                $(".resumeReviewCard2").toggle();
+                $(".card2").toggle();
+
             })
         });
 
         $(document).ready(function () {
             $(".card2Xmark").click(function () {
-                $(".resumeReviewCard").hide();
+                $(".resumeReviewCard2").hide();
+                $(".card2").hide();
             })
         });
 
 
+
     </script>
-
-
 
 </body>
 

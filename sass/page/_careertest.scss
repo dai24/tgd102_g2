@@ -44,9 +44,12 @@
     display: block;
 }
 
+
+
 .testbox_logo{
-    width: 200px;
-    margin: 0px auto 0;    
+    width: 232px;
+    margin: 0 auto;
+    display: block;    
 
     @include m(){
         width: 164px;
