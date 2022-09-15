@@ -247,6 +247,7 @@
         padding: 54px 65px;
         margin-bottom: 16px;
         color: $secondary01;
+        position: relative;
         @include m(){
             flex-direction: column;
             padding: 24px 8px;
@@ -258,7 +259,7 @@
             @include m(){
                 width: 38px;
                 position: absolute;
-                left: 48px;
+                left: 20px;
             }
         }
         .findJobVacanciesTitle{

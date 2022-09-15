@@ -222,7 +222,7 @@ body{
             img{
                 max-width: 150px;
                 width: 100%;
-                margin: 16px;
+                margin: 16px 16px 30px 16px;
                 
             }
         }
@@ -248,11 +248,9 @@ body{
         font-size: $fontSize02;
         text-align: center;
         letter-spacing: 2px;
-        margin-bottom: 8px;
+        margin-bottom: 20px;
     }
-    .indexBgc01 #howResume{
-        display: none;
-    }
+   
     // .fp-tableCell{
     //     height: 700px !important;
     // }
@@ -278,6 +276,9 @@ body{
     }
     .resumeFontSize3{
         font-size: $fontSize04;
+    }
+    .resumeFontSize3MarBot{
+        margin-bottom: 16px;
     }
     .discuss{
         img{
@@ -318,5 +319,7 @@ body{
         display: none;
     }
     
-    
+    #resumeStepSection{
+        margin-top: 42px;
+    }
 }
