@@ -1819,7 +1819,8 @@ footer {
     width: 100vw;
     height: 100%;
     background-color: #313131;
-    opacity: 0%;
+    opacity: 0;
+    z-index: 40;
   }
 }
 
@@ -2036,7 +2037,7 @@ body {
   .resumeAll .section1_resume img {
     max-width: 150px;
     width: 100%;
-    margin: 16px;
+    margin: 16px 16px 30px 16px;
   }
   .resumeStep img {
     display: block;
@@ -2054,10 +2055,7 @@ body {
     font-size: 24px;
     text-align: center;
     letter-spacing: 2px;
-    margin-bottom: 8px;
-  }
-  .indexBgc01 #howResume {
-    display: none;
+    margin-bottom: 20px;
   }
   .section2 .resume {
     margin: 0 0px;
@@ -2079,6 +2077,9 @@ body {
   }
   .resumeFontSize3 {
     font-size: 18px;
+  }
+  .resumeFontSize3MarBot {
+    margin-bottom: 16px;
   }
   .discuss img {
     display: block;
@@ -2112,6 +2113,9 @@ body {
   }
   .findJob img {
     display: none;
+  }
+  #resumeStepSection {
+    margin-top: 42px;
   }
 }
 .about {
@@ -3349,6 +3353,7 @@ a {
   padding: 54px 65px;
   margin-bottom: 16px;
   color: #313131;
+  position: relative;
 }
 @media screen and (max-width: 428px) {
   .findJobWrapper .findJobVacancies {
@@ -3365,7 +3370,7 @@ a {
   .findJobWrapper .findJobVacancies .findJobVacanciesPicture img {
     width: 38px;
     position: absolute;
-    left: 48px;
+    left: 30px;
   }
 }
 .findJobWrapper .findJobVacancies .findJobVacanciesTitle {
@@ -6424,11 +6429,6 @@ a {
 .contactUSInnerCard {
   display: none;
 }
-@media screen and (max-width: 428px) {
-  .contactUSInnerCard {
-    padding: 0px 8px;
-  }
-}
 
 .contact {
   text-align: center;
@@ -7690,6 +7690,9 @@ a {
 .backstage_resource .wrapper .block2 .add {
   display: flex;
   line-height: 60px;
+}
+.backstage_resource .wrapper .block2 .add a {
+  color: #FFFFFF;
 }
 .backstage_resource .wrapper .block2 .add h4 {
   line-height: 60px;
