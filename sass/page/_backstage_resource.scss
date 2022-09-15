@@ -165,6 +165,9 @@
             .add{
                 display: flex;
                 line-height:$block2LineHeight;
+                a{
+                    color: $secondary02;
+                }
                 h4{
                     line-height:$block2LineHeight;
                 }
