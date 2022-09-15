@@ -26,25 +26,25 @@
                 <div class="section1_test">
                     <h2 class="resumeFontSize1">職業適性測驗</h2>
                     <h3 class="resumeFontSize3">INTERNGO 為您找到最適合的職業</h3>
-                    <button class="btna20">去測驗</button>
+                    <button class="btna20" id="moveToCareerTest">去測驗</button>
                 </div>
             </div>
         </div>
         <div class="section indexBgc01">
-            <h1>如何製作履歷 ?</h1>
+            <h1 id="howResume">如何製作履歷 ?</h1>
             <div class="section1 section2 resumeStep">
                 
                 <div class="section1_resume">
                     <img src="./images/index/resume01.png" alt="" class="rs">
-                    <button class="btna20">履歷範本</button>
+                    <button class="btna20" id="moveToResume">履歷範本</button>
                 </div>
                 <div class="section1_resume resume">
                     <img src="./images/index/resume02.png" alt="" class="rs">
-                    <button class="btna20">製作履歷</button>
+                    <button class="btna20" id="moveToResume_work">製作履歷</button>
                 </div>
                 <div class="section1_resume">
                     <img src="./images/index/resume03.png" alt="" class="rs">
-                    <button class="btna20">履歷診療室</button>
+                    <button class="btna20" id="moveToResumeReview">履歷診療室</button>
                 </div>
             </div>
         </div>
@@ -140,6 +140,28 @@
         findJobBtn.addEventListener('click', function(){
             location='./findJob.html'
         })
+
+        const moveToCareerTest = document.getElementById('moveToCareerTest')
+        moveToCareerTest.addEventListener('click', function(){
+            location='./careertest.html'
+        })
+
+        const moveToResume = document.getElementById('moveToResume')
+        moveToResume.addEventListener('click', function(){
+            location='./resume.html'
+        })
+
+        const moveToResume_work = document.getElementById('moveToResume_work')
+        moveToResume_work.addEventListener('click', function(){
+            location='./resume_work_space.html'
+        })
+
+        const moveToResumeReview = document.getElementById('moveToResumeReview')
+        moveToResumeReview.addEventListener('click', function(){
+            location='./resumeReview.html'
+        })
+
+
     </script>
 </body>
 

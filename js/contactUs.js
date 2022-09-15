@@ -44,3 +44,14 @@ contactUsSubmit.addEventListener('click', function(){
         contactUSCard.style.display = 'block'
     }
 })
+
+$(function () {
+let textMax = $('#talk').attr('maxlength')
+$('#feedback').html(` <span style="color:#c1c1c1";> ${textMax} </span> / 200`)
+$('#talk').keyup(function(){
+    let textLength = $('#talk').val().length
+    $('#feedback').html(` <span style="color:#c1c1c1";> ${textMax - textLength} </span> / 200`)
+})
+
+// console.log(textLength);
+});

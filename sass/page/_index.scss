@@ -223,6 +223,7 @@ body{
                 max-width: 150px;
                 width: 100%;
                 margin: 16px;
+                
             }
         }
     }
@@ -232,9 +233,9 @@ body{
         // }
         img{
             display: block;
-            max-width: 150px;
+            max-width: 140px;
             width: 100%;
-            margin-bottom: 0px;
+            margin-bottom: 8px;
         }
     }
     .resumeStep > div{
@@ -247,8 +248,14 @@ body{
         font-size: $fontSize02;
         text-align: center;
         letter-spacing: 2px;
-        margin-bottom: 20px;
+        margin-bottom: 8px;
     }
+    .indexBgc01 #howResume{
+        display: none;
+    }
+    // .fp-tableCell{
+    //     height: 700px !important;
+    // }
     .section2{
         .resume{
             margin: 0 0px;
@@ -284,7 +291,8 @@ body{
         margin: 24px 0;
     }
     .btna20{
-        margin: 28px 0;
+        margin: 0px 0;
+        
     }
     .dicussToImg{
         display: none;
@@ -309,5 +317,6 @@ body{
     .findJob img{
         display: none;
     }
+    
     
 }
