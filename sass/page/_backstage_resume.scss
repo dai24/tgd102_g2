@@ -35,6 +35,9 @@
         padding-left:36px;
         display: flex;
         flex-direction: column;
+        @media screen and (max-width:1850px) { //配合backstage_nav變成漢堡
+            width: 100%;
+        }
         //分頁標題
         .title{
             font-weight:bold;
@@ -93,16 +96,21 @@
             border: 3px solid $primary02;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             padding-bottom: 30px;
             >li{
                 width: 20%;
                 margin-right: 20px;
                 margin-left: 20px;
                 margin-top: 40px;
+                
                 box-shadow: 5px 5px 20px $secondary01;
                 display: flex;
                 flex-direction: column;
+                // @media screen and (min-width:1850px) { //配合backstage_nav變成漢堡
+                //     padding-right: 30px;
+                //     padding-left: 30px;
+                // }
                 //履歷
                 img{
                     display: block;

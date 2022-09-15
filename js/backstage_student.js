@@ -27,7 +27,11 @@
 //             coin: 500,
 //             blacklist: 0,
 //             record: 10,
+<<<<<<< HEAD
 //             // create-date: '2022/09/07'
+=======
+//             'create-date': 2022/09/07
+>>>>>>> b43392112d68f6e48ace251ed3d714f4d8261dca
 //         }
 //     }, //變數
 //     methods: {}, //函數

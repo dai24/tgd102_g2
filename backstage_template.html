@@ -42,7 +42,7 @@
                 </div>
             </li>
             <li>
-                <img src="./images/resume/resume_2.jpg" alt="模板">
+                <img class="banitem" src="./images/resume/resume_2.jpg" alt="模板">
                 <div class="edit">
                     <h3>2022/09/15</h3>
                     <i class="fa-solid fa-ban banOpen"></i>
@@ -96,6 +96,15 @@
     </div>   
     
 </main> 
-<script src="./js/backstage_student.js"></script>
+<script>
+    //被停權的履歷會變暗
+    let banitem = document.querySelectorAll(".banitem");
+
+    // for(let i = 0; i < banitem.length; i++){
+    //     banitem[i].insertAdjacentHTML("beforebegin", `
+    //         <div class="banItemMask"><div>
+    //     `)
+    // }
+</script>
 </body>
 </html>

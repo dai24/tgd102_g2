@@ -41,31 +41,59 @@
     </ul>
 </aside>
 
-<aside class="backstage-nav2" style="display:none">
-    <a href="../backstage.html"><img src="../images/logo/interngo.png" alt="logo" class="backstage_logo"></a>
+<aside class="backstage-nav2" >
+    <div class="wrapperNav">
+        <a href="../backstage.html"><img src="../images/logo/interngo.png" alt="logo" class="backstage_logo"></a>
     
-    <ul>
-        <li>
-            <a href="../backstage_company.html"><button class="btncomapny"><h2>公司營運分析</h2></button></a>
-        </li>
-        <li>
-            <a href="../backstage_student.html"><button><h2>會員資訊</h2></button></a>
-        </li>
-        <li>
-            <a href="../backstage_resume.html"><button><h2>履歷專區</h2></button></a>
-        </li>
-        <li>
-            <a href="#"><button><h2>實習職缺</h2></button></a>
-        </li>
-        <li>
-            <a href="../backstage_resource.html"><button><h2>求職資源</h2></button></a>
-        </li>
-        <li>
-            <a href="#"><button><h2>討論區</h2></button></a>
-        </li>
-    </ul>
-    <div>hi</div>
+        <ul>
+            <li>
+                <a href="../backstage_company.html"><button class="btncomapny"><h2>公司營運分析</h2></button></a>
+            </li>
+            <li>
+                <a href="../backstage_student.html"><button><h2>會員資訊</h2></button></a>
+            </li>
+            <li>
+                <a href="../backstage_resume.html"><button><h2>履歷專區</h2></button></a>
+            </li>
+            <li>
+                <a href="#"><button><h2>實習職缺</h2></button></a>
+            </li>
+            <li>
+                <a href="../backstage_resource.html"><button><h2>求職資源</h2></button></a>
+            </li>
+            <li>
+                <a href="#"><button><h2>討論區</h2></button></a>
+            </li>
+        </ul>
+    </div>
+    
+    <div class="nav-toggle">
+        <span></span>
+        <span></span>
+        <span></span>        
+    </div>
+
+    <div class="maskMain"></div>
 </aside>
+
+<script>
+    let backstage_nav2 = document.querySelector(".backstage-nav2");
+    let nav_toggle = document.querySelector(".nav-toggle");
+    let maskMain = document.querySelector(".maskMain");
+
+    document.getElementsByClassName("nav-toggle")[0].addEventListener("click",function(){
+        document.body.classList.toggle("activeNav");
+        nav_toggle.classList.toggle("on");
+
+        if(nav_toggle.classList.contains("on")){
+            backstage_nav2.style.left = 0;
+            maskMain.style.opacity = "70%";
+        }else{
+            backstage_nav2.style.left = "-250px";
+            maskMain.style.opacity = "0%";
+        }        
+    })
+</script>
     <div  class="wrapper">
         <h1 class="title">履歷專區</h1>
         <div class="block">
@@ -99,7 +127,7 @@
                 </div>
             </li>
             <li>
-                <img src="./images/resume/resume_2.jpg" alt="模板">
+                <img class="banitem" src="./images/resume/resume_2.jpg" alt="模板">
                 <div class="edit">
                     <h3>2022/09/15</h3>
                     <i class="fa-solid fa-ban banOpen"></i>
@@ -163,6 +191,15 @@
     </div>   
     
 </main> 
-<script src="./js/backstage_student.js"></script>
+<script>
+    //被停權的履歷會變暗
+    let banitem = document.querySelectorAll(".banitem");
+
+    // for(let i = 0; i < banitem.length; i++){
+    //     banitem[i].insertAdjacentHTML("beforebegin", `
+    //         <div class="banItemMask"><div>
+    //     `)
+    // }
+</script>
 </body>
 </html>
