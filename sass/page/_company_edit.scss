@@ -12,7 +12,7 @@
             margin: 0 auto;
             display: flex;
             flex-direction: column;
-            align-items: normal;
+            
     }
     .companyEditTitle{
         font-size: $fontSize02;
@@ -43,8 +43,9 @@
                     width: 12%;
                     vertical-align: middle;
                     @include m(){
-                        width: 50px;
+                        width: 110px;
                         text-align: left;
+                        padding: 5px;
                       
                     }
                 }
@@ -54,8 +55,8 @@
                     vertical-align: middle;
                     width: 974px;
                     @include m(){
-                        width: 400px;
-                      
+                        width: 200px;   
+                        padding: 0;                   
                     }
                     .area{
                         border: 0;
@@ -81,6 +82,11 @@
                         padding: 10px 20px;
                         vertical-align: middle;
 
+                        @include m(){
+                            width: 220px;
+                            padding: 5px;
+                        }
+
 
                     }
                     .area.on{
@@ -93,6 +99,8 @@
                         width: 100%;
                         @include m(){
                             width: 150px;
+                            margin-top: 20px;
+                            margin-left: 30px;
                           
                         }
                     }
