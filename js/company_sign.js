@@ -83,5 +83,5 @@
 let submit = document.querySelector(".submit");
 
 submit.addEventListener("click", () => {
-    location = "../company_login.html";
+    location = "./company_login.html";
 })

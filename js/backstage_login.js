@@ -2,5 +2,5 @@
 let submit = document.querySelector(".submit");
 
 submit.addEventListener("click", () => {
-    location = "../backstage.html";
+    location = "./backstage.html";
 })
