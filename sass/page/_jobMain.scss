@@ -288,3 +288,27 @@
         
     }
 }
+#m-a-s-k_applyFor{
+    display: none;
+    z-index: 150;
+    position: fixed;
+    background-color: #313131;
+    opacity: 0.8;
+    top: 0%;
+    left: 0%;
+    width: 100%;
+    height: 100%;
+}
+
+#m-a-s-k_applyForIn{
+    display: none;
+    width: 400px;
+    height: 563px;
+    position: fixed;
+    z-index: 151;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+}
