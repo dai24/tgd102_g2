@@ -10,9 +10,9 @@
     display: flex;
     flex-direction: column;
     align-items: center;         
-    // @media screen and (max-width:1850px) {
-    //     display: none;
-    // }
+    @media screen and (max-width:1850px) {
+        display: none;
+    }
     h2{
         font-size:$fontSize02;
         font-weight:bold;
@@ -50,58 +50,117 @@
     }
 }
 
-.backstage-nav2{    
-    $navWidth:250px; //統一nav寬度
-    width:$navWidth;
-    height: auto;
-    background-color:$primary01;
-    border-right:3px solid $primary02;    
+.backstage-nav2{   
+    height: 100%;    
     float: left;
     display: flex;
-    flex-direction: column;
-    align-items: center;       
+    flex-direction: row;     
     
-    position: absolute;
+    position:fixed;
     top: 0;
-    left: 0;
-    z-index: 20;    
-    // @media screen and (min-width:1850px) {
-    //     display: none;
-    // }
-    h2{
-        font-size:$fontSize02;
-        font-weight:bold;
-        @include m(){
-            font-size:$R-fontSize02;
-        }
+    // left: 0;
+    left: -250px; //導覽列隱藏到畫面左邊
+    z-index: 50;    
+    @media screen and (min-width:1850px) {
+        display: none;
     }
-    //LOGO
-    .backstage_logo{
-        width: 180px;
-        height: 40px;
-        margin-top:44px;
-        margin-bottom:100px;
-    }    
-    li{
-        width: 100%;
-    }
-    button{
-        height:80px;
+    .wrapperNav{
+        $navWidth:250px; //統一nav寬度
         width:$navWidth;
-        color:$secondary01;
-        background-color:$secondary02;
-        text-align: center;
-        // border-right:3px solid $primary02;
-        border-bottom:3px solid $primary02;       
-        box-sizing: border-box;
-        &:hover{
-            background-color:$primary02;
+        height: auto;
+        background-color:$primary01;
+        border-right:3px solid $primary02;   
+        @include disflex(column, center, none);
+        h2{
+            font-size:$fontSize02;
+            font-weight:bold;
+            @include m(){
+                font-size:$R-fontSize02;
+            }
         }
-        
+        //LOGO
+        .backstage_logo{
+            width: 180px;
+            height: 40px;
+            margin: 15px auto;
+        }    
+        li{
+            width: 100%;
+        }
+        button{
+            height:80px;
+            width:$navWidth;
+            color:$secondary01;
+            background-color:$secondary02;
+            text-align: center;
+            // border-right:3px solid $primary02;
+            border-bottom:3px solid $primary02;       
+            box-sizing: border-box;
+            &:hover{
+                background-color:$primary02;
+            }
+            
+        }
+        //按鈕：公司營運分析
+        .btncomapny{
+            border-top:3px solid $primary02;
+        }
     }
-    //按鈕：公司營運分析
-    .btncomapny{
-        border-top:3px solid $primary02;
+   
+    .nav-toggle{
+        background-color: $primary02;
+        position: absolute;
+        top: 0px;
+        left: 253px;
+        // right: 0px;
+        // width: 50px;
+        // height: 50px;
+        cursor: pointer;
+        z-index: 60;
+
+        span {
+            position: absolute;
+            top: 50%;
+            right: -10%;
+            transform: translate(-50%, -50%);
+            width: 65%;
+            height: 3px;
+        
+            background: #313131;
+            border-radius: 2px;
+            transition: all 300ms ease-in-out;
+        }
+        span:nth-child(1) {
+            top: 30%;
+        }
+        span:nth-child(3) {
+            top: 70%;
+        }
+
+        //點擊後漢堡轉場動畫
+        .activeNav{
+            span:nth-child(1) {
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(45deg);
+            }
+            span:nth-child(2) {
+                display: none;
+            }
+            span:nth-child(3) {
+                top: 50%;
+                transform: translate(-50%, -50%) rotate(-45deg);
+            }
+        }
+    }
+
+    .maskMain{
+        @media screen and (min-width:1850px) { 
+            width: 100vw;
+            height: 100%;
+            background-color: #313131;
+            opacity: 0%;
+            // z-index: 40;
+        }         
     }
 }
 

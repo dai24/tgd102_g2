@@ -34,6 +34,9 @@
         padding-left:36px;
         display: flex;
         flex-direction: column;
+        @media screen and (max-width:1850px) { //配合backstage_nav變成漢堡
+            width: 100%;
+        }
         //分頁標題
         .title{
             font-weight:bold;
@@ -91,7 +94,7 @@
             border-top: 0;
             display: flex;
             flex-wrap: wrap;
-            justify-content: center;
+            justify-content: space-around;
             padding-bottom: 30px;
             >li{
                 width: 20%;
