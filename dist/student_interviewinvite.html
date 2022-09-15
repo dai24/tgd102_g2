@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="icon" href="../images/index/logo.ico">
+<title>面試邀約</title>
+
+<body>
+    <header>
+
+    <div class="header_inner">
+
+        <div class="logo_img">
+            <a href="../index.html"  title="首頁">
+                <img src="../images/logo/interngo.png" alt="">
+            </a>
+
+        </div>
+
+        <ul class="header_icon">
+            <li class="member_icon">
+                <a href="login.html" title="登入/註冊">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </li>
+            <li class="money_icon">
+                <a href="#"  title="儲值">
+                    <img src="../images/header_icon/money.png" alt="">
+                </a>
+            </li>
+        </ul>
+
+
+        <div class="nav-toggle" title="主選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="header_nav">
+
+            <ul class="header_links">
+                <li class="header_link">
+
+                    <a href="#">履歷</a>
+                    <ul>
+                        <li><a class="header_second_a" href="resume.html">履歷範本</a></li>
+                        <li><a class="header_second_a" href="resume_work_space.html">製作履歷</a></li>
+                    </ul>
+                </li>
+
+                <li class="header_link">
+
+                    <a href="#">資源</a>
+                    <ul>
+                        <li><a class="header_second_a" href="#">求職專欄</a></li>
+                        <li><a class="header_second_a" href="resumeReview.html">履歷診療室</a></li>
+                        <li><a class="header_second_a" href="careertest.html" target="_blank">職業適性測驗</a></li>
+                    </ul>
+                </li>
+
+                <li class="header_link">
+
+                    <a href="#">找實習</a>
+                    <ul>
+                        <li><a class="header_second_a" href="findJob.html">職缺列表</a></li>
+                    </ul>
+                </li>
+                <li class="header_link">
+
+                    <a href="#">討論趣</a>
+                    <ul>
+                        <li><a class="header_second_a" href="#">面試分享</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+
+
+    </div>
+</header>
+
+    
+    <div class="interviewinviteWrapper">
+
+
+        <h1>面試邀約通知</h1>
+
+
+        <form action="#">
+
+            <div class="interviewinviteWrapper_1">
+            
+                <div class="interviewinviteWrapperTitle">
+                    <h3>小野水產股份有限公司 | 行銷實習生</h3>
+                    <p>本公司已經看過您的履歷並對於您的資歷很感興趣，請問您10/22 14:00有空能來面試嗎?</p>
+                </div>
+                
+            </div>
+            <div class="interviewinviteWrapper_1">
+                
+                <div class="interviewinviteWrapperTitle">
+                    <h3>Easy 3C電商股份有限公司 | 行銷實習生</h3>
+                    <p>公司已經看過您的履歷並對於您的資歷很感興趣，想要跟你預約面試日期，請回覆參加面試意願</p>
+                </div>
+                
+            </div>
+            <div class="interviewinviteWrapper_1">
+                
+                <div class="interviewinviteWrapperTitle">
+                    <h3>kaku家具 | 專案企劃實習生</h3>
+                    <p>公司對於您的作品集很感興趣，請問您以下時間是否有空能前來面試? 之後會附上面試應準備的資料</p>
+                </div>
+                
+            </div>
+            <div class="interviewinviteWrapper_1">
+                
+                <div class="interviewinviteWrapperTitle">
+                    <h3>百日花藝 | 社群媒體經營實習生</h3>
+                    <p>先生您好! 本公司看完您的履歷認為本公司適合您，想要與你確認面試時間，麻煩盡快回覆 謝謝</p>
+                </div>
+                
+            </div>
+    
+           
+
+
+
+        </form>
+
+        <div class="btna1 submit"><a href="./student_main.html">返回</a></div>
+      
+                  
+    </div>
+    <!----- footer ----->
+<div class="contactUSInner" v-if="isShow" @click="close" id="contactUSInner"></div>
+<div class="card contactUSInnerCard" v-if="isShow" id="contactUSCard">
+    <ul class="cardUl" >
+        <li>
+            <h1 class="cardH1">聯絡我們</h1>
+        </li>
+        <li>
+            <i class="fa-solid fa-xmark cardXmark" @click="close" id="contactUsClose"></i>
+        </li>
+    </ul>
+    <div class="cardInner contact">
+        <h2>謝謝您的主動聯絡，請留下要諮詢的問題，我們會用以下資訊進行回覆。</h2>
+        <form action="">
+        <div class="contactUSG">
+            <input type="text" name="" value="" placeholder="請輸入電子郵件">
+        </div>
+        <div class="contactUSM">
+            <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !"  id="talk"></textarea>
+            <p id="feedback"></p>
+        </div>
+        <div class="btna3" @click="close" id="contactUsSubmit">送出</div>
+        </form>
+    </div>
+</div>
+<footer>
+
+    <div class="footer_inner">
+
+        <ul>
+            <li>
+                <a class="footer_a" @click="open" id="contactUsOpen">聯絡我們</a>
+            </li>
+    
+            <li>
+                <a href="./about.html" class="footer_a">關於我們</a>
+                
+            </li>
+    
+            <li>
+                <a href="#" class="footer_a">隱私政策</a>    
+            </li>
+
+        </ul>
+
+        <h3>Copyright © INTERNGO 2022</h3>
+        <p>本網站為緯育TibaMe前端工程師班第78期學員專題作品，本平台僅供學習、展示之用。</p>
+        <p><a href="#">參考資源</a></p>
+    </div>
+
+</footer>  
+
+<!-- 套件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+<script src="https://unpkg.com/vue@2"></script>
+<!-- <script src="https://unpkg.com/vue2-editor/dist/vue2-editor.umd.js"></script> -->
+<script src="../js/main.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/resume.js"></script>
+<script src="../js/editTool.js"></script>
+
+<script src="../js/contactUs.js"></script>
+<script src="../js/applyFor.js"></script>
+<script src="../js/saveApply.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+$(function(){$("#summernote1").summernote({toolbar:[["fontsize",["fontsize"]],["font",["bold","italic","underline"]],["hr"],["fontname",["fontname"]],["forecolor"],["para",["ul","ol","paragraph","height"]],["clear",["clear","undo","redo"]]],height:150,dialogsFade:!0,focus:!0,placeholder:"",fontSizes:["8","9","10","11","12","14","18","24","28","30","36"]})});

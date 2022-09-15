@@ -1,0 +1,1 @@
+let submit=document.querySelector(".submit");submit.addEventListener("click",()=>{location="../company_main.html"});

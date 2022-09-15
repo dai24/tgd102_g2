@@ -1,0 +1,490 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
+<link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
+<link rel="stylesheet" href="./css/style.css">
+<link rel="icon" href="../images/index/logo.ico">
+<title>職缺內容</title>
+
+</head>
+<body>
+    <header>
+
+    <div class="header_inner">
+
+        <div class="logo_img">
+            <a href="../index.html"  title="首頁">
+                <img src="../images/logo/interngo.png" alt="">
+            </a>
+
+        </div>
+
+        <ul class="header_icon">
+            <li class="member_icon">
+                <a href="login.html" title="登入/註冊">
+                    <i class="fa-solid fa-user"></i>
+                </a>
+            </li>
+            <li class="money_icon">
+                <a href="#"  title="儲值">
+                    <img src="../images/header_icon/money.png" alt="">
+                </a>
+            </li>
+        </ul>
+
+
+        <div class="nav-toggle" title="主選單">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+
+        <div class="header_nav">
+
+            <ul class="header_links">
+                <li class="header_link">
+
+                    <a href="#">履歷</a>
+                    <ul>
+                        <li><a class="header_second_a" href="resume.html">履歷範本</a></li>
+                        <li><a class="header_second_a" href="resume_work_space.html">製作履歷</a></li>
+                    </ul>
+                </li>
+
+                <li class="header_link">
+
+                    <a href="#">資源</a>
+                    <ul>
+                        <li><a class="header_second_a" href="#">求職專欄</a></li>
+                        <li><a class="header_second_a" href="resumeReview.html">履歷診療室</a></li>
+                        <li><a class="header_second_a" href="careertest.html" target="_blank">職業適性測驗</a></li>
+                    </ul>
+                </li>
+
+                <li class="header_link">
+
+                    <a href="#">找實習</a>
+                    <ul>
+                        <li><a class="header_second_a" href="findJob.html">職缺列表</a></li>
+                    </ul>
+                </li>
+                <li class="header_link">
+
+                    <a href="#">討論趣</a>
+                    <ul>
+                        <li><a class="header_second_a" href="#">面試分享</a></li>
+                    </ul>
+                </li>
+
+            </ul>
+
+
+        </div>
+
+
+
+
+    </div>
+</header>
+
+    <div class="contactUSInner" id="applyForInner"></div>
+    <div class="card contactUSInnerCard" id="applyForCard">
+        <ul class="cardUl">
+            <li>
+                <h1 class="cardH1">立即應徵</h1>
+            </li>
+            <li>
+                <i class="fa-solid fa-xmark cardXmark" id="applyForClose"></i>
+            </li>
+        </ul>
+        <div class="cardInner applyfor">
+            <div class="applyTitle">
+                <div>
+                    <img src="./images/findJob/comLogo.jpg" alt="">
+                </div>
+                <div class="applyTitleMain">
+                    <h2>醫療客服專案管理師 (諮商師)</h2>
+                    <h3>Dr. Right 精準關懷</h3>
+                </div>
+            </div>
+            <div class="resumeChoose">
+                <h2>選擇履歷 :</h2>
+                <div>
+                    <input type="radio" name="resume" value="resume1" id="resume1"><label for="resume1">履歷一</label>
+                    <a class="resume_zoom_browser_btn">瀏覽
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" class="bi bi-box-arrow-up-right"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                        </svg>
+                    </a>
+                </div>
+                <div>
+                    <input type="radio" name="resume" value="resume2" id="resume2"><label for="resume2">履歷二</label>
+                    <a class="resume_zoom_browser_btn">瀏覽
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" class="bi bi-box-arrow-up-right"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                        </svg>
+                    </a>
+                </div>
+                <div>
+                    <input type="radio" name="resume" value="resume3" id="resume3"><label for="resume3">履歷三</label>
+                    <a class="resume_zoom_browser_btn">瀏覽
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" class="bi bi-box-arrow-up-right"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                        </svg>
+                    </a>
+                </div>
+                <div>
+                    <input type="radio" name="resume" value="resume4" id="resume4"><label for="resume4">履歷四</label>
+                    <a class="resume_zoom_browser_btn">瀏覽
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" class="bi bi-box-arrow-up-right"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                        </svg>
+                    </a>
+                    
+                </div>
+                <div>
+                    <input type="radio" name="resume" value="resume5" id="resume5"><label for="resume5">履歷五</label>
+                    <a class="resume_zoom_browser_btn">瀏覽
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                        fill="currentColor" class="bi bi-box-arrow-up-right"
+                        viewBox="0 0 16 16">
+                        <path fill-rule="evenodd"
+                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+                        <path fill-rule="evenodd"
+                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            
+            
+            <h2 class="question">諮詢問題</h2>
+            <textarea name="" id="" cols="30" rows="6" placeholder="請輸入問題"></textarea>
+            
+            
+            <h2 class="question">回覆信箱</h2>
+            <input class="mail" type="input" name="" id="" placeholder="請輸入信箱">
+            
+            <div class="btna3" id="applyForSubmit">送出</div>
+    </div>
+</div>
+
+
+
+    <div class="contactUSInner" id="saveApplyInner"></div>
+    <div class="card3 contactUSInnerCard" id="saveApplyCard">
+        <ul class="cardUl">
+            <li>
+                <h1 class="cardH1">訊息</h1>
+            </li>
+            <li>
+                <i class="fa-solid fa-xmark cardXmark" id="saveApplyClose"></i>
+            </li>
+        </ul>
+        <div class="cardInner contact">
+            <div class="title">
+                <i class="fa-regular fa-circle-check"></i>
+                <h2>已儲存</h2>
+            </div>
+            <h3>建議您也可以前往主控台查看已儲存職缺</h3>
+            <a href="">前往主控台查看</a>
+            <div class="btna3" id="saveApplySubmit">確定</div>
+        </div>
+</div>      
+    <div class="jobMainWrapper">
+        <div class="bread-crumb" aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a href="index.html">首頁</a></li>
+        <li class="breadcrumb-item"><a href="./findJob.html">找實習</a></li>
+        <li class="breadcrumb-item active" aria-current="page">職缺內容</li>       
+    </ol>
+</div>
+        <div class="jobMainWrapperTitle">
+            <h2>醫療客服專案管理師(諮商師)</h2>
+            <div class="moveToCom">
+                <img src="./images/findJob/comLogo.jpg" alt=""><p>Dr. Right 精準關懷</p>
+            </div>
+        </div>
+        <div class="jobMainWrapperMain">
+            <div class="jobMainContent">
+                <div class="jobMain">
+                    <div class="jobMainStatement"><h3>職缺描述</h3></div>
+                    <div><p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。</p></div>
+                    <div>
+                        <ul>
+                            <li><p>. 醫療客訴案件處理與追蹤</p></li>
+                            <li><p>. 定期與業主檢討醫療品質問題，協助導入建議及改善方案</p></li>
+                            <li><p>. 對於客服數據進行統計分析，提供業主顧問分析報告</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="jobMain">
+                    <div class="jobMainStatement"><h3>職務需求</h3></div>
+                    <div><p>【經驗條件】</p></div>
+                    <div>
+                        <ul>
+                            <li><p>- 資訊，電腦工程，電機，相關學科</p></li>
+                            <li><p>- 五年以上的程式學科或工作實習經驗</p></li>
+                            <li><p>- 網站框架經驗(列Ruby on Rails，Django-Python，Java，Node.js)</p></li>
+                            <li><p>- 數據庫經驗(列PostgreSQL，SQL Server)</p></li>
+                            <li><p>- 測試QC經驗(列QUnit，Mocha，Jasmine，RSpec)</p></li>
+
+                        </ul>
+                    </div>
+                </div>
+                <div class="jobMain">
+                    <div class="jobMainStatement"><h3>條件要求</h3></div>
+                    <div>
+                        <ul>
+                            <li><p>. 具備解決問題的能力、善於邏輯分析</p></li>
+                            <li><p>. 口語表達清晰、溝通應對流暢</p></li>
+                            <li><p>. 個性開朗、樂觀進取、主動積極、具工作熱忱</p></li>
+                            <li><p>. 具有擔任社團活動幹部經驗者尤佳</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="jobMain">
+                    <div class="jobMainStatement"><h3>加分條件</h3></div>
+                    <div>
+                        <ul>
+                            <li><p>- 自我激勵、自我學習、自我管理、自我要求</p></li>
+                            <li><p>- 渴望滿足使用者的需求，並追求成就與卓越感</p></li>
+                            <li><p>- 能夠快速學習新技能和熟悉新領域</p></li>
+                            <li><p>- 願意主動參與團隊，與非工程人員一同合作奮鬥</p></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="jobMainVacanciesBtn">
+                    <div class="btna5 saveApplyOpen">儲存職缺</div>
+                    <div class="btna6" id="applyForOpen">應徵職缺</div>
+                </div>
+            </div>
+
+
+            <div class="jobMainItem">
+                    <div class="jobMainIcon">
+                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
+                    </div>
+                    <div class="jobMainIcon">
+                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
+                    </div>
+                    <div class="jobMainIcon">
+                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
+                    </div>
+            </div>
+        </div>
+        <div class="jobMainWrapperCom">
+            <div class="jobMainWrapperComTitle">
+                <div><a><img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom"></a></div>
+                <div class="jobMainWrapperComIconT">
+                        <a><h2 class="moveToCom">Dr. Right 精準關懷</h2></a>
+                    <div class="jobMainWrapperComIconTM">
+                        <div class="jobMainWrapperComIcon">
+                            <a title="總人數"><i class="fa-solid fa-users"></i><p>50</p></a>
+                        </div>
+                        <div class="jobMainWrapperComIcon">
+                            <a title="地點"><i class="fa-solid fa-location-dot"></i><p>100台北市中正區濟南路一段321號</p></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="jobMainWrapperComMain">
+                <h3>關於我們</h3>
+                <p>
+                    我們的使命是發揚高品質醫療資源，使人人受惠。
+                    Dr.Right 成立於 2016 年，是由精品公關、醫管顧問、數據分析師所組成的團隊。協助醫療團隊第一時間與患者關懷溝通，改善院所執行流程、進而提升營運績效，使得醫病雙方都能夠從中受益的 CRM 服務。我們期許能用創新技術與高端服務思維，來打造美好的醫病互動關係。
+                    
+                    在網路社群越來越開放的環境底下，醫病關係反而是逐漸惡化的。醫師與患者間，經常是因為就診溝通時的誤解或是不順暢，患者們就直接上網發出公開的負面評論。醫師們也因此感到挫折甚至憤怒，最後轉為雙方對簿公堂。因而往往患者的疑問沒得到解答，醫師也陷入情緒中無法專心看診，社群平台上盡是充斥著醫病關係的仇恨言論。
+                    
+                    Dr. Right 為醫病間搭起了一個新橋樑，可以透過專屬的手機應用程式直接反映給院所端。溫馨的醫療客服團隊會立即在黃金 48 小時內，協助院所透過電話關心病患的現況、照顧不安的情緒、協助釐清問題確切點後，馬上反映至院內做後續處理。不但即時解決醫病雙方資訊不對稱的問題，醫療單位也因此有依據來改善醫療品質。
+                    
+                    我們希望透過這個服務，讓整個社會產生更多的好醫師與好病患。醫病關係能不再緊張，民眾也能夠接受到更好的醫療品質照護 !
+                </p>
+            </div>
+
+            
+        </div>
+        <div class="jobMainWrapperOther">
+            <div class="jobMainWrapperOthSec">
+                <div class="jobMainWrapperOthTitle">
+                    <img src="./images/findJob/comLogo.jpg" alt=""><h2>Dr. Right 精準關懷的其他熱門職缺</h2>
+                </div>
+                <div class="jobMainWrapperOthMain">
+                    <div>
+                        <p>溝通部門</p>
+                        <p>醫療客服專案管理師 (諮商師)</p>
+                        <div class="findJobVacanciesIcTitle">
+                            <div class="findJobVacanciesIcon">
+                                <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
+                            </div>
+                            <div class="findJobVacanciesIcon">
+                                <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
+                            </div>
+                            <div class="findJobVacanciesIcon">
+                                <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jobMainWrapperOthBtn">
+                        <div class="btna5 saveApplyOpen">儲存職缺</div>
+                        <div class="btna6">立即應徵</div>
+                    </div>
+                </div>
+                <div class="jobMainWrapperOthMain">
+                    <div>
+                        <p>溝通部門</p>
+                        <p>醫療客服專案管理師 (諮商師)</p>
+                        <div class="findJobVacanciesIcTitle">
+                            <div class="findJobVacanciesIcon">
+                                <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
+                            </div>
+                            <div class="findJobVacanciesIcon">
+                                <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
+                            </div>
+                            <div class="findJobVacanciesIcon">
+                                <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="jobMainWrapperOthBtn">
+                        <div class="btna5 saveApplyOpen">儲存職缺</div>
+                        <div class="btna6">立即應徵</div>
+                    </div>
+                    
+                </div>
+                <div class="jobMainWrapperOthMain">
+                    <div class="btna19">查看更多職缺</div>
+                </div>
+            </div>
+            
+        </div>
+        <div class="m-a-s-k_applyFor" id="m-a-s-k_applyFor"></div>
+        <div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn">
+            <img src="../images/resume/resume_1.jpg" class='resume_zoom_imggg'>
+        </div>
+    </div>
+    <!----- footer ----->
+<div class="contactUSInner" v-if="isShow" @click="close" id="contactUSInner"></div>
+<div class="card contactUSInnerCard" v-if="isShow" id="contactUSCard">
+    <ul class="cardUl" >
+        <li>
+            <h1 class="cardH1">聯絡我們</h1>
+        </li>
+        <li>
+            <i class="fa-solid fa-xmark cardXmark" @click="close" id="contactUsClose"></i>
+        </li>
+    </ul>
+    <div class="cardInner contact">
+        <h2>謝謝您的主動聯絡，請留下要諮詢的問題，我們會用以下資訊進行回覆。</h2>
+        <form action="">
+        <div class="contactUSG">
+            <input type="text" name="" value="" placeholder="請輸入電子郵件">
+        </div>
+        <div class="contactUSM">
+            <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !"  id="talk"></textarea>
+            <p id="feedback"></p>
+        </div>
+        <div class="btna3" @click="close" id="contactUsSubmit">送出</div>
+        </form>
+    </div>
+</div>
+<footer>
+
+    <div class="footer_inner">
+
+        <ul>
+            <li>
+                <a class="footer_a" @click="open" id="contactUsOpen">聯絡我們</a>
+            </li>
+    
+            <li>
+                <a href="./about.html" class="footer_a">關於我們</a>
+                
+            </li>
+    
+            <li>
+                <a href="#" class="footer_a">隱私政策</a>    
+            </li>
+
+        </ul>
+
+        <h3>Copyright © INTERNGO 2022</h3>
+        <p>本網站為緯育TibaMe前端工程師班第78期學員專題作品，本平台僅供學習、展示之用。</p>
+        <p><a href="#">參考資源</a></p>
+    </div>
+
+</footer>  
+
+<!-- 套件 -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+<script src="https://unpkg.com/vue@2"></script>
+<!-- <script src="https://unpkg.com/vue2-editor/dist/vue2-editor.umd.js"></script> -->
+<script src="../js/main.js"></script>
+<script src="../js/header.js"></script>
+<script src="../js/resume.js"></script>
+<script src="../js/editTool.js"></script>
+
+<script src="../js/contactUs.js"></script>
+<script src="../js/applyFor.js"></script>
+<script src="../js/saveApply.js"></script>
+
+</body>
+<script>
+let moveToCom = document.getElementsByClassName('moveToCom')
+console.log(moveToCom);
+for(let i = 0; i < moveToCom.length; i++){
+    moveToCom[i].addEventListener('click', function(){
+        location='./company.html'
+    })
+}
+
+let mask_applyFor = document.getElementById('m-a-s-k_applyFor')
+let mask_applyForIn = document.getElementById('m-a-s-k_applyForIn')
+for(let i = 0; i < resume_zoom_browser_btn.length;i++){
+    resume_zoom_browser_btn[i].addEventListener('click', function(){
+        if(mask_applyFor.style.display === 'block'){
+            mask_applyFor.style.display = 'none'
+            mask_applyForIn.style.display = 'none'
+        }else{
+            mask_applyFor.style.display = 'block'
+            mask_applyForIn.style.display = 'block'
+        }
+    })
+}
+
+mask_applyFor.addEventListener('click', function(){
+    this.style.display = 'none'
+    mask_applyForIn.style.display = 'none'
+})
+
+</script>
+</html>

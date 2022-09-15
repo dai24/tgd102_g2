@@ -1,0 +1,1 @@
+let chargeCoin=document.querySelector(".chargeCoin");chargeCoin.addEventListener("click",()=>{location="../student_main.html"});

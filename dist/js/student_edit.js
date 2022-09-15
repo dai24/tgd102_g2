@@ -1,0 +1,1 @@
+let save=document.querySelector(".save");save.addEventListener("click",()=>{location="../student_main.html"});
