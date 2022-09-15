@@ -85,23 +85,37 @@
             margin-top:$R-space04;
             margin-bottom:$R-space04;
         }
-    }    
-    .fa-brands{
-        display: block;
-        font-size:72px;
-        color: $secondary01;
-        margin-left:20px;
-        margin-right:20px;
-        @include m(){
-            font-size:48px;
-            margin-left:16px;
-            margin-right:16px;
+        img{
+            display: block;
+            width: 50px;
+            height: 50px;
         }
-    }
+        //臉書 icon
+        :last-child{
+            margin-left: 20px;
+        }
+    }    
+    // .fa-brands{
+    //     display: block;
+    //     font-size:72px;
+    //     color: $secondary01;
+    //     margin-left:20px;
+    //     margin-right:20px;
+    //     @include m(){
+    //         font-size:48px;
+    //         margin-left:16px;
+    //         margin-right:16px;
+    //     }
+    // }
     //忘記密碼
     .forgotpw{
         background-color:$secondary02;
         float: right;        
+        margin-bottom: 24px;
+        @include m() {
+            margin-top: 12px;
+            margin-bottom: 8px;
+        }
         a{            
             color: $focus01;
             font-weight: bold;
