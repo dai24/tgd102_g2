@@ -71,11 +71,11 @@
 
 // 顧問 我要健診按鈕
 .btna10{
-    @include btn1(520px ,$fontSize02, $space01, $focus01, $secondary02,5px,$focus01H,null);
-    height: 60px;
+    @include btn1(520px ,$fontSize02, $space03, $focus01, $secondary02,5px,$focus01H,null);
+    // height: 60px;
     @include m(){
-        @include btn1(350px ,$fontSize02, $space01, $focus01, $secondary02, 5px,$focus01H,null);
-        height: 60px;
+        @include btn1(350px ,$fontSize02, $space02, $focus01, $secondary02, 5px,$focus01H,null);
+        // height: 60px;
     }
 }
 // 履歷製作

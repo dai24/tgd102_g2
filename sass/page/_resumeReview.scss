@@ -181,7 +181,7 @@
 }
 
 
-// 我要健診 橘色彈窗
+// // 我要健診 橘色彈窗
 
 .resumeReviewCard{
     background-color: $maskcolor;
@@ -197,10 +197,11 @@
     @include m(){
        position: absolute;
        background-size: contain;
-       height: 2348px;  // 怎麼滿版?
+       height: 2115px;  // 怎麼滿版?
        margin: 0;
     }
 }
+
 
 .card2Inner{
     .resumeChoose{
