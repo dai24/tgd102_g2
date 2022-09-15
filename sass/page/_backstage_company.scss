@@ -2,7 +2,7 @@
     background-color:$secondary02;
     display: flex;
     $trheight:80px; //每筆資料高度
-    $winheight:1190px; //網頁高度
+    $winheight:1190px; //網頁高度   
     h1{
         font-size:$fontSize01;
         margin-top:44px;
@@ -34,9 +34,9 @@
         padding-bottom: 40px; //到網頁底部的距離
         display: flex;
         flex-direction: column;
-        // @media screen and (max-width:1700px) {
-        //     width: calc(100% - 220px);
-        // }
+        // @media screen and (max-width:1850px) { //配合backstage_nav變成漢堡
+        //     width: 100%;
+        // }        
         //分頁標題
         .title{
             font-weight:bold;

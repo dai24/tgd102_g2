@@ -3,13 +3,14 @@
 .backstage-nav{
     $navWidth:250px; //統一nav寬度
     width:$navWidth;
+    // height: auto;
     background-color:$primary01;
     border-right:3px solid $primary02;    
     float: left;
     display: flex;
     flex-direction: column;
     align-items: center;         
-    // @media screen and (max-width:1300px) {
+    // @media screen and (max-width:1850px) {
     //     display: none;
     // }
     h2{
@@ -49,7 +50,60 @@
     }
 }
 
-
+.backstage-nav2{    
+    $navWidth:250px; //統一nav寬度
+    width:$navWidth;
+    height: auto;
+    background-color:$primary01;
+    border-right:3px solid $primary02;    
+    float: left;
+    display: flex;
+    flex-direction: column;
+    align-items: center;       
+    
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 20;    
+    // @media screen and (min-width:1850px) {
+    //     display: none;
+    // }
+    h2{
+        font-size:$fontSize02;
+        font-weight:bold;
+        @include m(){
+            font-size:$R-fontSize02;
+        }
+    }
+    //LOGO
+    .backstage_logo{
+        width: 180px;
+        height: 40px;
+        margin-top:44px;
+        margin-bottom:100px;
+    }    
+    li{
+        width: 100%;
+    }
+    button{
+        height:80px;
+        width:$navWidth;
+        color:$secondary01;
+        background-color:$secondary02;
+        text-align: center;
+        // border-right:3px solid $primary02;
+        border-bottom:3px solid $primary02;       
+        box-sizing: border-box;
+        &:hover{
+            background-color:$primary02;
+        }
+        
+    }
+    //按鈕：公司營運分析
+    .btncomapny{
+        border-top:3px solid $primary02;
+    }
+}
 
 
 
