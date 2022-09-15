@@ -7,7 +7,7 @@
         <link href="https://cdnjs.cloudflare.com/ajax/libs/fullPage.js/2.9.5/jquery.fullpage.min.css" rel="stylesheet"  />
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"/>
         <link rel="stylesheet" href="css/style.css">
-        <link rel="icon" href="../images/index/logo.ico">
+        <link rel="icon" href="./images/index/logo.ico">
         <title>首頁</title>
     </head>
 <body>
@@ -30,7 +30,7 @@
                 </div>
             </div>
         </div>
-        <div class="section indexBgc01">
+        <div class="section indexBgc01" id="resumeStepSection">
             <h1 id="howResume">如何製作履歷 ?</h1>
             <div class="section1 section2 resumeStep">
                 
@@ -81,7 +81,7 @@
                     <h2 class="resumeFontSize1">INTERNGO 提供您安心又穩定的工作平台</h2>
                     <h3 class="resumeFontSize3">一條龍的服務讓"找實習"變得簡單</h3>
                     <h3 class="resumeFontSize3">著手打造容易上手的免費履歷工具</h3>
-                    <h3 class="resumeFontSize3">討論趣分享工作變得更有趣</h3>
+                    <h3 class="resumeFontSize3 resumeFontSize3MarBot">討論趣分享工作變得更有趣</h3>
                     <button class="btna20 discussBtn">討論趣</button>
                 </div>
                 <div class="section1_test discuss">
@@ -95,9 +95,9 @@
                     <img src="./images/index/findjob.png" alt="" class="findJobToImg">
                 </div>
                 <div>
-                    <h2 class="resumeFontSize1">不知道怎麼踏出第一步嗎 ?</h2>
-                    <h2 class="resumeFontSize1">找實習過程中碰壁了嗎 ?</h2>
-                    <h2 class="resumeFontSize1">由INTERNGO為您解答!!</h2>
+                    <h2 class="resumeFontSize2">不知道怎麼踏出第一步嗎 ?</h2>
+                    <h2 class="resumeFontSize2">找實習過程中碰壁了嗎 ?</h2>
+                    <h2 class="resumeFontSize1 resumeFontSize3MarBot">由INTERNGO為您解答!!</h2>
                     <button class="btna20 discussBtn" id="findJobBtn">找工作囉</button>
                 </div>
                 <div class="section1_test findJob ">
@@ -144,7 +144,8 @@
 
         const moveToCareerTest = document.getElementById('moveToCareerTest')
         moveToCareerTest.addEventListener('click', function(){
-            location='./careertest.html'
+            // location='./careertest.html'
+            window.open('./careertest.html');
         })
 
         const moveToResume = document.getElementById('moveToResume')

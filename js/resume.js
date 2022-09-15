@@ -108,7 +108,7 @@ let resume_share_window =`
                 <span>公開 網站上的人都可以找到並檢視。</span>
                 <div class="share_ig_fb">
                     <h3>分享至</h3>
-                    <img src="/images/header_icon/ig.jpg" alt="">
+                    <img src="images/header_icon/ig.jpg" alt="">
                     <i class="fa-brands fa-facebook"></i>
                 </div>
                 <div class="btna3 check_btn">確定</div>
@@ -160,19 +160,19 @@ let resume_addmoney_window =`
                 <div class="applyTitle_main">
                     <input type="radio" name="123">
                     <h2>NT 399</h2>
-                    <img src="/images/header_icon/money.png" alt="">
+                    <img src="images/header_icon/money.png" alt="">
                     <h2>200金幣</h2>
                 </div>
                 <div class="applyTitle_main">
                     <input type="radio" name="123">
                     <h2>NT 899</h2>
-                    <img src="/images/header_icon/money.png" alt="">
+                    <img src="images/header_icon/money.png" alt="">
                     <h2>500金幣</h2>
                 </div>
                 <div class="applyTitle_main">
                     <input type="radio" name="123">
                     <h2>NT 1599</h2>
-                    <img src="/images/header_icon/money.png" alt="">
+                    <img src="images/header_icon/money.png" alt="">
                     <h2>1000金幣</h2>
                 </div>
             </div>

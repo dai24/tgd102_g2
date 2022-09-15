@@ -43,5 +43,5 @@ cellphone.addEventListener("blur", function(e){
 
 //點擊"註冊"，跳轉頁面
 submit.addEventListener("click", () => {
-    location = "../student_login.html";
+    location = "./student_login.html";
 })
