@@ -98,13 +98,29 @@
             background-color: white;
             position: absolute;
             z-index: 2;
-        }
+            height: 310px;
+            overflow-y: auto;
+            width: 192px;
+
+            @include m(){
+                width: 165px;
+            }
+
+            
+        } 
 
         .consultantJob{
             display: none;
             background-color: white;
             position:  absolute;
             z-index: 2;
+            height: 310px;
+            overflow-y: auto;
+            width: 192px;
+
+            @include m(){
+                width: 165px;
+            }
         }
 
     }
@@ -120,6 +136,7 @@
 
     @include m(){
         margin-top: 24px;
+        margin-bottom: 12px;
     } 
 
     a{

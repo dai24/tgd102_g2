@@ -230,6 +230,24 @@
     }
 }
 
+.careertestresult .test_backtoindex{
+    display: block;
+    text-align: center;
+    margin: 15px auto 0;
+    font-family: $fontFamily;
+    font-weight: bold;
+    color: $secondary01;
+    font-size: 16px;
+
+    @include m(){
+        font-size: 14px;
+    }
+
+    :hover{
+        color: #DB361B;;
+    }
+}
+
 
 .textboxResult{
     display: none;

@@ -174,6 +174,8 @@
     }
 }
 
+
+// 履歷診療室擅長產業按鈕
 .btna21{
     @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
     @include m(){
@@ -185,12 +187,13 @@
    
     
 }
-
+// 履歷診療室擅長產業選項按鈕
 .btna22{
     @include btn2(192px ,$fontSize03, $space02,$secondary02, $primary02,null,#dbdbdb,null);
     @include m(){
         @include btn2(165px ,$fontSize05, $space02,$secondary02, $primary02, null, #dbdbdb,null);
-        
+        text-align: left;
+        padding-left: 28px;
     }
     text-align: left;
     padding-left: 28px;
