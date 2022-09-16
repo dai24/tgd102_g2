@@ -72,6 +72,17 @@
             }  
             //欄位：詳細資料
             .detail{ 
+                //按鈕：詳細資料
+                .btna3{
+                    height: 40px;
+                    line-height: 40px;                        
+                    @media screen and (max-width: 1460px) {
+                        width:85px; 
+                    }
+                    h4{
+                        color: $secondary01;
+                    }
+                }                
                 h3{
                     text-align: right;
                     padding-right: 16px;
@@ -95,7 +106,7 @@
                 border: solid $primary02;
                 border-top: 0;
                 &:hover{ //hover時，該筆資料和按鈕都變色
-                    background-color:$primary02;
+                    background-color:$primary03;
                     .btna3{
                         background-color:$secondary02;
                     }
@@ -124,17 +135,6 @@
             }                
         }
         
-        //按鈕：詳細資料
-        .btna3{
-            height: 40px;
-            line-height: 40px;
-            a{
-                color:$secondary01;
-                font-weight: bold;
-            }
-            @media screen and (max-width: 1460px) {
-                width:85px; 
-            }
-        }
+        
     }
 }

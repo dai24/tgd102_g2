@@ -15,42 +15,42 @@
         <h1 class="cardH1 title">學生註冊</h1>
         <div class="wrapper">
             <section class="input01">
-                <input type="text" placeholder="姓名*" class="inputText name" name="name">
+                <input type="text" placeholder="姓名*" class="inputText name" name="name" id="name">
             </section>
             <section class="input01">
-                <input type="email" placeholder="請輸入電子信箱*" class="inputText email" name="email">
+                <input type="email" placeholder="請輸入電子信箱*" class="inputText email" name="email" id="email">
                 <h4 class="inputAlert">信箱格式錯誤</h4>
             </section>
             <section class="input01">
-                <input type="text" placeholder="請輸入由6~12個英文或數字組成的密碼*" class="inputText password" name="passeord">
+                <input type="text" placeholder="請輸入由6~12個英文或數字組成的密碼*" class="inputText password" name="password" id="password">
                 <!-- <h4 class="inputAlert alert1">密碼格式錯誤</h4> -->
                 <h4 class="inputAlert alert2">請輸入由6~12個英文或數字組成的密碼</h4>
             </section>
             <section class="input01">
-                <input type="password" placeholder="請再次輸入密碼*" class="inputText checkpw" name="passeord">
+                <input type="password" placeholder="請再次輸入密碼*" class="inputText checkpw" name="checkpw" id="checkpw">
                 <!-- <h4 class="inputAlert alert1">密碼格式錯誤</h4> -->
                 <h4 class="inputAlert alert2">密碼不符</h4>
             </section>
-            <section class="input01 phone">
-                <input type="text" placeholder="請輸入手機號碼*" class="inputText cellphone" name="phone">
+            <section class="input01">
+                <input type="text" placeholder="請輸入手機號碼*" class="inputText phone" name="phone" id="phone">
                 <h4 class="inputAlert">手機號碼格式錯誤，請重新輸入</h4>
                 <button type="button" class="sendcode" name="code">寄送驗證信</button>                
             </section> 
 
             <section class="agree">
-                <input type="radio" name="agree" class="agreeid">
+                <input type="checkbox" name="agree" class="agreeid">
                     <label for="agreeid">
                         <h4>我已閱讀並同意<span><a href="">INTERNGO會員條款</a></span></h4>                    
                     </label>
             </section>
             <section>
-                <input type="submit" class="btna17 submit" value="註冊" name="submit">
+                <input type="submit" class="btna17 submit" value="註冊" name="submit" id="submit">
             </section>
         </div>   
     </div>
 </main> 
 @@include('./layout/footer.html')
 <script src="./js/header.js"></script>
-<script src="./js/student_sign.js"></script>
+<!-- <script src="./js/student_sign.js"></script> -->
 </body>
 </html>

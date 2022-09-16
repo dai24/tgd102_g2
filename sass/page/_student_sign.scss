@@ -67,14 +67,14 @@
     //驗證碼
     .sendcode{
         width: 120px;
-        height:43px;        
+        height:40px;        
         border-radius: 0 5px 5px 0;
         color:$secondary02;
         position: absolute;
         right: 0;
         background-color:$primary02;
         @include m(){
-            height:39px;      
+            height:36px;      
         }
         &:hover{
             background-color:$primary02H;
