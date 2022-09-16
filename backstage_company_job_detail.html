@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html',{
+        "title" : "後台公司營運分析"
+        })        
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<main  class="backstage_company_job_detail">
+    @@include('./layout/backstage_nav.html')
+    <div  class="wrapper">
+        <h1 class="title"><a href="./backstage_com_job.html">小野水產</a> > <span>行銷實習生</span></h1>
+        <div class="wratable">
+            <table id="table">     
+                <thead>
+                    <tr>
+                        <th class="category"><h3>職業種類</h3></th>
+                        <th class="depart"><h3 >部門種類</h3></th>
+                        <th class="scale"><h3>公司規模(人數)</h3></th>
+                        <th class="salary"><h3>時薪</h3></th>
+                        <th class="wfh"><h3>是否遠端</h3></th>
+                        <th class="job"><h3>職缺人數</h3></th>
+                        <th class="describe"><h3>職缺描述</h3></th>
+                        <th class="require"><h3>職務需求</h3></th>
+                        <th class="plus"><h3>加分條件</h3></th>
+                    </tr> 
+                </thead>
+                 
+                <tbody>
+                    <tr class="item">
+                        <td class="category"><h3>漁業</h3></td>
+                        <td class="depart"><h3>行銷</h3></td>
+                        <td class="scale"><h3>30</h3></td>
+                        <td class="salary"><h3>200</h3></td>
+                        <td class="wfh"><h3>no</h3></td>
+                        <td class="job"><h3>3</h3></td>
+                        <td class="describe"><h3>職缺描述</h3></td>
+                        <td class="require"><h3>職務需求</h3></td>
+                        <td class="plus"><h3>無</h3></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>      
+    </div>       
+</main> 
+</body>
+</html>

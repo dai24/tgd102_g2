@@ -1,5 +1,4 @@
-.backstage_student{    
-    // height: 1190px;
+.backstage_discuss{    
     background-color:$secondary02;
     display: flex;
     $trheight:80px; //每筆資料高度
@@ -14,7 +13,7 @@
     }
     h3{ //統一h3
         font-size:$fontSize03;
-        // text-align:center;
+        padding-left: 18px;
         @media screen and (max-width: 1400px) {
             font-size:$fontSize04;  
         }
@@ -52,6 +51,28 @@
             background-color:$focus01;
             color:$secondary02;
             border-right: 3px solid $focus01;
+            display: flex;
+            justify-content: space-between;
+            .category{
+                display: flex;
+                h3{ //"職缺種類"
+                    line-height: 60px;
+                    font-weight: bold;
+                    padding-left: 18px;
+                }
+                .consultantIndustrySearch{
+                    margin-top: auto;
+                    margin-bottom: auto;
+                    .fa-chevron-down{
+                        margin-left: 48px;
+                    }
+                    .consultantIndustry{
+                        background-color: white;
+                        position: absolute;
+                        z-index: 2;
+                    }
+                }  
+            }
         };
         table{
             width: 100%;
@@ -62,28 +83,17 @@
                 background-color:$primary02;
                 color:$secondary01;                        
                 h3{ //統一標題
-                    line-height: 60px;
+                    // line-height: 60px;
+                    padding:12px 0; //控制item上下位置
                     font-weight: bold;
                 }                
             }  
-            //欄位：公司編號
+            //欄位：職缺編號
             .id{
                 h3{
-                    margin-left: 16px;
+                    margin-left: 16px; //與欄位左側的距離
                 }
-            }
-            //欄位：被檢舉數
-            .blacklist{
-                h3{
-                    font-weight: bold;
-                }                    
-            }
-            //欄位：加值紀錄
-            .record{
-                h3{
-                    font-weight: bold;
-                }                    
-            }
+            }            
             //欄位：詳細資料
             .detail{ 
                 // width: 300px;
@@ -117,8 +127,44 @@
                     }
                 }
                 h3{
-                    padding:12px 0; //控制item上下位置
-                    // line-height:  $trheight; //每筆資料垂直置中
+                    padding:12px 0; //每筆資料垂直置中
+                }
+                //公司名稱
+                .companyname{
+                    h3{
+                        line-height: 1.6;
+                    }
+                }
+                //應徵次數
+                .bro{
+                    h3{
+                        text-align: center;
+                    }
+                } 
+                //應徵次數
+                .apply{
+                    h3{
+                        text-align: center;
+                    }
+                } 
+                //面試次數
+                .interview{
+                    h3{
+                        text-align: center;
+                    }
+                }                    
+                //職缺狀態
+                .state{
+                    text-align: center;
+                    .fa-lightbulb{
+                        font-size: 30px;
+                        opacity: 100%;
+                        color:$focus01;
+                    }
+                    .closeBulb{
+                        opacity: 20%;
+                        color:#313131;
+                    }
                 }
             }                
         }
