@@ -3,6 +3,12 @@
     width: 100%;
     margin: 0 auto;
     margin: 32px auto 0px;
+    @include m(){
+        max-width: 375px;
+       
+        
+    }
+
     h1{
         font-size:$fontSize01;
         font-weight: bold;

@@ -17,11 +17,16 @@
     
     .studentaddmoney_applyTitle .applyTitle_main{
         display: flex;
-        justify-content: space-evenly;
+        justify-content: center;
         img{
             width: 30px;
             height: 30px;
-            margin: 0 30px;
+            margin: 0 20px 0 20px;
+            @include m(){
+               
+                
+             
+            }
         }
         input{
             width: 18px;
@@ -29,10 +34,21 @@
             margin-right: 10px;
         }
     }
-    .studentaddmoney_applyTitle > .applyTitle_main:nth-child(3){
+    .studentaddmoney_applyTitle > .applyTitle_main:nth-child(1)>h2{
 
-        margin-left: 8px;
+        margin-left: 15px;
     }
+    .studentaddmoney_applyTitle > .applyTitle_main:nth-child(2)>h2{
+
+        margin-left: 15px;
+    }
+    .studentaddmoney_applyTitle > .applyTitle_main:nth-child(3)>img{
+
+        margin-right: 20px;
+    }
+
+
+
     .applyTitle_main h2{
         font-size: $fontSize02;
         color: $secondary01;
@@ -40,6 +56,13 @@
         margin-bottom: $space04;
     
     }
+
+  
+
+
+
+
+
     
     .fa-circle-check{
         color: #D25541;
