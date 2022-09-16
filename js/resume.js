@@ -1,4 +1,4 @@
-
+// 履歷範本放大
 let resume_zoome_window = `
 <div class="m-a-s-k"></div>
 <div class="resume_zoom">
@@ -7,6 +7,7 @@ let resume_zoome_window = `
 </div> 
 `
 
+// 儲存視窗
 let resume_save_window = `
 <div class="m-a-s-k"></div>
 <div class="card_resume resume_window">
@@ -30,8 +31,8 @@ let resume_save_window = `
       
    </div>
 `
-
-let resume_pay_window =`
+// 模板付費視窗
+let resume_pay_window = `
 <div class="m-a-s-k"></div>
 <div class="card_resume resume_window">
    <ul class="cardUl">
@@ -41,19 +42,57 @@ let resume_pay_window =`
       <li>
          <i class="fa-solid fa-xmark cardXmark"></i>
       </li>
-      </ul>
-      <div class="cardInner applyfor">
-         <div class="applyTitle">
-            <div class="messageTitleMain">
-               <h3>001模板需100金幣</h3>
-            </div>
+   </ul>
+   <div class="cardInner applyfor">
+      <div class="applyTitle">
+         <div class="messageTitleMain">
+               <h3>A01模板需100金幣</h3>
          </div>
-         <div class="btna3 addpay">確定加值</div>
       </div>
+         <div class="btna3 addpay">確定加值</div>
+   </div>
 </div>
 `
+// 付費方案視窗
+let resume_payplan_window = `
+<div class="m-a-s-k"></div>
+<div class="card_resume  resume_window">
+        <ul class="cardUl">
+            <li>
+               <h1 class="cardH1">加值點數</h1>
+            </li>
+            <li>
+               <i class="fa-solid fa-xmark cardXmark"></i>
+            </li>
+        </ul>
+        <div class="cardInner payplan">
+            <div class="applyTitle">
+        
+                <div class="applyTitle_main">
+                    <input type="radio" name="123">
+                    <h2>NT 399</h2>
+                    <img src="images/header_icon/money.png" alt="">
+                    <h2>200金幣</h2>
+                </div>
+                <div class="applyTitle_main">
+                    <input type="radio" name="123">
+                    <h2>NT 899</h2>
+                    <img src="images/header_icon/money.png" alt="">
+                    <h2>500金幣</h2>
+                </div>
+                <div class="applyTitle_main">
+                    <input type="radio" name="123">
+                    <h2>NT 1599</h2>
+                    <img src="images/header_icon/money.png" alt="">
+                    <h2>1000金幣</h2>
+                </div>
+            </div>
+            <div class="btna3 payplan_btn">確定</div>
+        </div>
+</div>`
 
-let resume_delete_window =`
+// 刪除視窗
+let resume_delete_window = `
 <div class="m-a-s-k"></div>
 <div class="card_resume resume_window">
    <ul class="cardUl">
@@ -73,12 +112,13 @@ let resume_delete_window =`
             <h3>確定刪除履歷嗎？</h3>
          </div>
       </div>
-      <div class="btna3 check_btn">確定</div>
+      <div class="btna3 delete_btn">確定</div>
    </div>
 </div>
 `
 
-let resume_share_window =`
+//分享視窗
+let resume_share_window = `
 <div class="m-a-s-k"></div>
 <div class="card_resume resume_window">
         <ul class="cardUl">
@@ -108,8 +148,8 @@ let resume_share_window =`
                 <span>公開 網站上的人都可以找到並檢視。</span>
                 <div class="share_ig_fb">
                     <h3>分享至</h3>
-                    <img src="images/header_icon/ig.jpg" alt="">
-                    <i class="fa-brands fa-facebook"></i>
+                    <a href="#"><img src="./images/careertest//icon_instagram.svg" alt="IG"></a>
+                    <a href="#"><img src="./images/careertest//icon_facebook.svg" alt="臉書"></a>
                 </div>
                 <div class="btna3 check_btn">確定</div>
             </div>
@@ -117,7 +157,8 @@ let resume_share_window =`
     </div>
 `
 
-let resume_pdf_window =`
+// pdf下載視窗
+let resume_pdf_window = `
 <div class="m-a-s-k"></div>
 <div class="card_resume  resume_window">
         <ul class="cardUl">
@@ -142,68 +183,31 @@ let resume_pdf_window =`
     </div>
 `
 
-
-let resume_addmoney_window =`
-<div class="m-a-s-k"></div>
-<div class="card_resume  resume_window">
-        <ul class="cardUl">
-            <li>
-                <h1 class="cardH1">加值點數</h1>
-            </li>
-            <li>
-                <a href="./student_main.html"><i class="fa-solid fa-xmark cardXmark"></i></a>
-            </li>
-        </ul>
-        <div class="cardInner studentaddmoney">
-            <div class="studentaddmoney_applyTitle">
-        
-                <div class="applyTitle_main">
-                    <input type="radio" name="123">
-                    <h2>NT 399</h2>
-                    <img src="images/header_icon/money.png" alt="">
-                    <h2>200金幣</h2>
-                </div>
-                <div class="applyTitle_main">
-                    <input type="radio" name="123">
-                    <h2>NT 899</h2>
-                    <img src="images/header_icon/money.png" alt="">
-                    <h2>500金幣</h2>
-                </div>
-                <div class="applyTitle_main">
-                    <input type="radio" name="123">
-                    <h2>NT 1599</h2>
-                    <img src="images/header_icon/money.png" alt="">
-                    <h2>1000金幣</h2>
-                </div>
-            </div>
-            <div class="btna3 check_btn">確定</div>
-        </div>
-</div>`
+// 
 
 $(function () {
 
-
    // 履歷範本分類按鈕
-   $('.btna13').on('click', function () {     
+   $('.btna13').on('click', function () {
       $('.btna13').css('background-color', 'rgba(255, 255, 255, 0)').css('color', '#313131')
       $(this).css('background-color', '#EAA565').css('color', '#FFFFFF')
-      
+
    })
 
    // 履歷範本放大
    $('.resume_zoom_btn').on('click', function () {
-      $('.resume_wrapper').append(resume_zoome_window)     
+      $('.resume_wrapper').append(resume_zoome_window)
       let img_src = $(this).parents('.resume_card').children("img").attr('src')
       $('.resume_zoom img').attr('src', img_src)
       $('.m-a-s-k').show()
-      
+
       // 履歷範本放大關閉
       $('.resume_zoom .fa-xmark').on('click', function () {
          // $('.resume_zoom').remove()
          // $('.m-a-s-k').remove()
          closeWindows()
       })
-      
+
    })
 
 
@@ -227,24 +231,28 @@ $(function () {
 
    // 模板付費視窗
    $('.resume_model-border .resume_pay').on('click', function () {
-      $('.resume_wrapper').append(resume_pay_window) 
-
-      closeWindows()
+      $('.resume_wrapper').append(resume_pay_window)
+      $('.fa-xmark').on('click', function () {
+         closeItem()
+      })
+      // 儲值視窗
+      $('.addpay').on('click', function () {
+         $('.resume_wrapper').append(resume_payplan_window)
+         $('.fa-xmark,.payplan_btn').on('click', function () {
+            closeItem()
+         })
+      })
    })
 
-   // 儲值視窗
-   $('.addpay').on('click', function () {
-      console.log('123')
-      $('.resume_wrapper').append(resume_pay_window) 
-      closeWindows()
-   })
+
 
    // 儲存履歷視窗
    $('#resume_save').on('click', function () {
       $('.resume_wrapper').append(resume_save_window)
       $('.m-a-s-k').show()
-
-      // 儲存視窗確認或關閉
+      $('.fa-xmark').on('click', function () {
+         closeItem()
+      })
       closeWindows()
    })
 
@@ -265,7 +273,7 @@ $(function () {
    })
 
    // pdf_dowload 下載
-   $('.pdf_dowload').on('click',function(){
+   $('.pdf_dowload').on('click', function () {
       window.print();
    })
 
@@ -273,23 +281,36 @@ $(function () {
    $('#resume_delect').on('click', function () {
       $('.resume_wrapper').append(resume_delete_window)
       $('.m-a-s-k').show()
+      
+      $('.fa-xmark').on('click', function () {
+         closeItem()
+      })
+      $('.delete_btn').on('click', function () {
+         $('.work_space_a4').hide()
+         closeItem()
+      })
 
-      closeWindows()
    })
-   
 
-   
+   // 刪除編輯的履歷
+   $('.resume_model').on('click',function(){
+      $('.work_space_a4').show()
+   })
+
 
 })
 
 
 // 關閉跟確認視窗
-function closeWindows(){
-   $('.resume_window .fa-xmark,.resume_window .check_btn,.resume_zoom').on('click', function () {
-      $('.resume_zoom').remove()
-      $('.resume_window').remove()
-      $('.m-a-s-k').remove()
-   
+function closeWindows() {
+   $('.resume_window .fa-xmark,.resume_window,.resume_window .check_btn,.resume_zoom').on('click', function () {
+      closeItem()
+
    })
 }
 
+function closeItem() {
+   $('.resume_zoom').remove()
+   $('.resume_window').remove()
+   $('.m-a-s-k').remove()
+}

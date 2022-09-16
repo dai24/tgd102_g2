@@ -87,26 +87,37 @@ $editOutline : 2px solid black;
             }
         
             .resume_model{
-                // outline: 1px solid red;
-                
+               
+                    width: 166px;
+                    height: 218px;
+                    margin: 0 auto 15px auto;
+                    // margin-bottom: 15px;
                 cursor: pointer;
+                @include m(){
+                    float: left;
+                    margin: 10px 14px;
+                    
+                }
                 &:hover{
                     box-shadow:0px 0px 5px rgba(57, 57, 57, 0.5);
                 }
                 
                 img {
-                    display: block;
-                    width: 100%;
+                    // display: block;
+                    width: 166px;
                     height: 218px;
                     // margin: 0 auto;
-                    margin-bottom: 15px;
-                    // outline: 1px solid rgb(43, 0, 255);
+                    // margin-bottom: 15px;
+                    // // outline: 1px solid rgb(43, 0, 255);
+                    display: block;
+                    
+                    @include m(){
+                        // margin-bottom: 0;
+                        
+                    }
                 }
                
-                @include m(){
-                    float: left;
-                    margin: 8px 5%;
-                }
+                
             }
         
             .resume_pay {
@@ -230,6 +241,7 @@ $editOutline : 2px solid black;
                     label{
                         background-color: rgba(1,1,1,0);
                         margin: 40%;
+                        cursor: pointer;
                         .fa-file-circle-plus{
                             align-items: center;
                             margin: 0 auto;

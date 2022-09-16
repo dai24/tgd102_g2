@@ -11,6 +11,10 @@
 
 }
 
+// 打勾圈圈圖
+.fa-circle-check{
+    color: #D25541;
+}
 // 圖片放大
 .resume_zoom{
     width: 400px;
@@ -124,13 +128,10 @@
             }
         
             img{
-                font-size: 50px;
+                display: block;
+                width: 50px;
+                height: 50px;
                 margin-right: 20px;
-                
-            }
-            .fa-facebook{
-                font-size: 50px;
-                color: #1877F2;
                 
             }
         
@@ -143,6 +144,40 @@
 
    
 }
+
+
+// 加值
+.payplan .btna3{
+    margin: 0 auto;
+}
+    .applyTitle {
+        .applyTitle_main{
+            display: flex;
+            justify-content: space-evenly;
+            &:nth-child(3){
+
+                margin-left: 8px;
+            }
+            input{
+                width: 18px;
+                height: 18px;
+                margin-right: 10px;
+            }
+            h2{
+                font-size: $fontSize02;
+                color: $secondary01;
+                // padding:$space04;
+                margin-bottom: $space04;
+            
+            }
+            img{
+                width: 30px;
+                height: 30px;
+                margin: 0 30px;
+            }
+        }
+    }
+
 
 
 
