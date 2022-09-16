@@ -17,6 +17,14 @@
             img{
                 width: 196px;
                 height: 196px;
+                @include m(){
+                    width: 85px;
+                    height: 85px;
+                    margin-right: 4px;
+                    position: relative;
+                    top: 0;
+                    right: -26px;
+                }
             }
         }
             
