@@ -5,8 +5,6 @@
     @include m(){
         max-width: 400px;
         margin: 0px auto 0px;
-       
-       
     }
     .companyHeader{
         display: flex;
@@ -18,16 +16,10 @@
             flex-wrap: wrap;
             align-items: center;
             padding: 15px 15px;
-            
-           
-
         }
         .companyHeaderLogo {
             display: flex;
             align-items: center;
-            @include m(){
-                
-            }
             img{
                 width: 196px;
                 height: 196px;
@@ -37,14 +29,9 @@
                     margin-right: 4px;
                     position: relative;
                     top: 0;
-                    right: -26px;
-       
-                }
-                
+                    right: -26px;       
+                }                
             }
-            
-            
-            
         }
             
         .companyHeaderMain{
@@ -53,9 +40,6 @@
             @include m(){
                 margin-left: 0;
                 padding-TOP:0;
-            
-           
-
             }
             form{
                 margin-left: 57px;
@@ -211,7 +195,7 @@
                         color: $secondary02;
                     }
                 }
-                .id{
+                .id{ //職缺名稱
                     padding: 0 50px;
                     @include m(){
                         padding: 0px 0px;
@@ -219,17 +203,22 @@
                             font-weight: bold;
                             padding: 16px auto;
                             padding-left: 18px;
+                            margin: 8px auto;
                         }
                     }
                     
                 }
-                .detail{
+                .detail{ //詳細資料
                     width: 26%;                    
                     @include m(){
                         width: 100%;
                         display: flex;
                         justify-content: center;
                         order: 1;
+                    }
+                    button{ //按鈕：詳細資料、查看求職者
+                        margin-top: 12px;
+                        margin-bottom: 12px;
                     }
                 }
                 .fa-trash{
@@ -239,20 +228,27 @@
                     }
                 }
                 .edit{ //編輯
-                    width: 12%;
+                    // width: 12%;
                     order: 0;
                     @include m(){
                         width: 100%;
                         display: flex;
-                        flex-direction: column;
+                        // flex-direction: column;
+                        flex-direction: row;
                         justify-content: space-between;
-                    }
-                    // button{
-                    //     width: 50%;
-                    // }                    
+                        h3{                            
+                            button{ //編輯 刪除 按鈕
+                                width: 49%;
+                                padding-top: 8px;
+                                padding-bottom: 8px;
+                                &:hover{
+                                    background-color: #fed188;
+                                }
+                            }
+                        }
+                    }                
                 }
-            }
-                
+            }                
         }       
             .btna20{
                 font-size: 16px;
@@ -276,8 +272,8 @@
             top: 12px;
             left: 0;
             z-index: 5;  
-            @include m(){
-                display: none;
+            @include m(){ //是否要打開switch開關
+                // display: none;
             }             
                 
             @keyframes openColor{ //open時的開關背景色
