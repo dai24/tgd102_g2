@@ -1,4 +1,4 @@
-.backstage_company{    
+.backstage_student_detail{    
     height: 100%;
     background-color:$secondary02;
     display: flex;
@@ -72,46 +72,13 @@
                         font-weight: bold;
                     }                      
                 }  
-                //欄位：公司編號
-                .id{
-                    h3{
-                        margin-left: 16px;
-                    }
-                }
-                //欄位：詳細資料
-                .detail{ 
-                    h3{
-                        text-align: right;
-                        padding-right: 16px;
-                    }
-                }
-                //欄位：縣市區
-                .city{
-                    padding: 0 10px;
-                }
-                //"停權"
-                .ban{
-                    @media screen and (max-width: 1600px) {
-                        padding-right: 8px;   
-                    }
-                }            
-                //停權icon
-                .fa-ban{
-                    width: 30px;
-                    height: 30px;
-                    margin-top: 10px;
-                    opacity: 10%;
-                }
+                
                 //每筆資料
                 .item{
                     vertical-align: middle;
                     border: solid $primary02;
-                    border-top: 0;
-                    &:hover{ //hover時，該筆資料和按鈕都變色
-                        background-color:$primary03;                        
-                    }
+                    border-top: 0;           
                     h3{
-                        // height:$trheight;
                         line-height: 1.6;
                         padding: 12px 0;
                         vertical-align: middle; //垂直置中
@@ -124,47 +91,14 @@
                             text-align: left;
                             padding-left: 16px;              
                         }
-                    }
-                    //公司名稱
-                    .name{
-                        padding-left: 16px;
-                        h3{
-                            text-align: left;
-                            min-width: 240px;
-                        }
-                    }
-                    //地址
-                    .address{
-                        h3{
-                            text-align: left;
-                            padding-left: 16px;
-                            min-width: 240px;
+                    }           
+                    .picture{
+                        img{
+                            width: 70px;
+                            height: 70px;
                         }                        
-                    }
-                    //年費方案
-                    .fee{
-                        h3{
-                            font-weight: bold;
-                        }                    
-                    }
+                    }         
                 }                
-            }
-
-            //按鈕：詳細資料
-            .btna3{
-                height: 40px;
-                line-height: 40px;
-                margin-right: 16px;
-                &:hover{
-                    background-color:$secondary02;
-                }
-                a{
-                    color:$secondary01;
-                    font-weight: bold;
-                }
-                @media screen and (max-width: 1460px) {
-                    width:85px; 
-                }
             }
         }
     }

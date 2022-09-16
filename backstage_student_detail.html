@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html',{
+        "title" : "後台學生會員資訊"
+        })        
+    <script src="https://unpkg.com/vue@2"></script>
+</head>
+<body>
+<main  class="backstage_student_detail">
+    @@include('./layout/backstage_nav.html')
+    <div  class="wrapper">
+        <h1 class="title"><a href="./backstage_student.html">學生會員資料</a> > <span>王淨忠</span></h1>
+        <div class="wratable">
+            <table id="table">     
+                <thead>
+                    <tr>
+                        <th class="email"><h3>信箱</h3></th>
+                        <th class="phone"><h3 >電話</h3></th>
+                        <th class="address"><h3>地址</h3></th>
+                        <th class="picture"><h3>大頭貼</h3></th>
+                    </tr> 
+                </thead>
+                 
+                <tbody>
+                    <tr class="item">
+                        <td class="email"><h3>h462842@gmail.com</h3></td>
+                        <td class="phone"><h3>0988274788</h3></td>
+                        <td class="address"><h3>新北市板橋區篤行路三段</h3></td>
+                        <td class="picture"><h3><img src="./images/student-login/student.jpg" alt="大頭貼"></h3></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>      
+    </div>       
+</main> 
+</body>
+</html>

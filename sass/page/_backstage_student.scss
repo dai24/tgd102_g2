@@ -42,7 +42,7 @@
         .title{
             font-weight:bold;
         }
-        form{
+        .wratable{
             width: 100%;
         }
         //header 
@@ -60,15 +60,17 @@
             }
             th{ //表單各種欄位名稱
                 background-color:$primary02;
-                color:$secondary01;                        
+                color:$secondary01;                                        
                 h3{ //統一標題
                     line-height: 60px;
                     font-weight: bold;
+                    text-align: center;
                 }                
             }  
             //欄位：公司編號
             .id{
                 h3{
+                    text-align: left;
                     margin-left: 16px;
                 }
             }
@@ -111,14 +113,23 @@
                 border: solid $primary02;
                 border-top: 0;
                 &:hover{ //hover時，該筆資料和按鈕都變色
-                    background-color:$primary02;
-                    .btna3{
-                        background-color:$secondary02;
-                    }
+                    background-color:$primary03;                    
                 }
                 h3{
                     padding:12px 0; //控制item上下位置
-                    // line-height:  $trheight; //每筆資料垂直置中
+                    text-align: center;
+                }
+                //公司編號
+                .id{
+                    h3{
+                        text-align: left;
+                    }                    
+                }
+                //按鈕：詳細資料
+                .detail{
+                    h3{
+                        text-align: right;
+                    }
                 }
             }                
         }
@@ -127,10 +138,13 @@
         .btna3{
             height: 40px;
             line-height: 40px;
+            &:hover{
+                background-color:$secondary02;
+            }
             a{
                 color:$secondary01;
                 font-weight: bold;
-            }
+            }            
             @media screen and (max-width: 1300px) {
                 width:112px; 
             }

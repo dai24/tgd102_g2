@@ -12,21 +12,30 @@
     @@include('./layout/backstage_nav.html')
     <div  class=" wrapper">
         <h1 class="title">求職資源</h1>
-        <div class="block">
-            <h3>履歷健檢導師群</h3>
-            <div class="inputsearch">
-                <i class="fa-solid fa-magnifying-glass"></i>
-                <input type="Text" class="inputText" placeholder="搜尋導師名稱" name="search">
-            </div>                
-        </div>
+        <ul class="block">
+            <li>
+                <h3>履歷健檢導師群</h3>
+            </li>
+
+            <li>
+                <ul class="addTeacher">
+                    <li><a href="#"><h4>新增導師</h4></a></li>
+                    <li><i class="fa-solid fa-arrow-up-from-bracket"></i></li>
+                </ul>
+                <div class="inputsearch">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="Text" class="inputText" placeholder="搜尋導師名稱" name="search">
+                </div>
+            </li>       
+        </ul>
         <div class="containTeacher swiper-container mySwiper">
             <ul class="conSliTeacher swiper-wrapper">            
                 <li class="slideTeacher swiper-slide">
                     <img src="./images/resumeReview/1.jpg" alt="導師照片">
                     <ul class="inform">
                         <li><h3 class="name">王博均</h3></li>
-                        <li><h4 class="major">擅長領域：<span>設計</span></h4></li>
-                        <li><h4 class="match">健檢人數：<span>5人</span></h4></li>
+                        <li><h4 class="major">人資經理</h4></li>
+                        <li><h4 class="match">已健檢人數：<span>5</span>人</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a> 
                     </ul>                
                 </li>
@@ -35,8 +44,8 @@
                     <img src="./images/resumeReview/2.jpg" alt="導師照片">
                     <ul class="inform">
                         <li><h3 class="name">薛彥涵</h3></li>
-                        <li><h4 class="major">擅長領域：<span>行銷</span></h4></li>
-                        <li><h4 class="match">健檢人數：<span>6人</span></h4></li>
+                        <li><h4 class="major">企業顧問</h4></li>
+                        <li><h4 class="match">已健檢人數：<span>6</span>人</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a>
                     </ul>                
                 </li>
@@ -45,8 +54,8 @@
                     <img src="./images/resumeReview/3.jpg" alt="導師照片">
                     <ul class="inform">
                         <li><h3 class="name">李凱宇</h3></li>
-                        <li><h4 class="major">擅長領域：<span>管理</span></h4></li>
-                        <li><h4 class="match">健檢人數：<span>7人</span></h4></li>
+                        <li><h4 class="major">人資副理</h4></li>
+                        <li><h4 class="match">已健檢人數：<span>7</span>人</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a>
                     </ul>                
                 </li>
@@ -55,8 +64,8 @@
                     <img src="./images/resumeReview/4.jpg" alt="導師照片">
                     <ul class="inform">
                         <li><h3 class="name">宋軒辰</h3></li>
-                        <li><h4 class="major">擅長領域：<span>資工</span></h4></li>
-                        <li><h4 class="match">健檢人數：<span>2人</span></h4></li>
+                        <li><h4 class="major">資深人資專員</h4></li>
+                        <li><h4 class="match">已健檢人數：<span>2</span>人</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a>
                     </ul>                
                 </li> 
@@ -65,8 +74,8 @@
                     <img src="./images/resumeReview/5.jpg" alt="導師照片">
                     <ul class="inform">
                         <li><h3 class="name">郭文翰</h3></li>
-                        <li><h4 class="major">擅長領域：<span>資工</span></h4></li>
-                        <li><h4 class="match">健檢人數：<span>2人</span></h4></li>
+                        <li><h4 class="major">人資副理</h4></li>
+                        <li><h4 class="match">已健檢人數：<span>2</span>人</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a>
                     </ul>                
                 </li>
@@ -75,8 +84,18 @@
                     <img src="./images/resumeReview/6.jpg" alt="導師照片">
                     <ul class="inform">
                         <li><h3 class="name">趙緯蓮</h3></li>
-                        <li><h4 class="major">擅長領域：<span>資工</span></h4></li>
-                        <li><h4 class="match">健檢人數：<span>3人</span></h4></li>
+                        <li><h4 class="major">人資經理</h4></li>
+                        <li><h4 class="match">已健檢人數：<span>3</span>人</h4></li>
+                        <a href="#"><button class="btna21">詳細資料</button></a>
+                    </ul>                
+                </li>
+
+                <li class="slideTeacher swiper-slide">
+                    <img src="./images/resumeReview/7.jpg" alt="導師照片">
+                    <ul class="inform">
+                        <li><h3 class="name">蘇霈霖</h3></li>
+                        <li><h4 class="major">人資專員</h4></li>
+                        <li><h4 class="match">已健檢人數：<span>5</span>人</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a>
                     </ul>                
                 </li>
@@ -99,7 +118,7 @@
             </li>
 
             <li>
-                <ul class="add">
+                <ul class="addContent">
                     <li><a href="./backstage_addArticle.html"><h4>新增文章</h4></a></li>
                     <li><i class="fa-solid fa-arrow-up-from-bracket"></i></li>
                 </ul>

@@ -4,6 +4,7 @@
     $trheight:80px; //每筆資料高度
     $winheight:1190px; //網頁高度
     $editHeight:48px; //編輯區塊的高度
+    $block2LineHeight:60px; //統一line-height高度
     h1{
         font-size:$fontSize01;
         margin-top:44px;
@@ -35,6 +36,7 @@
         padding-bottom: 40px; //到網頁底部的距離
         display: flex;
         flex-direction: column;
+        overflow: hidden;
         @media screen and (max-width:1850px) { //配合backstage_nav變成漢堡
             width: 100%;
         } 
@@ -56,7 +58,29 @@
                 line-height: 60px;      
                 font-weight: bold;
                 padding-left: 18px;  
-            }            
+            }     
+            li:last-child{
+                display: flex;
+                //"新增導師"
+                .addTeacher{
+                    display: flex;
+                    line-height:$block2LineHeight;
+                    a{
+                        color: $secondary02;
+                    }
+                    h4{
+                        line-height:$block2LineHeight;
+                    }
+                    .fa-solid{
+                        font-size: 20px;
+                        color: $secondary02;
+                        line-height:$block2LineHeight;
+                        margin-left: 8px;
+                        margin-right: 24px; //與搜尋欄的距離
+                    }
+                }
+            }      
+            
         };     
         //swiper套件
         // .swiper-container {
@@ -95,7 +119,7 @@
                 padding-left: 0; //清除原設
                 padding-right: 0; //清除原設
                 overflow: hidden;
-                .slideTeacher{
+                .slideTeacher{ //導師
                     width: 232px;
                     border-radius: 5px;
                     display: flex;
@@ -147,8 +171,7 @@
         //文章總覽
         .block2{            
             position: relative;
-            margin-top: 48px;
-            $block2LineHeight:60px; //統一line-height高度
+            margin-top: 48px;            
             >li{
                 display: flex;
             }
@@ -165,8 +188,8 @@
                     z-index: 2;
                 }
             }            
-            //"新增導師"
-            .add{
+            //"新增文章"
+            .addContent{
                 display: flex;
                 line-height:$block2LineHeight;
                 a{
@@ -178,6 +201,7 @@
                 .fa-solid{
                     font-size: 20px;
                     color: $secondary02;
+                    line-height:$block2LineHeight;
                     margin-left: 8px;
                     margin-right: 24px; //與搜尋欄的距離
                 }
@@ -209,10 +233,7 @@
                 border: solid $primary02;
                 border-top: 0;
                 &:hover{ //hover時，該筆資料和按鈕都變色
-                    background-color:$primary02;
-                    .btna3{
-                        background-color:$secondary02;
-                    }
+                    background-color:$primary03;                    
                 }
                 h3{
                     // line-height:  $trheight; //每筆資料垂直置中
@@ -234,6 +255,9 @@
                 .btna3{
                     height: 40px;
                     line-height: 40px;
+                    &:hover{
+                        background-color:$secondary02;
+                    }
                     a{
                         color:$secondary01;
                         font-weight: bold;
