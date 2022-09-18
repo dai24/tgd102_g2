@@ -281,7 +281,7 @@ $(function () {
    $('#resume_delect').on('click', function () {
       $('.resume_wrapper').append(resume_delete_window)
       $('.m-a-s-k').show()
-      
+
       $('.fa-xmark').on('click', function () {
          closeItem()
       })
@@ -293,11 +293,13 @@ $(function () {
    })
 
    // 刪除編輯的履歷
-   $('.resume_model').on('click',function(){
+   $('.resume_model').on('click', function () {
       $('.work_space_a4').show()
    })
 
+   
 
+   Avatar_upload()
 })
 
 
@@ -313,4 +315,21 @@ function closeItem() {
    $('.resume_zoom').remove()
    $('.resume_window').remove()
    $('.m-a-s-k').remove()
+}
+
+function Avatar_upload(){
+   let upload = document.querySelector('#upload');
+   let Avatar = document.querySelector('.work_space_a4_2 img')
+   let upload_img = document.querySelector('.work_space_a4_2 .fa-file-circle-plus')
+   upload.addEventListener('change', (e) => {
+      let readFile = new FileReader()
+      readFile.readAsDataURL(upload.files[0])
+      readFile.addEventListener('load', function () {
+         Avatar.src = readFile.result;
+         Avatar.style.display = 'block';
+         upload_img.style.display = 'none'
+
+      })
+
+   })
 }

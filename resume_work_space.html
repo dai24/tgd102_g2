@@ -9,7 +9,7 @@
 
 
 <body>
-
+    <div id="app">
     <div class="resume_wrapper">
         @@include('./layout/header.html')
         @@include('./layout/breadcrumb3.html',{
@@ -78,9 +78,12 @@
                             <p class="p4">作品：<span class="span4">www.reallygreatsite.com.tw</span></p>
                         </div>
 
-                        <div title="上傳圖片" class="work_space_a4_2">
-                            <!-- <button><i class="fa-solid fa-file-circle-plus"></i></button> -->
-                            <label><input id="upload_img" style="display:none;" type="file" accept="image/*"><i class="fa-solid fa-file-circle-plus"></i></label>
+                        <div title="上傳圖片" class="work_space_a4_2">      
+                            <label for="upload" class="upload">
+                                <input id="upload" type="file" accept="image/*">
+                                <i class="fa-solid fa-file-circle-plus"></i>
+                            </label>
+                            <label for="upload"  class="Avatar"><img src=""></label>
                         </div>
 
                         <div class="work_space_a4_3">
@@ -146,6 +149,16 @@
         </div>
     </div>
     @@include('./layout/footer.html')
+
+    <script>
+
+        // new Vue({
+        //     el: '#app',
+        //     data: {
+
+        //     }
+        // })
+    </script>
 
 </body>
 

@@ -42,7 +42,7 @@
                 
                 <div class="row resume_sample_row">
                     <!-- 履歷範本 -->
-                    <div-resume_sample v-for="url in 8" >
+                    <div-resume_sample v-for="url in imgURL" >
                     </div-resume_sample>
                     
                 </div>
@@ -67,11 +67,20 @@
         })
 
         Vue.component('div-resume_sample',{
-            props: ['img'],
+            // props: ['img'],
             data(){
                 return {
                     count: 0,
-                    urlindex: 0,
+                    // images:[
+                    // {img_path:'./images/resume/resume_1.jpg'},
+                    // {img_path:'./images/resume/resume_2.jpg'},
+                    // {img_path:'./images/resume/resume_3.jpg'},
+                    // {img_path:'./images/resume/resume_4.jpg'},
+                    // {img_path:'./images/resume/resume_5.jpg'},
+                    // {img_path:'./images/resume/resume_6.jpg'},
+                    // {img_path:'./images/resume/resume_7.jpg'},
+                    // {img_path:'./images/resume/resume_8.jpg'},
+                    // ],
                     imgURL: ['images/resume/resume_1.jpg','images/resume/resume_2.jpg','images/resume/resume_3.jpg',
                     'images/resume/resume_4.jpg','images/resume/resume_5.jpg','images/resume/resume_6.jpg',
                     'images/resume/resume_7.jpg','images/resume/resume_8.jpg'],
