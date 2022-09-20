@@ -300,6 +300,8 @@ $(function () {
    
 
    Avatar_upload()
+   
+  
 })
 
 
@@ -333,3 +335,4 @@ function Avatar_upload(){
 
    })
 }
+

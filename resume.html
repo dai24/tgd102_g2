@@ -38,69 +38,90 @@
             <main class="resume">
                 <!-- 履歷範本分類 -->
                 <div-category></div-category>
-               
-                
-                <div class="row resume_sample_row">
+                              
                     <!-- 履歷範本 -->
-                    <div-resume_sample v-for="url in imgURL" >
-                    </div-resume_sample>
-                    
-                </div>
+                    <div-resume_sample v-for="url in imgURL" ></div-resume_sample>                    
 
                 @@include('./layout/pagination.html')
                 
             </main>
+            <resume-zoome_window></resume-zoome_window>
         </div>
     </div>
     @@include('./layout/footer.html')
     <script>
-        Vue.component('div-category',{
-            data(){
+        Vue.component('div-category', {
+            data() {
                 return {
                     categorys: ['全部', '設計', '工程', '管理', '媒體', '銷售', '金融', '行政', '科技', '服務'],
                 }
             },
-            template:`
+            template: `
             <div class="row category">
                     <div v-for="category in categorys" class="col-1"><button class="btna13">{{category}}</button></div>
             </div>`,
         })
 
-        Vue.component('div-resume_sample',{
-            // props: ['img'],
+    let rzw = Vue.component('resume-zoome_window', {
+           props:['imgs'],
             data(){
                 return {
-                    count: 0,
-                    // images:[
-                    // {img_path:'./images/resume/resume_1.jpg'},
-                    // {img_path:'./images/resume/resume_2.jpg'},
-                    // {img_path:'./images/resume/resume_3.jpg'},
-                    // {img_path:'./images/resume/resume_4.jpg'},
-                    // {img_path:'./images/resume/resume_5.jpg'},
-                    // {img_path:'./images/resume/resume_6.jpg'},
-                    // {img_path:'./images/resume/resume_7.jpg'},
-                    // {img_path:'./images/resume/resume_8.jpg'},
-                    // ],
-                    imgURL: ['images/resume/resume_1.jpg','images/resume/resume_2.jpg','images/resume/resume_3.jpg',
-                    'images/resume/resume_4.jpg','images/resume/resume_5.jpg','images/resume/resume_6.jpg',
-                    'images/resume/resume_7.jpg','images/resume/resume_8.jpg'],
+                    img:'',
+                    isPopup: false
                 }
             },
-            methods: {
+            methods:{
+               
                 
             },
             template:
-            `            
-                    <div class="col">
-                        <div class="resume_card">
-                            <img src="images/resume/resume_1.jpg" class="" alt="resume_1">
+                `
+                <div v-if="isPopup">
+                    <div class="m-a-s-k"></div>
+                    <div class="resume_zoom">
+                        <button class=""><i class="fa-solid fa-xmark"></i></button>
+                        <img :src="img">
+                    </div>
+                </div>
+                 
+            `
+        })
 
+        Vue.component('div-resume_sample', {
+            data() {
+                return {
+                    count: 0,
+                    resume_sample: [],
+                }
+            },
+            methods: {
+                getImg(imgurl) {
+                    $data.img = imgurl
+                    console.log()
+                    
+                   
+                }
+            },
+            mounted() {
+
+                fetch('./php/getResume_sample_All.php')
+                    .then(rsp => rsp.json())
+                    .then(resume_sample => {
+                        this.resume_sample = resume_sample;
+                    })
+
+            },
+            template:
+                `   <div class="row resume_sample_row">         
+                    <div class="col" v-for="resume in resume_sample">
+                        <div class="resume_card">
+                            <img :src='resume.IMG_PATH' class="" alt="resume_1">
                             <div class="card_body">
                                 <div class="row">
-                                    <div class="col-2"><button @click="count+=1" class="fa-solid fa-heart"></button></div>
-                                    <div class="col-1 align-self-center"><span>{{count}}</span></div>
+                                    <div class="col-2"><button @click="resume.LIKE_COUNT+=1" class="fa-solid fa-heart"></button></div>
+                                    <div class="col-1 align-self-center"><span>{{resume.LIKE_COUNT}}</span></div>
                                     <div class="offset-7 col-1">
-                                        <button class="resume_zoom_btn">
+                                        <button class="resume_zoom_btn" @click="getImg(resume.IMG_PATH)">
                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="currentColor" class="bi bi-box-arrow-up-right"
                                                 viewBox="0 0 16 16">
@@ -115,16 +136,14 @@
                             </div>
                         </div>
                     </div>
+                </div>
             `
         })
 
         new Vue({
             el: '#app',
             data: {
-                // count: 0,
-                imgURL: ['images/resume/resume_1.jpg','images/resume/resume_2.jpg','images/resume/resume_3.jpg',
-                    'images/resume/resume_4.jpg','images/resume/resume_5.jpg','images/resume/resume_6.jpg',
-                    'images/resume/resume_7.jpg','images/resume/resume_8.jpg'],
+                showp:false
 
             },
 
@@ -133,3 +152,4 @@
 </body>
 
 </html>
+
