@@ -64,6 +64,30 @@
         @include m(){
           padding: 10px 0 0 0;
         }
+        .student_photo{
+                .upload{
+                    width: 230px;
+                    // outline: 1px solid red;
+                    position: relative;
+                    cursor: pointer;
+                    @include m(){
+                        width: 120px;
+                    } 
+
+                    input {
+                        display: none;
+
+                    }
+
+                }
+
+
+
+
+
+        }
+
+        
         //點數
         .coin{
             a{ //歷史加值紀錄

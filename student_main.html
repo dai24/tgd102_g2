@@ -14,7 +14,11 @@
             <div class="studenMainWrapperTitle_left">
 
                 <div class="student_photo">
-                    <img src="./images/student-login/student.jpg" alt="大頭貼">
+                    <label for="upload" class="upload">
+                        <input id="upload" type="file" accept="image/*">
+                        <img src="./images/student-login/student.jpg" alt="大頭貼">
+                    </label>
+                    <label for="upload"  class="Avatar"><img src=""></label>
                 </div>
                 <ul>
                     <li><h3>會員名稱：<span>林立人</span></h3></li>
@@ -49,5 +53,23 @@
         </div>
     </div>
     @@include('./layout/footer.html')
+    <script>
+        function Avatar_upload(){
+            let upload = document.querySelector('#upload');
+            let Avatar = document.querySelector('.student_photo img')
+            let upload_img = document.querySelector('.student_photo .img')
+            upload.addEventListener('change', (e) => {
+                let readFile = new FileReader()
+                readFile.readAsDataURL(upload.files[0])
+                readFile.addEventListener('load', function () {
+                    Avatar.src = readFile.result;
+                    Avatar.style.display = 'block';
+                    upload_img.style.display = 'none'
+
+                })
+
+            })
+        }
+    </script>
 </body>
 </html>

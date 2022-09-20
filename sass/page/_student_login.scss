@@ -36,7 +36,9 @@
     }
     //去註冊
     .gosign{
+        
         @include disflex(column, center, center);
+        cursor: pointer;
         h4{
             :first-child{
                 width: 100px;

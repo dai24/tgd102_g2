@@ -58,6 +58,26 @@
                         width: 200px;   
                         padding: 0;                   
                     }
+                    .upload{
+                        width: 100%;
+                        // width: 150px;
+                        // height: 100px;
+                        // outline: 1px solid red;
+                        position: relative;
+                        cursor: pointer;
+                        @include m(){
+                            width: 120px;
+                        } 
+
+                       
+                        input{
+                            line-height: normal;
+                           
+
+    
+                        }
+    
+                    }
                     .area{
                         border: 0;
                         outline: none;
@@ -97,7 +117,7 @@
                     }
                     
                     img{
-                        max-width: 200px;
+                        max-width: 150px;
                         width: 100%;
                         @include m(){
                             width: 150px;

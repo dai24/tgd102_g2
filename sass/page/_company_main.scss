@@ -20,6 +20,22 @@
         .companyHeaderLogo {
             display: flex;
             align-items: center;
+
+            .upload{
+                width: 196px;
+                // outline: 1px solid red;
+                position: relative;
+                cursor: pointer;
+                @include m(){
+                    width: 85px;
+                } 
+
+                input {
+                    display: none;
+
+                }
+
+            }
             img{
                 width: 196px;
                 height: 196px;
@@ -327,10 +343,3 @@
         display: block; 
     }
 }
-
-
-
-
-
-
-

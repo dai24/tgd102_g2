@@ -8,7 +8,11 @@
     <div class="companyWrapper">
         <div class="companyHeader">
             <div class="companyHeaderLogo">
-                <img src="./images/findJob/kobayashi.png" alt="公司logo">
+                <label for="upload" class="upload">
+                    <input id="upload" type="file" accept="image/*">
+                    <img src="./images/findJob/kobayashi.png" alt="公司logo">
+                </label>
+                <!-- <label for="upload"  class="Avatar"><img src=""></label> -->
             </div>
             <div class="companyHeaderMain">
                 <form action="" method="">
@@ -133,8 +137,27 @@
         </div>        
     @@include('./layout/pagination.html') 
     </div>
+   
         
 
     @@include('./layout/footer.html')
+    <script>
+        function Avatar_upload(){
+            let upload = document.querySelector('#upload');
+            let Avatar = document.querySelector('.companyHeaderLogo img')
+            let upload_img = document.querySelector('.companyHeaderLogo .img')
+            upload.addEventListener('change', (e) => {
+                let readFile = new FileReader()
+                readFile.readAsDataURL(upload.files[0])
+                readFile.addEventListener('load', function () {
+                    Avatar.src = readFile.result;
+                    Avatar.style.display = 'block';
+                    upload_img.style.display = 'none'
+
+                })
+
+            })
+        }
+    </script>
 </body>
 </html>

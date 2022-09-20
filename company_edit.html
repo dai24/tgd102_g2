@@ -15,7 +15,7 @@
                 <tr class="item">
                     <td class="id"><h3>公司名稱</h3></td>
                     <td class="detail"><h3 class="para">小野水產</h3><textarea type="text"  class="area"></textarea></td>
-                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                    <td class="editIcon"></td>
                 </tr>
 
                 <tr class="item">
@@ -63,7 +63,7 @@
                 <tr class="item">
                     <td class="id"><h3>負責人</h3></td>
                     <td class="detail"><h3 class="para">王威宏</h3><textarea type="text"  class="area"></textarea></td>
-                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                    <td class="editIcon"></td>
                 </tr>
                 <tr class="item">
                     <td class="id"><h3>公司電話</h3></td>
@@ -78,16 +78,22 @@
                 <tr class="item">
                     <td class="id"><h3>年費方案</h3></td>
                     <td class="detail"><h3 class="para">A方案</h3><textarea type="text" class="area"></textarea></td>
-                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                    <td class="editIcon"></td>
                 </tr>
-                <tr class="item">
+                <tr class="item company_photochange">
                     <td class="id"><h3>公司照片</h3></td>
                     <td class="detail">
-                        <div>
+                        
+                        <label for="upload" class="upload">
                             <img src="./images/company/company1.jpg" alt="">
-                        </div>
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <img src="" alt="">
+                            <input id="upload" type="file" multiple="multiple" accept="image/*">
+                        </label>
                     </td>
-                    <td class="editIcon"><i class="fa-solid fa-plus"></i></td>
+                    <label for="upload"  class="Avatar" ><img src=""></label>
+                    <td class="editIcon"></td>
 
                 </tr>
             </tbody>
@@ -155,6 +161,25 @@
                     
             })
         }
+
+        function Avatar_upload(){
+            let upload = document.querySelector('#upload');
+            let Avatar = document.querySelector('.company_photochange img')
+            let upload_img = document.querySelector('.company_photochange .img')
+            upload.addEventListener('change', (e) => {
+                let readFile = new FileReader()
+                readFile.readAsDataURL(upload.files[0])
+                readFile.addEventListener('load', function () {
+                    Avatar.src = readFile.result;
+                    Avatar.style.display = 'block';
+                    upload_img.style.display = 'none'
+
+                })
+
+            })
+        }
+
+
     </script>
 </body>
 </html>
