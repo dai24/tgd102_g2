@@ -183,6 +183,8 @@
                     margin-left: 48px;
                 }
                 .consultantIndustry{
+                    display: none;
+                    width: 192px; //子選單的寬度                    
                     background-color: white;
                     position: absolute;
                     z-index: 2;

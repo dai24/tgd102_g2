@@ -11,7 +11,7 @@
     @@include('./layout/backstage_nav.html')
     <div  class="wrapper">
         <h1 class="title">討論區</h1>
-        <form method="post" action="#">
+        <div class="wratable">
             <div class="block">
                 <div class="category">
                     <h3>文章種類：</h3>
@@ -43,17 +43,12 @@
                 </thead>
                  
                 <tbody>
-                    
-
                 </tbody>
-                
-                <student-data></student-data>
             </table>
-        </form>      
+        </div>      
         @@include('./layout/pagination.html')
     </div>   
     
 </main> 
-<script src="./js/backstage_student.js"></script>
 </body>
 </html>

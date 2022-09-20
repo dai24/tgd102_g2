@@ -5,6 +5,8 @@
         "title" : "後台公司營運分析"
         })        
     <script src="https://unpkg.com/vue@2"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"></script>
 </head>
 <body>
 <main  class="backstage_company">
@@ -18,7 +20,7 @@
                     <input type="Text" class="inputText" placeholder="搜尋公司名稱或編號" name="search">
                 </div>                
             </div>
-            <table id="table">     
+            <table id="table app">     
                 <thead>
                     <tr>
                         <th class="id"><h3>公司編號</h3></th>
@@ -54,7 +56,7 @@
                         </tr>
                     </a>           
                     
-                    <a href="#">
+                    <!-- <a href="#">
                         <tr class="item">
                             <td class="id"><h3>C111002</h3></td>
                             <td class="name"><h3 >OBJECT家具有限公司</h3></td>
@@ -205,14 +207,96 @@
                             <td class="create-date"><h3>2022/07/16</h3></td>
                             <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
                         </tr>
-                    </a>
+                    </a> -->
+
+                    <company-data></company-data>
                 </tbody>
-                
-                <company-data></company-data>
             </table>
         </div>      
         @@include('./layout/pagination.html')
-    </div>       
+    </div>   
+       
 </main> 
+
+<script>
+    // let id = document.querySelector("#id")
+    // let name = document.querySelector("#name");
+
+    // const url = "./php/searchcompany.php";
+    // fetch(url) //從後端JS拿到資料
+    //     .then(function(resp){
+    //         return resp.json()                
+    //     })
+    //     .then(function(userArr){
+    //     // console.log("123") //確認有跑到這裡
+    //     console.log(userArr)
+    //     console.log("有抓到")
+    //     // console.log(userArr.address)
+    //     })
+
+//以下定義真實的標籤應該長怎樣?
+    // Vue.component('company-data',{
+    //     data(){
+            
+    //         name = "參月壹號咖啡股份有限公司"
+    //     },
+    //     methods:{},
+    //     template: `
+    //         <a href="#">
+    //             <tr class="item">
+    //                 <td class="id"><h3></h3></td>
+    //                 <td class="name"><h3>${name}</h3></td>
+    //                 <td class="property"><h3>800萬</h3></td>
+    //                 <td class="discribe"><h3>飲料店業</h3></td>
+    //                 <td class="principle"><h3>唐學閎</h3></td>
+    //                 <td class="fee"><a href="#"><h3>C</h3></a></td>
+    //                 <td class="city"><h3>台北市</h3></td>
+    //                 <td class="district"><h3>內湖區</h3></td>
+    //                 <td class="address"><h3>瑞光路26巷36弄6號1樓</h3></td>
+    //                 <td class="detail"><h3><button class="btna3"><h4><a href="./backstage_com_job.html">詳細資料</a></h4></button></h3></td>
+    //                 <td class="create-date"><h3>2022/07/16</h3></td>
+    //                 <td class="ban"><h3 @click=""><i class="fa-solid fa-ban"></i></h3></td>
+    //             </tr>
+    //         </a>
+    //     `,
+    // })
+         
+    // let vm = new Vue({ //想要有預設的template
+        // el: `#app`,
+        // data: { 
+        //     //設定要先掛載的東西
+        // },
+        // methods: {},      
+        // template: //預先掛載的div結構
+        //     `
+        //     <thead>
+        //         <tr>
+        //             <th class="id"><h3>公司編號</h3></th>
+        //             <th class="name"><h3 >公司名稱</h3></th>
+        //             <th class="property"><h3>資本額</h3></th>
+        //             <th class="discribe"><h3>產業類別</h3></th>
+        //             <th class="principle"><h3>負責人</h3></th>
+        //             <th class="fee"><h3>年費方案</h3></th>
+        //             <th class="city"><h3>縣市區</h3></th>
+        //             <th class="district"><h3>鄉鎮市區</h3></th>
+        //             <th class="address"><h3>地址</h3></th>
+        //             <th class="detail"></th>
+        //             <th class="create-date"><h3>建立日期</h3></th>
+        //             <th class="ban"><h3>停權</h3></th>
+        //         </tr>                     
+        //     </thead>
+
+        //         <tbody>
+        //             <company-data></company-data>
+        //         </tbody>
+        //     `         
+        // })     
+        
+    // new Vue({
+    //     el: '#app',
+    // })
+    
+    
+</script>
 </body>
 </html>
