@@ -1,11 +1,11 @@
-<div class="contactUSInner" v-if="isShow" @click="close" id="contactUSInner"></div>
-<div class="card contactUSInnerCard" v-if="isShow" id="contactUSCard">
+<div class="contactUSInner" v-if="isShow" @click="close"></div>
+<div class="card contactUSInnerCard" v-if="isShow">
     <ul class="cardUl" >
         <li>
             <h1 class="cardH1">聯絡我們</h1>
         </li>
         <li>
-            <i class="fa-solid fa-xmark cardXmark" @click="close" id="contactUsClose"></i>
+            <i class="fa-solid fa-xmark cardXmark"></i>
         </li>
     </ul>
     <div class="cardInner contact">
@@ -18,7 +18,7 @@
             <textarea rows="10" maxlength="150" placeholder="請輸入您的訊息，我們會盡快聯繫您 !!" id="talk"></textarea>
             <p id="feedback"></p>
         </div>
-        <div class="btna3" @click="close" id="contactUsSubmit">送出</div>
+        <div class="btna3">送出</div>
         </form>
     </div>
 </div>

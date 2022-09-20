@@ -1,12 +1,11 @@
-<!----- footer ----->
-<div class="contactUSInner" v-if="isShow" @click="close" id="contactUSInner"></div>
-<div class="card contactUSInnerCard" v-if="isShow" id="contactUSCard">
+<div class="contactUSInner" v-if="isShow" @click="close"></div>
+<div class="card contactUSInnerCard" v-if="isShow">
     <ul class="cardUl" >
         <li>
             <h1 class="cardH1">聯絡我們</h1>
         </li>
         <li>
-            <i class="fa-solid fa-xmark cardXmark" @click="close" id="contactUsClose"></i>
+            <i class="fa-solid fa-xmark cardXmark" @click="close"></i>
         </li>
     </ul>
     <div class="cardInner contact">
@@ -19,17 +18,18 @@
             <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !"  id="talk"></textarea>
             <p id="feedback"></p>
         </div>
-        <div class="btna3" @click="close" id="contactUsSubmit">送出</div>
+        <div class="btna3" @click="close">送出</div>
         </form>
     </div>
 </div>
+
 <footer>
 
     <div class="footer_inner">
 
         <ul>
             <li>
-                <a class="footer_a" @click="open" id="contactUsOpen">聯絡我們</a>
+                <a class="footer_a" @click="open">聯絡我們</a>
             </li>
     
             <li>
@@ -64,3 +64,4 @@
 <script src="./js/contactUs.js"></script>
 <script src="./js/applyFor.js"></script>
 <script src="./js/saveApply.js"></script>
+<script type="module" src="./js/findJob.js"></script>
