@@ -115,7 +115,7 @@
                     background-color: $secondary02;
                     border-radius: 5px;
                     color: $primary02;
-                    display: none;
+                    
                     
                 }
                 .findJobTypeArea{
@@ -251,7 +251,6 @@
         @include m(){
             flex-direction: column;
             padding: 24px 8px;
-            margin: 0 8px 16px;
         }
         .findJobVacanciesPicture img{
             cursor: pointer;

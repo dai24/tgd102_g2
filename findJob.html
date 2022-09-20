@@ -6,7 +6,7 @@
 <body>
     <div id="app">
     @@include('./layout/header.html')
-  
+
     @@include('./layout/saveApply.html') 
 
 
@@ -26,64 +26,47 @@
                         <h3>熱門職務類別</h3>
                     </div>
                     <div class="findJobClassMain">
-                        <div class="btna16">前端工程師</div>
-                        <div class="btna16">半導體</div>
-                        <div class="btna16">金融</div>
-                        <div class="btna16">餐飲</div>
-                        <div class="btna16">設計</div>
-                        <div class="btna16">業務</div>
+                        <div class="btna16" v-for="arrFindJobClassMain in findJobClassMainList" :key="arrFindJobClassMain.id">{{arrFindJobClassMain.name}}</div>
                     </div>
                 </div>
                 <ul class="findJobType">
-                    <li class="findJobTypeTitle "><div class="btna16 dd_btn" data-name="dd_1">地點<i class="fa-solid fa-chevron-down" data-arrow="dd_1"></i></div>
-                        <ul class="findJobTypeArea  dd dd_1">
-                            <li><input type="checkbox" data-id="1"><label for="">北部</label></li></li>
-                            <li><input type="checkbox" data-id="2"><label for="">中部</label></li></li>
-                            <li><input type="checkbox" ><label for="">東部</label></li></li>
-                            <li><input type="checkbox" ><label for="">南部</label></li></li>
+                    <li class="findJobTypeTitle "><div class="btna16 dd_btn" data-name="dd_1" @click="place">地點<i class="fa-solid fa-chevron-down" data-arrow="dd_1"></i></div>
+                        <ul class="findJobTypeArea dd dd_1" v-if="tab_1" >
+                            <li v-for="arrPlaceList in placeList" :key="arrPlaceList.id"><input type="checkbox" data-id="1"  v-model="checkedSort" :value="arrPlaceList.name"><label for="Jack">{{arrPlaceList.name}}</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_2">職務類別<i class="fa-solid fa-chevron-down" data-arrow="dd_2"></i></div>
-                        <ul class="findJobTypeSort dd dd_2">
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_2"  @click="sort">職務類別<i class="fa-solid fa-chevron-down" data-arrow="dd_2"></i></div>
+                        <ul class="findJobTypeSort dd dd_2" v-if="tab_2">
                             <li><div class="findJobTypeSortTitle">軟體</div>
                                 <ul>
-                                    <li><input type="checkbox"><label for="">前端開發人員</label></li>
-                                    <li><input type="checkbox"><label for="">後端開發人員</label></li>   
+                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id" v-if="arrSortList1.sort=='軟體'" ><input type="checkbox" v-model="checkedSort" :value="arrSortList1.name"><label for="">{{arrSortList1.name}}</label></li>
                                 </ul>
                             </li>
                             <li><div class="findJobTypeSortTitle">行銷</div>
                                 <ul>
-                                    <li><input type="checkbox"><label for="">行銷人員</label></li>
-                                    <li><input type="checkbox"><label for="">數位行銷人員</label></li> 
+                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id" v-if="arrSortList1.sort=='行銷'"><input type="checkbox" v-model="checkedSort" :value="arrSortList1.name"><label for="">{{arrSortList1.name}}</label></li>
                                 </ul>
                             </li>
                             <li><div class="findJobTypeSortTitle">金融</div>
                                 <ul>
-                                    <li><input type="checkbox"><label for="">企業財務</label></li>
-                                    <li><input type="checkbox"><label for="">管理會計</label></li> 
+                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id"  v-if="arrSortList1.sort=='金融'"><input type="checkbox" v-model="checkedSort" :value="arrSortList1.name"><label for="">{{arrSortList1.name}}</label></li>
                                 </ul>
-                            </li>
+                            </li> 
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_3">公司規模<i class="fa-solid fa-chevron-down" data-arrow="dd_3"></i></div>
-                        <ul class="findJobTypeArea dd dd_3">
-                            <li><input type="checkbox"><label for="">大</label></li>
-                            <li><input type="checkbox"><label for="">中</label></li>
-                            <li><input type="checkbox"><label for="">小</label></li>
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_3"  @click="scale">公司規模<i class="fa-solid fa-chevron-down" data-arrow="dd_3"></i></div>
+                        <ul class="findJobTypeArea dd dd_3" v-if="tab_3">
+                            <li v-for="arrScale in scaleList" :key="arrScale.id"><input type="checkbox" v-model="checkedSort" :value="arrScale.name"><label for="">{{arrScale.name}}</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_4">薪資<i class="fa-solid fa-chevron-down" data-arrow="dd_4"></i></div>
-                        <ul class="findJobTypeArea dd dd_4">
-                            <li><input type="checkbox"><label for="">168 / h</label></li>
-                            <li><input type="checkbox"><label for="">200 / h</label></li>
-                            <li><input type="checkbox"><label for="">250 / h</label></li>
-                            <li><input type="checkbox"><label for="">300 / h</label></li>
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_4" @click="money">薪資<i class="fa-solid fa-chevron-down" data-arrow="dd_4"></i></div>
+                        <ul class="findJobTypeArea dd dd_4" v-if="tab_4">
+                            <li v-for="arrMoney in moneyList" :key="arrMoney.id"><input type="checkbox" v-model="checkedSort" :value="arrMoney.name"><label for="">{{arrMoney.name}}</label></li>
                         </ul>
                     </li>
-                    <li class="findJobTypeTitle"><div class="btna16 dd_btn"  data-name="dd_5">遠端工作<i class="fa-solid fa-chevron-down" data-arrow="dd_5"></i></div>
-                        <ul class="findJobTypeArea dd dd_5">
-                            <li><input type="checkbox" name="remote"><label for="">是</label></li>
-                            <li><input type="checkbox" name="remote"><label for="">否</label></li>
+                    <li class="findJobTypeTitle"><div class="btna16 dd_btn"  data-name="dd_5" @click="distance">遠端工作<i class="fa-solid fa-chevron-down" data-arrow="dd_5"></i></div>
+                        <ul class="findJobTypeArea dd dd_5" v-if="tab_5">
+                            <li v-for="arrDistance in distanceList" :key="arrDistance.id"><input type="checkbox" name="remote"  v-model="checkedSort" :value="arrDistance.name"><label for="">{{arrDistance.name}}</label></li>
                         </ul>
                     </li>
                 </ul>
@@ -92,244 +75,43 @@
                 <img src="./images/index/findjob.png" alt="">
             </div>
         </div>
-        <div class="findJobFind" id="findJobFind">
-
-        </div>
-        <div class="findJobVacancies">
-            <div class="findJobVacanciesPicture">
-                <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
-            </div>
-            <div class="findJobVacanciesTitle">
-                <h3 class="moveToJob">醫療客服專案實習師</h3>
-                <p class="moveToCom">Dr. Right 精準關懷</p>
-                <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
-            </div>
-            <div class="findJobVacanciesItem">
-                <div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p>20</p></a>
-                    </div>
-                </div>
-                
-                <div class="findJobVacanciesBtn">
-                    <div class="btna5 saveApplyOpen">儲存職缺</div>
-                    <div class="btna6 jobMain">立即應徵</div>
-                </div>
-            </div>
-        </div>
-        <div class="findJobVacancies">
-            <div class="findJobVacanciesPicture">
-                <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
-            </div>
-            <div class="findJobVacanciesTitle">
-                <h3 class="moveToJob">醫療客服專案實習師</h3>
-                <p class="moveToCom">Dr. Right 精準關懷</p>
-                <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
-            </div>
-            <div class="findJobVacanciesItem">
-                <div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p>20</p></a>
-                    </div>
-                </div>
-                
-                <div class="findJobVacanciesBtn">
-                    <div class="btna5 saveApplyOpen">儲存職缺</div>
-                    <div class="btna6 jobMain">立即應徵</div>
-                </div>
-            </div>
-        </div>
-        <div class="findJobVacancies">
-            <div class="findJobVacanciesPicture">
-                <img src="./images/findJob/comLogo.jpg" alt="" class="moveToCom">
-            </div>
-            <div class="findJobVacanciesTitle">
-                <h3 class="moveToJob">醫療客服專案實習師</h3>
-                <p class="moveToCom">Dr. Right 精準關懷</p>
-                <p>化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。</p>
-            </div>
-            <div class="findJobVacanciesItem">
-                <div>
-                    <div>
-                        <div class="findJobVacanciesIcon">
-                            <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>6</p></a>
-                        </div>
-                        <div class="findJobVacanciesIcon">
-                            <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>台北</p></a>
-                        </div>
-                        <div class="findJobVacanciesIcon">
-                            <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>200 / h</p></a>
-                        </div>
-                        <div class="findJobVacanciesIcon">
-                            <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p>20</p></a>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="findJobVacanciesBtn">
-                    <div class="btna5 saveApplyOpen">儲存職缺</div>
-                    <div class="btna6 jobMain">立即應徵</div>
-                </div>
-            </div>
-        </div>
+        <div class="findJobFind" id="findJobFind"><div class="findJobFindSort" v-for="(theSort , i) in checkedSort"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div></div>
+        <my-list @job-sort="sort"></my-list>
         @@include('./layout/pagination.html') 
     </div>
-    @@include('./layout/footer.html')
+
     </div>
+    <div id="app2">
+        @@include('./layout/footer.html')
+    </div>
+    
+    
 </body>
 <script>
-let navigate = (function() {
-	$('.dd').hide();
-	$('.dd_btn').click(function() {
-        // alert('sss')
-		let dataName = $(this).attr('data-name');
-        // let dataArrow = $(this).children('.fa-chevron-right').attr('data-arrow')
-		$('.' + dataName).slideToggle();
-        $(`.dd:not(.${dataName})`).hide();
-	});
-    
-})();
-// $('.dd_btn').click(function() {
-//     // alert('sss')
-//     $('.dd').hide();
+// let moveToCom = document.getElementsByClassName('moveToCom')
+// console.log(moveToCom);
+// for(let i = 0; i < moveToCom.length; i++){
+//     moveToCom[i].addEventListener('click', function(){
+//         location='./company.html'
+//     })
+// }
 
-//     let dataName = $(this).attr('data-name');
-//     $('.' + dataName).slideToggle();
-//     $(`.dd:not(.${dataName})`).hide();
-// });
-// $('body').click(function(event){
-//     $('.dd').hide();
-//     $('.dd').not($('.dd').has(event.target)).hide();
-// });
+// let moveToJob = document.getElementsByClassName('moveToJob')
+// console.log(moveToJob);
+// for(let i = 0; i < moveToJob.length; i++){
+//     moveToJob[i].addEventListener('click', function(){
+//         location='./jobMain.html'
+//     })
+// }
 
-
-const jobMain = document.getElementsByClassName('jobMain')
-for(let i = 0; i < jobMain.length; i++){
-    jobMain[i].addEventListener('click', function(){
-        location = './jobMain.html';
-    })
-}
-
-const check = document.querySelectorAll('input[type="checkbox"]')
-const findJobFind = document.getElementById('findJobFind')
-
-for(let i = 0; i < check.length; i++){
-    check[i].addEventListener('click',function(e){
-        let cancel = document.getElementsByClassName('cancel')
-        
-        if(check[i].checked == true){
-            let sortList = check[i].nextElementSibling.innerHTML
-            let li_html = `<div class="findJobFindSort"><p>${sortList}</p><i class="fa-solid fa-xmark cancel"></i></div>`;
-            findJobFind.insertAdjacentHTML("afterbegin", li_html)
-            // for(let a = 0 ; a < cancel.length; a++){
-            // cancel[a].addEventListener('click',function(e){
-            //         e.target.parentElement.remove()
-            //         check[i].checked = false
-            //     })
-            // }
-        }else if(check[i].checked == false){
-            for(let j = 0; j < findJobFind.children.length; j++){
-                findJobFind.children[j].remove()
-                console.log([j]);
-            }
-            // findJobFind.children[i].remove()
-        }
-        for(let a = 0 ; a < cancel.length; a++){
-        cancel[a].addEventListener('click',function(e){
-                e.target.parentElement.remove()
-                check[i].checked = false
-            })
-        }
-    })
-}
-
-let moveToCom = document.getElementsByClassName('moveToCom')
-console.log(moveToCom);
-for(let i = 0; i < moveToCom.length; i++){
-    moveToCom[i].addEventListener('click', function(){
-        location='./company.html'
-    })
-}
+// let jobMain = document.getElementsByClassName('jobMain')
+// for(let i = 0; i < jobMain.length; i++){
+//     jobMain[i].addEventListener('click', function(){
+//         location = './jobMain.html';
+//     })
+// }
 
 
-let moveToJob = document.getElementsByClassName('moveToJob')
-console.log(moveToJob);
-for(let i = 0; i < moveToJob.length; i++){
-    moveToJob[i].addEventListener('click', function(){
-        location='./jobMain.html'
-    })
-}
-    // new Vue({
-    //     el: '#app',
-    //     data:{
-    //         isShow: false,
-    //         // tab_1: false,
-    //         // tab_2: false,
-    //         // tab_3: false,
-    //         // tab_4: false,
-    //         // tab_5: false,
-    //     },
-    //     methods: {
-    //         open(){
-    //             this.isShow =!this.isShow
-    //         },
-    //         close(){
-    //             this.isShow =!this.isShow
-    //         },
-    //         // place(){
-    //         //     this.tab_1 = !this.tab_1
-    //         //     this.tab_2 = false
-    //         //     this.tab_3 = false
-    //         //     this.tab_4 = false
-    //         //     this.tab_5 = false
-    //         // },
-    //         // sort(){
-    //         //     this.tab_2 = !this.tab_2
-    //         //     this.tab_1 = false
-    //         //     this.tab_3 = false
-    //         //     this.tab_4 = false
-    //         //     this.tab_5 = false
-    //         // },
-    //         // scale(){
-    //         //     this.tab_3 = !this.tab_3
-    //         //     this.tab_1 = false
-    //         //     this.tab_2 = false
-    //         //     this.tab_4 = false
-    //         //     this.tab_5 = false
-    //         // },
-    //         // money(){
-    //         //     this.tab_4 = !this.tab_4
-    //         //     this.tab_1 = false
-    //         //     this.tab_2 = false
-    //         //     this.tab_3 = false
-    //         //     this.tab_5 = false
-    //         // },
-    //         // distance(){
-    //         //     this.tab_5 = !this.tab_5
-    //         //     this.tab_1 = false
-    //         //     this.tab_2 = false
-    //         //     this.tab_3 = false
-    //         //     this.tab_4 = false
-    //         // },
-    //     },
-    // })
+
 </script>
 </html>
