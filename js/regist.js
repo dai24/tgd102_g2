@@ -97,33 +97,13 @@ $(function () {
     })
 
     const agree = document.getElementById('agree')
-    console.log(agree);
-    agree.addEventListener('click', function(){
-        console.log('123');
-        console.log(this.checked);
-    })
-
-    
-
-    const join = document.getElementsByClassName('submit')[0]
-    console.log(join);
-    join.addEventListener('click',function(e){
-        if(agree.checked == true && alertNameTrue == true && alertEmailTrue == true && alertPasswordTrue == true&& alertPasswordTrue1 == true&& alertphoneTrue == true){
-            console.log('true');
-            
-            // this.setAttribute("href", "index.html");
-        }else{
-            console.log('false');
-            swal("格式有誤", "You clicked the button!", "error");
-        }
-
-    })
 
     document.querySelector('.submit').addEventListener('click', () => {
-        // const name = document.querySelector('#name')
-        // const email = document.querySelector('#email')
-        // const password = document.querySelector('#password')
-        // const phone = document.querySelector('#phone')
+        if(agree.checked == true){
+        console.log('true');           
+        }else{
+            alert('請勾選同意INTERNGO會員條款')
+        }
         fetch('./php/regist.php', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
