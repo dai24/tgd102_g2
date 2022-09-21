@@ -20,13 +20,12 @@
                     <input type="Text" class="inputText" placeholder="搜尋公司名稱或編號" name="search">
                 </div>                
             </div>
-            <table id="table app">     
-                <thead>
+            <div id="table">     
+                <!-- <thead>
                     <tr>
                         <th class="id"><h3>公司編號</h3></th>
                         <th class="name"><h3 >公司名稱</h3></th>
-                        <th class="property"><h3>資本額</h3></th>
-                        <th class="discribe"><h3>產業類別</h3></th>
+                        <th class="property"><h3>資本額(萬)</h3></th>
                         <th class="principle"><h3>負責人</h3></th>
                         <th class="fee"><h3>年費方案</h3></th>
                         <th class="city"><h3>縣市區</h3></th>
@@ -37,16 +36,11 @@
                         <th class="ban"><h3>停權</h3></th>
                     </tr> 
                 </thead>
-                 
-                <tbody>
-                              
-                    
-                    
-                    
-
+                
+                <tbody>                    
                     <company-data></company-data>
-                </tbody>
-            </table>
+                </tbody> -->
+            </div>
         </div>      
         @@include('./layout/pagination.html')
     </div>   
@@ -54,103 +48,73 @@
 </main> 
 
 <script>
-//透過php，顯示資料庫的公司會員資料
-    let tbody = document.querySelector("tbody");
 
-    const url = "./php/searchcompany.php";
-    fetch(url) //從後端JS拿到資料
-        .then(function(resp){
-            return resp.json()                
+Vue.component('company-data',{ 
+    data(){
+        return{
+            companyData: [],
+        }       
+    },
+    mounted() {
+        fetch("./php/searchcompany.php") //從後端JS拿到資料
+        .then(rsp => rsp.json())
+        .then(userArr => {            
+            // console.log("123") //確認有跑到這裡
+            // console.log(userArr);    
+            this.companyData = userArr
+            console.log(this.companyData) //確認過有抓到資料
+            // let creDate = companyData.create_date.substr(0,10).split('-').join('/')
         })
-    .then(function(userArr){
-        // console.log("123") //確認有跑到這裡
-        console.log(userArr);
-        
-        for (let user of userArr){
-            let creDate = user.create_date.substr(0,10).split('-').join('/'); //將
-            tbody.insertAdjacentHTML("beforeend", `
-                <tr class="item">
-                    <td class="id"><h3>C1110${user.id}</h3></td>
-                    <td class="name"><h3 >${user.name}</h3></td>
-                    <td class="property"><h3>${user.property}</h3></td>
-                    <td class="discribe"><h3>飲料店業</h3></td>
-                    <td class="principle"><h3>${user.principle}</h3></td>
-                    <td class="fee"><h3>${user.fee_id}</h3></td>
-                    <td class="city"><h3>${user.city}</h3></td>
-                    <td class="district"><h3>${user.district}</h3></td>
-                    <td class="address"><h3>${user.address}</h3></td>
-                    <td class="detail"><h3><button class="btna3"><h4><a href="./backstage_com_job.html">詳細資料</a></h4></button></h3></td>
-                    <td class="create-date"><h3>${creDate}</h3></td>
-                    <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
-                </tr>
-            `
-            )
-        }
-    })
-//--------------------------------------------------------------
+    },
+    template: `
+    <tbody>
+        <tr class="item" v-for="companys in companyData">
+            <td class="id"><h3>C1110{{companys.id}}</h3></td>
+            <td class="name"><h3 >{{companys.name}}</h3></td>
+            <td class="property"><h3>{{companys.property}}</h3></td>
+            <td class="principle"><h3>{{companys.principle}}</h3></td>
+            <td class="fee"><h3>{{companys.fee_id}}</h3></td>
+            <td class="city"><h3>{{companys.city}}</h3></td>
+            <td class="district"><h3>{{companys.distirct}}</h3></td>
+            <td class="address"><h3>{{companys.address}}</h3></td>
+            <td class="detail"><h3><button class="btna3"><h4><a href="./backstage_com_job.html">詳細資料</a></h4></button></h3></td>
+            <td class="create-date"><h3></h3></td>
+            <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
+        </tr>
+    </tbody>
+    `,
+})
 
-//以下定義真實的標籤應該長怎樣?
-    // Vue.component('company-data',{
-    //     data(){
-            
-    //         name = "參月壹號咖啡股份有限公司"
-    //     },
-    //     methods:{},
-    //     template: `
-    //         <a href="#">
-    //             <tr class="item">
-    //                 <td class="id"><h3></h3></td>
-    //                 <td class="name"><h3>${name}</h3></td>
-    //                 <td class="property"><h3>800萬</h3></td>
-    //                 <td class="discribe"><h3>飲料店業</h3></td>
-    //                 <td class="principle"><h3>唐學閎</h3></td>
-    //                 <td class="fee"><a href="#"><h3>C</h3></a></td>
-    //                 <td class="city"><h3>台北市</h3></td>
-    //                 <td class="district"><h3>內湖區</h3></td>
-    //                 <td class="address"><h3>瑞光路26巷36弄6號1樓</h3></td>
-    //                 <td class="detail"><h3><button class="btna3"><h4><a href="./backstage_com_job.html">詳細資料</a></h4></button></h3></td>
-    //                 <td class="create-date"><h3>2022/07/16</h3></td>
-    //                 <td class="ban"><h3 @click=""><i class="fa-solid fa-ban"></i></h3></td>
-    //             </tr>
-    //         </a>
-    //     `,
-    // })
-         
-    // let vm = new Vue({ //想要有預設的template
-        // el: `#app`,
-        // data: { 
-        //     //設定要先掛載的東西
-        // },
-        // methods: {},      
-        // template: //預先掛載的div結構
-        //     `
-        //     <thead>
-        //         <tr>
-        //             <th class="id"><h3>公司編號</h3></th>
-        //             <th class="name"><h3 >公司名稱</h3></th>
-        //             <th class="property"><h3>資本額</h3></th>
-        //             <th class="discribe"><h3>產業類別</h3></th>
-        //             <th class="principle"><h3>負責人</h3></th>
-        //             <th class="fee"><h3>年費方案</h3></th>
-        //             <th class="city"><h3>縣市區</h3></th>
-        //             <th class="district"><h3>鄉鎮市區</h3></th>
-        //             <th class="address"><h3>地址</h3></th>
-        //             <th class="detail"></th>
-        //             <th class="create-date"><h3>建立日期</h3></th>
-        //             <th class="ban"><h3>停權</h3></th>
-        //         </tr>                     
-        //     </thead>
+let vm = new Vue({ //設定想要預載的html結構
+    el:'#table',
+    data: { 
+        //設定要先掛載的東西
 
-        //         <tbody>
-        //             <company-data></company-data>
-        //         </tbody>
-        //     `         
-        // })     
-        
-    // new Vue({
-    //     el: '#app',
-    // })
-    
+    },
+    methods: {},      
+    template: //預先掛載的div結構
+        `
+        <table>
+            <thead>
+                    <tr>
+                        <th class="id"><h3>公司編號</h3></th>
+                        <th class="name"><h3 >公司名稱</h3></th>
+                        <th class="property"><h3>資本額(萬)</h3></th>
+                        <th class="principle"><h3>負責人</h3></th>
+                        <th class="fee"><h3>年費方案</h3></th>
+                        <th class="city"><h3>縣市區</h3></th>
+                        <th class="district"><h3>鄉鎮市區</h3></th>
+                        <th class="address"><h3>地址</h3></th>
+                        <th class="detail"></th>
+                        <th class="create-date"><h3>建立日期</h3></th>
+                        <th class="ban"><h3>停權</h3></th>
+                    </tr> 
+            </thead>
+                               
+            <company-data></company-data>            
+        </table>
+        `,  
+    })     
     
 </script>
 </body>
