@@ -1,11 +1,11 @@
-// 履歷範本放大
-let resume_zoome_window = `
-<div class="m-a-s-k"></div>
-<div class="resume_zoom">
-   <button class=""><i class="fa-solid fa-xmark"></i></button>
-   <img src="">
-</div> 
-`
+// // 履歷範本放大
+// let resume_zoome_window = `
+// <div class="m-a-s-k"></div>
+// <div class="resume_zoom">
+//    <button class=""><i class="fa-solid fa-xmark"></i></button>
+//    <img src="">
+// </div> 
+// `
 
 // 儲存視窗
 let resume_save_window = `
