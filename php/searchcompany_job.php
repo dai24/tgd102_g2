@@ -5,14 +5,7 @@
 
     //建立SQL語法
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-    $sql = "select 
-                c.id, c.name, c.address, c.property, c.principle, c.city, c.district,
-                c.address, c.create_date, d.fee_id 
-            from company c
-                join COMPANY_COIN_DETAILS d
-                on c.id = d.company_id
-            limit
-                0, 10;
+    $sql = "
             "
             ;    
 
