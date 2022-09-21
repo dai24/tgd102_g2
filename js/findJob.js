@@ -2,40 +2,55 @@ Vue.component('my-list',{
     // props:['isShowSave'],
     data() {
         return {
-            companyImg : './images/findJob/comLogo.jpg',
-            companyJob : '醫療客服專案實習師',
-            companyName : 'Dr. Right 精準關懷',
-            jobMain : '化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。',
-            vacancies : 6,
-            placeDist : '台北',
-            salary : 200,
-            viewCount : 20
+            // com:[
+            //     {
+            //         companyImg : '',
+            //         companyJob : '',
+            //         companyName : '',
+            //         jobMain : '',
+            //         vacancies : '123',
+            //         placeDist : '',
+            //         salary : 0,
+            //         viewCount : 0
+
+            // }
+
+            // ]
+            com:[]
         }
+    },
+    mounted() {
+        fetch("../php/findJob.php") //從後端JS拿到資料
+        .then(rsp => rsp.json())
+        .then(userArr => {            
+            this.com = userArr
+            console.log(userArr);
+        })
     },
     template:`
     <div>
-        <div class="findJobVacancies" v-for='find in 5'>
+        <div class="findJobVacancies" v-for='find in com'>
             <div class="findJobVacanciesPicture">
-                <img :src= companyImg  alt="" class="moveToCom">
+                <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom">
             </div>
             <div class="findJobVacanciesTitle">
-                <h3 class="moveToJob">{{companyJob}}</h3>
-                <p class="moveToCom">{{companyName}}</p>
-                <p>{{jobMain}}</p>
+                <h3 class="moveToJob">{{find.JOB_NAME}}</h3>
+                <p class="moveToCom">{{find.COM_NAME}}</p>
+                <p>{{find.DESCRIBE}}</p>
             </div>
             <div class="findJobVacanciesItem">
                 <div>
                     <div class="findJobVacanciesIcon">
-                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p> {{vacancies}} </p></a>
+                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p> {{find.JOB}} </p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p> {{placeDist}} </p></a>
+                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p> {{find.CITY}} </p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p> {{salary}} / h</p></a>
+                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p> {{find.SALARY}} / h</p></a>
                     </div>
                     <div class="findJobVacanciesIcon">
-                        <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p> {{viewCount}} </p></a>
+                        <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p> {{find.BROWSED}} </p></a>
                     </div>
                 </div>
                 
@@ -55,6 +70,7 @@ Vue.component('my-list',{
             this.$emit('save-click')
         }
     },
+    
 })
 
 new Vue({
