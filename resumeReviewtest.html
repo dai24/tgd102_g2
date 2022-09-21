@@ -23,38 +23,36 @@
             <div class="searchbar">
                 <ul class="searchbarInner">
                     <div class="searchbarLeft">
-                        <li class="consultantIndustrySearch"><button class="btna21" @click="open1" v-model="industrytype" value="擅長產業">{{industrytype}}<i class="fa-solid fa-chevron-down"></i></button>
+                        <li class="consultantIndustrySearch"><button class="btna21" @click="open1">{{industrytype}}<i class="fa-solid fa-chevron-down"></i></button>
                             <ul class="consultantIndustry" v-if="isshow1" >
-                                <li><button class="btna22" v-model="industrytype" value="全部">全部</button></li>
-                                <li><button class="btna22">電子科技</button></li>
-                                <li><button class="btna22">資訊</button></li>
-                                <li><button class="btna22">軟體</button></li>
-                                <li><button class="btna22">金融</button></li>
-                                <li><button class="btna22">休閒</button></li>
-                                <li><button class="btna22">出版</button></li>
-                                <li><button class="btna22">藝文相關</button></li>
-                                <li><button class="btna22">法律</button></li>
-                                <li><button class="btna22">顧問</button></li>
-                                <li><button class="btna22">研發</button></li>
-                                <li><button class="btna22">餐飲</button></li>
-                                <li><button class="btna22">旅遊</button></li>
+                                <li><button class="btna22" @click="industrytypeis('電子科技')">電子科技</button></li>
+                                <li><button class="btna22" @click="industrytypeis('資訊')">資訊</button></li>
+                                <li><button class="btna22" @click="industrytypeis('軟體')">軟體</button></li>
+                                <li><button class="btna22" @click="industrytypeis('金融')">金融</button></li>
+                                <li><button class="btna22" @click="industrytypeis('休閒')" >休閒</button></li>
+                                <li><button class="btna22" @click="industrytypeis('出版')">出版</button></li>
+                                <li><button class="btna22" @click="industrytypeis('藝文相關')">藝文相關</button></li>
+                                <li><button class="btna22" @click="industrytypeis('法律')">法律</button></li>
+                                <li><button class="btna22" @click="industrytypeis('顧問')">顧問</button></li>
+                                <li><button class="btna22" @click="industrytypeis('研發')">研發</button></li>
+                                <li><button class="btna22" @click="industrytypeis('餐飲')">餐飲</button></li>
+                                <li><button class="btna22" @click="industrytypeis('旅遊')">旅遊</button></li>
                             </ul>
                         </li>
 
-                        <li class="consultantJobSearch"><button class="btna21" @click="open2">擅長職務<i class="fa-solid fa-chevron-down"></i></button>
+                        <li class="consultantJobSearch"><button class="btna21" @click="open2">{{jobclasstype}}<i class="fa-solid fa-chevron-down"></i></button>
                             <ul class="consultantJob" v-if="isshow2" >
-                                <li><button class="btna22">全部</button></li>
-                                <li><button class="btna22">管理幕僚</button></li>
-                                <li><button class="btna22">人資</button></li>
-                                <li><button class="btna22">金融</button></li>
-                                <li><button class="btna22">財會</button></li>
-                                <li><button class="btna22">貿易</button></li>
-                                <li><button class="btna22">客服</button></li>
-                                <li><button class="btna22">行銷</button></li>
-                                <li><button class="btna22">資訊</button></li>
-                                <li><button class="btna22">專案管理</button></li>
-                                <li><button class="btna22">顧問</button></li>
-                                <li><button class="btna22">保險</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('管理幕僚')">管理幕僚</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('人資')" >人資</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('金融')">金融</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('財會')">財會</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('貿易')">貿易</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('客服')" >客服</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('行銷')">行銷</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('資訊')">資訊</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('專案管理')">專案管理</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('顧問')">顧問</button></li>
+                                <li><button class="btna22" @click="jobclasstypeis('保險')">保險</button></li>
                             </ul>
                         </li>
                     </div>
@@ -70,9 +68,9 @@
                 <div class="consultant" v-for="(teacher,index) in allteachers" >
                     <a :href="teacher.tlink"><img :src="teacher.timg" alt=""></a>
                     <div class="consultantSource">
-                        <h3>{{ teacher.tname }}</h3>
+                        <h3 >{{ teacher.tname }}</h3>
                         <h4>{{ teacher.tjobtitle }}</h4>
-                        <h4>{{ teacher.ttimes }}人</h4>
+                        <h4>已經健診{{ teacher.ttimes }}人</h4>
                     </div>
                     <button class="btna9">我要健診</button>
                     
