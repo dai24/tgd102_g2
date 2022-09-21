@@ -94,7 +94,7 @@
 
 
         .consultantIndustry{
-            display: none;
+            
             background-color: white;
             position: absolute;
             z-index: 2;
@@ -110,7 +110,7 @@
         } 
 
         .consultantJob{
-            display: none;
+            
             background-color: white;
             position:  absolute;
             z-index: 2;
@@ -195,115 +195,5 @@
     }
     
     
-}
-
-
-// // 我要健診 橘色彈窗
-
-.resumeReviewCard{
-    background-color: $maskcolor;
-    z-index: 200;
-    height: 100 vh;
-    position: fixed;
-    top:0;
-    bottom: 0;
-    left:0;
-    right: 0;
-    margin: auto;
-
-    @include m(){
-       position: absolute;
-       background-size: contain;
-       height: 2115px;  // 怎麼滿版?
-       margin: 0;
-    }
-}
-
-
-.card2Inner{
-    .resumeChoose{
-        margin-bottom: 16px;
-        display: flex;
-        flex-direction: column;
-
-    }
-
-    .resumeChooseTitle{
-        font-size: 30px;
-        margin-bottom: 16px;
-
-        @include m(){
-          font-size: $R-fontSize04;
-          
-        }
-        
-    }
-
-    label{
-        margin-bottom: 16px;
-    }
-
-    input{
-        width: 16px;
-        height: 16px;
-   
-    }
-
-    span{
-        font-size: 24px;
-        margin-left: 16px;
-
-        @include m(){
-            font-size: $R-fontSize05;
-        }
-    }
-
-
-    .resumeChooseQuestion{
-        font-size: 30px;
-        margin-bottom: 16px;
-
-        @include m(){
-            font-size: $R-fontSize04;
-        }
-    }
-
-    textarea{
-        width: 504px;
-        margin-bottom: 32px;
-        font-size: 16px;
-        line-height: 1.6;
-        font-family: $fontFamily ;
-        padding-top: 8px;
-        padding-left: 8px;
-
-        @include m(){
-           width: 310px;
-
-        }
-
-        
-    }
-
-    .mail{
-        font-family: arial ;
-        width: 504px;
-        height: 40px;
-        font-size: 16px;
-        line-height: 1.6;
-        margin-bottom: 32px;
-        font-family: arial;
-        padding-left: 8px;
-
-        @include m(){
-            width: 310px;
-
-        } 
-    }
-
-    .btna3{
-        margin: 0 auto;
-    }
-
 }
 
