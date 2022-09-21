@@ -187,28 +187,28 @@ let resume_pdf_window = `
 
 $(function () {
 
-   // 履歷範本分類按鈕
-   $('.btna13').on('click', function () {
-      $('.btna13').css('background-color', 'rgba(255, 255, 255, 0)').css('color', '#313131')
-      $(this).css('background-color', '#EAA565').css('color', '#FFFFFF')
+   // // 履歷範本分類按鈕
+   // $('.btna13').on('click', function () {
+   //    $('.btna13').css('background-color', 'rgba(255, 255, 255, 0)').css('color', '#313131')
+   //    $(this).css('background-color', '#EAA565').css('color', '#FFFFFF')
 
-   })
+   // })
 
    // 履歷範本放大
-   $('.resume_zoom_btn').on('click', function () {
-      $('.resume_wrapper').append(resume_zoome_window)
-      let img_src = $(this).parents('.resume_card').children("img").attr('src')
-      $('.resume_zoom img').attr('src', img_src)
-      $('.m-a-s-k').show()
+   // $('.resume_zoom_btn').on('click', function () {
+   //    $('.resume_wrapper').append(resume_zoome_window)
+   //    let img_src = $(this).parents('.resume_card').children("img").attr('src')
+   //    $('.resume_zoom img').attr('src', img_src)
+   //    $('.m-a-s-k').show()
 
-      // 履歷範本放大關閉
-      $('.resume_zoom .fa-xmark').on('click', function () {
-         // $('.resume_zoom').remove()
-         // $('.m-a-s-k').remove()
-         closeWindows()
-      })
+   //    // 履歷範本放大關閉
+   //    $('.resume_zoom .fa-xmark').on('click', function () {
+   //       // $('.resume_zoom').remove()
+   //       // $('.m-a-s-k').remove()
+   //       closeWindows()
+   //    })
 
-   })
+   // })
 
 
    // 打開關閉履歷模組視窗

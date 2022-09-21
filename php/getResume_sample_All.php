@@ -1,7 +1,7 @@
 <?php
 include('./PDO/Connection.php');
 
-$sql = "select * from resume where model = 2";
+$sql = "SELECT LIKE_COUNT,IMG_PATH FROM RESUME WHERE MODEL = 2";
  $statement = $pdo->prepare($sql);
  $statement->execute();
 

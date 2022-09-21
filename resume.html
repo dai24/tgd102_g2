@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <div id="app">
+    <div id="resume">
         <div class="resume_wrapper">
             @@include('./layout/header.html')
             @@include('./layout/breadcrumb2.html',{
@@ -37,70 +37,127 @@
 
             <main class="resume">
                 <!-- 履歷範本分類 -->
-                <div-category></div-category>
-                              
-                    <!-- 履歷範本 -->
-                    <div-resume_sample v-for="url in imgURL" ></div-resume_sample>                    
+                <my-category></my-category>
+
+                <!-- 履歷範本 -->
+                <my-resume_sample></my-resume_sample>                    
 
                 @@include('./layout/pagination.html')
-                
+                <!-- <resume-zoome_window :the-imgurl="imgURL"  ></resume-zoome_window> -->
             </main>
-            <resume-zoome_window></resume-zoome_window>
+            
         </div>
     </div>
     @@include('./layout/footer.html')
+
+
     <script>
-        Vue.component('div-category', {
+        Vue.component('my-category', {
             data() {
                 return {
                     categorys: ['全部', '設計', '工程', '管理', '媒體', '銷售', '金融', '行政', '科技', '服務'],
+                    bcolor:'rgba(255, 255, 255, 0)',
+                }
+            },
+            computed:{
+                clickColor(){
+                    return {
+                        backgroundColor:this.bcolor,
+                    }
                 }
             },
             template: `
             <div class="row category">
-                    <div v-for="category in categorys" class="col-1"><button class="btna13">{{category}}</button></div>
+                    <div v-for="category in categorys" class="col-1">
+                        <button class="btna13" @click="clickColor" :style="clickColor">{{category}}</button>
+                    </div>
             </div>`,
         })
 
-    let rzw = Vue.component('resume-zoome_window', {
-           props:['imgs'],
-            data(){
-                return {
-                    img:'',
-                    isPopup: false
-                }
-            },
-            methods:{
-               
-                
-            },
-            template:
-                `
-                <div v-if="isPopup">
-                    <div class="m-a-s-k"></div>
-                    <div class="resume_zoom">
-                        <button class=""><i class="fa-solid fa-xmark"></i></button>
-                        <img :src="img">
-                    </div>
-                </div>
-                 
-            `
-        })
+       
+       
 
-        Vue.component('div-resume_sample', {
+        // Vue.component('resume-zoome_window', {
+        //    props:['the-imgurl','the-isprop'],
+
+        //     data(){
+        //         return {
+        //             isPopup: true,
+                    
+        //         }
+        //     },
+        //     methods:{
+        //         open() {
+        //             this.isPopup = true
+        //         },
+        //         close() {
+        //             this.isPopup = false
+        //         },
+               
+        //     },
+            
+        //     template:
+        //         `
+        //         <div v-if="isPopup">
+        //             <div class="m-a-s-k" @click="close"></div>
+        //             <div class="resume_zoom">
+        //                 <button class=""><i class="fa-solid fa-xmark" @click="close"></i></button>
+        //                 <img :src="theImgurl">
+        //             </div>
+        //         </div>
+                 
+        //     `
+        // })
+
+        // Vue.component('resume-zoome_btn', {
+            
+        //     data() {
+        //          return {
+        //             // show: true,
+        //          }
+        //     },
+        //     methods: {
+        //         // show(){
+        //         //     this.$emit('show',show)
+        //         // }
+                
+        //     },
+        //     template: 
+        //     `
+        //     <div class="offset-7 col-1">
+        //         <button class="resume_zoom_btn">
+        //             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
+        //                 fill="currentColor" class="bi bi-box-arrow-up-right"
+        //                 viewBox="0 0 16 16">
+        //                 <path fill-rule="evenodd"
+        //                     d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
+        //                 <path fill-rule="evenodd"
+        //                     d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
+        //             </svg>
+        //         </button>
+        //     </div>
+        //    `,
+        // })
+
+        Vue.component('my-resume_sample', {
             data() {
                 return {
                     count: 0,
                     resume_sample: [],
+                    imgURL:'',
+                    isPopup: false,
+                   
                 }
             },
             methods: {
-                getImg(imgurl) {
-                    $data.img = imgurl
-                    console.log()
-                    
-                   
-                }
+                open(imgurl) {
+                    this.imgURL = imgurl                    
+                    this.isPopup = true
+                    console.log( this.imgURL)
+                },
+                close() {
+                    this.isPopup = false
+                },
             },
             mounted() {
 
@@ -121,7 +178,7 @@
                                     <div class="col-2"><button @click="resume.LIKE_COUNT+=1" class="fa-solid fa-heart"></button></div>
                                     <div class="col-1 align-self-center"><span>{{resume.LIKE_COUNT}}</span></div>
                                     <div class="offset-7 col-1">
-                                        <button class="resume_zoom_btn" @click="getImg(resume.IMG_PATH)">
+                                        <button class="resume_zoom_btn" @click="open(resume.IMG_PATH)" >
                                             <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                 fill="currentColor" class="bi bi-box-arrow-up-right"
                                                 viewBox="0 0 16 16">
@@ -132,23 +189,36 @@
                                             </svg>
                                         </button>
                                     </div>
+                                    
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                    <div v-if="isPopup">
+                        <div class="m-a-s-k" @click="close"></div>
+                        <div class="resume_zoom">
+                            <button class=""><i class="fa-solid fa-xmark" @click="close"></i></button>
+                            <img :src="imgURL">
                         </div>
                     </div>
                 </div>
             `
         })
-
+        
         new Vue({
-            el: '#app',
+            el: '#resume',
             data: {
-                showp:false
+               
 
+            },
+            methods: {
+               
+                
             },
 
         })
     </script>
+    <script src="https://unpkg.com/vuex@3"></script>
 </body>
 
 </html>
