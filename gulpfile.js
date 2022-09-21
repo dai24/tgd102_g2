@@ -48,7 +48,7 @@ exports.style = sassstyle
 
 function  Jsminify(){
     return src('js/*.js')
-    .pipe(uglify())
+    // .pipe(uglify())
     // .pipe(rename({
     //     extname: '.min.js' 
     // }))
