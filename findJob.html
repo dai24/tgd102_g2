@@ -4,12 +4,10 @@
         "title" : "找實習"
     })
 <body>
-    <div id="app">
     @@include('./layout/header.html')
-
+    <div id="findJobApp">
+    
     @@include('./layout/saveApply.html') 
-
-
     <div class="findJobWrapper">
         @@include('./layout/breadcrumb2.html',{
             'home' : "首頁",
@@ -76,7 +74,7 @@
             </div>
         </div>
         <div class="findJobFind" id="findJobFind"><div class="findJobFindSort" v-for="(theSort , i) in checkedSort"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div></div>
-        <my-list @job-sort="sort"></my-list>
+        <my-list @my-click="sortGo" @save-click="saveGo"></my-list>
         @@include('./layout/pagination.html') 
     </div>
 
