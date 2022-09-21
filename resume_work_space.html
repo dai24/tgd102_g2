@@ -10,147 +10,150 @@
 
 <body>
     <div id="app">
-    <div class="resume_wrapper">
-        @@include('./layout/header.html')
-        @@include('./layout/breadcrumb3.html',{
-        'home' : "首頁",
-        'nav' : "履歷",
-        'active' : "履歷工作台",
-        'nav_url' : "resume.html",
-        })
+        <div class="resume_wrapper">
+            @@include('./layout/header.html')
+            @@include('./layout/breadcrumb3.html',{
+            'home' : "首頁",
+            'nav' : "履歷",
+            'active' : "履歷工作台",
+            'nav_url' : "resume.html",
+            })
 
 
-        <div class="work_space">
+            <div class="work_space">
 
-            <div class="work_space_header">
+                <div class="work_space_header">
 
-                <div class="box_1"><button id="resume_model-btn">模板</button> </div>
-                <div class="box_2"><button id="resume_save">儲存</button> </div>
-                <div class="box_3"><button id="resume_share">分享</button> </div>
-                <div class="box_4"><button id="resume_pdf_dowload"><i class="fa-regular fa-file-pdf"></i></button></div>
-                <div class="box_5"><button id="resume_delect"><i class="fa-regular fa-trash-can"></i></button></div>
-                
+                    <div class="box_1"><button id="resume_model-btn">模板</button> </div>
+                    <div class="box_2"><button id="resume_save">儲存</button> </div>
+                    <div class="box_3"><button id="resume_share">分享</button> </div>
+                    <div class="box_4"><button id="resume_pdf_dowload"><i class="fa-regular fa-file-pdf"></i></button>
+                    </div>
+                    <div class="box_5"><button id="resume_delect"><i class="fa-regular fa-trash-can"></i></button></div>
 
-            </div>
 
-            <div class="work_space_make">
-                <div class="resume_model-border toggler">
-                    <button class="xmark_btn"><i class="fa-solid fa-xmark"></i></button>
-                    <div class="resume_model">
-                       <img src="images/resume/resume_model1.jpg" class="" alt="resume_1">
-                    </div>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model2.jpg" class="" alt="resume_2">
-                    </div>
-                    <div class="resume_model">
-                       <img src="images/resume/resume_model3.jpg" class="" alt="resume_3">
-                    </div>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model4.jpg" class="" alt="resume_4">
-                    </div>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model5.jpg" class="" alt="resume_5">
-                    </div>
-                    <div class="resume_model resume_pay">
-                       <img src="images/resume/resume_model6.jpg" class="" alt="resume_6">
-                       <i class="fa-solid fa-crown"></i>
-                       <div class="resume_model_mask"></div>
-                    </div>
                 </div>
 
-                <div class="resume_make">
-                    <div class="resume_name_div">
-                        <label for="resume_name">檔案名稱: </label><input type="text" id="resume_name" name="resume_name">
+                <div class="work_space_make">
+                    <div class="resume_model-border toggler">
+                        <button class="xmark_btn"><i class="fa-solid fa-xmark"></i></button>
+                        <div class="resume_model">
+                            <img src="images/resume/resume_model1.jpg" class="" alt="resume_1">
+                        </div>
+                        <div class="resume_model">
+                            <img src="images/resume/resume_model2.jpg" class="" alt="resume_2">
+                        </div>
+                        <div class="resume_model">
+                            <img src="images/resume/resume_model3.jpg" class="" alt="resume_3">
+                        </div>
+                        <div class="resume_model">
+                            <img src="images/resume/resume_model4.jpg" class="" alt="resume_4">
+                        </div>
+                        <div class="resume_model">
+                            <img src="images/resume/resume_model5.jpg" class="" alt="resume_5">
+                        </div>
+                        <div class="resume_model resume_pay">
+                            <img src="images/resume/resume_model6.jpg" class="" alt="resume_6">
+                            <i class="fa-solid fa-crown"></i>
+                            <div class="resume_model_mask"></div>
+                        </div>
                     </div>
 
-                    <div class="work_space_a4">
-
-                        <div class="work_space_a4_1">
-                           
-                            <h3 title="姓名">緯小育</h3>
-                            
-                            
-                            <h4 title="職務">商業開發實習生</h4>
-                            <h5>聯絡方式</h5>
-                            <p class="p1">地址：<span class="span1">新北市板橋區</span></p>
-                            <p class="p2">電話：<span class="span2">(886) 1234-5678</span></p>
-                            <p class="p3">信箱：<span class="span3">hello@reallygreatsite.com.tw</span></p>
-                            <p class="p4">作品：<span class="span4">www.reallygreatsite.com.tw</span></p>
+                    <div class="resume_make">
+                        <div class="resume_name_div">
+                            <label for="resume_name">檔案名稱: </label><input type="text" id="resume_name"
+                                name="resume_name">
                         </div>
 
-                        <div title="上傳圖片" class="work_space_a4_2">      
-                            <label for="upload" class="upload">
-                                <input id="upload" type="file" accept="image/*">
-                                <i class="fa-solid fa-file-circle-plus"></i>
-                            </label>
-                            <label for="upload"  class="Avatar"><img src=""></label>
+                        <div class="work_space_a4">
+
+                            <div class="work_space_a4_1">
+
+                                <h3 title="姓名">零零五</h3>
+
+
+                                <h4 title="職務">品牌行銷實習生</h4>
+                                <h5>聯絡方式</h5>
+                                <p class="p1">地址：<span class="span1">台北市萬華區</span></p>
+                                <p class="p2">電話：<span class="span2">0912345678</span></p>
+                                <p class="p3">信箱：<span class="span3">hello@reallygreatsite.com.tw</span></p>
+                                <p class="p4">作品：<span class="span4">www.reallygreatsite.com.tw</span></p>
+                            </div>
+
+                            <div title="上傳圖片" class="work_space_a4_2">
+                                <label for="upload" class="upload">
+                                    <input id="upload" type="file" accept="image/*">
+                                    <i class="fa-solid fa-file-circle-plus"></i>
+                                </label>
+                                <label for="upload" class="Avatar"><img src=""></label>
+                            </div>
+
+                            <div class="work_space_a4_3">
+
+                                <div class="work_space_a4_3_1">
+                                    <h4>學歷</h4>
+                                    <h5>台南應用科技大學</h5>
+                                    <h6>2021/2 ~ </h6>
+                                    <h6>商品設計<span> /</span><span>就讀中</span></h6>
+                                </div>
+
+                                <div class="work_space_a4_3_2">
+                                    <h4>自傳</h4>
+                                    <textarea name="" id="" cols="27" rows="5" maxlength="290">
+我是零零五，21歲，畢業於台南應用科大商品設計系。雖然目前只有打工經驗，但我肯勤奮學習，吩咐的事一定會盡力做到最好。
+                                                                            </textarea>
+                                    <p>
+                                        
+                                    </p>
+                                </div>
+
+                                <div class="work_space_a4_3_3">
+                                    <h4>就學期間</h4>
+                                    <textarea name="" id="" cols="27" rows="7" maxlength="250">
+體驗大學生活之餘，不怠忽課業，學習成績GPA 3.6，並於106學年度第二學期會計學(二)學科成績名列班上第三名。積極參與校內競賽活動，在每一次團隊競賽中，學習團隊合作的組織協調與氣氛和諧。                                                                        
+                                    </textarea>
+                                </div>
+
+                                <div class="work_space_a4_3_4">
+                                    <h4>工作經歷</h4>
+                                    <h5>廣告設計實習生</h5>
+                                    <h6>2016/6 ~ 2018/1</h6>
+                                    <textarea name="" id="" cols="27" rows="5" maxlength="250">
+負責台灣區所有合作夥伴的初步接洽及管理。藉由深入瞭解合作夥伴痛點，並在合作內容協調中達成雙贏，成功媒合了多位長期合作夥伴。
+                                                                            </textarea>
+                                    <p>
+                                        
+                                    </p>
+                                </div>
+
+                                <div class="work_space_a4_3_5">
+                                    <h4>工作技能</h4>
+                                    <p>C#</p>
+                                    <p>活動企劃</p>
+                                    <p>商業開發</p>
+                                    <p>簡報製作</p>
+                                </div>
+
+                                <div class="work_space_a4_3_6">
+                                    <h4>語文能力</h4>
+                                    <p>日文</p>
+                                    <p>法文</p>
+                                </div>
+
+                            </div>
+
                         </div>
-
-                        <div class="work_space_a4_3">
-
-                            <div class="work_space_a4_3_1">
-                                <h4>學歷</h4>
-                                <h5>國立清華大學</h5>
-                                <h6>2021/2 ~ 2023/1</h6>
-                                <h6>企業管理系</h6>
-                                <ul>
-                                    <li>主要研究領域為商業數據分析、社群媒體發展、金融科技</li>
-                                    <li>第5屆國立清華大學企業領航計畫中強光電組學員 (2021/11~2022/6)</li>
-                                    <li>教育部標竿計畫研究助理 (2021/8~)</li>
-                                    <li>擔任IMBA所學會校友關係與職業探索負責人 (2021/1~)</li>
-                                </ul>
-                            </div>
-
-                            <div class="work_space_a4_3_2">
-                                <h4>自傳</h4>
-                                <p>在學時期曾參與校園活動策劃與組織團隊任務，協助完成企劃、活動與團隊溝通、合作；後期加入創新創業跨域學程，整合不同科系及背景的學生團隊，使用設計思考、以人為本為核心思考完成產品設計。
-                                    為了突破自我，願意學習及嘗試不同的挑戰，運用大學課餘時間自學  Adobe illustrator 、C# 、Notion等，並參與不同性質的活動、課程及競賽。
-                                </p>
-                            </div>
-
-                            <div class="work_space_a4_3_3">
-                                <h4>工作技能</h4>
-                                <ul>
-                                    <li>C#</li>
-                                    <li>活動企劃</li>
-                                    <li>商業開發</li>
-                                    <li>簡報製作</li>
-                                </ul>
-                                
-                            </div>
-
-                            <div class="work_space_a4_3_4">
-                                <h4>工作經歷</h4>
-                                <h5>商業開發實習生</h5>
-                                <h6>2016/6 ~ 2018/1</h6>
-                                <p>負責台灣區所有合作夥伴的初步接洽及管理。
-                                    藉由深入瞭解合作夥伴痛點，並在合作內容協調中達成雙贏，成功媒合了多位長期合作夥伴；並從零開始建立完整合作夥伴洽談流程，以利提升後續作業效率。</p>
-                            </div>
-
-                            <!-- <div class="work_space_a4_3_5">
-                                <h4>新店高中</h4>
-                                <p>新店大學平均成績3.2分以優異的成績畢業發表論文《室內設計對門市銷售和運營的影響》2016年獲品牌與產品管理碩士學位</p>
-                            </div> -->
-
-                            <!-- <div class="work_space_a4_3_6">
-                                <h4>專業背景</h4>
-                                <p>每週的庫存管理確保有效管理現金集思廣益、實施策略，將門市成本降到最低，提高利潤工作時間 - 2015-2016年</p>
-                            </div> -->
-
-                        </div>
-                       
                     </div>
+                    <div class="sumEdit">
+                        <div id="summernote1"></div>
+                    </div>
+
                 </div>
-                <div class="sumEdit">
-                    <div id="summernote1"></div>
-                </div>
-                
             </div>
         </div>
-    </div>
-    @@include('./layout/footer.html')
+        @@include('./layout/footer.html')
 
-    <script>
+        <script>
 
         // new Vue({
         //     el: '#app',
@@ -158,7 +161,7 @@
 
         //     }
         // })
-    </script>
+        </script>
 
 </body>
 
