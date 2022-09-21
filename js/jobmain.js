@@ -104,14 +104,7 @@ Vue.component('my-list2',{
 Vue.component('my-list3',{
     data() {
         return {
-            // companyImg : './images/findJob/comLogo.jpg',
-            // companyJob : '醫療客服專案實習師',
             companyName : 'Dr. Right 精準關懷',
-            // jobMain : '化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。',
-            // vacancies : 6,
-            // placeDist : '台北',
-            // salary : 200,
-            // viewCount : 20
             numberOfCompant:'50',
             jobTitle:'醫療客服專案管理師',
             companyImg : './images/findJob/comLogo.jpg',
@@ -126,7 +119,8 @@ Vue.component('my-list3',{
             我們希望透過這個服務，讓整個社會產生更多的好醫師與好病患。醫病關係能不再緊張，民眾也能夠接受到更好的醫療品質照護 !`
         }
     },
-    template:`
+    template:
+    `
     <div class="jobMainWrapperCom">
         <div class="jobMainWrapperComTitle">
             <div><a><img :src="companyImg" alt="" class="moveToCom"></a></div>
@@ -147,7 +141,7 @@ Vue.component('my-list3',{
             <p>{{companyAbout}}</p>
         </div>
     </div>
-            `,
+    `,
     
 })
 Vue.component('my-list4',{
@@ -225,10 +219,8 @@ Vue.component('my-list4',{
             location = './jobMain.html';
         }
     },
-        
-       
-    
 })
+
 new Vue({
     el: '#jobMainApp',
     data:{
@@ -236,7 +228,12 @@ new Vue({
         isShowSave:false,
         isShow:false,
         isShowR: false,
-
+        resumeBrow:[
+            {   
+                resumeName:'履歷一',
+                resumeImg:'./images/resume/resume_1.jpg'
+            }
+        ]
     },
     methods: {
         open(){

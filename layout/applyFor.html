@@ -20,62 +20,9 @@
             </div>
             <div class="resumeChoose">
                 <h2>選擇履歷 :</h2>
-                <div>
-                    <input type="radio" name="resume" value="resume1" id="resume1"><label for="resume1">履歷一</label>
+                <div v-for="(item, index) in resumeBrow" :key="index">
+                    <input type="radio" name="resume" value="resume1" id="resume1"><label for="resume1">{{item.resumeName}}</label>
                     <a class="resume_zoom_browser_btn" @click="isShowResOpen">瀏覽
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" class="bi bi-box-arrow-up-right"
-                        viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                        <path fill-rule="evenodd"
-                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                        </svg>
-                    </a>
-                </div>
-                <div>
-                    <input type="radio" name="resume" value="resume2" id="resume2"><label for="resume2">履歷二</label>
-                    <a class="resume_zoom_browser_btn">瀏覽
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" class="bi bi-box-arrow-up-right"
-                        viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                        <path fill-rule="evenodd"
-                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                        </svg>
-                    </a>
-                </div>
-                <div>
-                    <input type="radio" name="resume" value="resume3" id="resume3"><label for="resume3">履歷三</label>
-                    <a class="resume_zoom_browser_btn">瀏覽
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" class="bi bi-box-arrow-up-right"
-                        viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                        <path fill-rule="evenodd"
-                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                        </svg>
-                    </a>
-                </div>
-                <div>
-                    <input type="radio" name="resume" value="resume4" id="resume4"><label for="resume4">履歷四</label>
-                    <a class="resume_zoom_browser_btn">瀏覽
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                        fill="currentColor" class="bi bi-box-arrow-up-right"
-                        viewBox="0 0 16 16">
-                        <path fill-rule="evenodd"
-                            d="M8.636 3.5a.5.5 0 0 0-.5-.5H1.5A1.5 1.5 0 0 0 0 4.5v10A1.5 1.5 0 0 0 1.5 16h10a1.5 1.5 0 0 0 1.5-1.5V7.864a.5.5 0 0 0-1 0V14.5a.5.5 0 0 1-.5.5h-10a.5.5 0 0 1-.5-.5v-10a.5.5 0 0 1 .5-.5h6.636a.5.5 0 0 0 .5-.5z" />
-                        <path fill-rule="evenodd"
-                            d="M16 .5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h3.793L6.146 9.146a.5.5 0 1 0 .708.708L15 1.707V5.5a.5.5 0 0 0 1 0v-5z" />
-                        </svg>
-                    </a>
-                    
-                </div>
-                <div>
-                    <input type="radio" name="resume" value="resume5" id="resume5"><label for="resume5">履歷五</label>
-                    <a class="resume_zoom_browser_btn">瀏覽
                         <svg xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" class="bi bi-box-arrow-up-right"
                         viewBox="0 0 16 16">
@@ -100,8 +47,8 @@
     </div>
 </div>
 <div class="m-a-s-k_applyFor" id="m-a-s-k_applyFor" v-if="isShowR" @click="isShowResClose"></div>
-    <div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn" v-if="isShowR">
-    <img src="./images/resume/resume_1.jpg" class='resume_zoom_imggg'>
+    <div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn" v-if="isShowR" v-for="(item, index) in resumeBrow" :key="index">
+    <img :src="item.resumeImg" class='resume_zoom_imggg'>
 </div>
 
 
