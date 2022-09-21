@@ -55,6 +55,11 @@ Vue.component('company-data',{
             companyData: [],
         }       
     },
+    methods:{
+        banOpen(){
+            // console.log()
+        }
+    },
     mounted() {
         fetch("./php/searchcompany.php") //從後端JS拿到資料
         .then(rsp => rsp.json())
@@ -63,23 +68,25 @@ Vue.component('company-data',{
             // console.log(userArr);    
             this.companyData = userArr
             console.log(this.companyData) //確認過有抓到資料
-            // let creDate = companyData.create_date.substr(0,10).split('-').join('/')
+            // let creDate = userArr[0].create_date.substr(0,10).split('-').join('/')
+            // console.log(creDate) //成功只顯示年月日
+            //companys.create_date.substr(0,10).split('-').join('/') 備份
         })
     },
     template: `
     <tbody>
         <tr class="item" v-for="companys in companyData">
-            <td class="id"><h3>C1110{{companys.id}}</h3></td>
-            <td class="name"><h3 >{{companys.name}}</h3></td>
-            <td class="property"><h3>{{companys.property}}</h3></td>
-            <td class="principle"><h3>{{companys.principle}}</h3></td>
-            <td class="fee"><h3>{{companys.fee_id}}</h3></td>
-            <td class="city"><h3>{{companys.city}}</h3></td>
-            <td class="district"><h3>{{companys.distirct}}</h3></td>
-            <td class="address"><h3>{{companys.address}}</h3></td>
+            <td class="id"><h3>C1110{{companys.ID}}</h3></td>
+            <td class="name"><h3 >{{companys.NAME}}</h3></td>
+            <td class="property"><h3>{{companys.PROPERTY}}</h3></td>
+            <td class="principle"><h3>{{companys.PRINCIPLE}}</h3></td>
+            <td class="fee"><h3>NT:{{companys.PRICE}}</h3></td>
+            <td class="city"><h3>{{companys.CITY}}</h3></td>
+            <td class="district"><h3>{{companys.DISTRICT}}</h3></td>
+            <td class="address"><h3>{{companys.ADDRESS}}</h3></td>
             <td class="detail"><h3><button class="btna3"><h4><a href="./backstage_com_job.html">詳細資料</a></h4></button></h3></td>
-            <td class="create-date"><h3></h3></td>
-            <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
+            <td class="create-date"><h3>{{companys.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
+            <td class="ban"><h3><i class="fa-solid fa-ban" @click="banOpen"></i></h3></td>
         </tr>
     </tbody>
     `,

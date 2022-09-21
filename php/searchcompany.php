@@ -5,13 +5,13 @@
 
     //建立SQL語法
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-    $sql = "select 
-                c.id, c.name, c.address, c.property, c.principle, c.city, c.district,
-                c.address, c.create_date, d.fee_id 
-            from company c
-                join COMPANY_COIN_DETAILS d
-                on c.id = d.company_id
-            limit
+    $sql = "SELECT
+                c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
+                c.ADDRESS, c.CREATE_DATE, d.PRICE 
+            FROM company c
+                JOIN COMPANY_COIN_DETAILS d
+                ON c.ID = d.COMPANY_ID
+            LIMIT
                 0, 10;
             "
             ;    
@@ -33,6 +33,6 @@
         $member["successful"] = false;
     }
     
-    echo "測試有跑到這裡";
+    
     echo  json_encode($members);
 ?>
