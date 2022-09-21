@@ -1,5 +1,5 @@
 Vue.component('my-list',{
-    props:['job-sort'],
+    // props:['isShowSave'],
     data() {
         return {
             companyImg : './images/findJob/comLogo.jpg',
@@ -40,23 +40,27 @@ Vue.component('my-list',{
                 </div>
                 
                 <div class="findJobVacanciesBtn">
-                    <div class="btna5 saveApplyOpen">儲存職缺</div>
-                    <div class="btna6" @click='jobMain'>立即應徵</div>
+                    <div class="btna5 saveApplyOpen" @click='openSave'>儲存職缺</div>
+                    <div class="btna6" @click='jobMainGo'>立即應徵</div>
                 </div>
             </div>
         </div>
     </div>
             `,
     methods: {
-        // jobMain(){
-        //     console.log('123');
-        // }
+        jobMainGo(){
+            this.$emit('my-click')
+        },
+        openSave(){
+            this.$emit('save-click')
+        }
     },
 })
 
 new Vue({
-    el: '#app',
+    el: '#findJobApp',
     data:{
+        isShowSave:false,
         tab_1: false,
         tab_2: false,
         tab_3: false,
@@ -192,8 +196,14 @@ new Vue({
         checkedSort: [],
     },
     methods: {
-        jobMain(){
-            console.log('123');
+        sortGo(){
+            location = './jobMain.html';
+        },
+        saveGo(){
+            this.isShowSave =!this.isShowSave
+        },
+        saveClose(){
+            this.isShowSave =!this.isShowSave
         },
         open(){
             this.isShow =!this.isShow
@@ -252,7 +262,7 @@ new Vue({
                     this.checkedSort.splice(index, 1);
                 }
             });
-        }
+        },
     },
 })
 

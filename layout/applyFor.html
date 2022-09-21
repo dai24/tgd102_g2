@@ -1,11 +1,11 @@
-<div class="contactUSInner" id="applyForInner"></div>
-    <div class="card contactUSInnerCard" id="applyForCard">
+<div class="contactUSInner" v-if="isShow" @click="close"></div>
+    <div class="card contactUSInnerCard" v-if="isShow">
         <ul class="cardUl">
             <li>
                 <h1 class="cardH1">立即應徵</h1>
             </li>
             <li>
-                <i class="fa-solid fa-xmark cardXmark" id="applyForClose"></i>
+                <i class="fa-solid fa-xmark cardXmark" @click="close"></i>
             </li>
         </ul>
         <div class="cardInner applyfor">
@@ -22,7 +22,7 @@
                 <h2>選擇履歷 :</h2>
                 <div>
                     <input type="radio" name="resume" value="resume1" id="resume1"><label for="resume1">履歷一</label>
-                    <a class="resume_zoom_browser_btn">瀏覽
+                    <a class="resume_zoom_browser_btn" @click="isShowResOpen">瀏覽
                         <svg xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" class="bi bi-box-arrow-up-right"
                         viewBox="0 0 16 16">
@@ -96,8 +96,12 @@
             <h2 class="question">回覆信箱</h2>
             <input class="mail" type="input" name="" id="" placeholder="請輸入信箱">
             
-            <div class="btna3" id="applyForSubmit">送出</div>
+            <div class="btna3" id="applyForSubmit"  @click="close">送出</div>
     </div>
+</div>
+<div class="m-a-s-k_applyFor" id="m-a-s-k_applyFor" v-if="isShowR" @click="isShowResClose"></div>
+    <div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn" v-if="isShowR">
+    <img src="./images/resume/resume_1.jpg" class='resume_zoom_imggg'>
 </div>
 
 
