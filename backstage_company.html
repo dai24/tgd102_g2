@@ -42,17 +42,42 @@
                 </tbody> -->
             </div>
         </div>      
-        @@include('./layout/pagination.html')
+        
+        <div class="pagination-div">
+            <ul class="pagination-ul">
+              <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+              <li><a href="#" class="pageContent">1</a></li>
+              <li><a href="#" class="pageContent">2</a></li>
+              <li><a href="#" class="pageContent">3</a></li>
+              <li><a href="#" class="pageContent">4</a></li>
+              <li><a href="#" class="pageContent">5</a></li>
+              <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
     </div>   
        
 </main> 
 
 <script>
+// let urlParams = new URLSearchParams(window.location.search); //去找現在網站的querystring
+// fetch(`./php/searchcompany.php?pagekg=${urlParams.get('pagekg')}`)
+// console.log(urlParams.has('pagekg')); // true。是否有pagekg
+// console.log(urlParams.get('pagekg')); // "abc"。抓pagekg=右邊的數值
+
+// let pageContent = document.querySelectorAll(".pageContent");
+//   // console.log(pageContent);
+//   for(let i = 0; i < pageContent.length; i++ ){
+//     pageContent[i].addEventListener("click", e => {
+//     // alert(e.target.innerText)
+//     fetch(`./php/searchcompany.php?pagekg=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+//     })
+//   }  
 
 Vue.component('company-data',{ 
     data(){
         return{
             companyData: [],
+            // pageNow:1,
         }       
     },
     methods:{
@@ -60,18 +85,22 @@ Vue.component('company-data',{
             // console.log()
         }
     },
-    mounted() {
-        fetch("./php/searchcompany.php") //從後端JS拿到資料
-        .then(rsp => rsp.json())
-        .then(userArr => {            
-            // console.log("123") //確認有跑到這裡
-            // console.log(userArr);    
-            this.companyData = userArr
-            console.log(this.companyData) //確認過有抓到資料
-            // let creDate = userArr[0].create_date.substr(0,10).split('-').join('/')
-            // console.log(creDate) //成功只顯示年月日
-            //companys.create_date.substr(0,10).split('-').join('/') 備份
-        })
+    mounted() {       
+        let pageContent = document.querySelectorAll(".pageContent");
+        for(let i = 0; i < pageContent.length; i++ ){
+            pageContent[i].addEventListener("click", e => {
+                // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
+                fetch(`php/searchcompany.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+                //${e.target.innerText}
+                .then(rsp => rsp.json())
+                .then(userArr => {            
+                    // console.log("123") //確認有跑到這裡
+                    // console.log(userArr);    
+                    this.companyData = userArr
+                    // console.log(this.companyData) //確認過有抓到資料
+                })
+            })
+        }
     },
     template: `
     <tbody>
