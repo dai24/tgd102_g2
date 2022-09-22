@@ -29,7 +29,7 @@
     
     $stmt = $pdo->prepare($sql);
     
-    echo $dataTotal
+    echo $dataTotal;
     
     //---------------------------------------------------
     
