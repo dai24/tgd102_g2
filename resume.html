@@ -8,55 +8,51 @@
 </head>
 
 <body>
-    <div id="resume">
+    
         <div class="resume_wrapper">
             @@include('./layout/header.html')
             @@include('./layout/breadcrumb2.html',{
             'home' : "首頁",
             'nav' : "履歷",
             })
-
-            <div class="row resume_banner1">
-                <div class="col-8 align-self-center">
-                    <h1 class="h1-1">線上製作一份能幫你獲得面試機會的履歷</h1>
+            <div id="resume">
+                <div class="row resume_banner1">
+                    <div class="col-8 align-self-center">
+                        <h1 class="h1-1">線上製作一份能幫你獲得面試機會的履歷</h1>
+                    </div>
+                    <div class="col align-self-center">
+                        <a href="resume_work_space.html" class="btna11">製作履歷</a>
+                    </div>
                 </div>
-                <div class="col align-self-center">
-                    <!-- <button type="button" class="btna11" id="resume_btn">製作履歷</button> -->
-                    <a href="resume_work_space.html" class="btna11">製作履歷</a>
+                <div class="row resume_banner2">
+                    <div class="col-8 align-self-center">
+                        <h1 class="h1-2">履歷範本</h1>
+                        <h4 class="h4-1">瀏覽可用於往後設計中的履歷範本</h4>
+                    </div>
+                    <div class="col align-self-center">
+                        <img src="images/resume/resume_banner1.png" alt="">
+                    </div>
                 </div>
-            </div>
-            <div class="row resume_banner2">
-                <div class="col-8 align-self-center">
-                    <h1 class="h1-2">履歷範本</h1>
-                    <h4 class="h4-1">瀏覽可用於往後設計中的履歷範本</h4>
-                </div>
-                <div class="col align-self-center">
-                    <img src="images/resume/resume_banner1.png" alt="">
-                </div>
-            </div>
 
-            <main class="resume">
-                <!-- 履歷範本分類 -->
-                <my-category></my-category>
+                <main class="resume">
+                    <!-- 履歷範本分類 -->
+                    <my-category></my-category>
 
-                <!-- 履歷範本 -->
-                <my-resume_sample></my-resume_sample>                    
+                    <!-- 履歷範本 -->
+                    <my-resume_sample></my-resume_sample>                    
 
-                @@include('./layout/pagination.html')
-                <!-- <resume-zoome_window :the-imgurl="imgURL"  ></resume-zoome_window> -->
-            </main>
+                    @@include('./layout/pagination.html')
+                </main>
             
-        </div>
+            </div>
     </div>
     @@include('./layout/footer.html')
-
 
     <script>
         Vue.component('my-category', {
             data() {
                 return {
                     categorys: ['全部', '設計', '工程', '管理', '媒體', '銷售', '金融', '行政', '科技', '服務'],
-                    // categoryBtn1:'categoryBtn',
                     current:'全部',
                 }
             },
@@ -75,7 +71,8 @@
                     resume_sample: [],
                     imgURL:'',
                     isPopup: false,
-                   
+                    like_count:0,
+                    Student_id:0,
                 }
             },
             methods: {
@@ -87,15 +84,25 @@
                 close() {
                     this.isPopup = false
                 },
+                clickLike(likeCount,sId){
+                    fetch(`./php/updateResume.php?Student_id=${sId}&like_count=${likeCount}`)
+                    .then(rsp => rsp.json())
+                    .then(resume_sample => {
+                        this.resume_sample = resume_sample;
+                    })
+                }
             },
             mounted() {
-
+                
                 fetch('./php/getResume_sample_All.php')
                     .then(rsp => rsp.json())
                     .then(resume_sample => {
                         this.resume_sample = resume_sample;
                     })
 
+            },
+            updated() {
+                
             },
             template:
                 `   <div class="row resume_sample_row">         
@@ -104,7 +111,7 @@
                             <img :src='resume.IMG_PATH' class="" alt="resume_1">
                             <div class="card_body">
                                 <div class="row">
-                                    <div class="col-2"><button @click="resume.LIKE_COUNT+=1" class="fa-solid fa-heart"></button></div>
+                                    <div class="col-2"><button @click="clickLike(resume.LIKE_COUNT+=1,resume.STUDENT_ID)" class="fa-solid fa-heart"></button></div>
                                     <div class="col-1 align-self-center"><span>{{resume.LIKE_COUNT}}</span></div>
                                     <div class="offset-7 col-1">
                                         <button class="resume_zoom_btn" @click="open(resume.IMG_PATH)" >
@@ -147,7 +154,7 @@
 
         })
     </script>
-    <script src="https://unpkg.com/vuex@3"></script>
+    
 </body>
 
 </html>
