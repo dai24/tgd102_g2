@@ -137,8 +137,10 @@
                 }
                 img{
                     width: 175px;
+                    margin-right: 10px;
                     @include m(){
                         margin-bottom: 16px;
+                        margin-right: 6px;
                     }
                 }
             }

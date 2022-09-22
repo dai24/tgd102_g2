@@ -1,5 +1,4 @@
 Vue.component('my-list',{
-    // props:['isShowSave'],
     data() {
         return {
             // com:[
@@ -16,11 +15,16 @@ Vue.component('my-list',{
             // }
 
             // ]
-            com:[]
+            com:[],
+            jobID:[],
         }
     },
     mounted() {
-        fetch("../php/findJob.php") //從後端JS拿到資料
+        fetch("../php/findJob.php",{
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+        })
+         //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.com = userArr
@@ -56,15 +60,39 @@ Vue.component('my-list',{
                 
                 <div class="findJobVacanciesBtn">
                     <div class="btna5 saveApplyOpen" @click='openSave'>儲存職缺</div>
-                    <div class="btna6" @click='jobMainGo'>立即應徵</div>
+                    <div class="btna6" @click='jobMainGo(find.ID)'>立即應徵</div>
                 </div>
             </div>
         </div>
     </div>
             `,
     methods: {
-        jobMainGo(){
-            this.$emit('my-click')
+        jobMainGo(asd){
+            // console.log(this.asd);
+            // this.$emit('my-click')
+            // fetch(`../php/jobmain.php`, {
+            //     method: 'POST',
+            //     headers: {'Content-Type' : 'application/json'},
+            //     body: JSON.stringify({
+            //         JOBID:0,
+            //     })
+            // })
+            // .then (res => res.json())
+            // .then (body => {
+            //     if(body.successful){
+            //         location = 'http://localhost/tdg102_g2/dist/jobMain.html';
+            //     }else{
+            //         alert(body.message)
+            //     }
+                
+            // })
+            const idNum = asd
+            console.log(idNum);
+            this.jobID.map(function(item){
+                console.log(this.jobID);
+                this.jobID.push(idNum)
+            })
+            // alert(asd);
         },
         openSave(){
             this.$emit('save-click')
@@ -213,7 +241,7 @@ new Vue({
     },
     methods: {
         sortGo(){
-            location = './jobMain.html';
+            
         },
         saveGo(){
             this.isShowSave =!this.isShowSave

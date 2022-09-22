@@ -35,5 +35,8 @@
     "gulp-uglify": "^3.0.2",
     "sass": "^1.54.8"
   },
-  "dependencies": {}
+  "dependencies": {
+    "twzipcode-vue": "^2.2.2",
+    "vue-fullpage.js": "^0.2.7"
+  }
 }

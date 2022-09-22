@@ -1,26 +1,28 @@
 Vue.component('my-list1',{
     data() {
         return {
+            jobTitle:[]
+            // jobTitle:'醫療客服專案管理師',
             // companyImg : './images/findJob/comLogo.jpg',
-            // companyJob : '醫療客服專案實習師',
-            // companyName : 'Dr. Right 精準關懷',
-            // jobMain : '化身為醫療院所業主的客服顧問，協助做好醫病關係維繫。不同於一般的傳統客服，Dr.Right 走的是高端醫療客服公關，做為院長與患者間的溝通橋樑。醫療客訴案件處理與追蹤 定期與業主檢討醫療品質問題，協助導入建。',
-            // vacancies : 6,
-            // placeDist : '台北',
-            // salary : 200,
-            // viewCount : 20
-            jobTitle:'醫療客服專案管理師',
-            companyImg : './images/findJob/comLogo.jpg',
         }
     },
     template:`
     <div class="jobMainWrapperTitle">
-        <h2>{{jobTitle}}</h2>
+        <h2>{{jobTitle[0].JOB_NAME}}</h2>
         <div class="moveToCom">
-            <img :src="companyImg" alt=""><p>Dr. Right 精準關懷</p>
+            <img :src="jobTitle[0].LOGO + '.jpg'" alt=""><p>{{jobTitle[0].COM_NAME}}</p>
         </div>
     </div>
             `,
+    mounted() {
+        fetch("../php/jobmain.php") //從後端JS拿到資料
+        .then(rsp => rsp.json())
+        .then(userArr => {            
+            this.jobTitle = userArr
+            console.log(userArr);
+            console.log(this.jobTitle);
+        })
+    },
     
 })
 Vue.component('my-list2',{
@@ -123,7 +125,7 @@ Vue.component('my-list3',{
     `
     <div class="jobMainWrapperCom">
         <div class="jobMainWrapperComTitle">
-            <div><a><img :src="companyImg" alt="" class="moveToCom"></a></div>
+            <div><a @click='moveCom' ><img :src="companyImg" alt="" class="moveToCom"></a></div>
             <div class="jobMainWrapperComIconT">
                     <a><h2 class="moveToCom">{{companyName}}</h2></a>
                 <div class="jobMainWrapperComIconTM">
@@ -142,6 +144,12 @@ Vue.component('my-list3',{
         </div>
     </div>
     `,
+    methods: {
+        moveCom(){
+            console.log('123')
+            location='./company.html'
+        }
+    },
     
 })
 Vue.component('my-list4',{
