@@ -17,8 +17,6 @@ values(?,?,?,?,?)";
  if($statement->rowCount() == 1){
      $member['successful'] = true;
      $member['message'] = "註冊成功";
-     header("Location: ../index.html");
-    //  window.location: "../index.html"
  }else{
      $member['successful'] = false;
      $member['message'] = "註冊失敗";
