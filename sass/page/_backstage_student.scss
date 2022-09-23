@@ -58,6 +58,13 @@
                 width: 100%;
                 .thead{
                     border: solid $primary02;
+                    .theadtr{
+                        display: flex;
+                        // justify-content:space-between;
+                        th{
+                            flex-grow: 1;
+                        }
+                    }
                 }
                 th{ //表單各種欄位名稱
                     background-color:$primary02;
@@ -111,21 +118,74 @@
                 }
                 //每筆資料
                 .item{
+                    display: flex;
+                    flex-direction:column;
                     border: solid $primary02;
                     border-top: 0;
-                    .itemBasic{
+                    .itemBasic{ //會員基本資料
+                        // display: flex;
+                        justify-content: space-between;
                         &:hover{ 
                             background-color:$primary03;                    
+                        }
+                        >td{
+                            flex-grow: 1;
                         }
                     }
-                    .itemDetailTile{
-                        &:hover{ 
-                            background-color:$primary03;                    
+                    .itemDetailTile{ //詳細資料欄位
+                        display: none;
+                        // background-color:$primary03;
+                        border-top: 1px solid $primary02;
+                        h3{
+                            font-weight: bold;
+                            color: $secondary01;
+                            text-align: left;
+                        }
+                        //欄位：email
+                        .email{
+                            // max-width: 160px;
+                            flex-grow: 1;
+                            h3{
+                                padding-left: 16px;
+                            }                            
+                        }
+                        //欄位：電話
+                        .phone{
+                            // min-width: 160px;
+                            flex-grow: 1;
+                        }
+                        //欄位：地址
+                        .address{
+                            // min-width: 240px;
+                            flex-grow: 6;
                         }
                     }   
-                    .itemDetail{
-                        &:hover{ 
-                            background-color:$primary03;                    
+                    .itemDetail{ //會員詳細資料
+                        display: none;
+                        border-top: 1px solid $primary02;
+                        // background-color:$primary03;
+                        // &:hover{ 
+                        //     background-color:$primary03;                    
+                        // }
+                        h3{
+                            text-align: left;
+                        }
+                        //欄位：email
+                        .email{
+                            // max-width: 160px;
+                            flex-grow: 1;
+                            padding-left: 16px;
+                        }
+                        //欄位：電話
+                        .phone{
+                            // min-width: 160px;
+                            flex-grow: 1;
+                        }
+                        //欄位：地址
+                        .address{
+                            // min-width: 240px;
+                            flex-grow: 6;
+                            text-align: left;
                         }
                     }
                     h3{
