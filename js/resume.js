@@ -8,29 +8,29 @@
 // `
 
 // 儲存視窗
-let resume_save_window = `
-<div class="m-a-s-k"></div>
-<div class="card_resume resume_window">
-   <ul class="cardUl">
-      <li>
-         <h1 class="cardH1">儲存</h1>
-      </li>
-      <li>
-         <i class="fa-solid fa-xmark cardXmark"></i>
-      </li>
-   </ul>
-   <div class="cardInner applyfor">
-      <div class="applyTitle">
-         <div class="messageTitleMain">
-            <h3>儲存成功</h3>
-            <h3>要到會員的我的履歷檢視嗎？</h3>
-         </div>
-      </div>
-      <div class="btna3 check_btn">確定</div>
-   </div> 
+// let resume_save_window = `
+// <div class="m-a-s-k"></div>
+// <div class="card_resume resume_window">
+//    <ul class="cardUl">
+//       <li>
+//          <h1 class="cardH1">儲存</h1>
+//       </li>
+//       <li>
+//          <i class="fa-solid fa-xmark cardXmark"></i>
+//       </li>
+//    </ul>
+//    <div class="cardInner applyfor">
+//       <div class="applyTitle">
+//          <div class="messageTitleMain">
+//             <h3>儲存成功</h3>
+//             <h3>要到會員的我的履歷檢視嗎？</h3>
+//          </div>
+//       </div>
+//       <div class="btna3 check_btn">確定</div>
+//    </div> 
       
-   </div>
-`
+//    </div>
+// `
 // 模板付費視窗
 let resume_pay_window = `
 <div class="m-a-s-k"></div>
@@ -247,14 +247,14 @@ $(function () {
 
 
    // 儲存履歷視窗
-   $('#resume_save').on('click', function () {
-      $('.resume_wrapper').append(resume_save_window)
-      $('.m-a-s-k').show()
-      $('.fa-xmark').on('click', function () {
-         closeItem()
-      })
-      closeWindows()
-   })
+   // $('#resume_save').on('click', function () {
+   //    $('.resume_wrapper').append(resume_save_window)
+   //    $('.m-a-s-k').show()
+   //    $('.fa-xmark').on('click', function () {
+   //       closeItem()
+   //    })
+   //    closeWindows()
+   // })
 
    // 分享履歷視窗
    $('#resume_share').on('click', function () {
