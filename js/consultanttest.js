@@ -12,10 +12,20 @@ new Vue({
             jobclasstype:["管理幕僚","人資","金融","財會"],
             description:"只要透過深入訪談，就可以重新優化安排履歷自傳的組成元素，突顯最相關、最有價值的部份，讓對方快速看見你的價值。透過履歷證明你的專業實力和經驗，並透過自傳展現軟實力和個人特質，兩相合一就能最大幅度地提高邀約面試的機會！",
 
-        }
+        },
+
+        resumecardshow:false,  // 履歷診療彈窗是否顯示
     },
 
     methods: {
+
+        openreviewcard(){
+            this.resumecardshow =!this.resumecardshow 
+        },
+
+        closereviewcard(){
+            this.resumecardshow =!this.resumecardshow
+        },
         
     },
     mounted() {

@@ -72,13 +72,13 @@
                         <h4>{{ teacher.tjobtitle }}</h4>
                         <h4>已經健診{{ teacher.ttimes }}人</h4>
                     </div>
-                    <button class="btna9">我要健診</button>
+                    <button class="btna9" @click="openreviewcard">我要健診</button>
                     
                 </div>
             </div>
 
+            @@include('./layout/resumeReviewcard.html') 
 
-                
             @@include('./layout/pagination.html')
             
 
