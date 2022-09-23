@@ -74,7 +74,7 @@
                         <h4>人資經理</h4>
                         <h4>已健診 5 人</h4>
                     </div>
-                    <button class="btna9">我要健診</button>
+                    <button class="btna9" @click="openreviewcard">我要健診</button>
                 </div>
 
                 <div class="consultant">
@@ -151,8 +151,12 @@
             @@include('./layout/pagination.html')
 
         </div>
+
+        @@include('./layout/resumeReviewcard.html') 
         
     </div>
+
+    
     
     @@include('./layout/footer.html')
 
@@ -164,6 +168,9 @@
             data: {     
                 isshow1:false,
                 isshow2:false,
+                resumecardshow:false,  // 履歷診療彈窗是否顯示
+
+                
         
             },
             methods: {
@@ -172,6 +179,16 @@
                 },
                 open2(){
                     this.isshow2 = !this.isshow2
+                },
+
+                // 打開履歷健診彈窗
+                openreviewcard(){
+                    this.resumecardshow =!this.resumecardshow 
+                },
+
+                // 關閉履歷健診彈窗
+                closereviewcard(){
+                    this.resumecardshow =!this.resumecardshow
                 },
                 
             },

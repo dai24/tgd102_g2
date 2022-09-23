@@ -31,7 +31,7 @@
                     <h2>{{ teacherinfo.school }}</h2> 
                     <h2>{{ teacherinfo.jobtitle }}</h2>
                     <h2>已健診{{ teacherinfo.times }}人</h2>
-                    <button class="btna10">我要健診</button>
+                    <button class="btna10" @click="openreviewcard">我要健診</button>
                 </div>
 
                 <div class="consultant_right">
@@ -69,9 +69,11 @@
 
         </div>
 
-        @@include('./layout/footer.html')
+        @@include('./layout/resumeReviewcard.html')
 
     </div>
+
+    @@include('./layout/footer.html')
 
     
 

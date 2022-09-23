@@ -4,6 +4,7 @@ new Vue({
     data: {     
         isshow1:false,
         isshow2:false,
+        resumecardshow:false,  // 履歷診療彈窗是否顯示
 
         industrytype:"擅長產業",
         jobclasstype:"擅長職務",
@@ -16,18 +17,6 @@ new Vue({
             
         ],
 
-        industrybutton:{
-            type:"全部",
-            industrytype:""
-        },
-
-        jobbutton:{
-            type:"全部",
-            jobclasstype:""
-        },
-
-        
-
     },
     methods: {
         open1(){
@@ -35,6 +24,14 @@ new Vue({
         },
         open2(){
             this.isshow2 = !this.isshow2
+        },
+
+        openreviewcard(){
+            this.resumecardshow =!this.resumecardshow 
+        },
+
+        closereviewcard(){
+            this.resumecardshow =!this.resumecardshow
         },
         
         industrytypeis(industrytypechoose){

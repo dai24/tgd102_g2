@@ -1,12 +1,10 @@
 <!-- 我要健診 橘色彈窗 -->
-
-<div id="app2">
-            
-    <div class="resumeReviewCard" v-if="isShow" @click="close"></div> 
-    <div class="card2" v-if="isShow">
+          
+    <div class="resumeReviewCard" v-if="resumecardshow" @click="closereviewcard" ></div> 
+    <div class="card2" v-if="resumecardshow" >
         <ul class="card2Ul">
             <li><h1 class="card2H1">履歷健診</h1></li>
-            <li><i class="fa-solid fa-xmark card2Xmark"></i></li>
+            <li><i class="fa-solid fa-xmark card2Xmark" @click="closereviewcard"></i></li>
         </ul>
 
         <div class="card2Inner">
@@ -34,29 +32,30 @@
             <input class="mail" type="input" name="" id="" placeholder="請輸入信箱">
 
 
-            <h1 class="btna3" @click="close">送出</h2>
+            <h1 class="btna3" @click="closereviewcard">送出</h2>
         </div>
 
     </div>
 
-</div>
 
 
-<script src="https://unpkg.com/vue@2"></script>
-<script>
+
+<!-- <script src="https://unpkg.com/vue@2"></script> -->
+<!-- <script>
     new Vue({
-        el:'#app2',
+        // el:'#resumeReviewtest',
         data:{
-            isShow:true,
+            resumecardshow:false,  // 履歷診療彈窗是否顯示
         },
         methods: {
-            open(){
-                this.isShow =!this.isShow
+           openreviewcard(){
+                this.resumecardshow =!this.resumecardshow 
             },
-            close(){
-                this.isShow =!this.isShow
+
+            closereviewcard(){
+                this.resumecardshow =!this.resumecardshow
             },
         },
     })
 
-</script>
+</script> -->

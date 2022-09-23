@@ -12,7 +12,6 @@
     //         LEFT JOIN TEACHER_INDUSTRYCLASS AS TIC ON T.ID = TIC.TEACHERID
     //         LEFT JOIN TEACHER_JOBCLASS AS TJC ON T.ID = TJC.TEACHERID;
     //         ";    
-
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     
     $stmt = $pdo->prepare($sql);
@@ -23,15 +22,15 @@
     //---------------------------------------------------
     
     $teacherList = $stmt->fetchAll(); //撈到資料
-    for ($i = 0; $i < count($teacherList); $i++) {
-        $teacher = $teacherList[$i];
-        $sql = "select INDUSTRYCLASSNAME as icn from TEACHER_INDUSTRYCLASS where TEACHERID = :teacherId";
-        $stmt = $pdo->prepare($sql);
-        $stmt->bindValue(":teacherId", $teacher["id"]);
-        $stmt->execute();
-        $industryClassList = $stmt->fetchAll();
-        $teacherList[$i]["industryClassList"] = $industryClassList;
-    }
+    // for ($i = 0; $i < count($teacherList); $i++) {
+    //     $teacher = $teacherList[$i];
+    //     $sql = "select INDUSTRYCLASSNAME as icn from TEACHER_INDUSTRYCLASS where TEACHERID = :teacherId";
+    //     $stmt = $pdo->prepare($sql);
+    //     $stmt->bindValue(":teacherId", $teacher["id"]);
+    //     $stmt->execute();
+    //     $industryClassList = $stmt->fetchAll();
+    //     $teacherList[$i]["industryClassList"] = $industryClassList;
+    // }
 
 
     
