@@ -12,8 +12,8 @@ $(function () {
         //     return false;
         // }
 
-        if(account==""|| password==""){//判斷兩個均不為空（其他判斷規則在其輸入時已經判斷） 
-            alert("手機號密碼均不能為空！") 
+        if(account.value==""|| password.value==""){//判斷兩個均不為空（其他判斷規則在其輸入時已經判斷） 
+            alert("信箱密碼均不能為空！") 
         return false
         }
     
@@ -33,9 +33,15 @@ $(function () {
                 password:password.value,
             })
         })
-        .then(resp => resp.json())
-        .then(body => {
-            console.log(body);
+        // .then(resp => resp.json())
+        // .then(body => {
+        //     console.log(body);
+        // });
+
+        .then(resp =>{
+            if (resp.status === 200) {
+                location.replace('../dist/student_main.html');
+            }
         });
 
     });
