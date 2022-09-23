@@ -6,10 +6,12 @@
     //建立SQL語法
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
     $sql = "SELECT T.TNAME, T.PHOTO, T.JOBTITLE, T.TIMES, T.SCHOOL, T.TDESCRIPTION,
-            TJ.JOBNAME
+            TJ.JOBNAME, TIC.INDUSTRYCLASSNAME, TJC.JOBCLASSNAME
             FROM TEACHER AS T
             LEFT JOIN TEACHER_JOB AS TJ ON T.ID = TJ.TEACHERID
-    
+            LEFT JOIN TEACHER_INDUSTRYCLASS AS TIC ON T.ID = TIC.TEACHERID
+            LEFT JOIN TEACHER_JOBCLASS AS TJC ON T.ID = TJC.TEACHERID;
+            
             "
         ;    
 
