@@ -19,11 +19,11 @@
                 <h4 class="ctitle">公司名稱：</h4>
                 <ul>
                     <li class="input01">
-                        <input type="text" placeholder="請填寫營業登記名稱" class="inputText inputA" name="name">
+                        <input type="text" placeholder="請填寫營業登記名稱" class="inputText inputA" name="name" id="name">
                     </li>
                     <button class="clist">公司列表</button>
                     <li class="input01">
-                        <input type="text" placeholder="請輸入公司統編" class="inputText inputB" name="unit_num">
+                        <input type="text" placeholder="請輸入公司統編" class="inputText inputB" name="unit_num" id="unit_num">
                     </li>
                 </ul>                                
             </section>
@@ -31,7 +31,7 @@
             <section class="inputwra">
                 <h4 class="ctitle">公司介紹：</h4>
                 <div class="input01">
-                    <textarea type="text" placeholder="請簡單介紹公司服務項目(最多500字)" class="inputText inputC" name="intro"></textarea>
+                    <textarea type="text" placeholder="請簡單介紹公司服務項目(最多500字)" class="inputText inputC" name="intro" id="intro"></textarea>
                 </div>                
             </section>
 
@@ -39,14 +39,14 @@
                 <section class="inputwra principle">
                     <h4 class="ctitle">公司負責人：</h4>     
                     <div class="input01">
-                        <input type="text" placeholder="請輸入負責人姓名" class="inputText inputD" name="principle">
+                        <input type="text" placeholder="請輸入負責人姓名" class="inputText inputD" name="principle" id="principle">
                     </div>                               
                 </section>
     
                 <section class="inputwra property">
                     <h4 class="ctitle propertyTitle">資本額：</h4> 
                     <div class="input01">
-                        <input type="text" class="inputText inputE" name="property" maxlength="12"> 
+                        <input type="text" class="inputText inputE" name="property" maxlength="12" id="property"> 
                     </div>            
                     <h4 class="ctitle ">萬</h4>        
                 </section>
@@ -56,11 +56,11 @@
                 <h4 class="ctitle">公司地址：</h4>
                 <div class="wrapper2">
                     <div class="input01">
-                        <input class="f3 inputText inputF" placeholder="請選擇縣市區" data-role="county" name="city">
-                        <input class="f4 inputText inputG" placeholder="請選擇鄉鎮市區" data-role="district" name="district">
+                        <input class="f3 inputText inputF" placeholder="請選擇縣市區" data-role="county" name="city" id="city">
+                        <input class="f4 inputText inputG" placeholder="請選擇鄉鎮市區" data-role="district" name="district" id="district">
                     </div>    
                     <div class="input01">
-                        <input type="text" placeholder="請輸入公司地址" class="inputText inputH" name="address">
+                        <input type="text" placeholder="請輸入公司地址" class="inputText inputH" name="address" id="address">
                     </div>
                 </div>                            
             </section> 
@@ -68,14 +68,14 @@
             <section class="inputwra">
                 <h4 class="ctitle">服務項目：</h4>
                 <div class="input01">
-                    <textarea type="text" placeholder="建議用條列式說明公司所提供的服務項目，能增加找到合適求職者的機會(最多500字)" class="inputText inputI" name="serve"></textarea>
+                    <textarea type="text" placeholder="建議用條列式說明公司所提供的服務項目，能增加找到合適求職者的機會(最多500字)" class="inputText inputI" name="serve" id="serve"></textarea>
                 </div>                
             </section>
 
             <section class="inputwra">
                 <h4 class="ctitle">員工福利：</h4>
                 <div class="input01">
-                    <textarea type="text" placeholder="請說明員工福利(最多500字)" class="inputText inputI" name="welfare"></textarea>
+                    <textarea type="text" placeholder="請說明員工福利(最多500字)" class="inputText inputI" name="welfare" id="welfare"></textarea>
                 </div>                
             </section>
             
@@ -94,18 +94,18 @@
                     </div>
                     <h4 class="ctitle">-</h4>
                     <div class="input01">
-                        <input type="text" class="inputText inputK2" name="phone[]" maxlength="8">
+                        <input type="text" class="inputText inputK2" name="phone[]" maxlength="8" id="phone">
                     </div>   
                     <h4 class="ctitle ext">分機：</h4>
                     <div class="input01">
-                        <input type="text"  class="inputText inputK3" name="ext" maxlength="10">
+                        <input type="text"  class="inputText inputK3" name="ext" maxlength="10" id="ext">
                     </div>                
                 </section>
 
                 <section class="inputwra">
                     <h4 class="ctitle">負責人手機：</h4>
                     <div class="input01">
-                        <input type="text"  placeholder="請輸入電話" class="inputText inputK4" name="principle_tel" maxlength="10">
+                        <input type="text"  placeholder="請輸入電話" class="inputText inputK4" name="principle_tel" maxlength="10" id="principle_tel">
                     </div>                
                 </section>
             </div>
@@ -113,7 +113,14 @@
             <section class="inputwra">
                 <h4 class="ctitle">聯絡信箱：</h4>
                 <div class="input01">
-                    <input type="email" placeholder="請輸入公司聯絡信箱" class="inputText inputL" name="email">
+                    <input type="email" placeholder="請輸入公司聯絡信箱" class="inputText inputL" name="email" id="email">
+                </div>                
+            </section>
+
+            <section class="inputwra">
+                <h4 class="ctitle">密碼：</h4>
+                <div class="input01">
+                    <input type="password" placeholder="請輸入公司密碼" class="inputText inputL" name="password" id="password">
                 </div>                
             </section>
 
@@ -147,5 +154,6 @@
 </main> 
 @@include('./layout/footer.html')
 <script src="./js/company_sign.js"></script>
+<script src="./js/company_regist.js"></script>
 </body>
 </html>
