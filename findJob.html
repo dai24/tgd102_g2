@@ -17,7 +17,7 @@
             <div class="findJobMain">
                 <div class="findJobSearch btna15">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="text" name="" value="" placeholder="搜尋職稱或公司">
+                    <input type="text" name="" value="" placeholder="搜尋職稱或公司" @keydown="searchJob" v-model="searchJob1" name="searchJob">
                 </div>
                 <div class="findJobClass">
                     <div>
@@ -64,7 +64,7 @@
                     </li>
                     <li class="findJobTypeTitle"><div class="btna16 dd_btn"  data-name="dd_5" @click="distance">遠端工作<i class="fa-solid fa-chevron-down" data-arrow="dd_5"></i></div>
                         <ul class="findJobTypeArea dd dd_5" v-if="tab_5">
-                            <li v-for="arrDistance in distanceList" :key="arrDistance.id"><input type="checkbox" name="remote"  v-model="checkedSort" :value="arrDistance.name"><label for="">{{arrDistance.name}}</label></li>
+                            <li v-for="arrDistance in distanceList" :key="arrDistance.id"><input type="checkbox" name="remote"  v-model="checkedSort" :value="arrDistance.name" @change="filiSort"><label for="">{{arrDistance.name}}</label></li>
                         </ul>
                     </li>
                 </ul>
@@ -74,7 +74,7 @@
             </div>
         </div>
         <div class="findJobFind" id="findJobFind"><div class="findJobFindSort" v-for="(theSort , i) in checkedSort"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div></div>
-        <my-list @my-click="sortGo" @save-click="saveGo"></my-list>
+        <my-list @my-click="sortGo" @save-click="saveGo" :myname="checkedSort"></my-list>
         @@include('./layout/pagination.html') 
     </div>
 

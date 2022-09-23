@@ -1,25 +1,14 @@
 Vue.component('my-list',{
+    props: ["myname"],
     data() {
         return {
-            // com:[
-            //     {
-            //         companyImg : '',
-            //         companyJob : '',
-            //         companyName : '',
-            //         jobMain : '',
-            //         vacancies : '123',
-            //         placeDist : '',
-            //         salary : 0,
-            //         viewCount : 0
-
-            // }
-
-            // ]
             com:[],
             jobID:[],
+            jobID1:[],
         }
     },
     mounted() {
+        
         fetch("../php/findJob.php",{
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
@@ -28,11 +17,11 @@ Vue.component('my-list',{
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.com = userArr
-            console.log(userArr);
         })
+        
     },
     template:`
-    <div>
+    <div >
         <div class="findJobVacancies" v-for='find in com'>
             <div class="findJobVacanciesPicture">
                 <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom">
@@ -67,36 +56,43 @@ Vue.component('my-list',{
     </div>
             `,
     methods: {
-        jobMainGo(asd){
-            // console.log(this.asd);
-            // this.$emit('my-click')
-            // fetch(`../php/jobmain.php`, {
-            //     method: 'POST',
-            //     headers: {'Content-Type' : 'application/json'},
-            //     body: JSON.stringify({
-            //         JOBID:0,
-            //     })
-            // })
-            // .then (res => res.json())
-            // .then (body => {
-            //     if(body.successful){
-            //         location = 'http://localhost/tdg102_g2/dist/jobMain.html';
-            //     }else{
-            //         alert(body.message)
-            //     }
+        // filiSort(a, b){
+        //     a.filter(function(element, index, self){
+        //         // console.log(element);
+        //         for(let i = 0; i < b.length; i++){
+        //             // console.log(b[i]);
+        //             if(b[i].CITY == element){
+        //                 // console.log('qwe');
+        //             }else{
+        //                 console.log(b);
+        //                 delete b[i];
+        //             }
+        //         }
                 
-            // })
-            const idNum = asd
-            console.log(idNum);
-            this.jobID.map(function(item){
-                console.log(this.jobID);
-                this.jobID.push(idNum)
+        //     })
+        // },
+        jobMainGo(idNum){
+            sessionStorage.setItem('findJobId', idNum);
+            this.jobID.push(idNum)
+            this.jobID.forEach((num) => {
+                if (!this.jobID1.includes(num)) {
+                    this.jobID1.push(num);
+                }
             })
-            // alert(asd);
+            for(let i = 0; i < this.jobID1.length; i++){
+                console.log(this.jobID1[i]);
+                fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
+                
+                //jobId : this.jobID1[i]
+            }
+            location='./jobMain.html'
         },
         openSave(){
             this.$emit('save-click')
         }
+    },
+    computed: {
+        
     },
     
 })
@@ -238,8 +234,16 @@ new Vue({
             },
         ],
         checkedSort: [],
+        searchJob1:[]
+    },
+    mounted() {
+        
     },
     methods: {
+        searchJob(){
+            console.log('qwe');
+            fetch(`../php/searchJob.php?searchJob1=${this.searchJob1}`)
+        },  
         sortGo(){
             
         },
@@ -307,6 +311,7 @@ new Vue({
                 }
             });
         },
+        
     },
 })
 
