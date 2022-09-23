@@ -118,70 +118,70 @@ let resume_delete_window = `
 `
 
 //分享視窗
-let resume_share_window = `
-<div class="m-a-s-k"></div>
-<div class="card_resume resume_window">
-        <ul class="cardUl">
-            <li>
-                <h1 class="cardH1">分享您的履歷</h1>
-            </li>
-            <li>
-                <i class="fa-solid fa-xmark cardXmark"></i>
-            </li>
-        </ul>
-        <div class="cardInner shareresumeform ">
-            <div class="applyTitle">
-                <select name="" id="shareresumeform_select"><option value="設計">請選擇履歷種類</option>
-                    <option value="工程">工程</option>
-                    <option value="管理">管理</option>
-                    <option value="媒體">媒體</option>
-                    <option value="銷售">銷售</option>
-                    <option value="金融">金融</option>
-                    <option value="行政">行政</option>
-                    <option value="科技">科技</option>
-                    <option value="服務">服務</option>
-                </select>    
-            </div>
-            <div class="shareresumeform_1">
-                <input type="radio">
-                <i class="fa-solid fa-earth-asia"></i>
-                <span>公開 網站上的人都可以找到並檢視。</span>
-                <div class="share_ig_fb">
-                    <h3>分享至</h3>
-                    <a href="#"><img src="./images/careertest//icon_instagram.svg" alt="IG"></a>
-                    <a href="#"><img src="./images/careertest//icon_facebook.svg" alt="臉書"></a>
-                </div>
-                <div class="btna3 check_btn">確定</div>
-            </div>
-        </div>
-    </div>
-`
+// let resume_share_window = `
+// <div class="m-a-s-k"></div>
+// <div class="card_resume resume_window">
+//         <ul class="cardUl">
+//             <li>
+//                 <h1 class="cardH1">分享您的履歷</h1>
+//             </li>
+//             <li>
+//                 <i class="fa-solid fa-xmark cardXmark"></i>
+//             </li>
+//         </ul>
+//         <div class="cardInner shareresumeform ">
+//             <div class="applyTitle">
+//                 <select name="" id="shareresumeform_select"><option value="設計">請選擇履歷種類</option>
+//                     <option value="工程">工程</option>
+//                     <option value="管理">管理</option>
+//                     <option value="媒體">媒體</option>
+//                     <option value="銷售">銷售</option>
+//                     <option value="金融">金融</option>
+//                     <option value="行政">行政</option>
+//                     <option value="科技">科技</option>
+//                     <option value="服務">服務</option>
+//                 </select>    
+//             </div>
+//             <div class="shareresumeform_1">
+//                 <input type="radio">
+//                 <i class="fa-solid fa-earth-asia"></i>
+//                 <span>公開 網站上的人都可以找到並檢視。</span>
+//                 <div class="share_ig_fb">
+//                     <h3>分享至</h3>
+//                     <a href="#"><img src="./images/careertest//icon_instagram.svg" alt="IG"></a>
+//                     <a href="#"><img src="./images/careertest//icon_facebook.svg" alt="臉書"></a>
+//                 </div>
+//                 <div class="btna3 check_btn">確定</div>
+//             </div>
+//         </div>
+//     </div>
+// `
 
 // pdf下載視窗
-let resume_pdf_window = `
-<div class="m-a-s-k"></div>
-<div class="card_resume  resume_window">
-        <ul class="cardUl">
-            <li>
-                <h1 class="cardH1">您的履歷 PDF 已就緒</h1>
-            </li>
-            <li>
-                <i class="fa-solid fa-xmark cardXmark"></i>
-            </li>
-        </ul>
-        <div class="cardInner applyfor">
-            <div class="applyTitle">
-                <div>
-                    <i class="fa-solid fa-file-circle-plus"></i>
-                </div>
-                <div class="deleteTitleMain">
-                    <h3>新鮮人履歷.pdf</h3>
-                </div>
-            </div>
-            <div class="btna3 check_btn pdf_dowload">下載 PDF</div>
-        </div>
-    </div>
-`
+// let resume_pdf_window = `
+// <div class="m-a-s-k"></div>
+// <div class="card_resume  resume_window">
+//         <ul class="cardUl">
+//             <li>
+//                 <h1 class="cardH1">您的履歷 PDF 已就緒</h1>
+//             </li>
+//             <li>
+//                 <i class="fa-solid fa-xmark cardXmark"></i>
+//             </li>
+//         </ul>
+//         <div class="cardInner applyfor">
+//             <div class="applyTitle">
+//                 <div>
+//                     <i class="fa-solid fa-file-circle-plus"></i>
+//                 </div>
+//                 <div class="deleteTitleMain">
+//                     <h3>新鮮人履歷.pdf</h3>
+//                 </div>
+//             </div>
+//             <div class="btna3 check_btn pdf_dowload">下載 PDF</div>
+//         </div>
+//     </div>
+// `
 
 // 
 
@@ -257,40 +257,40 @@ $(function () {
    // })
 
    // 分享履歷視窗
-   $('#resume_share').on('click', function () {
-      $('.resume_wrapper').append(resume_share_window)
-      $('.m-a-s-k').show()
+   // $('#resume_share').on('click', function () {
+   //    $('.resume_wrapper').append(resume_share_window)
+   //    $('.m-a-s-k').show()
 
-      closeWindows()
-   })
+   //    closeWindows()
+   // })
 
    // pdf下載視窗
-   $('#resume_pdf_dowload').on('click', function () {
-      $('.resume_wrapper').append(resume_pdf_window)
-      $('.m-a-s-k').show()
+   // $('#resume_pdf_dowload').on('click', function () {
+   //    $('.resume_wrapper').append(resume_pdf_window)
+   //    $('.m-a-s-k').show()
 
-      closeWindows()
-   })
+   //    closeWindows()
+   // })
 
    // pdf_dowload 下載
-   $('.pdf_dowload').on('click', function () {
-      window.print();
-   })
+   // $('.pdf_dowload').on('click', function () {
+   //    window.print();
+   // })
 
    // 刪除履歷視窗
-   $('#resume_delect').on('click', function () {
-      $('.resume_wrapper').append(resume_delete_window)
-      $('.m-a-s-k').show()
+   // $('#resume_delete').on('click', function () {
+   //    $('.resume_wrapper').append(resume_delete_window)
+   //    $('.m-a-s-k').show()
 
-      $('.fa-xmark').on('click', function () {
-         closeItem()
-      })
-      $('.delete_btn').on('click', function () {
-         $('.work_space_a4').hide()
-         closeItem()
-      })
+   //    $('.fa-xmark').on('click', function () {
+   //       closeItem()
+   //    })
+   //    $('.delete_btn').on('click', function () {
+   //       $('.work_space_a4').hide()
+   //       closeItem()
+   //    })
 
-   })
+   // })
 
    // 刪除編輯的履歷
    $('.resume_model').on('click', function () {
