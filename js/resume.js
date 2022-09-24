@@ -92,33 +92,33 @@ let resume_payplan_window = `
 </div>`
 
 // 刪除視窗
-let resume_delete_window = `
-<div class="m-a-s-k"></div>
-<div class="card_resume resume_window">
-   <ul class="cardUl">
-      <li>
-         <h1 class="cardH1">刪除</h1>
-      </li>
-      <li>
-         <i class="fa-solid fa-xmark cardXmark"></i>
-      </li>
-   </ul>
-   <div class="cardInner applyfor">
-      <div class="applyTitle">
-         <div>
-            <i class="fa-regular fa-circle-check"></i>
-         </div>
-         <div class="messageTitleMain">
-            <h3>確定刪除履歷嗎？</h3>
-         </div>
-      </div>
-      <div class="btna3 delete_btn">確定</div>
-   </div>
-</div>
-`
+// let resume_delete_window = `
+// <div class="m-a-s-k"></div>
+// <div class="card_resume resume_window">
+//    <ul class="cardUl">
+//       <li>
+//          <h1 class="cardH1">刪除</h1>
+//       </li>
+//       <li>
+//          <i class="fa-solid fa-xmark cardXmark"></i>
+//       </li>
+//    </ul>
+//    <div class="cardInner applyfor">
+//       <div class="applyTitle">
+//          <div>
+//             <i class="fa-regular fa-circle-check"></i>
+//          </div>
+//          <div class="messageTitleMain">
+//             <h3>確定刪除履歷嗎？</h3>
+//          </div>
+//       </div>
+//       <div class="btna3 delete_btn">確定</div>
+//    </div>
+// </div>
+// `
 
-//分享視窗
-// let resume_share_window = `
+// //分享視窗
+// // let resume_share_window = `
 // <div class="m-a-s-k"></div>
 // <div class="card_resume resume_window">
 //         <ul class="cardUl">
@@ -212,16 +212,16 @@ $(function () {
 
 
    // 打開關閉履歷模組視窗
-   $('#resume_model-btn').on('click', function () {
-      $('.resume_model-border').toggle('blind', { percent: 50 }, 500)
+   // $('#resume_model-btn').on('click', function () {
+   //    $('.resume_model-border').toggle('blind', { percent: 50 }, 500)
 
-   })
+   // })
 
    // RWD 關閉履歷模組視窗
-   $('.xmark_btn').on('click', function () {
-      $('.resume_model-border').toggle('blind', { percent: 50 }, 500)
+   // $('.xmark_btn').on('click', function () {
+   //    $('.resume_model-border').toggle('blind', { percent: 50 }, 500)
 
-   })
+   // })
 
    // 頁碼
    $('.pagination-ul a').on('click', function () {
@@ -306,18 +306,18 @@ $(function () {
 
 
 // 關閉跟確認視窗
-function closeWindows() {
-   $('.resume_window .fa-xmark,.resume_window,.resume_window .check_btn,.resume_zoom').on('click', function () {
-      closeItem()
+// function closeWindows() {
+//    $('.resume_window .fa-xmark,.resume_window,.resume_window .check_btn,.resume_zoom').on('click', function () {
+//       closeItem()
 
-   })
-}
+//    })
+// }
 
-function closeItem() {
-   $('.resume_zoom').remove()
-   $('.resume_window').remove()
-   $('.m-a-s-k').remove()
-}
+// function closeItem() {
+//    $('.resume_zoom').remove()
+//    $('.resume_window').remove()
+//    $('.m-a-s-k').remove()
+// }
 
 function Avatar_upload(){
    let upload = document.querySelector('#upload');

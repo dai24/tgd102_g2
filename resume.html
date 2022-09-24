@@ -49,32 +49,7 @@
     @@include('./layout/footer.html')
 
     <script>
-        // Vue.component('my-category', {
-           
-        //     data() {
-        //         return {
-        //             categorys: ['全部', '設計', '工程', '管理', '媒體', '銷售', '金融', '行政', '科技', '服務'],
-        //             current:'全部',
-                    
-        //         }
-        //     },
-        //     methods:{
-        //         clickCategory(category){
-        //             this.current = category;
-        //             fetch(`./php/getResume_sample_All.php?category=${category}`)
-        //             .then(rsp => rsp.json())
-        //             .then(updateResume_sample => {
-        //                 resume_sample = updateResume_sample;
-        //             })
-        //         }
-        //     },
-        //     template: `
-        //     <div class="row category">
-        //             <div v-for="category in categorys" class="col-1">
-        //                 <button class="btna13" @click="clickCategory(category)" :class="{'categoryBtn':current === category}">{{category}}</button>
-        //             </div>
-        //     </div>`,
-        // })
+   
 
         Vue.component('my-resume_sample', {
            
