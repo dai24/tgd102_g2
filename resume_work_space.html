@@ -154,10 +154,51 @@
 
         <script>
 
+         //履歷模板
+         Vue.component('resume_modelBorder',{   
+            data(){
+                return {
+                    resume_model:[],
+                    imgURL:'',
+                }
+            },
+            methods: {
+                submitData(){
+                    this.$emit('resumeModel', false);
+                    console.log('winsave')    
+                },
+
+            },
+            mounted() {
+                fetch('./php/getResume_model_All.php?model=1')
+                    .then(rsp => rsp.json())
+                    .then(resume_model => {
+                        this.resume_model = resume_model;
+                        
+                    })
+            },
+            template:
+            `
+                <div class="resume_model-border">
+                    <button class="xmark_btn"><i class="fa-solid fa-xmark"></i></button>
+            
+                    <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0} " v-for="model in resume_model">
+                        <img :src="model.IMG_PATH">
+                        <div v-if="model.UNLOCK_STATUS == 0">
+                            <i class="fa-solid fa-crown"></i>
+                            <div class="resume_model_mask"></div>
+                        </div>
+                        
+                    </div>
+                </div>
+            `,
+        })
+
+
         Vue.component('work-spacemake',{
             data(){
                 return {
-                    
+                    resumeModelBorder: true,
                 }
             },
             methods:{
@@ -281,7 +322,7 @@
             template:
             `
             <div class="work_space_header">         
-                <div class="box_1"><button id="resume_model-btn">模板</button> </div>
+                <div class="box_1"><button id="resume_model-btn" @click="clickData('model')">模板</button> </div>
                 <div class="box_2"><button id="resume_save" @click="clickData('save')">儲存</button> </div>
                 <div class="box_3"><button id="resume_share" @click="clickData('share')">分享</button> </div>
                 <div class="box_4"><button id="resume_pdf_dowload" @click="clickData('pdf')"><i class="fa-regular fa-file-pdf"></i></button></div>
@@ -291,49 +332,9 @@
         })
 
         
+       
 
-        Vue.component('resume_modelBorder',{   
-            data(){
-                return {
-                    // closewin: false,
-                }
-            },
-            methods: {
-                submitData(){
-                    this.$emit('savewin', false);
-                    console.log('winsave')
-                    
-                },
-
-            },
-            template:
-            `
-                <div class="resume_model-border toggler">
-                    <button class="xmark_btn"><i class="fa-solid fa-xmark"></i></button>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model1.jpg" class="" alt="resume_1">
-                    </div>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model2.jpg" class="" alt="resume_2">
-                    </div>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model3.jpg" class="" alt="resume_3">
-                    </div>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model4.jpg" class="" alt="resume_4">
-                    </div>
-                    <div class="resume_model">
-                        <img src="images/resume/resume_model5.jpg" class="" alt="resume_5">
-                    </div>
-                    <div class="resume_model resume_pay">
-                        <img src="images/resume/resume_model6.jpg" class="" alt="resume_6">
-                        <i class="fa-solid fa-crown"></i>
-                        <div class="resume_model_mask"></div>
-                    </div>
-                </div>
-            `,
-        })
-
+        // 儲存彈窗
         Vue.component('win-save',{   
             data(){
                 return {
@@ -377,6 +378,7 @@
             `,
         })
 
+        //分享彈窗
         Vue.component('win-share',{           
             data(){
                 return {
@@ -433,6 +435,7 @@
             `,
         })
 
+        //下載pdf彈窗
         Vue.component('win-pdf',{   
             data(){
                 return {
@@ -477,6 +480,7 @@
             `,
         })
 
+        //刪除彈窗
         Vue.component('win-delete',{   
             data(){
                 return {
@@ -521,6 +525,7 @@
             `,
         })
         
+        // 主內容
         Vue.component('my-content',{
             data(){
                 return {
@@ -563,6 +568,7 @@
                 <win-share v-if="sharePopup" @sharewin="close"></win-share>
                 <win-pdf v-if="pdfPopup" @pdfwin="close"></win-pdf>
                 <win-delete v-if="deletePopup" @deletewin="close"></win-delete>
+                
             </div>
             `,
         })
