@@ -41,15 +41,21 @@ $(function () {
                 password:password.value,
             })
         })
-        // .then(resp => resp.json())
-        // .then(body => {
-        //     console.log(body);
-        // });
-        .then(resp =>{
-            if (resp.status === 200) {
+        
+        .then(resp => resp.text())
+        .then(result => {
+            console.log('test', result == 'successful');
+            if(result == 'successful') {
                 location.replace('../dist/company_main.html');
+            }else{
+                alert("帳號密碼錯誤")
             }
         });
+        // .then(resp =>{
+        //     if (resp.status === 200) {
+        //         location.replace('../dist/company_main.html');
+        //     }
+        // });
 
     });
 
