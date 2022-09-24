@@ -93,62 +93,73 @@
             //欄位按鈕
             .btna13{
                 &:hover{
-                    color:$secondary01; //更改原本btna13設定
+                    color:$secondary02; //更改原本btna13設定
+                    background-color:$primary02H;
                 }
             }
             //欄位按鈕
-            .cateoryBtn{
-                font-weight: bold
-
+            .category-mid{
+                text-align: center;
+                .categoryBtn{ //修改btna13設定
+                    width: 100%;
+                    font-weight: bold;
+                    padding-left: 0;
+                    padding-right: 0;
+                }
             }
+            
         };
-        // .content{
-        //     border: 3px solid $primary02;
-        //     border-top: 0;
-        //     display: flex;
-        //     flex-wrap: wrap;
-        //     justify-content: space-around;
-        //     padding-bottom: 30px;
-        //     >li{
-        //         width: 20%;
-        //         margin-right: 20px;
-        //         margin-left: 20px;
-        //         margin-top: 40px;
-        //         box-shadow: 5px 5px 20px $secondary01;
-        //         display: flex;
-        //         flex-direction: column;
-        //         //履歷
-        //         img{
-        //             display: block;
-        //             width: 100%;
-        //         }
-        //         //編輯
-        //         .edit{
-        //             height:$editHeight;                    
-        //             display: flex;
-        //             justify-content: space-between;
-        //             background-color:white;
-        //             //建立日期
-        //             h3{
-        //                 line-height: $editHeight;
-        //                 padding-left: 16px;
-        //                 @media screen and (max-width:1500px) {
-        //                     padding-left: 8px;
-        //                     font-size:$fontSize04;
-        //                 }
-        //                 @media screen and (max-width:1280px) {
-        //                     font-size:17px;
-        //                 }
-        //             }
-                    
-        //             .fa-ban{
-        //                 font-size: 20px;
-        //                 margin-top: 14px;
-        //                 margin-right: 16px;
-        //                 opacity: 10%;
-        //             } 
-        //         }                    
-        //     }
-        // }
+        //履歷模板 容器
+        .resumeWra{
+            border: 3px solid $primary02;
+            border-top: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:start;
+            padding: 32px;
+            overflow: hidden;
+            .resumeCard{ //一張履歷
+                margin-right: 24px; //履歷的間距
+                margin-bottom: 24px;
+                border-radius:20px;
+                box-shadow: 2px 2px 10px $secondary01;
+                @media screen and (max-width:1850px) {
+                    margin-right: 32px;
+                }
+                img{ //履歷
+                    display: block; //消除奇怪的空白
+                    height: 450px; //調整到適合大小
+                }
+            }
+            .toggleResume{ //Vue data。被停權時，履歷屬性改變
+                opacity: 0.6;
+            }
+
+            //履歷模板 資訊
+            .data{
+                height: 60px;
+                margin: auto;
+                display: flex;
+                justify-content: space-between;
+                overflow: hidden;
+                background-color:$primary03;
+                border-top: 0;
+                
+                padding-left: 16px;
+                padding-right: 16px;
+                
+                h3{
+                    line-height: 60px;
+                    font-weight: bold;
+                }
+                //停權icon
+                .fa-ban{
+                    font-size: 20px;
+                }
+                .toggleBan{ //Vue 開關停權icon使用
+                    opacity: 10%;
+                }
+            }
+        }
     }
 }
