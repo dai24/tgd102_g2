@@ -154,20 +154,46 @@
 
         <script>
 
+Vue.component('my-workspace',{
+            data(){
+                return {
+                    openwin: true,
+                }
+            },
+            methods:{
+                clickData(btnType){
+                    // e.preventDefault(); 
+                    // this.$emit('自訂事件'[,傳值1, 傳值2, ...])
+                    this.$emit('get', this.openwin,btnType);
+                    console.log('get')   
+                },
+            },
+            template:
+            `
+            <div class="work_space_header">         
+                <div class="box_1"><button id="resume_model-btn" @click="clickData('model')">模板</button> </div>
+                <div class="box_2"><button id="resume_save" @click="clickData('save')">儲存</button> </div>
+                <div class="box_3"><button id="resume_share" @click="clickData('share')">分享</button> </div>
+                <div class="box_4"><button id="resume_pdf_dowload" @click="clickData('pdf')"><i class="fa-regular fa-file-pdf"></i></button></div>
+                <div class="box_5"><button id="resume_delete" @click="clickData('delete')"><i class="fa-regular fa-trash-can"></i></button></div>           
+            </div>
+            `,
+        })
+
          //履歷模板
          Vue.component('resume_modelBorder',{   
             data(){
                 return {
                     resume_model:[],
-                    imgURL:'',
+                    // modelBorderShow:false,
+                   
                 }
             },
             methods: {
                 submitData(){
-                    this.$emit('resumeModel', false);
-                    console.log('winsave')    
-                },
-
+                    this.$emit('modelBorder',false)
+                }
+                
             },
             mounted() {
                 fetch('./php/getResume_model_All.php?model=1')
@@ -180,8 +206,7 @@
             template:
             `
                 <div class="resume_model-border">
-                    <button class="xmark_btn"><i class="fa-solid fa-xmark"></i></button>
-            
+                    <button class="xmark_btn" @click="submitData"><i class="fa-solid fa-xmark"></i></button>            
                     <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0} " v-for="model in resume_model">
                         <img :src="model.IMG_PATH">
                         <div v-if="model.UNLOCK_STATUS == 0">
@@ -194,7 +219,7 @@
             `,
         })
 
-
+        //編輯履歷
         Vue.component('work-spacemake',{
             data(){
                 return {
@@ -206,11 +231,8 @@
             },
             template:
             `
-            <div>
-                        
-                <div class="work_space_make">
-                        
-                    <resume_modelBorder></resume_modelBorder>
+            
+
                         <div class="resume_make">
                             <div class="resume_name_div">
                                 <label for="resume_name">檔案名稱: </label><input type="text" id="resume_name"
@@ -296,41 +318,43 @@
 
                             </div>
                     </div>
-                    <div class="sumEdit">
-                        <div id="summernote1"></div>
-                    </div>
-                </div>
+                    
+                
                         
-            </div>
             `,
         })
 
-        Vue.component('my-workspace',{
+        
+        //summernote
+        Vue.component('edit-summernote',{   
             data(){
                 return {
-                    openwin: true,
+                    resume_model:[],
+                    // modelBorderShow:false,
+                   
                 }
             },
-            methods:{
-                clickData(btnType){
-                    // e.preventDefault(); 
-                    // this.$emit('自訂事件'[,傳值1, 傳值2, ...])
-                    this.$emit('get', this.openwin,btnType);
-                    console.log('get')   
-                },
+            methods: {
+                submitData(){
+                    this.$emit('modelBorder',false)
+                }
+                
+            },
+            mounted() {
+                // fetch('./php/getResume_model_All.php?model=1')
+                //     .then(rsp => rsp.json())
+                //     .then(resume_model => {
+                //         this.resume_model = resume_model;
+                        
+                //     })
             },
             template:
             `
-            <div class="work_space_header">         
-                <div class="box_1"><button id="resume_model-btn" @click="clickData('model')">模板</button> </div>
-                <div class="box_2"><button id="resume_save" @click="clickData('save')">儲存</button> </div>
-                <div class="box_3"><button id="resume_share" @click="clickData('share')">分享</button> </div>
-                <div class="box_4"><button id="resume_pdf_dowload" @click="clickData('pdf')"><i class="fa-regular fa-file-pdf"></i></button></div>
-                <div class="box_5"><button id="resume_delete" @click="clickData('delete')"><i class="fa-regular fa-trash-can"></i></button></div>           
+            <div class="sumEdit">
+                <div id="summernote1"></div>
             </div>
             `,
         })
-
         
        
 
@@ -533,13 +557,22 @@
                     sharePopup: false,
                     pdfPopup: false,
                     deletePopup: false,
+                    modelBorder: false,
 
                 }
             },
             methods: {  
                 open(open,type){
                     console.log(open,type)
-                    if(type == 'save'){
+                    if(type == 'model'){
+                        console.log(open)
+                        if(this.modelBorder == true){
+                            this.modelBorder = false;  
+                        }else{
+                            this.modelBorder = open;
+                        } 
+                        
+                    }else if(type == 'save'){
                         this.savePopup = open;
                     }else if(type == 'share'){
                         this.sharePopup = open;
@@ -555,6 +588,7 @@
                     this.sharePopup = closeWin;
                     this.pdfPopup = closeWin;
                     this.deletePopup = closeWin;
+                    this.modelBorder = closeWin;
                 },
 
              
@@ -563,7 +597,11 @@
             `
             <div>
                 <my-workspace @get="open"></my-workspace>
-                <work-spacemake></work-spacemake>
+                <div class="work_space_make">
+                    <resume_modelBorder v-show="modelBorder" @modelBorder="close"></resume_modelBorder>
+                    <work-spacemake></work-spacemake>
+                    <edit-summernote></edit-summernote>
+                </div>
                 <win-save v-if="savePopup" @savewin="close"></win-save>
                 <win-share v-if="sharePopup" @sharewin="close"></win-share>
                 <win-pdf v-if="pdfPopup" @pdfwin="close"></win-pdf>
