@@ -10,6 +10,9 @@ Vue.component('my-resume_sample', {
             Student_id:0,
             categorys: ['全部', '設計', '工程', '管理', '媒體', '銷售', '金融', '行政', '科技', '服務'],
             current:'全部',
+
+            toggleSwitch: true, //切換停權
+            toggleResume:false, //停權時，履歷的class屬性改變
         }
     },
     methods: {
@@ -35,8 +38,11 @@ Vue.component('my-resume_sample', {
             .then(updateResume_sample => {
                 this.resume_sample = updateResume_sample;
             })
-        }
-       
+        },
+        //打開or關閉停權圖示
+        toggleBan(){
+            this.toggleSwitch = !this.toggleSwitch
+        },       
     },
     mounted() {
         
@@ -50,29 +56,51 @@ Vue.component('my-resume_sample', {
     },
     updated() {
         
+        //目標：只改變要停權的履歷。沒有用到vue的data
+        let fa_ban = document.querySelectorAll(".fa-ban")
+        for(let i = 0; i < fa_ban.length; i++){
+            fa_ban[i].addEventListener("click", e => {
+                // console.log(e.target)
+                if(e.target.classList.contains('-on')){
+                    e.target.classList.toggle('-on')
+                    e.target.style.opacity = "10%"
+                }else {
+                    e.target.classList.toggle('-on')
+                    e.target.style.opacity = "100%"
+                }
+            })
+        }
     },
-    // category範本種類的寬度，由於後台視覺問題，後台不用col-1
+    
+    //
     template:
         `   
         <div>
             <div class=" category">
-                <div class="col-1" v-for="category in categorys">
-                    <button class="btna13 cateoryBtn" @click="clickCategory(category)" :class="{'categoryBtn':current === category}">{{category}}</button>
+                <div class="col-1 category-mid" v-for="category in categorys">
+                    <button class=" col-1 btna13 categoryBtn" @click="clickCategory(category)" :class="{'categoryBtn':current === category}">{{category}}</button>
                 </div>
             </div>
-            <div class=" resume_sample_row">         
-                <div class="" v-for="resume in resume_sample">
-                    <div class="resume_card">
-                        <img :src='resume.IMG_PATH' class="" alt="resume_1">                        
+            <div class="resume_sample_row resumeWra">  
+                <div class="resume_card resumeCard" :class="{toggleResume:toggleResume}" v-for="resume in resume_sample">
+                    <img :src='resume.IMG_PATH' class="" alt="resume_1">                        
+                    <div class="data">
+                        <h3>建立日期：{{resume.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3>
+                        <h3><i class="fa-solid fa-ban" :class="{toggleBan:toggleSwitch}" ></i></h3>
                     </div>
                 </div>
-                <div v-if="isPopup">
-                    <div class="m-a-s-k" @click="close"></div>
-                    <div class="resume_zoom">
-                        <button class=""><i class="fa-solid fa-xmark" @click="close"></i></button>
-                        <img :src="imgURL">
-                    </div>
-                </div>
+            </div>  
+
+            <div class="pagination-div">
+                <ul class="pagination-ul">
+                <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="#" class="pageContent">1</a></li>
+                <li><a href="#" class="pageContent">2</a></li>
+                <li><a href="#" class="pageContent">3</a></li>
+                <li><a href="#" class="pageContent">4</a></li>
+                <li><a href="#" class="pageContent">5</a></li>
+                <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
             </div>
         </div>
         `
