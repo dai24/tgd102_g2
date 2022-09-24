@@ -9,7 +9,7 @@
 <body>
 <main  class="backstage_template">
     @@include('./layout/backstage_nav.html')
-    <div  class="wrapper">
+    <div  class="wrapper" id="backstage_template_app">
         <h1 class="title">履歷專區</h1>
         <div class="block">
             <ul>
@@ -21,7 +21,7 @@
                 <input type="Text" class="inputText" placeholder="搜尋範本名稱或編號" name="search">
             </div>                
         </div>
-        <ul class="category">       
+        <!-- <ul class="category">       
             <li><h3 class="all">全部</h3></li>
             <li><h3>設計</h3></li>
             <li><h3>工程</h3></li>
@@ -32,73 +32,19 @@
             <li><h3>行政</h3></li>
             <li><h3>科技</h3></li>
             <li><h3>服務</h3></li>     
-        </ul>
-        <ul class="content">
-            <li>
-                <img src="./images/resume/resume_1.jpg" alt="範本">
-                <div class="edit">
-                    <h3>2022/09/15</h3>
-                    <i class="fa-solid fa-ban"></i>
-                </div>
-            </li>
-            <li>
-                <img class="banitem" src="./images/resume/resume_2.jpg" alt="模板">
-                <div class="edit">
-                    <h3>2022/09/15</h3>
-                    <i class="fa-solid fa-ban banOpen"></i>
-                </div>
-            </li>
-            <li>
-                <img src="./images/resume/resume_3.jpg" alt="模板">
-                <div class="edit">
-                    <h3>2022/09/14</h3>                    
-                    <i class="fa-solid fa-ban"></i>
-                </div>
-            </li>
-            <li>
-                <img src="./images/resume/resume_4.jpg" alt="模板">
-                <div class="edit">
-                    <h3>2022/09/14</h3>                    
-                    <i class="fa-solid fa-ban"></i>
-                </div>
-            </li>
-            <li>
-                <img src="./images/resume/resume_5.jpg" alt="模板">
-                <div class="edit">
-                    <h3>2022/09/13</h3>                    
-                    <i class="fa-solid fa-ban"></i>
-                </div>
-            </li>
-            <li>
-                <img src="./images/resume/resume_6.jpg" alt="模板">
-                <div class="edit">
-                    <h3>2022/09/12</h3>                    
-                    <i class="fa-solid fa-ban"></i>                                        
-                </div>
-            </li>
-            <li>
-                <img src="./images/resume/resume_1.jpg" alt="模板">
-                <div class="edit">
-                    <h3>2022/09/12</h3>                    
-                    <i class="fa-solid fa-ban"></i>                                        
-                </div>
-            </li>
-            <li>
-                <img src="./images/resume/resume_2.jpg" alt="模板">
-                <div class="edit">
-                    <h3>2022/09/12</h3>
-                    <i class="fa-solid fa-ban"></i>                                        
-                </div>
-            </li>
-            @@include('./layout/pagination.html')
-        </ul>
+        </ul> -->
+        <!-- <ul class="content"> -->
+            <!-- 履歷範本 -->
+            <my-resume_sample></my-resume_sample>
+            
+        <!-- </ul> -->
         
     </div>   
     
 </main> 
 <script>
     //被停權的履歷會變暗
-    let banitem = document.querySelectorAll(".banitem");
+    // let banitem = document.querySelectorAll(".banitem");
 
     // for(let i = 0; i < banitem.length; i++){
     //     banitem[i].insertAdjacentHTML("beforebegin", `
@@ -106,5 +52,6 @@
     //     `)
     // }
 </script>
+<script src="./js/backstage_template.js"></script>
 </body>
 </html>
