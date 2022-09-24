@@ -11,7 +11,7 @@ Vue.component('job-data',{
     },
     mounted() {       
         //顯示第一頁的資料
-        fetch(`php/searchcompany.php?page=1`)
+        fetch(`php/searchjob.php?page=1`)
         .then(rsp => rsp.json())
         .then(userArr => {    
             this.jobData = userArr
@@ -38,16 +38,16 @@ Vue.component('job-data',{
     <tbody>
         <tr class="item" v-for="jobs in jobData">
             <td class="id"><h3>J111{{jobs.ID}}</h3></td>
-            <td class="companyname"><h3>{{jobs.name}}</h3></td>
-            <td class="name"><h3 >行銷實習生</h3></td>
-            <td class="workplace"><h3>台北市</h3></td>
-            <td class="browsed"><h3>6670</h3></td>
+            <td class="companyname"><h3>{{jobs.COMPANYNAME}}</h3></td>
+            <td class="name"><h3>{{jobs.NAME}}</h3></td>
+            <td class="workplace"><h3>{{jobs.WORKPLACE}}</h3></td>
+            <td class="browsed"><h3>{{jobs.BROWSED}}</h3></td>
             <td class="apply"><h3>130</h3></td>
             <td class="interview"><h3>43</h3></td>
             <td class="detail"><h3>
                 <button class="btna3"><h4><a href="./backstage_company_job_detail.html">詳細資料</a></h4></button>
             </h3></td>
-            <td class="create-date"><h3>111/09/16</h3></td>
+            <td class="create-date"><h3>{{jobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
             <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
             <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
         </tr>
@@ -64,7 +64,7 @@ let vm = new Vue({ //設定想要預載的html結構
     template: //預先掛載的div結構
         `
         <table>
-            <thead>
+            <thead class="thead">
                 <tr>
                     <th class="id"><h3>職缺編號</h3></th>
                     <th class="companyname"><h3 >公司名稱</h3></th>
@@ -79,8 +79,8 @@ let vm = new Vue({ //設定想要預載的html結構
                     <th class="ban"><h3 >停權</h3></th>
                 </tr> 
             </thead>
-                               
-            <job-data></job-data>            
+                    
+            <job-data></job-data>
         </table>
         `,  
     })     

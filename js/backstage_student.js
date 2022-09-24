@@ -119,11 +119,10 @@ let vm = new Vue({ //設定想要預載的html結構
             </thead>
             
             <tbody>
-                <div is="student-data"></div>
+                <student-data></student-data>
             </tbody>                      
         </table>
         `,  
     })     
-
     
-
+//<div is="student-data"></div>
