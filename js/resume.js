@@ -32,64 +32,64 @@
 //    </div>
 // `
 // 模板付費視窗
-let resume_pay_window = `
-<div class="m-a-s-k"></div>
-<div class="card_resume resume_window">
-   <ul class="cardUl">
-      <li>
-         <h1 class="cardH1">金幣不足</h1>
-      </li>
-      <li>
-         <i class="fa-solid fa-xmark cardXmark"></i>
-      </li>
-   </ul>
-   <div class="cardInner applyfor">
-      <div class="applyTitle">
-         <div class="messageTitleMain">
-               <h3>A01模板需100金幣</h3>
-         </div>
-      </div>
-         <div class="btna3 addpay">確定加值</div>
-   </div>
-</div>
-`
-// 付費方案視窗
-let resume_payplan_window = `
-<div class="m-a-s-k"></div>
-<div class="card_resume  resume_window">
-        <ul class="cardUl">
-            <li>
-               <h1 class="cardH1">加值點數</h1>
-            </li>
-            <li>
-               <i class="fa-solid fa-xmark cardXmark"></i>
-            </li>
-        </ul>
-        <div class="cardInner payplan">
-            <div class="applyTitle">
+// let resume_pay_window = `
+// <div class="m-a-s-k"></div>
+// <div class="card_resume resume_window">
+//    <ul class="cardUl">
+//       <li>
+//          <h1 class="cardH1">金幣不足</h1>
+//       </li>
+//       <li>
+//          <i class="fa-solid fa-xmark cardXmark"></i>
+//       </li>
+//    </ul>
+//    <div class="cardInner applyfor">
+//       <div class="applyTitle">
+//          <div class="messageTitleMain">
+//                <h3>A01模板需100金幣</h3>
+//          </div>
+//       </div>
+//          <div class="btna3 addpay">確定加值</div>
+//    </div>
+// </div>
+// `
+// // 付費方案視窗
+// let resume_payplan_window = `
+// <div class="m-a-s-k"></div>
+// <div class="card_resume  resume_window">
+//         <ul class="cardUl">
+//             <li>
+//                <h1 class="cardH1">加值點數</h1>
+//             </li>
+//             <li>
+//                <i class="fa-solid fa-xmark cardXmark"></i>
+//             </li>
+//         </ul>
+//         <div class="cardInner payplan">
+//             <div class="applyTitle">
         
-                <div class="applyTitle_main">
-                    <input type="radio" name="123">
-                    <h2>NT 399</h2>
-                    <img src="images/header_icon/money.png" alt="">
-                    <h2>200金幣</h2>
-                </div>
-                <div class="applyTitle_main">
-                    <input type="radio" name="123">
-                    <h2>NT 899</h2>
-                    <img src="images/header_icon/money.png" alt="">
-                    <h2>500金幣</h2>
-                </div>
-                <div class="applyTitle_main">
-                    <input type="radio" name="123">
-                    <h2>NT 1599</h2>
-                    <img src="images/header_icon/money.png" alt="">
-                    <h2>1000金幣</h2>
-                </div>
-            </div>
-            <div class="btna3 payplan_btn">確定</div>
-        </div>
-</div>`
+//                 <div class="applyTitle_main">
+//                     <input type="radio" name="123">
+//                     <h2>NT 399</h2>
+//                     <img src="images/header_icon/money.png" alt="">
+//                     <h2>200金幣</h2>
+//                 </div>
+//                 <div class="applyTitle_main">
+//                     <input type="radio" name="123">
+//                     <h2>NT 899</h2>
+//                     <img src="images/header_icon/money.png" alt="">
+//                     <h2>500金幣</h2>
+//                 </div>
+//                 <div class="applyTitle_main">
+//                     <input type="radio" name="123">
+//                     <h2>NT 1599</h2>
+//                     <img src="images/header_icon/money.png" alt="">
+//                     <h2>1000金幣</h2>
+//                 </div>
+//             </div>
+//             <div class="btna3 payplan_btn">確定</div>
+//         </div>
+// </div>`
 
 // 刪除視窗
 // let resume_delete_window = `
@@ -230,19 +230,19 @@ $(function () {
    })
 
    // 模板付費視窗
-   $('.resume_model-border .resume_pay').on('click', function () {
-      $('.resume_wrapper').append(resume_pay_window)
-      $('.fa-xmark').on('click', function () {
-         closeItem()
-      })
-      // 儲值視窗
-      $('.addpay').on('click', function () {
-         $('.resume_wrapper').append(resume_payplan_window)
-         $('.fa-xmark,.payplan_btn').on('click', function () {
-            closeItem()
-         })
-      })
-   })
+   // $('.resume_model-border .resume_pay').on('click', function () {
+   //    $('.resume_wrapper').append(resume_pay_window)
+   //    $('.fa-xmark').on('click', function () {
+   //       closeItem()
+   //    })
+   //    // 儲值視窗
+   //    $('.addpay').on('click', function () {
+   //       $('.resume_wrapper').append(resume_payplan_window)
+   //       $('.fa-xmark,.payplan_btn').on('click', function () {
+   //          closeItem()
+   //       })
+   //    })
+   // })
 
 
 
@@ -293,9 +293,9 @@ $(function () {
    // })
 
    // 刪除編輯的履歷
-   $('.resume_model').on('click', function () {
-      $('.work_space_a4').show()
-   })
+   // $('.resume_model').on('click', function () {
+   //    $('.work_space_a4').show()
+   // })
 
    
 
