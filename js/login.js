@@ -33,16 +33,46 @@ $(function () {
                 password:password.value,
             })
         })
-        // .then(resp => resp.json())
-        // .then(body => {
-        //     console.log(body);
-        // });
-
-        .then(resp =>{
-            if (resp.status === 200) {
+        .then(resp => resp.text())
+        .then(result => {
+            console.log('test', result == 'successful');
+            if(result == 'successful') {
                 location.replace('../dist/student_main.html');
+            }else{
+                alert("帳號密碼錯誤")
             }
         });
+        
+        
+        
+        
+        // .then(body => {
+        //     console.log(body);
+        
+        
+        // 這裡寫判斷if true 去轉址 用php retrun回來 
+        // .then(resp =>{
+        //     console.log(resp);
+        //     // var value="<?php echo $num; ?>";
+        //     // console.log(value);
+        //         // if (resp.status === 200 && success ?? ) {
+        //         //     // console.log(resp);
+        //         //     // console.log(value);
+        //         //     location.replace('../dist/student_main.html');
+        //         // }else{
+        //         //     resp.status === false;
+        //         //     alert('帳號密碼錯誤')
+        //         // };
+                    
+        // });
+
+   
+
+        // .then(resp =>{
+        //     if (resp.status === 200) {
+        //         location.replace('../dist/student_main.html');
+        //     }
+        // });
 
     });
 
