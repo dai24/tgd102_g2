@@ -66,12 +66,14 @@ Vue.component('my-workspace',{
                 }
             },
             methods: {
-                submitData(str){
-                    if(str == 'close'){
-                        this.$emit('modelBorder',false)
+                submitData(fileName,unlock,price){
+                    if(fileName != undefined){
+                        this.$emit('selectModel',true,fileName,unlock,price)
+                        console.log('selectModel: ' +"檔名:"+ fileName+"，解鎖:"+unlock+"，價格:"+price)
+                        
                     }else{
-                        this.$emit('selectModel',true,str)
-                        console.log('selectModel: ' + str)
+                        this.$emit('modelBorder',false)
+                        console.log('on open model')
                     }
                     
                 }
@@ -88,8 +90,8 @@ Vue.component('my-workspace',{
             template:
             `
                 <div class="resume_model-border">
-                    <button class="xmark_btn" @click="submitData('close')"><i class="fa-solid fa-xmark"></i></button>            
-                    <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0}" v-for="model in resume_model"  @click="submitData(model.FILE_NAME)">
+                    <button class="xmark_btn" @click="submitData()"><i class="fa-solid fa-xmark"></i></button>            
+                    <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0}" v-for="model in resume_model"  @click="submitData(model.FILE_NAME,model.UNLOCK_STATUS,model.PRICE)">
                         <img :src="model.IMG_PATH">
                         <div v-if="model.UNLOCK_STATUS == 0">
                             <i class="fa-solid fa-crown"></i>
@@ -98,6 +100,111 @@ Vue.component('my-workspace',{
                         
                     </div>
                 </div>
+            `,
+        })
+
+         //付費
+         Vue.component('win-pay',{   
+            props: ['fileName','price','unlock',],
+            data(){
+                return {
+                    
+                   
+                }
+            },
+            methods: {
+                submitData(payCheck){
+                    if(payCheck == 'payCheck'){
+                        this.$emit('payCheckwin',true,payCheck)
+                        console.log('submit: ' + payCheck)
+                    }else{   
+                        this.$emit('paywin',false)  
+                    }
+                                          
+                }
+                
+            },
+            template:
+            `
+            <div>
+                <div class="m-a-s-k" @click="submitData('close')"></div>
+                    <div class="card_resume resume_window">
+                    <ul class="cardUl">
+                        <li>
+                            <h1 class="cardH1">金幣不足</h1>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark cardXmark" @click="submitData('close')"></i>
+                        </li>
+                    </ul>
+                    <div class="cardInner applyfor">
+                        <div class="applyTitle">
+                            <div class="messageTitleMain">
+                                <h3>{{fileName}}模板需{{price}}金幣</h3>
+                            </div>
+                        </div>
+                        <div class="btna3 addpay" @click="submitData('payCheck')">確定加值</div>
+                    </div>
+                </div>
+            </div>
+                
+            `,
+        })
+
+         //付費方案
+         Vue.component('win-payplan',{   
+            data(){
+                return {
+                    
+                   
+                }
+            },
+            methods: {
+                submitData(type){
+                        this.$emit('payplanwin',false)   
+                }
+                
+            },
+            template:
+            `
+            <div>
+                <div class="m-a-s-k" @click="submitData('close')"></div>
+                <div class="card_resume  resume_window">
+                    <ul class="cardUl">
+                        <li>
+                        <h1 class="cardH1">加值點數</h1>
+                        </li>
+                        <li>
+                        <i class="fa-solid fa-xmark cardXmark" @click="submitData('close')"></i>
+                        </li>
+                    </ul>
+                    <div class="cardInner payplan">
+                        <div class="applyTitle">
+                    
+                            <div class="applyTitle_main">
+                                <input type="radio" name="123">
+                                <h2>NT 399</h2>
+                                <img src="images/header_icon/money.png" alt="">
+                                <h2>200金幣</h2>
+                            </div>
+                            <div class="applyTitle_main">
+                                <input type="radio" name="123">
+                                <h2>NT 899</h2>
+                                <img src="images/header_icon/money.png" alt="">
+                                <h2>500金幣</h2>
+                            </div>
+                            <div class="applyTitle_main">
+                                <input type="radio" name="123">
+                                <h2>NT 1599</h2>
+                                <img src="images/header_icon/money.png" alt="">
+                                <h2>1000金幣</h2>
+                            </div>
+                        </div>
+                        <div class="btna3 payplan_btn">確定</div>
+                    </div>
+                </div>
+            </div>
+                
             `,
         })
 
@@ -407,12 +514,12 @@ Vue.component('my-workspace',{
                 }
             },
             methods: {
-                submitData(str){
-                    if(str == 'close'){
+                submitData(type){
+                    if(type == 'close'){
                         this.$emit('deletewin', false);
                     }else{
-                        this.$emit('deletebtn',false);
-                        console.log('deletebtn')
+                        this.$emit('deletecheck',false);
+                        console.log('deletecheck')
                     }
    
                 },
@@ -456,19 +563,27 @@ Vue.component('my-workspace',{
                     sharePopup: false,
                     pdfPopup: false,
                     deletePopup: false,
+                    payPopup: false,
+                    payplan: false,
                     modelBorder: false,
                     deleteResumeBorder: true,
+                    fileName: '',
+                    unlock: 0,
+                    price: 0,
+                    
                 }
             },
             methods: {  
+                // 依哪個click功能就打開彈窗
                 open(open,type){
-                    // console.log(open,type)
+                    console.log(open,type)
+                    // 連點模板可以開啟關閉，換替 toggle
                     if(type == 'model'){
+                        // 當模板是打開狀態，在點擊就關閉
                         if(this.modelBorder == true){
-                            //第2次執行這
                             this.modelBorder = false; 
                         }else{
-                            //第1次執行這
+                            // 第1次點擊打開模板
                             this.modelBorder = open;
                         } 
                         
@@ -480,24 +595,48 @@ Vue.component('my-workspace',{
                         this.pdfPopup = open;
                     }else if(type == 'delete'){
                         this.deletePopup = open;
+                    }else if(type == 'pay'){
+                        this.payPopup = open;
+                    }else if(type == 'payCheck'){
+                        this.payplan = open;
+                        console.log('on payplan')
                     }
+
                 },
+                // 關閉彈窗
                 close(closeWin) {
-                    console.log('close')
+                    // console.log('close')
                     this.savePopup = closeWin;
                     this.sharePopup = closeWin;
                     this.pdfPopup = closeWin;
                     this.deletePopup = closeWin;
-                    this.modelBorder = closeWin;
+                    // this.modelBorder = closeWin;
+                    this.payPopup = closeWin;
+                    this.payplan = closeWin;
+
                 },
-                deleteResume(deletebtn){
-                    this.deleteResumeBorder = deletebtn;
+                // 刪除履歷彈窗及刪除履歷(模板隱藏)
+                deleteResume(deleteCheck){
+                    this.deleteResumeBorder = deleteCheck;
                     this.deletePopup = false
                     console.log('deleteResume')
                 },
-                selectedModel(open,fileName){
-                    this.deleteResumeBorder = open;
-                    console.log('selectedModel')
+                selectedModel(open,fileName,unlock,price){
+                    if(unlock == 1){
+                        // 選擇模板編譯履歷
+                        console.log('resumeborder')
+                        this.deleteResumeBorder = open;
+                    }else{
+                        // 付費彈窗
+                        console.log('payPopup')
+                        this.payPopup = open
+                        this.fileName = fileName
+                        this.unlock = unlock
+                        this.price = price
+                    }
+                    
+                    // this.modelBorder = false;
+                    console.log('selectedModel:'+ fileName +','+ unlock +','+ price)
                 },
 
              
@@ -506,6 +645,7 @@ Vue.component('my-workspace',{
             `
             <div>
                 <my-workspace @get="open"></my-workspace>
+
                 <div class="work_space_make">
                     <resume-modelBorder v-show="modelBorder" @modelBorder="close" @selectModel="selectedModel"></resume-modelBorder>
                     <div class="resume_make">
@@ -514,10 +654,13 @@ Vue.component('my-workspace',{
                     </div>
                     <edit-summernote></edit-summernote>
                 </div>
+                
                 <win-save v-if="savePopup" @savewin="close"></win-save>
                 <win-share v-if="sharePopup" @sharewin="close"></win-share>
                 <win-pdf v-if="pdfPopup" @pdfwin="close"></win-pdf>
-                <win-delete v-if="deletePopup" @deletewin="close" @deletebtn="deleteResume"></win-delete>
+                <win-pay v-if="payPopup" @paywin="close" @payCheckwin="open" :fileName="fileName" :price="price"></win-pay>
+                <win-payplan v-if="payplan" @payplanwin="close"></win-payplan>
+                <win-delete v-if="deletePopup" @deletewin="close" @deletecheck="deleteResume"></win-delete>
                 
             </div>
             `,

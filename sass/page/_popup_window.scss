@@ -155,12 +155,19 @@
     margin: 0 auto;
 }
     .applyTitle {
+        margin-left: auto;
+        margin-right: auto;
+        // width: 50%;
         .applyTitle_main{
             display: flex;
-            justify-content: space-evenly;
+            justify-content: center;
             &:nth-child(3){
-
-                margin-left: 8px;
+                input + h2{
+                    // margin-right: 10px;
+                }
+                img{
+                    margin: 0 10px 0 5px;
+                }
             }
             input{
                 width: 18px;
@@ -172,12 +179,13 @@
                 color: $secondary01;
                 // padding:$space04;
                 margin-bottom: $space04;
+                margin-right: 20px;
             
             }
             img{
                 width: 30px;
                 height: 30px;
-                margin: 0 30px;
+                margin: 0 10px 0 30px;
             }
         }
     }
