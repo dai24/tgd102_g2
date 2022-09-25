@@ -4,13 +4,20 @@
     @@include('./layout/head.html',{
         "title" : "後台求職資源"
         })        
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="">
-        <script src="https://kit.fontawesome.com/1ded507973.js" crossorigin="anonymous"></script>
+    <script src="https://unpkg.com/vue@2"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" integrity="">
+    <script src="https://kit.fontawesome.com/1ded507973.js" crossorigin="anonymous"></script>
+    <!-- swiper套件 -->
+    <!-- <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.css">
+    <link rel="stylesheet" href="https://unpkg.com/swiper/css/swiper.min.css"> -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css"/>
+    <!-- <script src="https://unpkg.com/swiper/js/swiper.js"></script>
+    <script src="https://unpkg.com/swiper/js/swiper.min.js"></script> -->
 </head>
 <body>
 <main  class="backstage_resource">
     @@include('./layout/backstage_nav.html')
-    <div  class=" wrapper">
+    <div class=" wrapper" >
         <h1 class="title">求職資源</h1>
         <ul class="block">
             <li>
@@ -28,78 +35,8 @@
                 </div>
             </li>       
         </ul>
-        <div class="containTeacher swiper-container mySwiper">
-            <ul class="conSliTeacher swiper-wrapper">            
-                <li class="slideTeacher swiper-slide">
-                    <img src="./images/resumeReview/1.jpg" alt="導師照片">
-                    <ul class="inform">
-                        <li><h3 class="name">王博均</h3></li>
-                        <li><h4 class="major">人資經理</h4></li>
-                        <li><h4 class="match">已健檢人數：<span>5</span>人</h4></li>
-                        <a href="#"><button class="btna21">詳細資料</button></a> 
-                    </ul>                
-                </li>
-    
-                <li class="slideTeacher swiper-slide">
-                    <img src="./images/resumeReview/2.jpg" alt="導師照片">
-                    <ul class="inform">
-                        <li><h3 class="name">薛彥涵</h3></li>
-                        <li><h4 class="major">企業顧問</h4></li>
-                        <li><h4 class="match">已健檢人數：<span>6</span>人</h4></li>
-                        <a href="#"><button class="btna21">詳細資料</button></a>
-                    </ul>                
-                </li>
-    
-                <li class="slideTeacher swiper-slide">
-                    <img src="./images/resumeReview/3.jpg" alt="導師照片">
-                    <ul class="inform">
-                        <li><h3 class="name">李凱宇</h3></li>
-                        <li><h4 class="major">人資副理</h4></li>
-                        <li><h4 class="match">已健檢人數：<span>7</span>人</h4></li>
-                        <a href="#"><button class="btna21">詳細資料</button></a>
-                    </ul>                
-                </li>
-    
-                <li class="slideTeacher swiper-slide">
-                    <img src="./images/resumeReview/4.jpg" alt="導師照片">
-                    <ul class="inform">
-                        <li><h3 class="name">宋軒辰</h3></li>
-                        <li><h4 class="major">資深人資專員</h4></li>
-                        <li><h4 class="match">已健檢人數：<span>2</span>人</h4></li>
-                        <a href="#"><button class="btna21">詳細資料</button></a>
-                    </ul>                
-                </li> 
-                
-                <li class="slideTeacher swiper-slide">
-                    <img src="./images/resumeReview/5.jpg" alt="導師照片">
-                    <ul class="inform">
-                        <li><h3 class="name">郭文翰</h3></li>
-                        <li><h4 class="major">人資副理</h4></li>
-                        <li><h4 class="match">已健檢人數：<span>2</span>人</h4></li>
-                        <a href="#"><button class="btna21">詳細資料</button></a>
-                    </ul>                
-                </li>
-    
-                <li class="slideTeacher swiper-slide">
-                    <img src="./images/resumeReview/6.jpg" alt="導師照片">
-                    <ul class="inform">
-                        <li><h3 class="name">趙緯蓮</h3></li>
-                        <li><h4 class="major">人資經理</h4></li>
-                        <li><h4 class="match">已健檢人數：<span>3</span>人</h4></li>
-                        <a href="#"><button class="btna21">詳細資料</button></a>
-                    </ul>                
-                </li>
-
-                <li class="slideTeacher swiper-slide">
-                    <img src="./images/resumeReview/7.jpg" alt="導師照片">
-                    <ul class="inform">
-                        <li><h3 class="name">蘇霈霖</h3></li>
-                        <li><h4 class="major">人資專員</h4></li>
-                        <li><h4 class="match">已健檢人數：<span>5</span>人</h4></li>
-                        <a href="#"><button class="btna21">詳細資料</button></a>
-                    </ul>                
-                </li>
-            </ul>
+        <div class="containTeacher swiper-container mySwiper" id="backstage_resource_app">
+            <teacher-data></teacher-data>
         </div>        
 
         <!-- 文章管理 -->
@@ -113,7 +50,7 @@
                         <li><button class="btna22">履歷教學</button></li>
                         <li><button class="btna22">面試技巧</button></li>
                         <li><button class="btna22">職涯發展</button></li>
-                    </ul>
+                    </ul>                    
                 </div>
             </li>
 

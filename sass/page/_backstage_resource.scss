@@ -79,99 +79,92 @@
                         margin-right: 24px; //與搜尋欄的距離
                     }
                 }
-            }      
-            
+            }                  
         };     
-        //swiper套件
-        // .swiper-container {
-        //     width: 100%;
-        //     height: 100%;
-        //     margin-left: auto;
-        //     margin-right: auto;
-        //   }
-      
-        //   .swiper-slide {
-        //     text-align: center;
-        //     font-size: 18px;
-        //     background: #fff;
-        //     height: calc((100% - 30px) / 2);
-      
-        //     /* Center slide text vertically */
-        //     display: -webkit-box;
-        //     display: -ms-flexbox;
-        //     display: -webkit-flex;
-        //     display: flex;
-        //     -webkit-box-pack: center;
-        //     -ms-flex-pack: center;
-        //     -webkit-justify-content: center;
-        //     justify-content: center;
-        //     -webkit-box-align: center;
-        //     -ms-flex-align: center;
-        //     -webkit-align-items: center;
-        //     align-items: center;
-        //   }           
-        //導師群slide
-        .containTeacher{
-            overflow: hidden;         
-            .conSliTeacher{            
-                display: flex;
-                justify-content: space-between;
-                padding-left: 0; //清除原設
-                padding-right: 0; //清除原設
-                overflow: hidden;
-                .slideTeacher{ //導師
+        
+        //履歷健檢導師群。swiper套件
+        .swiper{
+            // width: 1500px;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+
+            margin-top: 16px;
+            margin-bottom: 32px;
+            margin-left: auto;
+            margin-right: auto;
+            .swiper-button-next{ //下一張
+                display: block;
+                color: $secondary01;
+                background-color: white;
+                padding: 50px 12px;
+                border-radius: 20px 0px 0px 20px;
+                right: 0;                
+                opacity: 0.6;
+                z-index: 1;
+            }
+            .swiper-button-prev{ //前一張
+                display: block;
+                color:$secondary01;                
+                background-color: white;
+                padding: 50px 12px;
+                border-radius: 0 20px 20px 0;
+                left: 0;
+                opacity: 0.6;
+                z-index: 1;
+            }
+            .swiper-wrapper{ //導師群container
+                width:100%;
+                display: flex;            
+                .swiper-slide{ //一張導師card
+                    display: block;
                     width: 232px;
-                    border-radius: 5px;
-                    display: flex;
-                    // flex-grow: 1;
-                    flex-direction: column;
-                    margin-top: 24px;
-                    margin-left: 9px;
-                    margin-right: 9px;
+                    border-radius: 5px 5px 0 0;
+                    margin-right: 32px;
                     img{ //導師照片
                         display: block;
-                        width: 100%;
-                        
-                    }
-                    .btna21{
-                        width: 120px;
-                    }
+                        width: 100%;               
+                        object-fit:cover;
+                    }              
                 }
-                //導師詳細資料
-                .inform{
+                //該導師資訊
+                .teacherInform{
                     width: 100%;
-                    height: 215px;
+                    // height: 215px;
                     background-color: $secondary01;
                     color: $secondary02;
                     display: flex;
                     flex-direction: column;
                     align-items: center;
-                    li{
-                        text-align: center;
-                    }
-                    //導師名稱
-                    .name{
-                        font-size: $fontSize03;
+                    //導師姓名
+                    .tname{
+                        font-size: $fontSize02;
                         margin-top: 18px;
                         margin-bottom: 18px;
                     }
+                    //擅長領域
                     .major{
                         margin-bottom: 8px;
-                        float: left;
                     }
+                    //已健診人數
                     .match{
-                        margin-bottom: 53px; //和按鈕的距離
-                        float: left;
+                        margin-bottom: 16px;
+                    }
+                    //"詳細資料"
+                    .btna21{
+                        width: 120px;
+                        font-weight: bold;
+                        color:$secondary01;
+                        margin-bottom: 24px;
+                        
                     }
                 }
-            }   
+            }
         }
-        
         
         //文章總覽
         .block2{            
-            position: relative;
-            margin-top: 48px;            
+            position: relative;       
             >li{
                 display: flex;
             }
@@ -280,4 +273,5 @@
             }                
         }
     }
+
 }
