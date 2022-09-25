@@ -11,7 +11,7 @@ Vue.component('company-data',{
     },
     mounted() {       
         //顯示第一頁的資料
-        fetch(`php/searchcompany.php?page=1`)
+        fetch(`./php/searchcompany.php?page=1`)
         .then(rsp => rsp.json())
         .then(userArr => {    
             this.companyData = userArr
@@ -81,4 +81,8 @@ let vm = new Vue({ //設定想要預載的html結構
             <company-data></company-data>            
         </table>
         `,  
-    })     
+})     
+
+new Vue({
+    el:'#backstage_company_app',
+})
