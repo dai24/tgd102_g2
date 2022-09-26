@@ -3,7 +3,7 @@
 
     include('./PDO/Connection.php');
 
-    $sql = "SELECT ID as id, TNAME as tname, PHOTO as img, JOBTITLE as tjobtitle , TIMES as ttimes FROM TEACHER;";   
+    // $sql = "SELECT ID as id, TNAME as tname, PHOTO as img, JOBTITLE as tjobtitle , TIMES as ttimes FROM TEACHER;";   
 
     // $sql = "SELECT T.TNAME, T.PHOTO, T.JOBTITLE, T.TIMES, T.SCHOOL, T.TDESCRIPTION,
     //         TJ.JOBNAME, TIC.INDUSTRYCLASSNAME, TJC.JOBCLASSNAME
@@ -13,17 +13,15 @@
     //         LEFT JOIN TEACHER_JOBCLASS AS TJC ON T.ID = TJC.TEACHERID;
     //         ";    
 
-    // $sql = "
-    //         set sql_mode = 'STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
-            
-    //         SELECT T.TNAME, T.PHOTO, T.JOBTITLE, T.TIMES, T.SCHOOL, T.TDESCRIPTION,
-    //         TJ.JOBNAME, TIC.INDUSTRYCLASSNAME, TJC.JOBCLASSNAME
-    //         FROM TEACHER AS T
-    //         LEFT JOIN TEACHER_JOB AS TJ ON T.ID = TJ.TEACHERID
-    //         LEFT JOIN TEACHER_INDUSTRYCLASS AS TIC ON T.ID = TIC.TEACHERID
-    //         LEFT JOIN TEACHER_JOBCLASS AS TJC ON T.ID = TJC.TEACHERID
-    //         GROUP BY T.ID;
-    //         ";
+    $sql = "
+            SELECT T.TNAME as tname, T.PHOTO as img, T.JOBTITLE as tjobtitle, T.TIMES as ttimes, T.SCHOOL as tschool, T.TDESCRIPTION as tdescription,
+            TJ.JOBNAME, TIC.INDUSTRYCLASSNAME, TJC.JOBCLASSNAME
+            FROM TEACHER AS T
+            LEFT JOIN TEACHER_JOB AS TJ ON T.ID = TJ.TEACHERID
+            LEFT JOIN TEACHER_INDUSTRYCLASS AS TIC ON T.ID = TIC.TEACHERID
+            LEFT JOIN TEACHER_JOBCLASS AS TJC ON T.ID = TJC.TEACHERID
+            GROUP BY T.ID;
+            ";
 
 
 
