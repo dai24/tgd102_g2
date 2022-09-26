@@ -59,10 +59,10 @@
                 .thead{
                     border: solid $primary02;
                     .theadtr{
-                        display: flex;
+                        // display: flex;
                         // justify-content:space-between;
                         th{
-                            flex-grow: 1;
+                            // flex-grow: 1;
                         }
                     }
                 }
@@ -118,10 +118,12 @@
                 }
                 //每筆資料
                 .item{
-                    display: flex;
                     flex-direction:column;
-                    border: solid $primary02;
+                    border:3px solid $primary02;
                     border-top: 0;
+                    &:hover{
+                        background-color: $primary03;
+                    }
                     .itemBasic{ //會員基本資料
                         // display: flex;
                         justify-content: space-between;
@@ -129,65 +131,9 @@
                             background-color:$primary03;                    
                         }
                         >td{
-                            flex-grow: 1;
+                            // flex-grow: 1;
                         }
-                    }
-                    .itemDetailTile{ //詳細資料欄位
-                        display: none;
-                        // background-color:$primary03;
-                        border-top: 1px solid $primary02;
-                        h3{
-                            font-weight: bold;
-                            color: $secondary01;
-                            text-align: left;
-                        }
-                        //欄位：email
-                        .email{
-                            // max-width: 160px;
-                            flex-grow: 1;
-                            h3{
-                                padding-left: 16px;
-                            }                            
-                        }
-                        //欄位：電話
-                        .phone{
-                            // min-width: 160px;
-                            flex-grow: 1;
-                        }
-                        //欄位：地址
-                        .address{
-                            // min-width: 240px;
-                            flex-grow: 6;
-                        }
-                    }   
-                    .itemDetail{ //會員詳細資料
-                        display: none;
-                        border-top: 1px solid $primary02;
-                        // background-color:$primary03;
-                        // &:hover{ 
-                        //     background-color:$primary03;                    
-                        // }
-                        h3{
-                            text-align: left;
-                        }
-                        //欄位：email
-                        .email{
-                            // max-width: 160px;
-                            flex-grow: 1;
-                            padding-left: 16px;
-                        }
-                        //欄位：電話
-                        .phone{
-                            // min-width: 160px;
-                            flex-grow: 1;
-                        }
-                        //欄位：地址
-                        .address{
-                            // min-width: 240px;
-                            flex-grow: 6;
-                            text-align: left;
-                        }
-                    }
+                    }                    
                     h3{
                         padding:12px 0; //控制item上下位置
                         text-align: center;
@@ -204,7 +150,44 @@
                             text-align: right;
                         }
                     }
-                }                   
+                }                
+                .itemDetailTile{ //詳細資料欄位
+                    border:3px solid $primary02;
+                    border-top: 1.5px solid $primary02;
+                    h3{
+                        font-weight: bold;
+                        color: $secondary01;
+                        text-align: left;
+                    }
+                    th{ //修改欄位底色
+                        background-color: $primary04;
+                    }
+                    //欄位：email
+                    .email{
+                        h3{
+                            padding-left: 16px;
+                        }                            
+                    }
+                }   
+                .itemDetail{ //會員詳細資料
+                    border: 3px solid $primary02;
+                    border-top: 1.5px solid $primary02;
+                    th{
+                        background-color:$primary04H;
+                    }
+                    h3{
+                        text-align: left;
+                        
+                    }
+                    //欄位：email
+                    .email{
+                        padding-left: 16px;
+                    }
+                    //欄位：地址
+                    .address{
+                        text-align: left;
+                    }
+                }   
             }
         }
         

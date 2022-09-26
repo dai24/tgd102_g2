@@ -1,32 +1,48 @@
 
- //打開/關閉子選單
- let consultantIndustrySearch = document.querySelector(".consultantIndustrySearch");  
- let categoryCurrent = consultantIndustrySearch.firstElementChild;
- let consultantIndustry = document.querySelector(".searchItem"); 
- let category = consultantIndustry.querySelectorAll("button"); //找到所有子選單選項
- // console.log(category);
- // console.log(categoryCurrent.innerText);
- let currentCategory = consultantIndustrySearch.firstElementChild;
- consultantIndustrySearch.addEventListener("click", () => {
-     consultantIndustry.classList.toggle("-on");
-     if(consultantIndustry.classList.contains("-on")){
-         consultantIndustry.style.display = "block";
-     }else{
-         consultantIndustry.style.display = "none";
-     }
-
-     for(let i = 0; i <category.length; i++ ){
-         category[i].addEventListener("click", e => {
-             categoryCurrent.innerText = e.target.innerHTML;
-             categoryCurrent.insertAdjacentHTML("beforeend", `
-                 <i class="fa-solid fa-chevron-down"></i>
-             `)
-         })
-     }
- })
 
 //--------------------------------------------
 
+//新增文章
+// Vue.component('addArticle',{
+//     data(){
+//         return{
+//             toggleAddArticle:false, //打開新增文章
+//         }
+//     },
+//     methods: {
+        
+//     },
+//     mounted() {
+        
+//     },
+//     template:`
+//     <div class="backstage_addArticle" v-if="toggleAddArticle">
+//         <div class="contactUSInner"></div>
+//         <div class="card">
+//             <ul class="cardUl">
+//                 <li>
+//                     <h1 class="cardH1">新增文章</h1>
+//                 </li>
+//                 <li>
+//                     <i class="fa-solid fa-xmark cardXmark"></i>
+//                 </li>
+//             </ul>
+//             <div class="cardInner applyfor">
+//                 <h2 class="question">文章內容</h2>
+//                 <textarea name="" id="" cols="30" rows="6" placeholder="請輸入文章內容"></textarea>
+                
+//                 <!-- 按鈕：儲存、取消 -->
+//                 <ul class="edit">
+//                     <li class="btna3"><a href="#">取消</a></li>
+//                     <li class="btna4"><a href="#">儲存</a></li>
+//                 </ul>
+//             </div>
+//         </div>
+//     </div>    
+//     `,
+// })
+
+//目標：從資料庫取得導師資訊
 Vue.component('teacher-data',{
     data(){
         return{
@@ -91,12 +107,109 @@ Vue.component('teacher-data',{
 })
 
 let vm = new Vue({
-    el: `#backstage_resource_app`,
+    el: `#backstage_resource_teacher_app`,
     template:`
         <teacher-data></teacher-data>
     `
 })
 
+let vms = new Vue({
+    el:'#backstage_resource_article_app',
+    data:{
+        toggleAddArticle:false, //打開彈窗。新增文章
+    },
+    methods:{
+        addArticle(){ //開關新增文章
+            this.toggleAddArticle = !this.toggleAddArticle
+        }
+    },
+    updated(){
+        
+    },
+    template:`
+    <div class="block block2">
+        <!-- 新增文章彈窗。js在backstage_nav-->
+        <div class="backstage_addArticle" v-if="toggleAddArticle">
+            <div class="contactUSInner"></div>
+            <div class="card3">
+                <ul class="cardUl">
+                    <li>
+                        <h1 class="cardH1">新增文章</h1>
+                    </li>
+                    <li>
+                        <i class="fa-solid fa-xmark cardXmark" @click="addArticle"></i>
+                    </li>
+                </ul>
+                <div class="cardInner applyfor">
+                    <section class="input01">
+                        <h2 class="question">文章標題</h2>
+                        <input class="inputText" type="text" placeholder="請輸入文章標題">
+                    </section>
 
+                    <section>
+                        <h2 class="question">文章內容</h2>
+                        <textarea name="" id="" cols="30" rows="6" placeholder="請輸入文章內容"></textarea>
+                    </section>
 
- 
+                    <!-- 按鈕：儲存、取消 -->
+                    <ul class="edit">
+                        <li class="btna3" @click="addArticle">取消</li>
+                        <li class="btna4" @click="addArticle">儲存</li>
+                    </ul>
+                </div>
+            </div>
+        </div> 
+        <li class="articleTitle">
+            <h3>文章種類：</h3>
+            <div class="consultantIndustrySearch">
+                <button class="btna21">求職指南<i class="fa-solid fa-chevron-down"></i></button>
+                <ul class="consultantIndustry searchItem">
+                    <li><button class="btna22">求職指南</button></li>
+                    <li><button class="btna22">履歷教學</button></li>
+                    <li><button class="btna22">面試技巧</button></li>
+                    <li><button class="btna22">職涯發展</button></li>
+                </ul>                    
+            </div>
+        </li>
+
+        <li class="articleTitle">
+            <ul class="addContent">
+                <li><a><h4 @click="addArticle">新增文章</h4></a></li>
+                <li><i @click="addArticle" class="fa-solid fa-arrow-up-from-bracket"></i></li>
+            </ul>
+            <div class="inputsearch">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input type="Text" class="inputText" placeholder="搜尋文章名稱" name="search">
+            </div>
+        </li>           
+        </ul>    
+    </div>
+    `
+})
+
+//打開/關閉子選單
+let consultantIndustrySearch = document.querySelector(".consultantIndustrySearch");  
+let categoryCurrent = consultantIndustrySearch.firstElementChild;
+let consultantIndustry = document.querySelector(".searchItem"); 
+let category = consultantIndustry.querySelectorAll("button"); //找到所有子選單選項
+// console.log(category);
+// console.log(categoryCurrent.innerText);
+let currentCategory = consultantIndustrySearch.firstElementChild;
+consultantIndustrySearch.addEventListener("click", () => {
+    consultantIndustry.classList.toggle("-on");
+    if(consultantIndustry.classList.contains("-on")){
+        consultantIndustry.style.display = "block";
+    }else{
+        consultantIndustry.style.display = "none";
+    }
+
+    for(let i = 0; i <category.length; i++ ){
+        category[i].addEventListener("click", e => {
+            
+            categoryCurrent.innerText = e.target.innerHTML;
+            categoryCurrent.insertAdjacentHTML("beforeend", `
+                <i class="fa-solid fa-chevron-down"></i>
+            `)
+        })
+    }
+})

@@ -4,6 +4,7 @@ Vue.component('student-data',{
     data(){
         return{
             studentData: [],
+            opened_tr:null
         }       
     },
     methods:{
@@ -33,63 +34,55 @@ Vue.component('student-data',{
                     this.studentData = userArr  
                 })
             })
-        }        
-
+        }     
     },
     updated() {
-        let detailBtn = document.querySelectorAll(".detailBtn")
-        // console.log(detailBtn)
-
-        //功能：打開/關閉 詳細資訊
-        for(let i = 0; i < detailBtn.length; i++){
-            detailBtn[i].addEventListener("click", e => {
-                // console.log(e.target.closest(".item").querySelector(".itemDetailTile")) //確認有抓到想要的元素
-                let item = e.target.closest(".item")
-                let itemDetailTile = e.target.closest(".item").querySelector(".itemDetailTile")
-                let itemDetail = e.target.closest(".item").querySelector(".itemDetail")
-
-                if(item.classList.contains("-on")){
-                    itemDetailTile.style.display = "none";
-                    itemDetail.style.display = "none";
-                    item.classList.remove("-on")
-                }else{
-                    itemDetailTile.style.display = "flex";
-                    itemDetail.style.display = "flex";
-                    item.classList.add("-on")
-                }
-                                
-            })
-        }        
+        
     },
     template: `
-    <div>
-        <tr class="item" v-for="students in studentData" rowspan="3" >
-                <div class="itemBasic">
-                    <td class="id"><h3>C111{{students.ID}}</h3></td>
-                    <td class="name"><h3>{{students.NAME}}</h3></td>
-                    <td class="gender"><h3>{{students.GENDER}}</h3></td>
-                    <td class="birthday"><h3>{{students.BIRTHDAY}}</h3></td>
-                    <td class="coin"><h3>{{students.COIN}}</h3></td>
-                    <td class="blacklist"><a href="#"><h3>{{students.BLACKLIST}}</h3></a></td>
-                    <td class="record"><a href="#"><h3>10</h3></a></td>
-                    <td class="detail"><h3><button class="btna3 detailBtn"><h4>詳細資料</h4></button></h3></td>
-                    <td class="create-date"><h3>{{students.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
-                    <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>    
-                </div>
+    <tbody>
+        <template  v-for="(students,key) in studentData">
+           <tr class="item">
+                <td class="id"><h3>C111{{students.ID}}</h3></td>
+                <td class="name"><h3>{{students.NAME}}</h3></td>
+                <td class="gender"><h3>{{students.GENDER}}</h3></td>
+                <td class="birthday"><h3>{{students.BIRTHDAY}}</h3></td>
+                <td class="coin"><h3>{{students.COIN}}</h3></td>
+                <td class="blacklist"><a href="#"><h3>{{students.BLACKLIST}}</h3></a></td>
+                <td class="record"><a href="#"><h3>10</h3></a></td>
+                <td class="detail"><h3><button class="btna3 detailBtn" @click="opened_tr === null  ?  opened_tr = key : opened_tr = null"><h4>詳細資料</h4></button></h3></td>
+                <td class="create-date"><h3>{{students.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
+                <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>    
+            </tr>     
+            <tr >
+                <tr class="itemDetailTile"  v-if="opened_tr === students.ID">
+                    <th class="id"><h3>信箱</h3></th>
+                    <th class="name"><h3 >電話</h3></th>
+                    <th class="gender"><h3>地址</h3></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr> 
+                <tr class="itemDetail" v-if="opened_tr === students.ID">    
+                    <th class="email"><h3>{{students.EMAIL}}</h3></th>
+                    <th class="phone"><h3>{{students.PHONE}}</h3></th>
+                    <th class="address"><h3>{{students.ADDRESS}}</h3></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </tr>
+        </template>
+    </tbody>
 
-                <div class="itemDetailTile">
-                    <td class="email"><h3>信箱</h3></td>
-                    <td class="phone"><h3 >電話</h3></td>
-                    <td class="address"><h3>地址</h3></td>
-                </div>  
-                
-                <div class="itemDetail">
-                    <td class="email"><h3>{{students.EMAIL}}</h3></td>
-                    <td class="phone"><h3>{{students.PHONE}}</h3></td>
-                    <td class="address"><h3>{{students.ADDRESS}}</h3></td>
-                </div>
-        </tr>
-    </div>
     `,
 })
 
@@ -118,9 +111,7 @@ let vm = new Vue({ //設定想要預載的html結構
                     </tr> 
             </thead>
             
-            <tbody>
-                <student-data></student-data>
-            </tbody>                      
+            <student-data></student-data>
         </table>
         `,  
     })     

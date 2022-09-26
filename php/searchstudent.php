@@ -13,7 +13,7 @@
     $omitData = $content * ( $page - 1 ) ; //要省略多少筆資料  
 
     $sql = "SELECT
-                ID, `NAME`, GENDER, BIRTHDAY, `POINT`, BLACKLIST, BAN, 
+                ID, `NAME`, GENDER, BIRTHDAY, `COIN`, BLACKLIST, BAN, EMAIL, PHONE, `ADDRESS`,
                 CREATE_DATE
             FROM STUDENT 
             LIMIT

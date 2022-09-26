@@ -1,20 +1,21 @@
 
 //其他部分，引用applyfor scss
-.backstage_addArticle{
-    a{
-        color: $secondary02;
-    }
-    //按鈕
-    .edit{
-        width: 422px; //暫時。配合text寬度
-        display: flex;
-        justify-content: flex-end;
-        .btna3{ //"取消"按鈕
-            margin: 0; //清除原本設定
-            margin-right: 18px;
-        }
-        .btna4{ //"儲存"按鈕
-            margin: 0; //清除原本設定
-        }              
-    }
-}
+// .backstage_addArticle{
+//     z-index: 99;
+//     a{
+//         color: $secondary02;
+//     }
+//     //按鈕
+//     .edit{
+//         width: 422px; //暫時。配合text寬度
+//         display: flex;
+//         justify-content: flex-end;
+//         .btna3{ //"取消"按鈕
+//             margin: 0; //清除原本設定
+//             margin-right: 18px;
+//         }
+//         .btna4{ //"儲存"按鈕
+//             margin: 0; //清除原本設定
+//         }              
+//     }
+// }
