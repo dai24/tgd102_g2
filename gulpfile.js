@@ -90,6 +90,10 @@ function img_move(){
 
  exports.images_online = min_images;
 
+ function php(){
+    return src(['php/*.*' , 'php/**/*.*']).pipe(dest('dist/php'))
+ }
+
 //clear old file
 const clean = require('gulp-clean');
 
@@ -114,9 +118,10 @@ exports.cls = clear;
     watch(['sass/*.scss' , 'sass/**/*.scss'] , sassstyle).on('change' ,reload)
     watch(['images/*.*' , 'images/**/*.*'] , img_move).on('change' , reload)
     watch('js/*.js' ,Jsminify).on('change' ,reload)
+    watch('php/*.php' ,php).on('change' ,reload)
     done();
 }
 
 //執行
-exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify) ,browser)
+exports.default = series(parallel(includeHTML , sassstyle ,img_move , Jsminify, php) ,browser)
 exports.online =series(clear , parallel(includeHTML , sassstyle,min_images , babel5))
