@@ -130,7 +130,7 @@ Vue.component('my-list3',{
     <div>
     <div class="jobMainWrapperCom" v-for="jobC in jobCompany">
         <div class="jobMainWrapperComTitle">
-            <div><a @click='moveCom' ><img :src="jobC.LOGO + '.jpg'" alt="" class="moveToCom"></a></div>
+            <div><a @click='moveCom(jobC.COMPANY_ID)' ><img :src="jobC.LOGO + '.jpg'" alt="" class="moveToCom"></a></div>
             <div class="jobMainWrapperComIconT">
                     <a><h2 class="moveToCom">{{jobC.COM_NAME}}</h2></a>
                 <div class="jobMainWrapperComIconTM">
@@ -151,8 +151,9 @@ Vue.component('my-list3',{
     </div>
     `,
     methods: {
-        moveCom(){
-            console.log('123')
+        moveCom(comId){
+            sessionStorage.setItem('findComId', comId);
+            console.log(comId)
             location='./company.html'
         }
     },
@@ -161,54 +162,37 @@ Vue.component('my-list3',{
 Vue.component('my-list4',{
     data() {
         return {
-            jobMainOthTitle:{
-                companyName : 'Dr. Right 精準關懷',
-                companyImg : './images/findJob/comLogo.jpg',
-            },
-            jobMainOthMain:[
-                {
-                    companyDepartment : '溝通部門',
-                    companyName : 'Dr. Right 精準關懷',
-                    vacancies : 6,
-                    placeDist : '台北',
-                    salary : 200,
-                    numberOfCompant:'50',
-                    jobTitle:'醫療客服專案管理師',
-                },
-                {
-                    companyDepartment : '溝通部門',
-                    companyName : 'Dr. Right 精準關懷',
-                    vacancies : 6,
-                    placeDist : '台北',
-                    salary : 200,
-                    numberOfCompant:'50',
-                    jobTitle:'醫療客服專案管理師',
-                }
-            ]
-            
-        
+            jobOth : [],
             
         }
+    },
+    mounted() {
+        fetch(`../php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        .then(rsp => rsp.json())
+        .then(userArr => {            
+            this.jobOth= userArr
+            
+        })
     },
     template:`
     <div class="jobMainWrapperOther">
                 <div class="jobMainWrapperOthSec">
-                    <div class="jobMainWrapperOthTitle">
-                        <img :src="jobMainOthTitle.companyImg" alt=""><h2><span>{{jobMainOthTitle.companyName}}</span>的其他熱門職缺</h2>
+                    <div class="jobMainWrapperOthTitle" v-for="jobMainOthMain1 in jobOth">
+                        <img :src="jobMainOthMain1.LOGO + '.jpg'" alt=""><h2><span>{{jobMainOthMain1.COM_NAME}}</span>的其他熱門職缺</h2>
                     </div>
-                    <div class="jobMainWrapperOthMain" v-for="jobMainOthMain in jobMainOthMain">
+                    <div class="jobMainWrapperOthMain" v-for="jobMainOthMain in jobOth">
                         <div>
-                            <p>{{jobMainOthMain.companyDepartment}}</p>
-                            <p>{{jobMainOthMain.jobTitle}}</p>
+                            <p>{{jobMainOthMain.CATEGORY}}</p>
+                            <p>{{jobMainOthMain.JOB_NAME}}</p>
                             <div class="findJobVacanciesIcTitle">
                                 <div class="findJobVacanciesIcon">
-                                    <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>{{jobMainOthMain.vacancies}}</p></a>
+                                    <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p>{{jobMainOthMain.JOB}}</p></a>
                                 </div>
                                 <div class="findJobVacanciesIcon">
-                                    <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>{{jobMainOthMain.placeDist}}</p></a>
+                                    <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>{{jobMainOthMain.CITY}}</p></a>
                                 </div>
                                 <div class="findJobVacanciesIcon">
-                                    <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>{{jobMainOthMain.salary}} / h</p></a>
+                                    <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p>{{jobMainOthMain.SALARY}} / h</p></a>
                                 </div>
                             </div>
                         </div>
@@ -230,6 +214,7 @@ Vue.component('my-list4',{
             this.$emit('save-click')
         },
         goApply(){
+            // console.log(COMID);
             location = './jobMain.html';
         }
     },

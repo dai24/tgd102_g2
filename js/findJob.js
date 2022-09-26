@@ -1,102 +1,3 @@
-Vue.component('my-list',{
-    props: ["myname"],
-    data() {
-        return {
-            com:[],
-            jobID:[],
-            jobID1:[],
-        }
-    },
-    mounted() {
-        
-        fetch("../php/findJob.php",{
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-        })
-         //從後端JS拿到資料
-        .then(rsp => rsp.json())
-        .then(userArr => {            
-            this.com = userArr
-        })
-        
-    },
-    template:`
-    <div >
-        <div class="findJobVacancies" v-for='find in com'>
-            <div class="findJobVacanciesPicture">
-                <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom">
-            </div>
-            <div class="findJobVacanciesTitle">
-                <h3 class="moveToJob">{{find.JOB_NAME}}</h3>
-                <p class="moveToCom">{{find.COM_NAME}}</p>
-                <p>{{find.DESCRIBE}}</p>
-            </div>
-            <div class="findJobVacanciesItem">
-                <div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="職缺人數"><i class="fa-solid fa-user-tie"></i><p> {{find.JOB}} </p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p> {{find.CITY}} </p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="薪資"><i class="fa-solid fa-dollar-sign"></i><p> {{find.SALARY}} / h</p></a>
-                    </div>
-                    <div class="findJobVacanciesIcon">
-                        <a href="" title="瀏覽數"><i class="fa-solid fa-eye"></i><p> {{find.BROWSED}} </p></a>
-                    </div>
-                </div>
-                
-                <div class="findJobVacanciesBtn">
-                    <div class="btna5 saveApplyOpen" @click='openSave'>儲存職缺</div>
-                    <div class="btna6" @click='jobMainGo(find.ID)'>立即應徵</div>
-                </div>
-            </div>
-        </div>
-    </div>
-            `,
-    methods: {
-        // filiSort(a, b){
-        //     a.filter(function(element, index, self){
-        //         // console.log(element);
-        //         for(let i = 0; i < b.length; i++){
-        //             // console.log(b[i]);
-        //             if(b[i].CITY == element){
-        //                 // console.log('qwe');
-        //             }else{
-        //                 console.log(b);
-        //                 delete b[i];
-        //             }
-        //         }
-                
-        //     })
-        // },
-        jobMainGo(idNum){
-            sessionStorage.setItem('findJobId', idNum);
-            this.jobID.push(idNum)
-            this.jobID.forEach((num) => {
-                if (!this.jobID1.includes(num)) {
-                    this.jobID1.push(num);
-                }
-            })
-            for(let i = 0; i < this.jobID1.length; i++){
-                console.log(this.jobID1[i]);
-                fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
-                
-                //jobId : this.jobID1[i]
-            }
-            location='./jobMain.html'
-        },
-        openSave(){
-            this.$emit('save-click')
-        }
-    },
-    computed: {
-        
-    },
-    
-})
-
 new Vue({
     el: '#findJobApp',
     data:{
@@ -163,32 +64,38 @@ new Vue({
             {
                 id:'1',
                 sort:'軟體',
-                name:'前端開發人員'
+                name:'前端工程',
+                checked:true,
             },
             {
                 id:'2',
                 sort:'軟體',
-                name:'後端開發人員'
+                name:'後端工程',
+                checked:true,
             },
             {
                 id:'3',
                 sort:'行銷',
-                name:'行銷人員'
+                name:'行銷人員',
+                checked:true,
             },
             {
                 id:'4',
                 sort:'行銷',
-                name:'數位行銷人員'
+                name:'數位行銷人員',
+                checked:true,
             },
             {
                 id:'5',
                 sort:'金融',
-                name:'企業財務'
+                name:'企業財務',
+                checked:true,
             },
             {
                 id:'6',
                 sort:'金融',
-                name:'管理會計'
+                name:'管理會計',
+                checked:true,
             },
         ],
         scaleList:[
@@ -208,19 +115,19 @@ new Vue({
         moneyList:[
             {
                 id:'1',
-                name:'168 / h'
+                name:'168'
             },
             {
                 id:'2',
-                name:'200 / h'
+                name:'200'
             },
             {
                 id:'3',
-                name:'250 / h'
+                name:'250'
             },
             {
                 id:'4',
-                name:'300 / h'
+                name:'300'
             },
         ],
         distanceList:[
@@ -234,19 +141,56 @@ new Vue({
             },
         ],
         checkedSort: [],
-        searchJob1:[]
+        searchJob1:'',
+        searchJob2:[],
+        com:[],
+        jobID:[],
+        jobID1:[],
     },
     mounted() {
-        
+        fetch("../php/findJob.php",{
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+        })
+         //從後端JS拿到資料
+        .then(rsp => rsp.json())
+        .then(userArr => {            
+            this.com = userArr
+        })
+
+        fetch(`../php/searchJob.php?searchJob1=${this.searchJob1}`)
+            .then(rsp => rsp.json())
+            .then(userArr => {            
+                // console.log(userArr);
+                this.com = userArr
+                console.log(this.com);
+        })
     },
     methods: {
-        searchJob(){
-            console.log('qwe');
-            fetch(`../php/searchJob.php?searchJob1=${this.searchJob1}`)
-        },  
-        sortGo(){
-            
+        comImg(comId){
+            // console.log(comId);
+            sessionStorage.setItem('comId',comId)
         },
+        filiSort(a,b,c,d){
+            console.log(a);
+            fetch(`../php/searchJobCb.php?searchJob1=${a}`)
+            .then(rsp => rsp.json())
+            .then(userArr => {            
+                // console.log(userArr);
+                this.com = userArr
+                console.log(this.com);
+            })
+            // this.mounted()
+        },
+        searchJob(){
+            // this.searchJob2 = this.com
+            fetch(`../php/searchJob.php?searchJob1=${this.searchJob1}`)
+            .then(rsp => rsp.json())
+            .then(userArr => {            
+                // console.log(userArr);
+                this.com = userArr
+            })
+        },  
         saveGo(){
             this.isShowSave =!this.isShowSave
         },
@@ -310,7 +254,29 @@ new Vue({
                     this.checkedSort.splice(index, 1);
                 }
             });
+            
+
         },
+        jobMainGo(idNum,comidNum){
+            console.log(comidNum);
+            sessionStorage.setItem('findJobId', idNum);
+            sessionStorage.setItem('findJobcomId', comidNum);
+            this.jobID.push(idNum)
+            this.jobID.forEach((num) => {
+                if (!this.jobID1.includes(num)) {
+                    this.jobID1.push(num);
+                }
+            })
+            for(let i = 0; i < this.jobID1.length; i++){
+                console.log(this.jobID1[i]);
+                fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
+                
+                //jobId : this.jobID1[i]
+            }
+            // location='./jobMain.html'
+        },
+        
+        
         
     },
 })
