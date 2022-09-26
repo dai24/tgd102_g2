@@ -48,9 +48,10 @@ $(function () {
             if(result == 'successful') {
                 location.replace('../dist/company_main.html');
             }else{
-                alert("帳號密碼錯誤")
+                alert("信箱密碼錯誤")
             }
         });
+        sessionStorage.setItem('StudentTd', account.value)
         // .then(resp =>{
         //     if (resp.status === 200) {
         //         location.replace('../dist/company_main.html');

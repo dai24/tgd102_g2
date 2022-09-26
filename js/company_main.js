@@ -1,21 +1,48 @@
 Vue.component('company-jobdata',{
     data(){
         return{
-            jobdata: [],
+            jobdata: []
+            // inputValue:''
 
         }
     },
-
+    // 刪除該欄位
     methods:{
+        deleteClick(row){                
+            fetch(`php/update.php?id=${row}`) //php? id指資料庫第幾筆
+            .then(rsp => rsp.json())
+            .then(userArr => {
+                this.jobdata = userArr
+               
+            })
+            console.log(row);
+        },
+
+
+        //編輯該欄位名字
+        editClick(name){                
+            fetch(`php/update.php?name=${name}`)
+            // this.jobdata.push(this.inputValue)
+            // this.inputValue =""
+            
+            .then(rsp => rsp.json())
+            .then(userArr => {
+                this.jobdata = userArr
+               
+            })
+            console.log(row);
+        }
+        
 
     },
 
 
-    mounted(){
-        fetch('php/company_main.php')
+    mounted(){ 
+        fetch('php/company_main.php?')
         .then(rsp => rsp.json())
         .then(userArr => {
             this.jobdata = userArr
+             
         })
 
     },
@@ -26,8 +53,8 @@ Vue.component('company-jobdata',{
             <td class="detail"><button class="btna20 a"><h4>詳細資料</h4></button><button class="btna20 btncheck"><h4><a href="./company_check.html">查看求職者</a></h4></button></td>
             <td class="edit">
                 <h3>
-                    <button><i class="fa-solid fa-pen"></i></button>
-                    <button><i class="fa-solid fa-trash"></i></button>
+                    <button @click="editClick(jobs.NAME)"><i class="fa-solid fa-pen"></i></button>
+                    <button @click="deleteClick(jobs.ID)"><i class="fa-solid fa-trash"></i></button>
                 </h3>
                 <div class="state openSwitch">
                     <div class="appleSwitch">

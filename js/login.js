@@ -39,9 +39,10 @@ $(function () {
             if(result == 'successful') {
                 location.replace('../dist/student_main.html');
             }else{
-                alert("帳號密碼錯誤")
+                alert("信箱密碼錯誤")
             }
         });
+        sessionStorage.setItem('StudentTd', account.value)
         
         
         
