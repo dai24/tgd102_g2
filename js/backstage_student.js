@@ -29,7 +29,7 @@ Vue.component('student-data',{
                 //${e.target.innerText}
                 .then(rsp => rsp.json())
                 .then(userArr => {            
-                    // console.log(userArr)
+                    console.log(userArr)
                     this.studentData = userArr  
                 })
             })

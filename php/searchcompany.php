@@ -1,18 +1,16 @@
 <?php
-    //目標：尋找資料庫的公司會員資料
+    //目標：後台尋找資料庫的公司會員資料
 
     include('./PDO/Connection.php');
     
     //建立SQL語法
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
-    $content = 2; //設定每頁有多少筆資料
-    $omitData = 0;
-    $endData = $content;
-
-    $page = $_get["pageContent"]; //前端傳來要第幾頁的資料
-    $omitData = $content * $page;
-    $endData = $omitData + $content;
+    $content = 5; //設定每頁有多少筆資料
+    $omitData = 0; //預設 省略0筆
+    
+    $page = $_GET["page"]; //前端傳來要第幾頁的資料
+    $omitData = $content * ( $page - 1 ) ; //要省略多少筆資料 
 
     $sql = "SELECT
                 c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
@@ -21,13 +19,15 @@
                 JOIN COMPANY_COIN_DETAILS d
                 ON c.ID = d.COMPANY_ID
             LIMIT
-                $omitData, $endData;
+                $omitData, $content;
             "
             ;    
     
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     
     $stmt = $pdo->prepare($sql);
+    
+    $stmt->execute(); //執行
     
     //---------------------------------------------------
     

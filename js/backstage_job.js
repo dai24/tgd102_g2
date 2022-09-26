@@ -22,7 +22,7 @@ Vue.component('job-data',{
         for(let i = 0; i < pageContent.length; i++ ){
             pageContent[i].addEventListener("click", e => {
                 // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
-                fetch(`php/searchjob.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+                fetch(`php/searchJob.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
                 //${e.target.innerText}
                 .then(rsp => rsp.json())
                 .then(userArr => {            
