@@ -71,7 +71,7 @@ let vm = new Vue({ //設定想要預載的html結構
                         <th class="fee"><h3>年費方案</h3></th>
                         <th class="city"><h3>縣市區</h3></th>
                         <th class="district"><h3>鄉鎮市區</h3></th>
-                        <th class="address"><h3>地址</h3></th>
+                        <th class="addummernoteress"><h3>地址</h3></th>
                         <th class="detail"></th>
                         <th class="create-date"><h3>建立日期</h3></th>
                         <th class="ban"><h3>停權</h3></th>
@@ -83,6 +83,4 @@ let vm = new Vue({ //設定想要預載的html結構
         `,  
 })     
 
-new Vue({
-    el:'#backstage_company_app',
-})
+

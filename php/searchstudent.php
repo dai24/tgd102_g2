@@ -13,9 +13,9 @@
     $omitData = $content * ( $page - 1 ) ; //要省略多少筆資料  
 
     $sql = "SELECT
-                s.ID, s.NAME, s.EMAIL, s.PHONE, s.GENDER, s.ADDRESS, s.BIRTHDAY, s.COIN, s.BLACKLIST, s.BAN, 
-                s.CREATE_DATE
-            FROM STUDENT s
+                ID, `NAME`, GENDER, BIRTHDAY, `POINT`, BLACKLIST, BAN, 
+                CREATE_DATE
+            FROM STUDENT 
             LIMIT
                 $omitData, $content;
             "
@@ -33,9 +33,9 @@
     $members = $stmt->fetchAll(); //撈到資料
         
     if ($stmt->rowCount() > 0){ //只要有撈到一筆資料 = 有撈到資料
-        $members["successful"] = true; //successful的屬性數值顯示 true        
+        $member["successful"] = true; //successful的屬性數值顯示 true        
     } else{ //如果沒有撈到資料...
-        $members["successful"] = false;
+        $member["successful"] = false;
     }
 
     echo  json_encode($members);
