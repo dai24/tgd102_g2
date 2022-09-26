@@ -10,15 +10,23 @@ new Vue({
         isshow6:false,
 
         username:"",
+
+        mbti:"",
+        mbtiAnswer: "",
+
         
 
     },
     methods: {
         
         open1(){
+            
             this.isshow1 = false,
             this.isshow2 = true
+           
+
         },
+
         open2(){
             this.isshow2 = false,
             this.isshow3 = true
@@ -37,6 +45,14 @@ new Vue({
             this.isshow6 = true
             
         },
+
+        // clickbtn(){
+        //     this.mbti = "dataValue",
+        //     this.mbtiAnswer += mbti,
+        //     console.log(mbti);
+        //     console.log(mbtianswer);
+            
+        // }
     },
 
 })
