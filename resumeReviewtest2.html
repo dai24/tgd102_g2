@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html',{
+        "title" : "履歷診療室"
+    })
+</head>
+
+<body>
+    @@include('./layout/header.html')
+    <div id="resumeReviewtest">
+        
+
+        <div class="wrapper_resumeReview">
+            @@include('./layout/breadcrumb3.html',{
+            'home' : "首頁",
+            'nav' : "資源",
+            'active' : "履歷診療室",
+            'nav_url' : "resumeReview.html",
+            })
+
+            <!-- 搜尋列 -->
+            <div class="searchbar">
+                <ul class="searchbarInner">
+                    <div class="searchbarLeft">
+                        <!-- 擅長產業 -->
+                        <li class="consultantIndustrySearch"><button class="btna21" @click="open1">{{industrytype}}<i class="fa-solid fa-chevron-down"></i></button>
+                            <ul class="consultantIndustry" v-if="isshow1" >
+                                <allindustryclass v-on:industryclass="industrytypeis"></allindustryclass>
+                            </ul>
+                        </li>
+
+                        <!-- 擅長職務 -->
+                        <li class="consultantJobSearch"><button class="btna21" @click="open2">{{jobclasstype}}<i class="fa-solid fa-chevron-down"></i></button>
+                            <ul class="consultantJob" v-if="isshow2" >
+                                <alljobclass v-on:jobclass="jobclasstypeis"></alljobclass> 
+                            </ul>
+                        </li>
+                    </div>
+
+                    <button class="btna8">搜尋</button>
+
+                </ul>
+
+            </div>
+
+
+            <!-- 履歷診療師 -->
+            <div class="resumeConsultants">
+
+                <div class="consultant" v-for="(teacher,index) in allteachers" >
+                    <a :href="teacher.tlink"><img :src="teacher.img" alt=""></a>    
+                    <div class="consultantSource">
+                        <h3 >{{ teacher.tname }}</h3>
+                        <h4>{{ teacher.tjobtitle }}</h4>
+                        <h4>已經健診{{ teacher.ttimes }}人</h4>
+                    </div>
+                    <button class="btna9" @click="openreviewcard">我要健診</button>
+                    
+                </div>
+            </div>
+            
+
+            @@include('./layout/resumeReviewcard.html') 
+
+            @@include('./layout/pagination.html')
+
+
+        </div>
+
+        
+    </div>
+    
+    @@include('./layout/footer.html')
+
+    <script src="https://unpkg.com/vue@2"></script>
+    <script src="./js/resumeReviewtest.js"></script>
+</body>
+
+</html>
