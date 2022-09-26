@@ -8,7 +8,7 @@
     //建立SQL語法
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
     // echo $member;
-    $sql = "SELECT J.ID, J.NAME AS JOB_NAME , C.NAME AS COM_NAME, J.DESCRIBE , J.REQUIRE ,J.CONDITION, J.PLUS, J.JOB , C.CITY , C.INTRO , J.SALARY , J.BROWSED , C.LOGO , J.SCALE, C.DESCRIBE,C.ADDRESS
+    $sql = "SELECT J.ID, J.CATEGORY ,J.COMPANY_ID,J.NAME AS JOB_NAME , C.NAME AS COM_NAME, J.DESCRIBE , J.REQUIRE ,J.CONDITION, J.PLUS, J.JOB , C.CITY , C.INTRO , J.SALARY , J.BROWSED , C.LOGO , J.SCALE, C.DESCRIBE,C.ADDRESS
             FROM COMPANY C
             INNER JOIN JOB J
             ON C.ID = J.COMPANY_ID
