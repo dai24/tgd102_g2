@@ -148,24 +148,50 @@ new Vue({
         jobID1:[],
     },
     mounted() {
-        fetch("../php/findJob.php",{
-            method: 'POST',
-            headers: {'Content-Type' : 'application/json'},
-        })
-         //從後端JS拿到資料
+        // fetch("../php/findJob.php",{
+        //     method: 'POST',
+        //     headers: {'Content-Type' : 'application/json'},
+        // })
+        //  //從後端JS拿到資料
+        // .then(rsp => rsp.json())
+        // .then(userArr => {            
+        //     this.com = userArr
+        // })
+
+        // fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
+        //     .then(rsp => rsp.json())
+        //     .then(userArr => {            
+        //         // console.log(userArr);
+        //         this.com = userArr
+        //         console.log(this.com);
+        // })
+
+        //顯示第一頁的資料
+        fetch(`../php/pageFindJob.php?page=1`)
         .then(rsp => rsp.json())
-        .then(userArr => {            
+        .then(userArr => {    
+            // console.log(userArr)
             this.com = userArr
         })
 
-        fetch(`../php/searchJob.php?searchJob1=${this.searchJob1}`)
-            .then(rsp => rsp.json())
-            .then(userArr => {            
-                // console.log(userArr);
-                this.com = userArr
-                console.log(this.com);
-        })
+        //根據選擇的頁碼，顯示不同筆資料
+        let pageContent = document.querySelectorAll(".pageContent");
+        for(let i = 0; i < pageContent.length; i++ ){
+            pageContent[i].addEventListener("click", e => {
+                console.log('asd');
+                // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
+                fetch(`../php/pageFindJob.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+                //${e.target.innerText}
+                .then(rsp => rsp.json())
+                .then(userArr => {            
+                    // console.log(userArr)
+                    this.com = userArr  
+                })
+            })
+        } 
+            
     },
+    
     methods: {
         comImg(comId){
             // console.log(comId);
@@ -184,7 +210,7 @@ new Vue({
         },
         searchJob(){
             // this.searchJob2 = this.com
-            fetch(`../php/searchJob.php?searchJob1=${this.searchJob1}`)
+            fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
                 // console.log(userArr);
@@ -254,8 +280,6 @@ new Vue({
                     this.checkedSort.splice(index, 1);
                 }
             });
-            
-
         },
         jobMainGo(idNum,comidNum){
             console.log(comidNum);
@@ -273,11 +297,20 @@ new Vue({
                 
                 //jobId : this.jobID1[i]
             }
-            // location='./jobMain.html'
+            location='./jobMain.html'
         },
         
         
         
     },
+    filters:{
+        ellipsis(value){
+            if (!value) return '';
+            if (value.length > 10) {
+                return value.slice(0,150) + '...'
+            }
+            return value
+        }
+    }
 })
 

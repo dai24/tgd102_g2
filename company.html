@@ -6,12 +6,14 @@
 <body>
     @@include('./layout/header.html')
     <div id="companyApp">
+        <template>
         @@include('./layout/saveApply.html')
         <div class="companyWrapper">
             <my-list-com></my-list-com>
             <my-list-com2></my-list-com2>
             <my-list-com3 @save-click="saveGo"></my-list-com3>
         </div>
+        </template>
     </div>
     
     @@include('./layout/footer.html')

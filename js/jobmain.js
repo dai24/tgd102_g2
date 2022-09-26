@@ -22,10 +22,9 @@ Vue.component('my-list1',{
         </div>
     </div>
     </div>
-            `,
-    
-    
+            `, 
 })
+
 Vue.component('my-list2',{
     data() {
         return {
@@ -167,7 +166,7 @@ Vue.component('my-list4',{
         }
     },
     mounted() {
-        fetch(`../php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobOth= userArr
@@ -177,8 +176,8 @@ Vue.component('my-list4',{
     template:`
     <div class="jobMainWrapperOther">
                 <div class="jobMainWrapperOthSec">
-                    <div class="jobMainWrapperOthTitle" v-for="jobMainOthMain1 in jobOth">
-                        <img :src="jobMainOthMain1.LOGO + '.jpg'" alt=""><h2><span>{{jobMainOthMain1.COM_NAME}}</span>的其他熱門職缺</h2>
+                    <div class="jobMainWrapperOthTitle">
+                        <img :src="jobOth[0].LOGO + '.jpg'" alt=""><h2><span>{{jobOth[0].COM_NAME}}</span>的其他熱門職缺</h2>
                     </div>
                     <div class="jobMainWrapperOthMain" v-for="jobMainOthMain in jobOth">
                         <div>
