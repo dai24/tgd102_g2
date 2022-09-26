@@ -25,7 +25,7 @@
             </li>
 
             <li>
-                <ul class="addTeacher">
+                <ul class="addTeacher">                    
                     <li><a href="#"><h4>新增導師</h4></a></li>
                     <li><i class="fa-solid fa-arrow-up-from-bracket"></i></li>
                 </ul>
@@ -35,36 +35,13 @@
                 </div>
             </li>       
         </ul>
-        <div class="containTeacher swiper-container mySwiper" id="backstage_resource_app">
+        <div class="containTeacher swiper-container mySwiper" id="backstage_resource_teacher_app">
             <teacher-data></teacher-data>
         </div>        
 
         <!-- 文章管理 -->
-        <ul class="block block2">
-            <li>
-                <h3>文章種類：</h3>
-                <div class="consultantIndustrySearch">
-                    <button class="btna21">求職指南<i class="fa-solid fa-chevron-down"></i></button>
-                    <ul class="consultantIndustry searchItem">
-                        <li><button class="btna22">求職指南</button></li>
-                        <li><button class="btna22">履歷教學</button></li>
-                        <li><button class="btna22">面試技巧</button></li>
-                        <li><button class="btna22">職涯發展</button></li>
-                    </ul>                    
-                </div>
-            </li>
+        <ul id="backstage_resource_article_app"></ul> 
 
-            <li>
-                <ul class="addContent">
-                    <li><a href="./backstage_addArticle.html"><h4>新增文章</h4></a></li>
-                    <li><i class="fa-solid fa-arrow-up-from-bracket"></i></li>
-                </ul>
-                <div class="inputsearch">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="Text" class="inputText" placeholder="搜尋文章名稱" name="search">
-                </div>
-            </li>           
-        </ul>
         <table id="table">     
             <thead>
                 <tr>
@@ -144,7 +121,7 @@
                     </td>
                 </tr>                
             </tbody>
-        </table>
+        </table> 
         @@include('./layout/pagination.html')
     </div>   
     

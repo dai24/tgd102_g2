@@ -1,3 +1,21 @@
+
+
+new Vue({
+    el:"#backstage_window",
+    data:{
+        
+    },
+    methods: {
+        
+    },
+    template:`
+        
+    `,
+
+})
+
+//---------------------------------------------
+
 //開關導覽列
 let backstage_nav2 = document.querySelector(".backstage-nav2");
     let nav_toggle = document.querySelector(".nav-toggle");
@@ -18,4 +36,3 @@ let backstage_nav2 = document.querySelector(".backstage-nav2");
             maskMain.style.opacity = "0%";
         }        
     })
-
