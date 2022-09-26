@@ -162,13 +162,18 @@ $editOutline : 2px solid black;
                 align-items: center;
                 margin-top: 20px;
                 font-size: 20px;
-
+                // width: max-content;
+               
                 label {
                     margin-right: 10px;
                 }
 
                 input {
                     width: 13em;
+                    @include m() {
+                        width: 10em;
+
+                    }
                 }
 
             }
@@ -185,10 +190,10 @@ $editOutline : 2px solid black;
                 padding: 25px;
 
                 @include m() {
-                    width: 400px;
+                    width: 360px;
                     padding: 15px;
                     line-height: 1.5;
-                    height: 650px;
+                    height: 550px;
                 }
 
                 .work_space_a4_1 {
@@ -261,7 +266,7 @@ $editOutline : 2px solid black;
                     @include m() {
                         width: 125px;
                         height: 125px;
-                        margin-left: 51px;
+                        margin-left: 15px;
                     }
 
                     .upload {
@@ -339,10 +344,12 @@ $editOutline : 2px solid black;
                     overflow: hidden;
 
                     @include m() {
-                        width: 367px;
-                        height: 475px;
+                        width: 22rem;
+                        height: 23.5rem;
                         margin-top: 15px;
+                        grid-template-rows: 7rem 9.5rem 6rem;
                         gap: 4px;
+                        
                     }
 
 
@@ -360,7 +367,7 @@ $editOutline : 2px solid black;
                         font-weight: bold;
 
                         @include m() {
-                            font-size: 16px;
+                            font-size: 14px;
                         }
                     }
 
@@ -413,9 +420,17 @@ $editOutline : 2px solid black;
                     textarea{
                         font-size: 12px;
                         overflow: hidden;
+                        resize: none;
+                        border: none;
                         &:hover {
                             outline: $editOutline;
                             cursor: pointer;
+                        }
+                        &:valid{
+
+                        }
+                        @include m() {
+                            width: 9rem;
                         }
                     }
 

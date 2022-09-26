@@ -155,7 +155,7 @@ Vue.component('my-workspace',{
          Vue.component('win-payplan',{   
             data(){
                 return {
-                    
+                    fee:[],
                    
                 }
             },
@@ -164,6 +164,11 @@ Vue.component('my-workspace',{
                         this.$emit('payplanwin',false)   
                 }
                 
+            },
+            mounted(){
+                fetch('./php/fee.php')
+                .then(resp => resp.json())
+                .then(fee => this.fee = fee)
             },
             template:
             `
@@ -181,24 +186,13 @@ Vue.component('my-workspace',{
                     <div class="cardInner payplan">
                         <div class="applyTitle">
                     
-                            <div class="applyTitle_main">
+                            <div class="applyTitle_main" v-for="Fee in fee">
                                 <input type="radio" name="123">
-                                <h2>NT 399</h2>
+                                <h2>NT {{Fee.NT}}</h2>
                                 <img src="images/header_icon/money.png" alt="">
-                                <h2>200金幣</h2>
+                                <h2>{{Fee.PRICE}}金幣</h2>
                             </div>
-                            <div class="applyTitle_main">
-                                <input type="radio" name="123">
-                                <h2>NT 899</h2>
-                                <img src="images/header_icon/money.png" alt="">
-                                <h2>500金幣</h2>
-                            </div>
-                            <div class="applyTitle_main">
-                                <input type="radio" name="123">
-                                <h2>NT 1599</h2>
-                                <img src="images/header_icon/money.png" alt="">
-                                <h2>1000金幣</h2>
-                            </div>
+                            
                         </div>
                         <div class="btna3 payplan_btn">確定</div>
                     </div>
@@ -238,11 +232,19 @@ Vue.component('my-workspace',{
         Vue.component('model-A01',{
             data(){
                 return {
-                    // resumeModelBorder: true,
+                    // resume_model:'',
                 }
             },
             methods:{
                 
+            },
+            mounted() {
+                // fetch('./php/getResume_model_All.php?model=1')
+                //     .then(rsp => rsp.json())
+                //     .then(resume_model => {
+                //         this.resume_model = resume_model;
+                        
+                //     })
             },
             template:
             `
@@ -281,18 +283,16 @@ Vue.component('my-workspace',{
 
                     <div class="work_space_a4_3_2">
                         <h4>自傳</h4>
-                        <textarea name="" id="" cols="27" rows="5" maxlength="290">
+                        <textarea name="" id="" cols="27" rows="5" maxlength="65">
 我是零零五，21歲，畢業於台南應用科大商品設計系。雖然目前只有打工經驗，但我肯勤奮學習，吩咐的事一定會盡力做到最好。
                         </textarea>
-                            <p>
-                                
-                            </p>
+                            
                         </div>
 
                         <div class="work_space_a4_3_3">
                             <h4>就學期間</h4>
-                            <textarea name="" id="" cols="27" rows="7" maxlength="250">
-體驗大學生活之餘，不怠忽課業，學習成績GPA 3.6，並於106學年度第二學期會計學(二)學科成績名列班上第三名。積極參與校內競賽活動，在每一次團隊競賽中，學習團隊合作的組織協調與氣氛和諧。                                                                        
+                            <textarea name="" id="" cols="27" rows="6" maxlength="65">
+體驗大學生活之餘，不怠忽課業，並於106學年度第二學期會計學(二)學科成績名列班上第三名。積極參與校內競賽活動，在每一次團隊競賽中，學習團隊合作的組織協調與氣氛和諧。                                                                        
                             </textarea>
                         </div>
 
@@ -300,8 +300,8 @@ Vue.component('my-workspace',{
                             <h4>工作經歷</h4>
                             <h5>廣告設計實習生</h5>
                             <h6>2016/6 ~ 2018/1</h6>
-                            <textarea name="" id="" cols="27" rows="5" maxlength="250">
-負責台灣區所有合作夥伴的初步接洽及管理。藉由深入瞭解合作夥伴痛點，並在合作內容協調中達成雙贏，成功媒合了多位長期合作夥伴。
+                            <textarea name="" id="" cols="27" rows="4" maxlength="50">
+負責台灣區所有合作夥伴的初步接洽及管理。藉由深入瞭解合作夥伴痛點，並在合作內容協調中達成雙贏。
                             </textarea>
                         <p>
                             
@@ -610,7 +610,7 @@ Vue.component('my-workspace',{
                     this.sharePopup = closeWin;
                     this.pdfPopup = closeWin;
                     this.deletePopup = closeWin;
-                    // this.modelBorder = closeWin;
+                    this.modelBorder = closeWin;
                     this.payPopup = closeWin;
                     this.payplan = closeWin;
 
