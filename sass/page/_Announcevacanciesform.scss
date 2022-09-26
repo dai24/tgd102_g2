@@ -1,4 +1,5 @@
 
+.Announcevacanciesformwrapper{
 
 
     .Announcevacancies{
@@ -92,8 +93,9 @@
     
     }
     
-    .Announcevacancies .btna21{
+    .Announcevacancies_main .btna21{
         margin: 0 auto;
+        border: none;
         @include m(){
             @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
         }
@@ -130,5 +132,12 @@
     .cardUl li a i{
         color: #ffffff;
     }
+
+
+
+
+}
+
+    
 
 

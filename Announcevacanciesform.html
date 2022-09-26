@@ -28,17 +28,17 @@
                 <div class="Announcevacancies_main">
     
                     <h2 class="Announcevacancies_question">職缺名稱</h2>
-                    <textarea name="" id="" cols="" rows="2" placeholder="請輸入問題"></textarea>
+                    <textarea name="name" id="name" cols="" rows="2" placeholder="請輸入問題"></textarea>
                 </div>
                 <div class="Announcevacancies_main">
     
                     <h2 class="Announcevacancies_question">職缺人數</h2>
-                    <textarea name="" id="" cols="30" rows="2 " placeholder="請輸入問題"></textarea>
+                    <textarea name="job" id="job" cols="30" rows="2 " placeholder="請輸入問題"></textarea>
                 </div>
                 <div class="Announcevacancies_main">
     
                     <h2 class="Announcevacancies_question">職缺時薪</h2>
-                    <textarea name="" id="" cols="30" rows="2" placeholder="請輸入問題"></textarea>
+                    <textarea name="salary" id="salary" cols="30" rows="2" placeholder="請輸入問題"></textarea>
                     
                 </div>
     
@@ -47,29 +47,32 @@
                 <div class="Announcevacancies_main">
     
                     <h2 class="Announcevacancies_question">職務需求</h2>
-                    <textarea name="" id="" cols="30" rows="6" placeholder="請輸入問題"></textarea>
+                    <textarea name="require" id="require" cols="30" rows="6" placeholder="請輸入問題"></textarea>
                 </div>
                 <div class="Announcevacancies_main">
     
                     <h2 class="Announcevacancies_question">條件要求</h2>
-                    <textarea name="" id="" cols="30" rows="6" placeholder="請輸入問題"></textarea>
+                    <textarea name="condition" id="condition" cols="30" rows="6" placeholder="請輸入問題"></textarea>
                 </div>
                 <div class="Announcevacancies_main">
     
                     <h2 class="Announcevacancies_question">加分條件</h2>
-                    <textarea name="" id="" cols="30" rows="6" placeholder="請輸入問題"></textarea>
+                    <textarea name="plus" id="plus" cols="30" rows="6" placeholder="請輸入問題"></textarea>
                 </div>
                 <div class="Announcevacancies_main">
     
                     <h2 class="Announcevacancies_question">是否遠端</h2>
-                    <input type="radio" name="online" value="online1" id="online1"><label for="online1">是</label>
-                    <input type="radio" name="online" value="online1" id="online1"><label for="online1">否</label>
+                    <input type="radio" name="wfh" value="1" id="wfh"><label for="wfh">是</label>
+                    <input type="radio" name="wfh" value="0" id="wfh"><label for="wfh">否</label>
                 </div>
     
     
-    
-            
-                <a href="./company_main.html"><div class="btna21">發布</div></a>
+                <div class="Announcevacancies_main">
+                    <input type="submit" class="btna21 submit" value="發布" name="submit" id="submit">
+                </div>
+                
+                
+                <!-- <a href="./company_main.html"><div class="btna21">發布</div></a> -->
             </div>
         </div>
 
@@ -77,10 +80,9 @@
 
     </div>
 
-       
 
-
-    
-   
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+   <script src="./js/Announce.js"></script>
 </body>
 </html>
