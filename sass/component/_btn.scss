@@ -198,3 +198,17 @@
     text-align: left;
     padding-left: 28px;
 }
+
+
+//擅長產業的"藝文相關"跑掉，所以新增下列按鈕
+// .abtna22{
+//     @include btn2(192px ,$fontSize03, $space02,$secondary02, $primary02,null,#dbdbdb,null);
+//     @include m(){
+//         @include btn2(165px ,$fontSize05, $space02,$secondary02, $primary02, null, #dbdbdb,null);
+//         text-align: left;
+//         padding-left: 28px;
+//     }
+//     text-align: left;
+//     padding-left: 28px;
+// }
+
