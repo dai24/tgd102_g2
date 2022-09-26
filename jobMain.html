@@ -8,6 +8,7 @@
 <body>
     @@include('./layout/header.html')
     <div id="jobMainApp">
+        <template>
         @@include('./layout/saveApply.html') 
         @@include('./layout/applyFor.html')
         <div class="jobMainWrapper">
@@ -22,6 +23,7 @@
             <my-list3></my-list3>
             <my-list4 @save-click="saveGo"></my-list4>
         </div>
+    </template>
     </div>
     
     @@include('./layout/footer.html')

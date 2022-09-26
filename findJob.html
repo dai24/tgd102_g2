@@ -5,10 +5,11 @@
     })
 <body>
     @@include('./layout/header.html')
+
     <div id="findJobApp">
-    
-    <!-- @@include('./layout/saveApply.html')  -->
     <template>
+    @@include('./layout/saveApply.html') 
+    
     <div class="findJobWrapper">
         @@include('./layout/breadcrumb2.html',{
             'home' : "首頁",
@@ -78,7 +79,7 @@
             </div>
         </div>
         <div class="findJobFind" id="findJobFind"><div class="findJobFindSort" v-for="(theSort , i) in checkedSort"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div></div>
-        <div >
+        <div>
             <div class="findJobVacancies" v-for='find in com' >
                 <div class="findJobVacanciesPicture">
                     <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom" @click="comImg(find.COMPANY_ID)">
@@ -86,7 +87,7 @@
                 <div class="findJobVacanciesTitle">
                     <h3 class="moveToJob">{{find.JOB_NAME}}</h3>
                     <p class="moveToCom">{{find.COM_NAME}}</p>
-                    <p>{{find.DESCRIBE}}</p>
+                    <p>{{find.DESCRIBE | ellipsis}}</p>
                 </div>
                 <div class="findJobVacanciesItem">
                     <div>
@@ -111,16 +112,27 @@
                 </div>
             </div>
         </div>
-        @@include('./layout/pagination.html') 
+        <div class="pagination-div">
+            <ul class="pagination-ul">
+                <li><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="#" class="pageContent">1</a></li>
+                <li><a href="#" class="pageContent">2</a></li>
+                <li><a href="#" class="pageContent">3</a></li>
+                <li><a href="#" class="pageContent">4</a></li>
+                <li><a href="#" class="pageContent">5</a></li>
+                <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
     </div>
     </template>
     </div>
 
+
     @@include('./layout/footer.html')
-    
-    
+
     
 </body>
-<script src="https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js"></script>
-<!-- <script src="./js/findJob.js"></script> -->
+
+<!-- <script src="https://unpkg.com/vue-router@4.0.5/dist/vue-router.global.js"></script> -->
+
 </html>
