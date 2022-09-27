@@ -188,7 +188,8 @@ $editOutline : 2px solid black;
                 background-color: #FDEDE9;
                 line-height: 1.6;
                 padding: 25px;
-
+                justify-content: space-between;
+                align-items: center;
                 @include m() {
                     width: 360px;
                     padding: 15px;

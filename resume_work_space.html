@@ -60,20 +60,79 @@ Vue.component('my-workspace',{
          Vue.component('resume-modelBorder',{   
             data(){
                 return {
-                    resume_model:[],
-                    // modelBorderShow:false,
+                    resume_modelAll:[],
+                    resume_modelOne:{
+                        id: 0,
+                        student_id: 0,
+                        model: 0,
+                        price: 0,
+                        unlock: 0,
+                        fileName: '',
+                        img_path: '',
+                        name: '',
+                        address: '',
+                        phone: '',
+                        email: '',
+                        porfolio: '',
+                        autobiography: '',
+                        work_experience_job: '',
+                        during_work: '',
+                        work_content: '',
+                        school: '',
+                        during_school: '',
+                        department: '',
+                        attend_school_status: '',
+                        school_experience: '',
+                        job_apply: '',
+                        skill1: '',
+                        skill2: '',
+                        skill3: '',
+                        skill4: '',
+                        language1: '',
+                        language2: '',
+                    },
                    
                 }
             },
             methods: {
-                submitData(fileName,unlock,price){
-                    if(fileName != undefined){
-                        this.$emit('selectModel',true,fileName,unlock,price)
+                submitData(id,student_id,model,price,unlock,fileName,img_path,name,address,phone,email,porfolio,autobiography,
+                work_experience_job,during_work,work_content,school,during_school,department,attend_school_status,
+                school_experience,job_apply,skill1,skill2,skill3,skill4,language1,language2){
+                    if(fileName != undefined){               
+                        // 28
+                        this.resume_modelOne.id = id
+                        this.resume_modelOne.student_id = student_id,
+                        this.resume_modelOne.model = model,
+                        this.resume_modelOne.price = price,
+                        this.resume_modelOne.unlock = unlock,
+                        this.resume_modelOne.fileName = fileName,
+                        this.resume_modelOne.img_path = img_path,
+                        this.resume_modelOne.name = name,
+                        this.resume_modelOne.address = address,
+                        this.resume_modelOne.phone = phone,
+                        this.resume_modelOne.email = email,
+                        this.resume_modelOne.porfolio = porfolio,
+                        this.resume_modelOne.autobiography = autobiography,
+                        this.resume_modelOne.work_experience_job = work_experience_job,
+                        this.resume_modelOne.during_work = during_work,
+                        this.resume_modelOne.work_content = work_content,
+                        this.resume_modelOne.school = school,
+                        this.resume_modelOne.during_school = during_school,
+                        this.resume_modelOne.department = department,
+                        this.resume_modelOne.attend_school_status = attend_school_status,
+                        this.resume_modelOne.school_experience = school_experience,
+                        this.resume_modelOne.job_apply = job_apply,
+                        this.resume_modelOne.skill1 = skill1,
+                        this.resume_modelOne.skill2 = skill2,
+                        this.resume_modelOne.skill3 = skill3,
+                        this.resume_modelOne.skill4 = skill4,
+                        this.resume_modelOne.language1 = language1,
+                        this.resume_modelOne.language2 = language2,
+                        this.$emit('selectModel',true,this.resume_modelOne)
                         console.log('selectModel: ' +"檔名:"+ fileName+"，解鎖:"+unlock+"，價格:"+price)
-                        
                     }else{
                         this.$emit('modelBorder',false)
-                        console.log('on open model')
+                        console.log('close model')
                     }
                     
                 }
@@ -83,7 +142,7 @@ Vue.component('my-workspace',{
                 fetch('./php/getResume_model_All.php?model=1')
                     .then(rsp => rsp.json())
                     .then(resume_model => {
-                        this.resume_model = resume_model;
+                        this.resume_modelAll = resume_model;
                         
                     })
             },
@@ -91,7 +150,11 @@ Vue.component('my-workspace',{
             `
                 <div class="resume_model-border">
                     <button class="xmark_btn" @click="submitData()"><i class="fa-solid fa-xmark"></i></button>            
-                    <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0}" v-for="model in resume_model"  @click="submitData(model.FILE_NAME,model.UNLOCK_STATUS,model.PRICE)">
+                    <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0}" v-for="model in resume_modelAll"  
+                    @click="submitData(model.ID,model.STUDENT_ID,model.MODEL,model.PRICE,model.UNLOCK_STATUS,model.FILE_NAME,model.IMG_PATH,
+                    model.NAME,model.ADDRESS,model.PHONE,model.EMAIL,model.PORFOLIO,model.AUTOBIOGRAPHY,model.WORK_EXPERIENCE_JOB,model.DURING_WORK,
+                    model.WORK_CONTENT,model.SCHOOL,model.DURING_SCHOOL,model.DEPARTMENT,model.ATTEND_SCHOOL_STATUS,model.SCHOOL_EXPERIENCE,
+                    model.JOB_APPLY,model.SKILL1,model.SKILL2,model.SKILL3,model.SKILL4,model.LANGUAGE1,model.LANGUAGE2)">
                         <img :src="model.IMG_PATH">
                         <div v-if="model.UNLOCK_STATUS == 0">
                             <i class="fa-solid fa-crown"></i>
@@ -203,42 +266,47 @@ Vue.component('my-workspace',{
         })
 
         //檔案名稱
-        Vue.component('file-name',{   
-            data(){
-                return {
-                    // resume_model:[],
-                    // modelBorderShow:false,
+        // Vue.component('file-name',{   
+        //     data(){
+        //         return {
+        //             // resume_model:[],
+        //             // modelBorderShow:false,
                    
-                }
-            },
-            methods: {
-                // submitData(){
-                //     this.$emit('modelBorder',false)
-                // }
+        //         }
+        //     },
+        //     methods: {
+        //         // submitData(){
+        //         //     this.$emit('modelBorder',false)
+        //         // }
                 
-            },
-            mounted() {
+        //     },
+        //     mounted() {
                
-            },
-            template:
-            `
-            <div class="resume_name_div">
-                <label for="resume_name">檔案名稱: </label><input type="text" id="resume_name" name="resume_name">
-            </div>
-            `,
-        })
+        //     },
+        //     template:
+        //     `
+        //     <div class="resume_name_div">
+        //         <label for="resume_name">檔案名稱: </label><input type="text" id="resume_name" name="resume_name">
+        //     </div>
+        //     `,
+        // })
 
         //編輯履歷
         Vue.component('model-A01',{
+            props: {
+                resumeModelOne:{}
+            },
             data(){
                 return {
-                    // resume_model:'',
+                    // resume_model:this.resumeModelOne,
                 }
             },
             methods:{
-                
+               
             },
             mounted() {
+                console.log(this.resumeModelOne)
+                
                 // fetch('./php/getResume_model_All.php?model=1')
                 //     .then(rsp => rsp.json())
                 //     .then(resume_model => {
@@ -248,84 +316,81 @@ Vue.component('my-workspace',{
             },
             template:
             `
-        
-            <div class="work_space_a4">
-
-                <div class="work_space_a4_1">
-
-                    <h3 title="姓名">零零五</h3>
-
-
-                    <h4 title="職務">品牌行銷實習生</h4>
-                    <h5>聯絡方式</h5>
-                    <p class="p1">地址：<span class="span1">台北市萬華區</span></p>
-                    <p class="p2">電話：<span class="span2">0912345678</span></p>
-                    <p class="p3">信箱：<span class="span3">hello@reallygreatsite.com.tw</span></p>
-                    <p class="p4">作品：<span class="span4">www.reallygreatsite.com.tw</span></p>
+            <div class="resume_make">
+  
+                <div class="resume_name_div">
+                    <label for="resume_name">檔案名稱: </label><input type="text" :value="resumeModelOne.fileName">
                 </div>
+                <div class="work_space_a4">
 
-                <div title="上傳圖片" class="work_space_a4_2">
-                    <label for="upload" class="upload">
-                        <input id="upload" type="file" accept="image/*">
-                        <i class="fa-solid fa-file-circle-plus"></i>
-                    </label>
-                    <label for="upload" class="Avatar"><img src=""></label>
-                </div>
+                    <div class="work_space_a4_1">
 
-                <div class="work_space_a4_3">
+                        <h3 title="姓名" v-if="resumeModelOne.name">{{resumeModelOne.name}}</h3>
 
-                    <div class="work_space_a4_3_1">
-                        <h4>學歷</h4>
-                        <h5>台南應用科技大學</h5>
-                        <h6>2021/2 ~ </h6>
-                        <h6>商品設計<span> /</span><span>就讀中</span></h6>
+                        <h4 title="職務" v-if="resumeModelOne.name">{{resumeModelOne.job_apply}}</h4>
+                        <h5>聯絡方式</h5>
+                        <p class="p1">地址：<span class="span1">{{resumeModelOne.address}}</span></p>
+                        <p class="p2">電話：<span class="span2">{{resumeModelOne.phone}}</span></p>
+                        <p class="p3">信箱：<span class="span3">{{resumeModelOne.email}}</span></p>
+                        <p class="p4">作品：<span class="span4">{{resumeModelOne.porfolio}}</span></p>
                     </div>
 
-                    <div class="work_space_a4_3_2">
-                        <h4>自傳</h4>
-                        <textarea name="" id="" cols="27" rows="5" maxlength="65">
-我是零零五，21歲，畢業於台南應用科大商品設計系。雖然目前只有打工經驗，但我肯勤奮學習，吩咐的事一定會盡力做到最好。
-                        </textarea>
-                            
+                    <div title="上傳圖片" class="work_space_a4_2">
+                        <label for="upload" class="upload">
+                            <input id="upload" type="file" accept="image/*">
+                            <i class="fa-solid fa-file-circle-plus"></i>
+                        </label>
+                        <label for="upload" class="Avatar"><img src=""></label>
+                    </div>
+
+                    <div class="work_space_a4_3">
+
+                        <div class="work_space_a4_3_1">
+                            <h4>學歷</h4>
+                            <h5>{{resumeModelOne.school}}</h5>
+                            <h6>{{resumeModelOne.during_school}}</h6>
+                            <h6>{{resumeModelOne.department}}<span> /</span><span>{{resumeModelOne.attend_school_status}}</span></h6>
                         </div>
 
-                        <div class="work_space_a4_3_3">
-                            <h4>就學期間</h4>
-                            <textarea name="" id="" cols="27" rows="6" maxlength="65">
-體驗大學生活之餘，不怠忽課業，並於106學年度第二學期會計學(二)學科成績名列班上第三名。積極參與校內競賽活動，在每一次團隊競賽中，學習團隊合作的組織協調與氣氛和諧。                                                                        
-                            </textarea>
+                        <div class="work_space_a4_3_2">
+                            <h4>自傳</h4>
+                            <textarea name="" id="" cols="27" rows="5" maxlength="65">{{resumeModelOne.autobiography}}</textarea>
+                                
+                            </div>
+
+                            <div class="work_space_a4_3_3">
+                                <h4>就學期間</h4>
+                                <textarea name="" id="" cols="27" rows="6" maxlength="65">{{resumeModelOne.school_experience}}</textarea>
+                            </div>
+
+                            <div class="work_space_a4_3_4">
+                                <h4>工作經歷</h4>
+                                <h5>{{resumeModelOne.work_experience_job}}</h5>
+                                <h6>{{resumeModelOne.during_work}}</h6>
+                                <textarea name="" id="" cols="27" rows="4" maxlength="50">{{resumeModelOne.work_content}}</textarea>
+                            <p>
+                                
+                            </p>
                         </div>
 
-                        <div class="work_space_a4_3_4">
-                            <h4>工作經歷</h4>
-                            <h5>廣告設計實習生</h5>
-                            <h6>2016/6 ~ 2018/1</h6>
-                            <textarea name="" id="" cols="27" rows="4" maxlength="50">
-負責台灣區所有合作夥伴的初步接洽及管理。藉由深入瞭解合作夥伴痛點，並在合作內容協調中達成雙贏。
-                            </textarea>
-                        <p>
-                            
-                        </p>
-                    </div>
+                        <div class="work_space_a4_3_5">
+                            <h4>工作技能</h4>
+                            <p>{{resumeModelOne.skill1}}</p>
+                            <p>{{resumeModelOne.skill2}}</p>
+                            <p>{{resumeModelOne.skill3}}</p>
+                            <p>{{resumeModelOne.skill4}}</p>
+                        </div>
 
-                    <div class="work_space_a4_3_5">
-                        <h4>工作技能</h4>
-                        <p>C#</p>
-                        <p>活動企劃</p>
-                        <p>商業開發</p>
-                        <p>簡報製作</p>
-                    </div>
+                        <div class="work_space_a4_3_6">
+                            <h4>語文能力</h4>
+                            <p>{{resumeModelOne.language1}}</p>
+                            <p>{{resumeModelOne.language2}}</p>
+                        </div>
 
-                    <div class="work_space_a4_3_6">
-                        <h4>語文能力</h4>
-                        <p>日文</p>
-                        <p>法文</p>
                     </div>
 
                 </div>
-
             </div>
-    
             `,
         })
 
@@ -567,9 +632,10 @@ Vue.component('my-workspace',{
                     payplan: false,
                     modelBorder: false,
                     deleteResumeBorder: true,
-                    fileName: '',
-                    unlock: 0,
-                    price: 0,
+                    resume_modelOne:{},
+                    // fileName: '',
+                    // unlock: 0,
+                    // price: 0,
                     
                 }
             },
@@ -621,22 +687,27 @@ Vue.component('my-workspace',{
                     this.deletePopup = false
                     console.log('deleteResume')
                 },
-                selectedModel(open,fileName,unlock,price){
-                    if(unlock == 1){
+                selectedModel(open,resume_modelOne){
+                    
+                    console.log(this.resume_modelOne)
+                    if(resume_modelOne.unlock == 1){
                         // 選擇模板編譯履歷
-                        console.log('resumeborder')
+                        this.resume_modelOne = resume_modelOne
+                        console.log('resumeborder:' + resume_modelOne.id)
                         this.deleteResumeBorder = open;
                     }else{
                         // 付費彈窗
-                        console.log('payPopup')
+                        
                         this.payPopup = open
-                        this.fileName = fileName
-                        this.unlock = unlock
-                        this.price = price
+                        // this.fileName = resume_modelOne.fileName
+                        // this.unlock = resume_modelOne.unlock
+                        // this.price = resume_modelOne.price
+                       
+                        console.log('prselectedModel:'+ resume_modelOne.fileName +','+ resume_modelOne.unlock +','+ resume_modelOne.price)
                     }
                     
                     // this.modelBorder = false;
-                    console.log('selectedModel:'+ fileName +','+ unlock +','+ price)
+                    
                 },
 
              
@@ -648,17 +719,16 @@ Vue.component('my-workspace',{
 
                 <div class="work_space_make">
                     <resume-modelBorder v-show="modelBorder" @modelBorder="close" @selectModel="selectedModel"></resume-modelBorder>
-                    <div class="resume_make">
-                        <file-name></file-name>
-                        <model-A01 v-if="deleteResumeBorder"></model-A01>
-                    </div>
+                                          
+                        <model-A01 v-if="deleteResumeBorder" :resumeModelOne="resume_modelOne" :key="resume_modelOne"></model-A01>
+                    
                     <edit-summernote></edit-summernote>
                 </div>
                 
                 <win-save v-if="savePopup" @savewin="close"></win-save>
                 <win-share v-if="sharePopup" @sharewin="close"></win-share>
                 <win-pdf v-if="pdfPopup" @pdfwin="close"></win-pdf>
-                <win-pay v-if="payPopup" @paywin="close" @payCheckwin="open" :fileName="fileName" :price="price"></win-pay>
+                <win-pay v-if="payPopup" @paywin="close" @payCheckwin="open" :fileName="resume_modelOne.fileName" :price="resume_modelOne.price"></win-pay>
                 <win-payplan v-if="payplan" @payplanwin="close"></win-payplan>
                 <win-delete v-if="deletePopup" @deletewin="close" @deletecheck="deleteResume"></win-delete>
                 
