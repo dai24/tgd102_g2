@@ -1,6 +1,12 @@
-.testboxQA{
+.careertesr{
+    &.-close{
+        display: none;
+    }
+}
 
-    
+
+
+.testboxQA{
 
     .testboxQA_logo{
         width: 232px;
@@ -79,10 +85,38 @@
 .testQA{
     margin-top: 56px;
     text-align: center;
+    display: none;  //設定問題先隱藏
+
+    &.-show{
+        display: block;
+    }
+
+    &.-close{
+        display: none;
+    }
+
 
     .testqusetion{
         // margin-bottom: 96px;
         margin: 0 auto 96px;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 1.2s steps(15),caret 1.2s steps(1) infinite;
+        
+
+        @for $var from 1 to 30 {
+
+            &.-text-length-#{$var}{
+                width: #{$var}em;
+
+                // animation: typing $var*0.15s steps(15),caret $var*0.15s steps(1) infinite;
+            }
+            
+        }
+
         
 
         @include m(){
@@ -92,45 +126,28 @@
 
     }
 
-    .tQA1{
-        width: 14ch;
-        white-space: nowrap;
-        display: inline-block;
-        text-align: center;
-        overflow:hidden;
-        border-right: .05em solid;
-        animation: typing 1s steps(15),caret 1s steps(1) infinite;
-    }
+    // .tQA1{
+    //     width: 14ch;
+   
+    // }
 
-    .tQA2{
-        width: 24ch;
-        white-space: nowrap;
-        display: inline-block;
-        text-align: center;
-        overflow:hidden;
-        border-right: .05em solid;
-        animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
-    }
+    // .tQA2{
+    //     width: 24ch;
+    
+    //     animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
+    // }
 
-    .tQA3{
-        width: 24ch;
-        white-space: nowrap;
-        display: inline-block;
-        text-align: center;
-        overflow:hidden;
-        border-right: .05em solid;
-        animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
-    }
+    // .tQA3{
+    //     width: 24ch;
+     
+    //     animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
+    // }
 
-    .tQA4{
-        width: 18ch;
-        white-space: nowrap;
-        display: inline-block;
-        text-align: center;
-        overflow:hidden;
-        border-right: .05em solid;
-        animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
-    }
+    // .tQA4{
+    //     width: 18ch;
+   
+    //     animation: typing 1.2s steps(15),caret 1s steps(1) infinite;
+    // }
 
 
 }
@@ -198,6 +215,7 @@
 
 .careertestresult{
     
+    // display: none;
     background-color: #FFA800;
     font-family: $fontFamily;
     width: 100vw;
