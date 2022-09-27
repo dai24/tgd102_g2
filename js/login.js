@@ -8,7 +8,6 @@ $(function () {
     document.querySelector('.submit').addEventListener('click',() => {
         // if(!account || !password) {
         //         alert('請輸入account,password!');
-               
         //     return false;
         // }
 
@@ -43,6 +42,7 @@ $(function () {
             }
         });
         
+
         
         
         
