@@ -59,7 +59,7 @@ $editOutline : 2px solid black;
         grid-template-rows: 1fr;
 
         .resume_model-border {
-            padding: 10px;
+            padding: 10px 1em 10px 0px;
             background-color: $primary01;
             width: 13rem;
             height: 465px;
@@ -67,7 +67,8 @@ $editOutline : 2px solid black;
             overflow-x: hidden;
             box-shadow: 0px 0px 3px rgba(57, 57, 57, 0.5);
             // display: none;
-
+            display: flex;
+            flex-wrap: wrap;
             @include m() {
                 position: fixed;
                 top: 0;
@@ -94,15 +95,15 @@ $editOutline : 2px solid black;
 
             .resume_model {
 
-                width: 166px;
-                height: 218px;
+                width: 10rem;
+                height: 13rem;
                 margin: 0 auto 15px auto;
                 // margin-bottom: 15px;
                 cursor: pointer;
 
                 @include m() {
-                    float: left;
-                    margin: 10px 14px;
+                   
+                    
 
                 }
 
@@ -112,8 +113,8 @@ $editOutline : 2px solid black;
 
                 img {
                     // display: block;
-                    width: 166px;
-                    height: 218px;
+                    width: 10rem;
+                    height: 13rem;
                     // margin: 0 auto;
                     // margin-bottom: 15px;
                     // // outline: 1px solid rgb(43, 0, 255);
@@ -279,7 +280,7 @@ $editOutline : 2px solid black;
                         cursor: pointer;
 
                         input {
-                            display: none;
+                            // display: none;
 
                         }
 
@@ -313,7 +314,7 @@ $editOutline : 2px solid black;
                             
                         }
                         img {
-                            display: none;
+                            // display: none;
                             // position: absolute;
                             // top: 50%; left: 50%;
                             // transform: translate(-50%, -50%);
@@ -441,4 +442,8 @@ $editOutline : 2px solid black;
         }
 
     }
+}
+
+.sumerbtn{
+    margin: 10px auto;
 }

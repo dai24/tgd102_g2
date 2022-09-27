@@ -299,7 +299,7 @@ $(function () {
 
    
 
-   Avatar_upload()
+   // Avatar_upload()
    
   
 })
@@ -319,20 +319,20 @@ $(function () {
 //    $('.m-a-s-k').remove()
 // }
 
-function Avatar_upload(){
-   let upload = document.querySelector('#upload');
-   let Avatar = document.querySelector('.work_space_a4_2 img')
-   let upload_img = document.querySelector('.work_space_a4_2 .fa-file-circle-plus')
-   upload.addEventListener('change', (e) => {
-      let readFile = new FileReader()
-      readFile.readAsDataURL(upload.files[0])
-      readFile.addEventListener('load', function () {
-         Avatar.src = readFile.result;
-         Avatar.style.display = 'block';
-         upload_img.style.display = 'none'
+// function Avatar_upload(){
+//    let upload = document.querySelector('#upload');
+//    let Avatar = document.querySelector('.work_space_a4_2 img')
+//    let upload_img = document.querySelector('.work_space_a4_2 .fa-file-circle-plus')
+//    upload.addEventListener('change', (e) => {
+//       let readFile = new FileReader()
+//       readFile.readAsDataURL(upload.files[0])
+//       readFile.addEventListener('load', function () {
+//          Avatar.src = readFile.result;
+//          Avatar.style.display = 'block';
+//          upload_img.style.display = 'none'
 
-      })
+//       })
 
-   })
-}
+//    })
+// }
 

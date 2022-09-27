@@ -21,7 +21,8 @@
                         <h1 class="h1-1">線上製作一份能幫你獲得面試機會的履歷</h1>
                     </div>
                     <div class="col align-self-center">
-                        <a href="resume_work_space.html" class="btna11">製作履歷</a>
+                        <!-- <a href="resume_work_space.html" @click="checkMember" class="btna11">製作履歷</a> -->
+                        <button @click="checkMember" class="btna11">製作履歷</button>
                     </div>
                 </div>
                 <div class="row resume_banner2">
@@ -40,8 +41,8 @@
 
                     <!-- 履歷範本 -->
                     <my-resume_sample></my-resume_sample>                    
-
-                    @@include('./layout/pagination.html')
+                    <my-pagination></my-pagination>
+                    <!-- @@include('./layout/pagination.html') -->
                 </main>
             
             </div>
@@ -49,32 +50,40 @@
     @@include('./layout/footer.html')
 
     <script>
-        // Vue.component('my-category', {
-           
-        //     data() {
-        //         return {
-        //             categorys: ['全部', '設計', '工程', '管理', '媒體', '銷售', '金融', '行政', '科技', '服務'],
-        //             current:'全部',
-                    
-        //         }
-        //     },
-        //     methods:{
-        //         clickCategory(category){
-        //             this.current = category;
-        //             fetch(`./php/getResume_sample_All.php?category=${category}`)
-        //             .then(rsp => rsp.json())
-        //             .then(updateResume_sample => {
-        //                 resume_sample = updateResume_sample;
-        //             })
-        //         }
-        //     },
-        //     template: `
-        //     <div class="row category">
-        //             <div v-for="category in categorys" class="col-1">
-        //                 <button class="btna13" @click="clickCategory(category)" :class="{'categoryBtn':current === category}">{{category}}</button>
-        //             </div>
-        //     </div>`,
-        // })
+       Vue.component('my-pagination',{
+        data() {
+            return {
+                // clickColor: false,
+            }
+        },
+        methods:{
+            // paginationClick(){
+            //     this.clickColor = true
+            // }
+        },
+        computed:{
+            // color(){
+            //     return {
+            //         paginationColor : true
+            //     }
+            // },
+            // Clickcolor(){
+            //     return {
+            //         paginationClickColor : true
+            //     }
+            // }
+        },
+        template:
+        `
+        <div class="pagination-div">
+            <ul class="pagination-ul">
+                <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li v-for="num in 5"><a href="#">{{num}}</a></li>
+                <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+            </ul>
+        </div>
+        `,
+       })
 
         Vue.component('my-resume_sample', {
            
@@ -126,9 +135,6 @@
                     })
 
             },
-            updated() {
-                
-            },
             template:
                 `   
                 <div>
@@ -173,6 +179,7 @@
                 </div>
                 `
         })
+
         
         new Vue({
             el: '#resume',
@@ -181,7 +188,23 @@
 
             },
             methods: {
-               
+               checkMember(e){
+                // e.preventDefault()
+                const StudentId = sessionStorage.getItem('StudentTd')
+                
+                if(StudentId != null){
+                    location.href = './resume_work_space.html'
+                }else{
+                    let ckeck = confirm("請先登入會員")
+                    
+                    if(ckeck == true){
+                        location.href = './student_login.html'
+                    }else{
+
+                    }
+                    
+                }
+               }
                 
             },
 

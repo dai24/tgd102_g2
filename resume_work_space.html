@@ -5,6 +5,8 @@
     @@include('./layout/head.html',{
     "title" : "履歷工作區"
     })
+    
+</head>
 <body>
    
         <div class="resume_wrapper">
@@ -265,54 +267,43 @@ Vue.component('my-workspace',{
             `,
         })
 
-        //檔案名稱
-        // Vue.component('file-name',{   
-        //     data(){
-        //         return {
-        //             // resume_model:[],
-        //             // modelBorderShow:false,
-                   
-        //         }
-        //     },
-        //     methods: {
-        //         // submitData(){
-        //         //     this.$emit('modelBorder',false)
-        //         // }
-                
-        //     },
-        //     mounted() {
-               
-        //     },
-        //     template:
-        //     `
-        //     <div class="resume_name_div">
-        //         <label for="resume_name">檔案名稱: </label><input type="text" id="resume_name" name="resume_name">
-        //     </div>
-        //     `,
-        // })
 
         //編輯履歷
         Vue.component('model-A01',{
             props: {
-                resumeModelOne:{}
+                resumeModelOne:{},
+                
             },
             data(){
                 return {
-                    // resume_model:this.resumeModelOne,
+                   image:'',
+                   fileInput: false,
+                   Avatar:false,
                 }
             },
             methods:{
-               
+               fileChange(e){
+                    let file = e.target.files[0]
+                    let readFile = new FileReader()
+                    
+                    readFile.readAsDataURL(file)
+                    readFile.addEventListener('load',()=>{
+                        this.image = readFile.result
+                        this.Avatar = true
+
+                    })
+                     
+               },
+               summernote(){
+                this.$emit('summer',true,'summernote')
+               }
             },
             mounted() {
-                console.log(this.resumeModelOne)
-                
-                // fetch('./php/getResume_model_All.php?model=1')
-                //     .then(rsp => rsp.json())
-                //     .then(resume_model => {
-                //         this.resume_model = resume_model;
-                        
-                //     })
+                let resume = document.querySelector('.work_space_a4')
+                resume.addEventListener('click',(e) => {
+                    this.summernote()
+                    console.log(e.target)
+                })
             },
             template:
             `
@@ -325,9 +316,9 @@ Vue.component('my-workspace',{
 
                     <div class="work_space_a4_1">
 
-                        <h3 title="姓名" v-if="resumeModelOne.name">{{resumeModelOne.name}}</h3>
+                        <h3 title="姓名" >{{resumeModelOne.name}}</h3>
 
-                        <h4 title="職務" v-if="resumeModelOne.name">{{resumeModelOne.job_apply}}</h4>
+                        <h4 title="職務" >{{resumeModelOne.job_apply}}</h4>
                         <h5>聯絡方式</h5>
                         <p class="p1">地址：<span class="span1">{{resumeModelOne.address}}</span></p>
                         <p class="p2">電話：<span class="span2">{{resumeModelOne.phone}}</span></p>
@@ -336,11 +327,11 @@ Vue.component('my-workspace',{
                     </div>
 
                     <div title="上傳圖片" class="work_space_a4_2">
-                        <label for="upload" class="upload">
-                            <input id="upload" type="file" accept="image/*">
+                        <label for="upload" class="upload" >
+                            <input v-show="fileInput" id="upload" type="file" accept="image/*" @change="fileChange">
                             <i class="fa-solid fa-file-circle-plus"></i>
                         </label>
-                        <label for="upload" class="Avatar"><img src=""></label>
+                        <label for="upload" class="Avatar"><img v-if="Avatar" :src="image"></label>
                     </div>
 
                     <div class="work_space_a4_3">
@@ -399,29 +390,26 @@ Vue.component('my-workspace',{
         Vue.component('edit-summernote',{   
             data(){
                 return {
-                    // resume_model:[],
-                    // modelBorderShow:false,
+                   data:'',
                    
                 }
             },
             methods: {
-                // submitData(){
-                //     this.$emit('modelBorder',false)
-                // }
+                submitData(){
+                    console.log(this.data)
+                    this.$emit('summerData','')
+                }
                 
             },
             mounted() {
-                // fetch('./php/getResume_model_All.php?model=1')
-                //     .then(rsp => rsp.json())
-                //     .then(resume_model => {
-                //         this.resume_model = resume_model;
-                        
-                //     })
+                let sumdata = document.querySelector('#summernote1')
+                console.log(sumdata.no) 
             },
             template:
             `
             <div class="sumEdit">
                 <div id="summernote1"></div>
+                <div class="btna3 sumerbtn" @click="submitData">確定</div>
             </div>
             `,
         })
@@ -633,16 +621,17 @@ Vue.component('my-workspace',{
                     modelBorder: false,
                     deleteResumeBorder: true,
                     resume_modelOne:{},
-                    // fileName: '',
-                    // unlock: 0,
-                    // price: 0,
+                    fileName: '',
+                    unlock: 0,
+                    price: 0,
+                    summernote: false,
                     
                 }
             },
             methods: {  
                 // 依哪個click功能就打開彈窗
                 open(open,type){
-                    console.log(open,type)
+                    // console.log(open,type)
                     // 連點模板可以開啟關閉，換替 toggle
                     if(type == 'model'){
                         // 當模板是打開狀態，在點擊就關閉
@@ -665,7 +654,9 @@ Vue.component('my-workspace',{
                         this.payPopup = open;
                     }else if(type == 'payCheck'){
                         this.payplan = open;
-                        console.log('on payplan')
+                    }else if(type == 'summernote'){
+                        this.summernote = open;
+                        // console.log('summer:' + type + open)
                     }
 
                 },
@@ -679,30 +670,31 @@ Vue.component('my-workspace',{
                     this.modelBorder = closeWin;
                     this.payPopup = closeWin;
                     this.payplan = closeWin;
+                    
 
                 },
                 // 刪除履歷彈窗及刪除履歷(模板隱藏)
                 deleteResume(deleteCheck){
                     this.deleteResumeBorder = deleteCheck;
                     this.deletePopup = false
-                    console.log('deleteResume')
+                    // console.log('deleteResume')
                 },
                 selectedModel(open,resume_modelOne){
-                    
-                    console.log(this.resume_modelOne)
+                    this.resume_modelOne = resume_modelOne
+                    // console.log(this.resume_modelOne)
                     if(resume_modelOne.unlock == 1){
                         // 選擇模板編譯履歷
-                        this.resume_modelOne = resume_modelOne
-                        console.log('resumeborder:' + resume_modelOne.id)
+                        // console.log('resumeborder:' + resume_modelOne.id)
                         this.deleteResumeBorder = open;
                     }else{
                         // 付費彈窗
                         
                         this.payPopup = open
-                        // this.fileName = resume_modelOne.fileName
-                        // this.unlock = resume_modelOne.unlock
-                        // this.price = resume_modelOne.price
                        
+                        this.fileName = resume_modelOne.fileName
+                        this.unlock = resume_modelOne.unlock
+                        this.price = resume_modelOne.price
+                        this.resume_modelOne = ''
                         console.log('prselectedModel:'+ resume_modelOne.fileName +','+ resume_modelOne.unlock +','+ resume_modelOne.price)
                     }
                     
@@ -720,15 +712,16 @@ Vue.component('my-workspace',{
                 <div class="work_space_make">
                     <resume-modelBorder v-show="modelBorder" @modelBorder="close" @selectModel="selectedModel"></resume-modelBorder>
                                           
-                        <model-A01 v-if="deleteResumeBorder" :resumeModelOne="resume_modelOne" :key="resume_modelOne"></model-A01>
+                        <model-A01 v-if="deleteResumeBorder" :resumeModelOne="resume_modelOne" @summer="open"></model-A01>
                     
-                    <edit-summernote></edit-summernote>
+                    <edit-summernote v-show="summernote"></edit-summernote>
+                    
                 </div>
                 
                 <win-save v-if="savePopup" @savewin="close"></win-save>
                 <win-share v-if="sharePopup" @sharewin="close"></win-share>
                 <win-pdf v-if="pdfPopup" @pdfwin="close"></win-pdf>
-                <win-pay v-if="payPopup" @paywin="close" @payCheckwin="open" :fileName="resume_modelOne.fileName" :price="resume_modelOne.price"></win-pay>
+                <win-pay v-if="payPopup" @paywin="close" @payCheckwin="open" :fileName="fileName" :price="price"></win-pay>
                 <win-payplan v-if="payplan" @payplanwin="close"></win-payplan>
                 <win-delete v-if="deletePopup" @deletewin="close" @deletecheck="deleteResume"></win-delete>
                 
