@@ -59,6 +59,11 @@ new Vue({
                 name:'彰化縣'
             },
         ],
+        // all_category.a
+        // all_category:[
+        //     a:[],
+        //     b:[]
+        // ]
         sortTitle:['軟體','行銷','金融'],
         sortList1:[
             {
@@ -146,6 +151,19 @@ new Vue({
         com:[],
         jobID:[],
         jobID1:[],
+
+
+        alljobs:[
+            {
+                title:'a',
+                category:['sss','xxx'],
+                location:'fghf',
+            },
+            {
+                title:'b',
+                category:['sss','xxx']
+            }
+        ]
     },
     mounted() {
         // fetch("../php/findJob.php",{
@@ -202,7 +220,7 @@ new Vue({
             fetch(`../php/searchJobCb.php?searchJob1=${a}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
-                // console.log(userArr);
+                console.log(userArr);
                 this.com = userArr
                 console.log(this.com);
             })

@@ -8,21 +8,21 @@
                 <i class="fa-solid fa-xmark cardXmark" @click="close"></i>
             </li>
         </ul>
-        <div class="cardInner applyfor">
+        <div class="cardInner applyfor" >
             <div class="applyTitle">
-                <div>
-                    <img src="./images/findJob/comLogo.jpg" alt="">
+                <div v-for="jobApply1 in jobApply">
+                    <img :src="jobApply1.LOGO + '.jpg'" alt="">
                 </div>
-                <div class="applyTitleMain">
-                    <h2>醫療客服專案管理師 (諮商師)</h2>
-                    <h3>Dr. Right 精準關懷</h3>
+                <div class="applyTitleMain" v-for="jobApply1 in jobApply">
+                    <h2>{{jobApply1.JOB_NAME}}</h2>
+                    <h3>{{jobApply1.COM_NAME}}</h3>
                 </div>
             </div>
             <div class="resumeChoose">
                 <h2>選擇履歷 :</h2>
-                <div v-for="(item, index) in resumeBrow" :key="index">
-                    <input type="radio" name="resume" value="resume1" id="resume1"><label for="resume1">{{item.resumeName}}</label>
-                    <a class="resume_zoom_browser_btn" @click="isShowResOpen">瀏覽
+                <div v-for="resume in resumePic">
+                    <input type="radio" name="resume" value="resume1" id="resume1"><label for="resume1">履歷</label>
+                    <a class="resume_zoom_browser_btn" @click="isShowResOpen(resume)">瀏覽
                         <svg xmlns="http://www.w3.org/2000/svg"
                         fill="currentColor" class="bi bi-box-arrow-up-right"
                         viewBox="0 0 16 16">
@@ -46,9 +46,10 @@
             <div class="btna3" id="applyForSubmit"  @click="close">送出</div>
     </div>
 </div>
+
 <div class="m-a-s-k_applyFor" id="m-a-s-k_applyFor" v-if="isShowR" @click="isShowResClose"></div>
-    <div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn" v-if="isShowR" v-for="(item, index) in resumeBrow" :key="index">
-    <img :src="item.resumeImg" class='resume_zoom_imggg'>
+<div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn" v-if="isShowR">
+    <img :src="'./images/' + resumeSrr + '.jpg'" class='resume_zoom_imggg'>
 </div>
 
 

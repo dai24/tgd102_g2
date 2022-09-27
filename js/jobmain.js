@@ -226,19 +226,43 @@ new Vue({
         isShowSave:false,
         isShow:false,
         isShowR: false,
-        resumeBrow:[
-            {   
-                resumeName:'履歷一',
-                resumeImg:'./images/resume/resume_1.jpg'
-            }
-        ]
+        resumeBrow:[],
+        resumePic:[],
+        jobApply:[],
+        resumeSrr:''
     },
+    mounted() {
+        fetch(`../php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        .then(rsp => rsp.json())
+        .then(userArr => {            
+            this.jobApply = userArr
+        })
+    },
+    
     methods: {
         open(){
-            this.isShow =!this.isShow
+            console.log(JSON.stringify(sessionStorage.getItem('StudentTd')));
+            if(JSON.stringify(sessionStorage.getItem('StudentTd'))  === 'null'){
+                alert('請先登入會員')
+                location='./student_login.html'
+            }else{
+                this.isShow =!this.isShow
+            }
+            
+            fetch(`../php/applyFor.php?StudentTd=${sessionStorage.getItem('StudentTd')}`) //從後端JS拿到資料
+            .then(rsp => rsp.json())
+            .then(userArr => {            
+                this.resumeBrow= userArr
+                this.resumePic = this.resumeBrow[0].PICTURE.split('|')
+                console.log(this.resumeBrow[0].PICTURE.split('|'));
+                
+            })
+        
+            
         },
         close(){
             this.isShow =!this.isShow
+            this.resumePic=[]
         },
         saveGo(){
             this.isShowSave =!this.isShowSave
@@ -246,12 +270,24 @@ new Vue({
         saveClose(){
             this.isShowSave =!this.isShowSave
         },
-        isShowResOpen(){
+        isShowResOpen(re){
+            console.log(re);
             this.isShowR =!this.isShowR
+            this.resumeSrr += re
+            // fetch(`../php/applyFor.php?StudentTd=${sessionStorage.getItem('StudentTd')}`) //從後端JS拿到資料
+            // .then(rsp => rsp.json())
+            // .then(userArr => {            
+            //     this.resumeBrow= userArr
+            //     // this.resumePic = this.resumeBrow[0].PICTURE.split('|')
+            //     console.log(this.resumeBrow[0].PICTURE.split('|'));
+                
+            // })
         },
         isShowResClose(){
             this.isShowR =!this.isShowR
-        }
+            this.resumeSrr = ''
+        },
+
         
     },
 
