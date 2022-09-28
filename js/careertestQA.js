@@ -148,7 +148,7 @@ new Vue({
             }else if ( this.mbti === "ENTP"){
                 this.mbtianswer.img = "./images/careertest/16MBTI/ENTP.png"
                 this.mbtianswer.title = "辯論家"
-                this.mbtianswer.description = "在接收新資訊時，。重視邏輯觀點，會透過多個角度觀察事物，並勇於表達自己的看法。不喜歡做一成不變的事，很少會以同樣的方式做同樣的事情，容易出現三分鐘熱度。",
+                this.mbtianswer.description = "在接收新資訊時，重視邏輯觀點，會透過多個角度觀察事物，並勇於表達自己的看法。不喜歡做一成不變的事，很少會以同樣的方式做同樣的事情，容易出現三分鐘熱度。",
                 this.mbtianswerjob ="行銷專員、律師"
             }else if ( this.mbti === "ESTJ"){
             this.mbtianswer.img = "./images/careertest/16MBTI/ESTJ.png"

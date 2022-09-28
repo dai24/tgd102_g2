@@ -4,27 +4,22 @@
     include('./PDO/Connection.php');
 
     //建立SQL語法
-    $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
-    $sql = "SELECT T.TNAME, T.PHOTO, T.JOBTITLE, T.TIMES, T.SCHOOL, T.TDESCRIPTION,
-            TJ.JOBNAME, TIC.INDUSTRYCLASSNAME, TJC.JOBCLASSNAME
-            FROM TEACHER AS T
-            LEFT JOIN TEACHER_JOB AS TJ ON T.ID = TJ.TEACHERID
-            LEFT JOIN TEACHER_INDUSTRYCLASS AS TIC ON T.ID = TIC.TEACHERID
-            LEFT JOIN TEACHER_JOBCLASS AS TJC ON T.ID = TJC.TEACHERID;
-            
+    // $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
+    $sql = "SELECT TJC.JOBCLASSNAME AS tjobclassname
+            FROM TEACHER_JOBCLASS AS TJC where TJC.TEACHERID = 1;   
             "
         ;    
+
 
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     
     $stmt = $pdo->prepare($sql);
-    
     $stmt->execute(); //執行
     
     
     //---------------------------------------------------
     
-    $member = $stmt->fetchAll(); //撈到資料
+    $teacherjobtype = $stmt->fetchAll(); //撈到資料
         
     // if ($stmt->rowCount() > 0){ //只要有撈到一筆資料 = 有撈到資料
     //     $member["successful"] = true; //successful的屬性數值顯示 true        
@@ -33,5 +28,5 @@
     // }
     
     // echo "測試有跑到這裡";
-    echo json_encode($member);
+    echo json_encode($teacherjobtype);
 ?>
