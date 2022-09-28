@@ -1,22 +1,24 @@
 $(function () {
 
-    const name = document.querySelector("#name")
-    let alertNameTrue = true
-    name.addEventListener("blur",function(){
-    let pattern = /^[a-zA-Z][a-zA-Z0-9_]{4,15}/;
-    let alertName = document.querySelector("#alertName")
-    if(pattern.test(name.value)){
-        alertName.innerHTML = ""
-        name.style.border = "1px solid black";
-        alertNameTrue = true
-    }else{
-        alertName.innerHTML = "<h4>請輸入正確的用戶名格式</h4>"
-        console.log(name.value);
-        name.style.border = "2px solid red";
-        alertNameTrue = false
-    }
+    // 名稱不要正規表達式限制住
+
+    // const name = document.querySelector("#name")
+    // let alertNameTrue = true
+    // name.addEventListener("blur",function(){
+    // let pattern = /^[a-zA-Z][a-zA-Z0-9_]{4,15}/;
+    // let alertName = document.querySelector("#alertName")
+    // if(pattern.test(name.value)){
+    //     alertName.innerHTML = ""
+    //     name.style.border = "1px solid black";
+    //     alertNameTrue = true
+    // }else{
+    //     alertName.innerHTML = "<h4>請輸入正確的用戶名格式</h4>"
+    //     console.log(name.value);
+    //     name.style.border = "2px solid red";
+    //     alertNameTrue = false
+    // }
     
-    })
+    // })
 
     const email = document.querySelector("#email")
     let alertEmailTrue = true
@@ -42,7 +44,7 @@ $(function () {
         let alertPasswordTrue = true
         password.addEventListener("blur",function(){
         let alertPassword = document.querySelector("#alertPassword")
-        let pattern =  /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        let pattern =  /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
             if(pattern.test(password.value)){
                 alertPassword.innerHTML = ""
                 password.style.border = "1px solid black";
@@ -61,7 +63,7 @@ $(function () {
         let alertPasswordTrue1 = true
         password1.addEventListener("blur",function(){
         let alertPassword1 = document.querySelector("#alertPassword1")
-        let pattern =  /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/;
+        let pattern =  /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{6,}$/;
             if(pattern.test(password1.value)){
                 alertPassword1.innerHTML = ""
                 password1.style.border = "1px solid black";
