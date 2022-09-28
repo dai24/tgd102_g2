@@ -42,16 +42,31 @@ $(function () {
             })
         })
         
-        .then(resp => resp.text())
+        // .then(resp => resp.text())
+        // .then(result => {
+        //     console.log('test', result == 'successful');
+        //     if(result == 'successful') {
+        //         location.replace('../dist/company_main.html');
+        //     }else{
+        //         alert("信箱密碼錯誤")
+        //     }
+        // });
+        .then(resp => resp.json())
         .then(result => {
-            console.log('test', result == 'successful');
-            if(result == 'successful') {
+           let companyData = []; //準備一個空陣列用來裝回傳的資料
+           companyData = result; //回傳資料裝進去空陣列
+        //    console.log(studentData) //確認回傳結果有ID值
+        //    console.log(studentData[0].ID) //有找到ID
+            // console.log('test', result == 'successful');
+            if(companyData.length > 0) {
                 location.replace('../dist/company_main.html');
+                let comID = companyData[0].ID
+                sessionStorage.setItem('CompanyId', comID)
             }else{
-                alert("信箱密碼錯誤")
+                alert("信箱密碼錯誤!!")
             }
         });
-        sessionStorage.setItem('CompanyId', account.value)
+        // sessionStorage.setItem('CompanyId', account.value)
         // .then(resp =>{
         //     if (resp.status === 200) {
         //         location.replace('../dist/company_main.html');

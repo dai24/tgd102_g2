@@ -13,23 +13,24 @@ $statement->execute();
 
 $members = $statement->fetchAll();
 
-if($statement->rowCount() > 0) {
-    $member = $members[0];
-    $member["successful"]= true;
-    session_start();
-    $_SESSION["loggedin"]= true;
-    $_SESSION["member"]=(object) $member;
+echo  json_encode($members);
+// if($statement->rowCount() > 0) {
+//     $member = $members[0];
+//     $member["successful"]= true;
+//     session_start();
+//     $_SESSION["loggedin"]= true;
+//     $_SESSION["member"]=(object) $member;
     
-    // header('Location: http://localhost/tgd102_g2/dist/student_main.html');
+//     // header('Location: http://localhost/tgd102_g2/dist/student_main.html');
     
-    echo ('successful');
-}else {
-    $member["successful"]= false;
-    $member["message"]= "登入失敗";
-    echo"<h1 style='color:red'>帳號密碼錯誤</h1>";
-    // function_alert("帳號或密碼錯誤");
-    // $errors['login'] = 'Invalid username or password';
-}
+//     echo ('successful');
+// }else {
+//     $member["successful"]= false;
+//     $member["message"]= "登入失敗";
+//     echo"<h1 style='color:red'>帳號密碼錯誤</h1>";
+//     // function_alert("帳號或密碼錯誤");
+//     // $errors['login'] = 'Invalid username or password';
+// }
  
 //echo json_encode($member["successful"]);
 

@@ -32,16 +32,23 @@ $(function () {
                 password:password.value,
             })
         })
-        .then(resp => resp.text())
+        .then(resp => resp.json())
         .then(result => {
-            console.log('test', result == 'successful');
-            if(result == 'successful') {
+           let studentData = []; //準備一個空陣列用來裝回傳的資料
+           studentData = result; //回傳資料裝進去空陣列
+        //    console.log(studentData) //確認回傳結果有ID值
+        //    console.log(studentData[0].ID) //有找到ID
+            // console.log('test', result == 'successful');
+            if(studentData.length > 0) {
                 location.replace('../dist/student_main.html');
+                let stuID = studentData[0].ID
+                sessionStorage.setItem('StudentId', stuID)
             }else{
-                alert("信箱密碼錯誤")
+                alert("信箱密碼錯誤!!")
             }
         });
-        sessionStorage.setItem('StudentId', account.value)
+        
+        
         
 
         
