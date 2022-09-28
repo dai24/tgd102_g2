@@ -258,8 +258,7 @@ new Vue({
     },
     
     methods: {
-        open(){
-            console.log(JSON.stringify(sessionStorage.getItem('StudentId')));
+        open(){           
             if(JSON.stringify(sessionStorage.getItem('StudentId'))  === 'null'){
                 alert('請先登入會員')
                 location='./student_login.html'
@@ -267,11 +266,11 @@ new Vue({
                 this.isShow =!this.isShow
             }
             
-            fetch(`../php/applyFor.php?StudentTd=${sessionStorage.getItem('StudentId')}`) //從後端JS拿到資料
+            fetch(`../php/applyFor.php?StudentTd=${Number(sessionStorage.getItem('StudentId'))}`) //從後端JS拿到資料
             .then(rsp => rsp.json())
             .then(userArr => {            
                 this.resumeBrow= userArr
-                console.log(resumeBrow);
+                console.log(this.resumeBrow);
                 // this.resumePic = this.resumeBrow[0].PICTURE.split('|')
                 // console.log(this.resumeBrow[0].PICTURE.split('|'));
                 

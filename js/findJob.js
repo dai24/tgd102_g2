@@ -151,30 +151,18 @@ new Vue({
         com:[],
         jobID:[],
         jobID1:[],
-
-
-        alljobs:[
-            {
-                title:'a',
-                category:['sss','xxx'],
-                location:'fghf',
-            },
-            {
-                title:'b',
-                category:['sss','xxx']
-            }
-        ]
+        com2:[],
     },
     mounted() {
-        // fetch("../php/findJob.php",{
-        //     method: 'POST',
-        //     headers: {'Content-Type' : 'application/json'},
-        // })
-        //  //從後端JS拿到資料
-        // .then(rsp => rsp.json())
-        // .then(userArr => {            
-        //     this.com = userArr
-        // })
+        fetch("../php/findJob.php",{
+            method: 'POST',
+            headers: {'Content-Type' : 'application/json'},
+        })
+         //從後端JS拿到資料
+        .then(rsp => rsp.json())
+        .then(userArr => {            
+            this.com2 = userArr
+        })
 
         // fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
         //     .then(rsp => rsp.json())
