@@ -25,14 +25,31 @@
     $stmt_jobclass = $pdo->prepare($sql_jobclass);
     $stmt_jobclass->execute(); //執行
     
-    
+    // function getIcn($item) {}
+
     //---------------------------------------------------
     $teacherList = $stmt_teacher->fetchAll(); //撈到資料
+    for ($i = 0; $i < count($teacherList); $i++) {
+        $teacher = $teacherList[$i];
+        $sql = "select INDUSTRYCLASSNAME as icn from TEACHER_INDUSTRYCLASS where TEACHERID = :teacherId";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":teacherId", $teacher["id"]);
+        $stmt->execute();
+        $industryClassList = $stmt->fetchAll();
+        $teacherList[$i]["industryClassList"] = array_map(function($row){return $row["icn"];}, $industryClassList);
+    }
+
+
+
     $industryclassList = $stmt_industryclass->fetchAll(); //撈到資料
     $jobclassList = $stmt_jobclass->fetchAll();
     
     // echo "測試有跑到這裡";
-    echo json_encode($teacherList,);
-    echo json_encode($industryclassList);
-    echo json_encode($jobclassList);
+    $resp_body = (object) [
+        "teacherList" => $teacherList,
+        "industryclassList" => $industryclassList,
+        "jobclassList" => $jobclassList
+    ];
+    echo json_encode($resp_body);
 ?>
+

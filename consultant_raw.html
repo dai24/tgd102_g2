@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @@include('./layout/head.html',{
+        "title" : "顧問"
+    })
+</head>
+<body>
+
+    @@include('./layout/header.html')
+
+        <div class="wrapper_consultant">
+            @@include('./layout/breadcrumb4.html',{
+            'home' : "首頁",
+            'nav' : "資源",
+            'item1': "履歷診療室",
+            'active' : "顧問",
+            'nav_url' : "resumeReview.html",
+            'item1_url' : "resumeReview.html",
+            })
+
+
+            <div class="consultant_info">
+
+                <div class="consultant_left">
+                    <img src="./images/consultant/1.jpg" alt="">
+                    <h1>王博均</h1>
+                    <h2>國立台灣大學商研所</h2>
+                    <h2>產品經理</h2>
+                    <h2>已健診5人</h2>
+                    <button class="btna10">我要健診</button>
+                </div>
+
+                <div class="consultant_right">
+                    <article>
+                        <h1>經歷</h1>
+                        <p>關鍵評論網、Cheers雜誌 專欄作家</p>
+                        <p>TimeMap科系探索與生涯教育協會 生涯顧問</p>
+                        <p>ACDC 亞洲職業生涯發展中心 研發總監</p>
+                        <p>勵活課程設計中心 講師</p>
+                        <p>擺渡人生設計股份有限公司 特約職涯顧問</p>
+                    </article>
+
+                    <article>
+                        <h1>擅長產業</h1>
+                        <p>
+                            電子科技／資訊／軟體／半導體一般傳統製造礦業
+                            土石能源採取政治／宗教／社福金融投顧
+                            保險相關法律／會計／顧問／研發
+                            設計運輸物流／倉儲／貿易建築營造／不動產相關醫療照護
+                            環境衛生農林漁牧／水電資源一般服務業旅遊／休閒／運動餐飲
+                            住宿服務大眾傳播相關教育／出版／藝文相關批發／零售／傳直銷
+                        </p>
+                    </article>
+
+                    <article>
+                        <h1>擅長職務</h1>
+                        <p>
+                            管理幕僚／人資／行政金融保險／財會／稽核業務
+                            貿易／客服／門市行銷／企劃／專案管理電腦系統／資訊
+                            軟硬體光電IC／電子通訊機械模具／生產製程操作／維修
+
+                        </p>
+                    </article>
+
+                    <article>
+                        <h1>簡介</h1>
+                        <p>
+                            只要透過深入訪談，就可以重新優化安排履歷自傳的組成元素，突顯最相關、最有價值的部份，讓對方快速看見你的價值。透過履歷證明你的專業實力和經驗，並透過自傳展現軟實力和個人特質，兩相合一就能最大幅度地提高邀約面試的機會！
+                        </p>
+                    </article>
+                </div>
+
+            </div>
+
+        </div>
+
+
+
+    @@include('./layout/footer.html')
+
+    
+
+</body>
+
+</html>

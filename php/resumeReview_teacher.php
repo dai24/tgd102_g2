@@ -35,15 +35,15 @@
     //---------------------------------------------------
     
     $teacherList = $stmt->fetchAll(); //撈到資料
-    // for ($i = 0; $i < count($teacherList); $i++) {
-    //     $teacher = $teacherList[$i];
-    //     $sql = "select INDUSTRYCLASSNAME as icn from TEACHER_INDUSTRYCLASS where TEACHERID = :teacherId";
-    //     $stmt = $pdo->prepare($sql);
-    //     $stmt->bindValue(":teacherId", $teacher["id"]);
-    //     $stmt->execute();
-    //     $industryClassList = $stmt->fetchAll();
-    //     $teacherList[$i]["industryClassList"] = $industryClassList;
-    // }
+    for ($i = 0; $i < count($teacherList); $i++) {
+        $teacher = $teacherList[$i];
+        $sql = "select INDUSTRYCLASSNAME as icn from TEACHER_INDUSTRYCLASS where TEACHERID = :teacherId";
+        $stmt = $pdo->prepare($sql);
+        $stmt->bindValue(":teacherId", $teacher["id"]);
+        $stmt->execute();
+        $industryClassList = $stmt->fetchAll();
+        $teacherList[$i]["industryClassList"] = $industryClassList;
+    }
 
 
     

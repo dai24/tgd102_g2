@@ -48,8 +48,9 @@
                 <!-- 履歷診療師 -->
                 <div class="resumeConsultants">
 
-                    <div class="consultant" v-for="(teacher,index) in allteachers" >
-                        <a :href="teacher.tlink"><img :src="teacher.img" alt=""></a>    
+                    <!-- <div class="consultant" v-for="(teacher,index) in allteachers" > -->
+                    <div class="consultant" v-for="(teacher,index) in teachersFiltered" >
+                        <a :href="'./consultant.html?teacherId=' + teacher.id"><img :src="teacher.img" alt=""></a>    
                         <div class="consultantSource">
                             <h3 >{{ teacher.tname }}</h3>
                             <h4>{{ teacher.tjobtitle }}</h4>
