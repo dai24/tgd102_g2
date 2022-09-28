@@ -151,7 +151,7 @@ Vue.component('my-list3',{
     `,
     methods: {
         moveCom(comId){
-            sessionStorage.setItem('findComId', comId);
+            sessionStorage.setItem('findJobcomId', comId);
             console.log(comId)
             location='./company.html'
         }
@@ -162,6 +162,8 @@ Vue.component('my-list4',{
     data() {
         return {
             jobOth : [],
+            jobID:[],
+            jobID1:[],
             
         }
     },
@@ -197,7 +199,7 @@ Vue.component('my-list4',{
                         </div>
                         <div class="jobMainWrapperOthBtn">
                             <div class="btna5 saveApplyOpen" @click='openSave'>儲存職缺</div>
-                            <div class="btna6" @click='goApply'>立即應徵</div>
+                            <div class="btna6" @click='goApply(jobMainOthMain.ID,jobMainOthMain.COMPANY_ID)'>立即應徵</div>
                         </div>
                         
                     </div>
@@ -212,9 +214,25 @@ Vue.component('my-list4',{
         openSave(){
             this.$emit('save-click')
         },
-        goApply(){
+        goApply(idNum,comidNum){
+            console.log(comidNum);
+            sessionStorage.setItem('findJobId', idNum);
+            sessionStorage.setItem('findJobcomId', comidNum);
+            this.jobID.push(idNum)
+            this.jobID.forEach((num) => {
+                if (!this.jobID1.includes(num)) {
+                    this.jobID1.push(num);
+                }
+            })
+            for(let i = 0; i < this.jobID1.length; i++){
+                console.log(this.jobID1[i]);
+                fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
+                
+                //jobId : this.jobID1[i]
+            }
+            location='./jobMain.html'
             // console.log(COMID);
-            location = './jobMain.html';
+            // location = './jobMain.html';
         }
     },
 })
@@ -241,15 +259,15 @@ new Vue({
     
     methods: {
         open(){
-            console.log(JSON.stringify(sessionStorage.getItem('StudentTd')));
-            if(JSON.stringify(sessionStorage.getItem('StudentTd'))  === 'null'){
+            console.log(JSON.stringify(sessionStorage.getItem('StudentId')));
+            if(JSON.stringify(sessionStorage.getItem('StudentId'))  === 'null'){
                 alert('請先登入會員')
                 location='./student_login.html'
             }else{
                 this.isShow =!this.isShow
             }
             
-            fetch(`../php/applyFor.php?StudentTd=${sessionStorage.getItem('StudentTd')}`) //從後端JS拿到資料
+            fetch(`../php/applyFor.php?StudentTd=${sessionStorage.getItem('StudentId')}`) //從後端JS拿到資料
             .then(rsp => rsp.json())
             .then(userArr => {            
                 this.resumeBrow= userArr

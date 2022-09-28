@@ -299,8 +299,9 @@ new Vue({
                 }
             });
         },
-        jobMainGo(idNum,comidNum){
+        jobMainGo(idNum,comidNum,brow){
             console.log(comidNum);
+            console.log(brow);
             sessionStorage.setItem('findJobId', idNum);
             sessionStorage.setItem('findJobcomId', comidNum);
             this.jobID.push(idNum)
@@ -312,9 +313,10 @@ new Vue({
             for(let i = 0; i < this.jobID1.length; i++){
                 console.log(this.jobID1[i]);
                 fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
-                
+                // fetch(`../php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
                 //jobId : this.jobID1[i]
             }
+            
             location='./jobMain.html'
         },
         
