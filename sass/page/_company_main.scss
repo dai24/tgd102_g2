@@ -333,8 +333,20 @@
 
         .appleSwitch{
             animation: openColor 1s 1 ease-in-out forwards;
+
             .appleCircle{
                 animation: switch 1s 1 ease-in-out forwards;
+
+            }
+        }
+    }
+
+    .closeSwitch{
+        .appleSwitch{
+            animation: none;
+
+            .appleCircle{
+                animation: none;
             }
         }
     }

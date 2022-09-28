@@ -51,7 +51,7 @@ $(function () {
                 alert("信箱密碼錯誤")
             }
         });
-        sessionStorage.setItem('StudentTd', account.value)
+        sessionStorage.setItem('CompanyId', account.value)
         // .then(resp =>{
         //     if (resp.status === 200) {
         //         location.replace('../dist/company_main.html');

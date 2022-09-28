@@ -41,7 +41,7 @@ $(function () {
                 alert("信箱密碼錯誤")
             }
         });
-        sessionStorage.setItem('StudentTd', account.value)
+        sessionStorage.setItem('StudentId', account.value)
         
 
         
