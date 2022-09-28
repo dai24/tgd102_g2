@@ -1,3 +1,5 @@
+
+
 Vue.component('my-list-com',{
     data() {
         return {
@@ -5,14 +7,14 @@ Vue.component('my-list-com',{
         }
     },
     mounted() {
-        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findComId')}`) //從後端JS拿到資料
+        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.companyTitle= userArr
         })
     },
     template:`
-    <template>
+    
     <div class="companyWrapperTitle">
             <div class="companyWrapperTitImg">
 
@@ -39,20 +41,24 @@ Vue.component('my-list-com',{
                 </div>
             </div>
     </div>
-    </template>      `,
+       `,
     
 })
 Vue.component('my-list-com2',{
     data() {
         return {
-            companyMain:[]
+            companyMain:[],
+            comPic:[]
+            
         }
     },
     mounted() {
-        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findComId')}`) //從後端JS拿到資料
+        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.companyMain= userArr
+            this.comPic = this.companyMain[0].PHOTO.split('|')
+            console.log(this.comPic);
         })
     },
     template:
@@ -77,7 +83,7 @@ Vue.component('my-list-com2',{
                         <div class="companyStatement"><h3>公司照片</h3></div>
                         <div>
                             <div>
-                                <img :src="comImgAll" alt="" v-for="comImgAll in comImg">
+                                <img :src="'./images/' + comPic1 + '.jpg'" alt="" v-for="comPic1 in comPic">
                             </div>
                         </div>
                     </div>
@@ -90,11 +96,13 @@ Vue.component('my-list-com2',{
 Vue.component('my-list-com3',{
     data() {
         return {
-            companyOth:[]
+            companyOth:[],
+            jobID:[],
+            jobID1:[],  
         }
     },
     mounted() {
-        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findComId')}`) //從後端JS拿到資料
+        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.companyOth= userArr
@@ -124,7 +132,7 @@ Vue.component('my-list-com3',{
                     </div>
                     <div class="jobMainWrapperOthBtn">
                         <div class="btna5 saveApplyOpen" @click='openSave'>儲存職缺</div>
-                        <div class="btna6 moveToJob" @click='goApply'>立即應徵</div>
+                        <div class="btna6 moveToJob" @click='goApply(companyOth1.ID,companyOth1.COMPANY_ID)'>立即應徵</div>
                     </div>
                 </div>
                 <div class="jobMainWrapperOthMain">
@@ -140,8 +148,25 @@ Vue.component('my-list-com3',{
                 openSave(){
                     this.$emit('save-click')
                 },
-                goApply(){
-                    location = './jobMain.html';
+                goApply(idNum,comidNum){
+                    console.log(comidNum);
+                    sessionStorage.setItem('findJobId', idNum);
+                    sessionStorage.setItem('findJobcomId', comidNum);
+                    this.jobID.push(idNum)
+                    this.jobID.forEach((num) => {
+                        if (!this.jobID1.includes(num)) {
+                            this.jobID1.push(num);
+                        }
+                    })
+                    for(let i = 0; i < this.jobID1.length; i++){
+                        console.log(this.jobID1[i]);
+                        fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
+                        
+                        //jobId : this.jobID1[i]
+                    }
+                    location='./jobMain.html'
+                    // console.log(COMID);
+                    // location = './jobMain.html';
                 }
             },
     
