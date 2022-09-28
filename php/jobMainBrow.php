@@ -4,13 +4,14 @@
     include('./PDO/Connection.php');
 
     $jobId = $_GET['home'];
+    $brow = $_GET['brow'];
     // $JOBNAME = $_POST['JOBNAME'];
     //建立SQL語法
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
     // echo $member;
     $sql = "
             UPDATE JOB J
-            SET J.BROWSED = 20
+            SET J.BROWSED = :brow
             WHERE J.ID = :jobId;
             "
             ;    
@@ -19,6 +20,7 @@
     
     $stmt = $pdo->prepare($sql);
     $stmt -> bindValue(":jobId" , $jobId);
+    $stmt -> bindValue(":brow" , $brow);
     $stmt->execute(); //執行
     
     

@@ -1,13 +1,15 @@
 <?php
     include('./PDO/Connection.php');
     $StudentTd = $_GET['StudentTd'];
-    $sql = "SELECT S.NAME , S.EMAIL , S.PICTURE 
-            FROM STUDENT S ;
-            WHERE S.EMAIL = :EMAIL;
+    $sql = "SELECT R.IMG_PATH , R.ID , R.STUDENT_ID
+            FROM RESUME R
+            JOIN STUDENT S
+            ON S.ID = R.STUDENT_ID
+            WHERE R.STUDENT_ID = :SID;
             "
             ;  
     $stmt = $pdo->prepare($sql);
-    $stmt -> bindValue(":EMAIL" , $StudentTd);
+    $stmt -> bindValue(":SID" , $StudentTd);
     $stmt->execute(); //執行
     $members = $stmt->fetchAll(); //撈到資料
     session_start();

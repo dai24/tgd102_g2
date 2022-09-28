@@ -217,7 +217,7 @@ new Vue({
         },
         filiSort(a,b,c,d){
             console.log(a);
-            fetch(`../php/searchJobCb.php?searchJob1=${a}`)
+            fetch(`../php/searchJobCb.php?searchJob1=${a} & searchJob2=${a}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
                 console.log(userArr);
@@ -225,6 +225,19 @@ new Vue({
                 console.log(this.com);
             })
             // this.mounted()
+            // if(this.com.SALARY == a){
+            //     return this.com;
+            // }else{
+            //     return this.com.filter(function(b) {
+			// 		return b.SALARY === this.com.SALARY;
+			// 	});
+            // }
+            // return this.com.filter(function(item){
+            //     console.log(item);
+            //     // if(item.SALARY == a){
+            //     //     this.com.push(item)
+            //     // }
+            // })
         },
         searchJob(){
             // this.searchJob2 = this.com
@@ -300,7 +313,9 @@ new Vue({
             });
         },
         jobMainGo(idNum,comidNum,brow){
-            console.log(comidNum);
+            // console.log(comidNum);
+            // console.log(brow++);
+            brow++
             console.log(brow);
             sessionStorage.setItem('findJobId', idNum);
             sessionStorage.setItem('findJobcomId', comidNum);
@@ -313,7 +328,7 @@ new Vue({
             for(let i = 0; i < this.jobID1.length; i++){
                 console.log(this.jobID1[i]);
                 fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
-                // fetch(`../php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
+                fetch(`../php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
                 //jobId : this.jobID1[i]
             }
             
