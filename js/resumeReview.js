@@ -41,7 +41,7 @@ Vue.component("alljobclass", {
 
 // 父層
 new Vue({
-    el: '#resumeReviewtest',
+    el: '#resumeReview',
     data: {     
         isshow1:false,
         isshow2:false,
@@ -74,7 +74,13 @@ new Vue({
         },
 
         openreviewcard(){
-            this.resumecardshow =!this.resumecardshow 
+            if(JSON.stringify(sessionStorage.getItem('StudentTd'))== 'null'){
+                alert("請先登入會員")
+                location='./student_login.html'
+            }else{
+                this.resumecardshow =!this.resumecardshow
+            }
+             
         },
 
         closereviewcard(){

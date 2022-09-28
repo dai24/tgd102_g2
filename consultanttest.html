@@ -26,26 +26,26 @@
 
                 <div class="consultant_info">
 
-                    <div class="consultant_left" >
-                        <img :src="teacherinfo.img" alt="">
-                        <h1>{{ teacherinfo.name }}</h1>
-                        <h2>{{ teacherinfo.school }}</h2> 
-                        <h2>{{ teacherinfo.jobtitle }}</h2>
-                        <h2>已健診{{ teacherinfo.times }}人</h2>
+                    <div class="consultant_left" v-for="(teacher, index) in teacherinfo">
+                        <img :src="teacher.img" alt="">
+                        <h1>{{ teacher.tname }}</h1>
+                        <h2>{{ teacher.tschool }}</h2> 
+                        <h2>{{ teacher.tjobtitle }}</h2>
+                        <h2>已健診{{ teacher.ttimes }}人</h2>
                         <button class="btna10" @click="openreviewcard">我要健診</button>
                     </div>
 
                     <div class="consultant_right">
                         <article>
                             <h1>經歷</h1>
-                            <p v-for="item in teacherinfo.jobname">{{ item }}</p>
+                            <p v-for="item in teacherjobname">{{ item.tjobname }}</p>
                             
                         </article>
 
                         <article>
                             <h1>擅長產業</h1>
                             <p>
-                                <span v-for="(item,index) in teacherinfo.industrytype">{{item}}{{ index < teacherinfo.industrytype.length - 1 ? ' / ' : '' }}</span>
+                                <span v-for="(item,index) in teacherindustrytype">{{item.tindustryclassname}}{{ index < teacherindustrytype.length - 1 ? ' / ' : '' }}</span>
                             </p>
                             
                         </article>
@@ -53,14 +53,14 @@
                         <article>
                             <h1>擅長職務</h1>
                             <p>
-                                <span v-for="(item,index) in teacherinfo.jobclasstype">{{item}}{{index < teacherinfo.jobclasstype.length - 1 ? " / " : ""}}</span>                            
+                                <span v-for="(item,index) in teacherjobtype">{{item.tjobclassname}}{{index < teacherjobtype.length - 1 ? " / " : ""}}</span>                            
                             </p>
                         </article>
 
                         <article>
                             <h1>簡介</h1>
-                            <p>
-                                {{ teacherinfo.description }}
+                            <p v-for="(teacher, index) in teacherinfo">
+                                {{ teacher.tdescription }}
                             </p>
                         </article>
                     </div>
