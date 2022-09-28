@@ -86,9 +86,6 @@ let vm = new Vue({
             this.figure = e.target.result; 
           },
     },
-    updated:{
-
-    },
     template:`
     <div>
         <ul class="block" >

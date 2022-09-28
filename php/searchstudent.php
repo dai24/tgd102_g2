@@ -9,24 +9,41 @@
     $content = 5; //設定每頁有多少筆資料
     $omitData = 0; //預設 省略0筆
     
-    $page = $_GET["page"]; //前端傳來要第幾頁的資料
+    $page = isset($_GET["page"]) ? $_GET["page"] : 1 ; //前端傳來要第幾頁的資料
+    
     $omitData = $content * ( $page - 1 ) ; //要省略多少筆資料  
 
-    $sql = "SELECT
-                ID, `NAME`, GENDER, BIRTHDAY, `COIN`, BLACKLIST, BAN, EMAIL, PHONE, `ADDRESS`,
-                CREATE_DATE
-            FROM STUDENT 
-            LIMIT
-                $omitData, $content;
-            "
-            ;      
+    $student = isset($_GET["student"]) ? $_GET["student"] : 0; //查詢功能
+    $student2 = "%$student%";
+    
+    if(isset($_GET["student"])){
+        // echo "有查詢";
+        
+        $sql = "SELECT
+                    ID, `NAME`, GENDER, BIRTHDAY, `COIN`, BLACKLIST, BAN, EMAIL, PHONE, `ADDRESS`,
+                    CREATE_DATE
+                FROM STUDENT 
+                WHERE ID like :ID or `NAME` like :NAME
+                LIMIT
+                    $omitData, $content;
+                ";
+        $stmt = $pdo->prepare($sql);
+        $stmt -> bindValue(":ID" , $student2);
+        $stmt -> bindValue(":NAME" , $student2);
+        $stmt->execute(); //執行      
 
-    //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
-    
-    $stmt = $pdo->prepare($sql);
-    
-    $stmt->execute(); //執行
-    
+    }else{
+        // echo "未查詢";
+        $sql = "SELECT
+                    ID, `NAME`, GENDER, BIRTHDAY, `COIN`, BLACKLIST, BAN, EMAIL, PHONE, `ADDRESS`,
+                    CREATE_DATE
+                FROM STUDENT 
+                LIMIT
+                    $omitData, $content;
+                ";
+        $stmt = $pdo->prepare($sql);
+        $stmt->execute(); //執行
+    }
     
     //---------------------------------------------------
     
