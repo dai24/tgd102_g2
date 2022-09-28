@@ -17,27 +17,32 @@
 <body>
 <main  class="backstage_resource">
     @@include('./layout/backstage_nav.html')
-    <div class=" wrapper" >
-        <h1 class="title">求職資源</h1>
-        <ul class="block">
-            <li>
-                <h3>履歷健檢導師群</h3>
-            </li>
+    <div id="backstage_resource_app">
 
-            <li>
-                <ul class="addTeacher">                    
-                    <li><a href="#"><h4>新增導師</h4></a></li>
-                    <li><i class="fa-solid fa-arrow-up-from-bracket"></i></li>
-                </ul>
-                <div class="inputsearch">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="Text" class="inputText" placeholder="搜尋導師名稱" name="search">
-                </div>
-            </li>       
-        </ul>
-        <div class="containTeacher swiper-container mySwiper" id="backstage_resource_teacher_app">
-            <teacher-data></teacher-data>
-        </div>        
+    </div>
+    <div class="wrapper">
+        <h1 class="title">求職資源</h1>
+        <div id="backstage_resource_teacher_app">
+            <!-- <ul class="block" >
+                <li>
+                    <h3>履歷健檢導師群</h3>
+                </li>
+    
+                <li>
+                    <ul class="addTeacher">                    
+                        <li><a href="#"><h4>新增導師</h4></a></li>
+                        <li><i class="fa-solid fa-arrow-up-from-bracket"></i></li>
+                    </ul>
+                    <div class="inputsearch">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="Text" class="inputText" placeholder="搜尋導師名稱" name="search">
+                    </div>
+                </li>       
+            </ul>
+            <div class="containTeacher swiper-container mySwiper" >
+                <teacher-data></teacher-data>
+            </div>        -->
+        </div>         
 
         <!-- 文章管理 -->
         <ul id="backstage_resource_article_app"></ul> 
