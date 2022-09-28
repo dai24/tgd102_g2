@@ -8,11 +8,7 @@ $id = $_GET['id']; // 設一個變數id
 $sql = "UPDATE JOB SET BAN  = 1 WHERE ID = ?"; 
 
 
-// if($id){
-//     $sql = "UPDATE JOB SET BAN  = 1 WHERE ID = ?"; 
-// }else{
-//     $sql = "UPDATE JOB SET NAME = ? WHERE ID = ?";
-// }
+
 $statement = $pdo->prepare($sql);
 $statement->bindValue(1,$id);
 // $statement->bindValue(2,$name);
