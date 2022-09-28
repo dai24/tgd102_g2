@@ -1,47 +1,5 @@
 
 
-//--------------------------------------------
-
-//新增文章
-// Vue.component('addArticle',{
-//     data(){
-//         return{
-//             toggleAddArticle:false, //打開新增文章
-//         }
-//     },
-//     methods: {
-        
-//     },
-//     mounted() {
-        
-//     },
-//     template:`
-//     <div class="backstage_addArticle" v-if="toggleAddArticle">
-//         <div class="contactUSInner"></div>
-//         <div class="card">
-//             <ul class="cardUl">
-//                 <li>
-//                     <h1 class="cardH1">新增文章</h1>
-//                 </li>
-//                 <li>
-//                     <i class="fa-solid fa-xmark cardXmark"></i>
-//                 </li>
-//             </ul>
-//             <div class="cardInner applyfor">
-//                 <h2 class="question">文章內容</h2>
-//                 <textarea name="" id="" cols="30" rows="6" placeholder="請輸入文章內容"></textarea>
-                
-//                 <!-- 按鈕：儲存、取消 -->
-//                 <ul class="edit">
-//                     <li class="btna3"><a href="#">取消</a></li>
-//                     <li class="btna4"><a href="#">儲存</a></li>
-//                 </ul>
-//             </div>
-//         </div>
-//     </div>    
-//     `,
-// })
-
 //目標：從資料庫取得導師資訊
 Vue.component('teacher-data',{
     data(){
@@ -106,10 +64,97 @@ Vue.component('teacher-data',{
     `,
 })
 
+Vue.component('')
 let vm = new Vue({
     el: `#backstage_resource_teacher_app`,
+    data:{        
+        toggleAddTeacher:false, //打開彈窗。新增導師
+        figure:'',
+
+    },
+    methods:{
+        addTeacher(){
+            this.toggleAddTeacher = !this.toggleAddTeacher
+        },
+        changeFigure(e){
+            const file = e.target.files.item(0); 
+            const reader = new FileReader();
+            reader.addEventListener('load', this.imageLoaded);
+            reader.readAsDataURL(file);              
+        },
+        imageLoaded(e) {
+            this.figure = e.target.result; 
+          },
+    },
+    updated:{
+
+    },
     template:`
-        <teacher-data></teacher-data>
+    <div>
+        <ul class="block" >
+            <!-- 新增導師彈窗-->
+            <div class="backstage_addTeacher" v-if="toggleAddTeacher">
+                <div class="contactUSInner"></div>
+                <div class="card3">
+                    <ul class="cardUl">
+                        <li>
+                            <h1 class="cardH1">新增導師</h1>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-xmark cardXmark" @click="addTeacher"></i>
+                        </li>
+                    </ul>
+                    <div class="cardInner applyfor">
+                        <section class="input01">
+                            <h2 class="question">導師名稱</h2>
+                            <input class="inputText" type="text" placeholder="請輸入導師姓名">
+                        </section>
+
+                        <section class="input01">
+                            <h2 class="question">導師照片</h2>
+                            <div class="teacherPhoto">
+                                <input type="file" @change="changeFigure">
+                                <img v-if="figure" :src="figure" alt="導師照片">
+                            </div>
+                        </section>
+
+                        <section class="input01">
+                            <h2 class="question">導師資料</h2>
+                            <input  class="inputText school" type="text" placeholder="請輸入最高學歷">
+                            <input  class="inputText industry" type="text" placeholder="請輸入擅長產業">
+                            <textarea class="skill" placeholder="請輸入擅長職務"></textarea>
+                            <textarea class="tdescription" placeholder="導師簡介"></textarea>
+                        </section>
+
+                        <!-- 按鈕：儲存、取消 -->
+                        <ul class="edit">
+                            <li class="btna3" @click="addTeacher">取消</li>
+                            <li class="btna4" @click="addTeacher">儲存</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 真人履歷健檢導師群 -->
+            <li>
+                <h3>履歷健檢導師群</h3>
+            </li>
+
+            <li>
+                <ul class="addTeacher">                    
+                    <li @click="addTeacher"><h4>新增導師</h4></li>
+                    <li><i class="fa-solid fa-arrow-up-from-bracket" @click="addTeacher"></i></li>
+                </ul>
+                <div class="inputsearch">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="Text" class="inputText" placeholder="搜尋導師名稱" name="search">
+                </div>
+            </li>       
+        </ul>
+        <div class="containTeacher swiper-container mySwiper" >
+            <teacher-data></teacher-data>
+        </div>      
+    </div> 
     `
 })
 
@@ -121,14 +166,14 @@ let vms = new Vue({
     methods:{
         addArticle(){ //開關新增文章
             this.toggleAddArticle = !this.toggleAddArticle
-        }
+        },        
     },
     updated(){
         
     },
     template:`
-    <div class="block block2">
-        <!-- 新增文章彈窗。js在backstage_nav-->
+    <div class="block block2">        
+        <!-- 新增文章彈窗-->
         <div class="backstage_addArticle" v-if="toggleAddArticle">
             <div class="contactUSInner"></div>
             <div class="card3">
