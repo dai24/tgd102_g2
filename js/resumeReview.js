@@ -40,7 +40,7 @@ Vue.component("alljobclass", {
 
 
 // 父層
-new Vue({
+const vm = new Vue({
     el: '#resumeReview',
     data: {     
         isshow1:false,
@@ -61,7 +61,7 @@ new Vue({
         alljobtypeparent:[
             // "管理幕僚","人資","金融","財會","貿易","客服","行銷","企劃","資訊","專案管理","顧問","保險"
         ],
-
+        teachersFiltered: []
 
 
     },
@@ -74,7 +74,7 @@ new Vue({
         },
 
         openreviewcard(){
-            if(JSON.stringify(sessionStorage.getItem('StudentTd'))== 'null'){
+            if(JSON.stringify(sessionStorage.getItem('StudentId'))== 'null'){
                 alert("請先登入會員")
                 location='./student_login.html'
             }else{
@@ -89,10 +89,16 @@ new Vue({
 
         industrytypeis(childindustrytype){
             this.industrytype = childindustrytype;
-            this.isshow1 = !this.isshow1
+            this.isshow1 = !this.isshow1;
+
+            this.teachersFiltered = vm.industrytype === '全部' ? this.allteachers : this.allteachers.filter(
+                function(teacher) {
+                    return teacher.industryClassList.findIndex(function(type){
+                        return type === vm.industrytype;
+                    }) !== -1;
+                }
+            );
         },
-
-
         jobclasstypeis(childjobclass){
             this.jobclasstype = childjobclass;
             this.isshow2 = !this.isshow2
@@ -102,21 +108,31 @@ new Vue({
     },
 
     mounted() {
-        fetch('php/resumeReview_teacher.php')
-            .then(resp => resp.json())
-            .then(teacherList => this.allteachers = teacherList);
+        // fetch('php/resumeReview_teacher.php')
+        //     .then(resp => resp.json())
+        //     .then(teacherList => this.allteachers = teacherList);
 
-        fetch('php/resumeReview_industry.php')
-            .then(resp => resp.json())
-            .then(industryclassList => this.allindustrytypeparent = industryclassList);
+        // fetch('php/resumeReview_industry.php')
+        //     .then(resp => resp.json())
+        //     .then(industryclassList => this.allindustrytypeparent = industryclassList);
         
-        fetch('php/resumeReview_jobclass.php')
-            .then(resp => resp.json())
-            .then(jobclassList => this.alljobtypeparent = jobclassList);
+        // fetch('php/resumeReview_jobclass.php')
+        //     .then(resp => resp.json())
+        //     .then(jobclassList => this.alljobtypeparent = jobclassList);
 
 
-    },
+        fetch('php/resumeReview_all.php')
+            .then(
+                resp => resp.json()
+            )
+            .then(body => {
+                this.allteachers = body.teacherList
+                this.teachersFiltered = this.allteachers;
+                body.industryclassList.unshift({industryclassname: '全部'});
+                this.allindustrytypeparent = body.industryclassList;
+                this.alljobtypeparent = body.jobclassList
 
+            });
 
-    
+    }
 })
