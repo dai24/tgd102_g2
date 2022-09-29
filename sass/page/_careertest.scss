@@ -23,6 +23,21 @@
     }
 }
 
+.careertestQA{
+    background-color: #FFA800;
+    font-family: $fontFamily;
+    width: 100vw;
+    // height: 100vh;
+    padding: 24px 0 24px;
+    box-sizing: border-box;
+    
+
+    @include m(){
+        height: auto;
+        padding: 24px 0;
+    }
+}
+
 // 職涯測驗白底黑框
 .testbox{
     @include testbox();
@@ -88,3 +103,388 @@
     }
 }
 
+
+.testboxQA{
+
+    .testboxQA_logo{
+        width: 232px;
+        margin: 0 auto;
+        display: block;    
+    
+        @include m(){
+            width: 164px;
+        }
+    }
+
+    h1{
+        font-family: $fontFamily;
+        font-size: $fontSize01;
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 28px;
+    
+        @include m(){
+            font-size: $R-fontSize03;
+            margin-bottom: 28px;
+        }
+    }
+
+    // 職涯測驗答案按鈕
+    .btna18{
+        
+        margin-bottom: 104px;
+        line-height: 1.5;
+
+        @include m(){
+            margin-bottom: 72px;      
+        }
+
+        br{
+            display: none;
+
+            @include m(){
+                display: block;      
+            }
+        }
+       
+
+       
+    }
+
+
+
+
+
+    .btna14{
+      
+        line-height: 1.5;
+    }
+
+}
+
+//職涯測驗問題
+.testboxQA{
+    @include testbox();
+    // max-height: 740px;
+    margin: 20px auto;
+    width: 800px;
+    height: 740px;
+
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: 80vh;
+
+    }
+}
+
+
+.testQA{
+    margin-top: 56px;
+    text-align: center;
+    display: none;  //設定問題先隱藏
+
+    &.-show{
+        display: block;
+    }
+
+    &.-close{
+        display: none;
+    }
+
+
+    .testqusetion{
+        // margin-bottom: 96px;
+        margin: 0 auto 96px;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 1.2s steps(15),caret 1.2s steps(1) infinite;
+        
+
+        @for $var from 1 to 30 {
+
+            &.-text-length-#{$var}{
+                width: #{$var}em;
+
+                // animation: typing $var*0.15s steps(15),caret $var*0.15s steps(1) infinite;
+            }
+            
+        }
+
+        @include m(){
+            margin-bottom: 64px;
+    
+        }
+
+    }
+
+
+}
+
+//職涯測驗答案
+.textboxResult{
+    @include testbox();
+    max-width: 80%;
+    padding: 32px 40px 40px;
+    margin: 0 auto ;
+    // height: 860px;
+    box-sizing: border-box;
+
+    @include m(){
+        margin: 0px auto 0;
+    
+        width: 325px;
+        height: auto;
+        padding: 32px 0;
+
+    }
+
+
+    
+}
+
+
+
+.testfinish{
+    margin-top: 56px;
+    text-align: center;
+
+    h1{
+        margin-bottom: 72px;
+        width: 10ch;
+        white-space: nowrap;
+        display: inline-block;
+        text-align: center;
+        overflow:hidden;
+        border-right: .05em solid;
+        animation: typing 0.9s steps(15),caret 1s steps(1) infinite;
+    }
+    input{
+        font-size: 24px;
+        text-align: center;
+        width: 440px;
+        padding: 8px 0;
+        display: block;
+        margin: 32px auto 104px;
+        line-height: 1.5;
+
+        @include m(){
+           
+            font-size: 20px;
+            width: 264px;
+            margin: 0px auto 72px;
+
+    
+        }
+
+
+    }
+}
+
+
+.careertestresult{
+    
+    background-color: #FFA800;
+    font-family: $fontFamily;
+    width: 100vw;
+    padding: 28px 0 24px;
+    box-sizing: border-box;
+
+    @include m(){
+        height: auto;
+        padding: 24px 0;
+    }
+}
+
+.careertestresult .test_backtoindex{
+    display: block;
+    text-align: center;
+    margin: 15px auto 0;
+    font-family: $fontFamily;
+    font-weight: bold;
+    color: $secondary01;
+    font-size: 16px;
+
+    @include m(){
+        font-size: 14px;
+    }
+
+    :hover{
+        color: #DB361B;;
+    }
+}
+
+
+.textboxResult{
+    
+    
+    .testboxQA_logo{
+        width: 232px;
+        margin: 0 auto;
+        display: block;    
+    
+        @include m(){
+            width: 164px;
+        }
+    }
+}
+
+.testResult{
+
+    display: flex;
+    max-width: 85%;
+    // margin: 8px auto 0;
+    margin: 0 auto;
+
+    @include m(){
+        flex-direction: column;
+        margin: 0px auto 0;
+        width: 264px;
+    }
+    
+}
+
+.testResult .testresult_left{
+    width: 40%;
+    @media screen and (max-width: 1500px) {
+        width: 60%;  
+        margin-top: 30px;  
+    }
+
+    @include m(){
+        width: 100%;
+        margin-top: 0px; 
+        
+
+    }
+}
+
+.testResult .testresult_left img{
+    width: 100%;
+
+    @include m(){
+        width: 172px;
+        margin: 0 auto;
+        display: block;
+        margin-bottom: 12px;
+
+    }
+}
+
+.testresult_right{
+    // max-width: 600px;
+    max-width: 50%;
+    font-family: $fontFamily;
+    font-weight: bold;
+    margin-top: 72px;
+    margin-left: 56px;
+
+    
+
+    @media screen and (max-width: 1600px) {
+        max-width: 60%;    
+    }
+
+    @include m(){
+       
+        max-width: 256px;
+        margin:0 auto;
+        margin-top: 16px;
+    }
+
+    .txt1{
+        
+        font-size: 48px;
+        margin-bottom: 72px;
+
+        @media screen and (max-width: 1600px) {
+           font-size: 32px;  
+           margin-bottom: 48px;
+        }
+        @include m(){
+            
+            margin-bottom: 24px;
+            text-align: center;
+            font-size: 24px;
+        }
+    }
+
+    .txt2{
+        font-size: 32px;
+        margin-bottom: 72px;
+        line-height: 1.6;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 26px; 
+            margin-bottom: 48px; 
+        }
+        @include m(){
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+    }
+
+    .txt3{
+        font-size: 32px;
+        margin-bottom: 72px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 26px;  
+            margin-bottom: 48px;
+        }
+        @include m(){
+            margin-bottom: 28px;
+            font-size: 16px;
+        }
+    }
+
+    .testresult_share{
+        display: flex;
+        
+    }
+
+    .txt4{
+        font-size: 32px;
+        margin-right: 32px;
+        line-height: 40px;
+
+        @media screen and (max-width: 1600px) {
+            font-size: 26px;  
+        }
+        @include m(){
+
+            font-size: 16px;
+            line-height: 24px;
+        }
+    }
+
+    .iconFI{
+        display: flex;
+        width: 120px;
+        justify-content: space-between;
+        @include m(){
+            width: 60px;
+        }
+
+        img{
+            display: block;
+            width: 40px;
+            @include m(){
+                width: 24px;
+            }
+        }
+    }
+
+}
+
+@keyframes typing {
+    from { width: 0; }
+}
+
+@keyframes caret {
+    50% { border-color: transparent; }
+}
