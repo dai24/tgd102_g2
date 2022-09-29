@@ -41,22 +41,45 @@ Vue.component('company-jobdata',{
           
         },
 
-        ChangeDisabled(event){
-            document.getElementById('onoff').disabled=true   
-            document.getElementsByClassName('state')[0].className='state closeSwitch'
-        //    console.log('here', event.target.closest('tr').querySelectorAll('td.detail .btna20'))
+        toggle(event){
+            // document.getElementById('onoff').disabled=true   
+            // document.getElementsByClassName('state')[0].className='state closeSwitch'
+            //    console.log('here', event.target.closest('tr').querySelectorAll('td.detail .btna20'))
+
+            // 兩個按鈕消失的狀態
            let btns = event.target.closest('tr').querySelectorAll('td.detail .btna20')
            for(let x=0;x<btns.length;x++){
-            btns[x].style.display = 'none'
+            // btns[x].style.display = 'none'
+
+            $(btns[x]).toggle(function(){
+                $(btns[x]).attr("style","display:none;");
+            
+            },function(){
+                // $(btns[x]).attr("style","display:block;");
+            });
+
+
            }
-        }
+
+           // 開關input的狀態
+           let inp = event.target.closest('tr').querySelectorAll('td.id .onoff')
+           for(let x=0;x<inp.length;x++){
+            inp[x].toggleAttribute ("disabled");
+           }
+
+            //    console.log('here', event.target.closest('tr').querySelectorAll('td.edit .state'))
+           // 開關switch的狀態
+           let swit = event.target.closest('tr').querySelectorAll('td.edit .state')
+           for(let x=0;x<swit.length;x++){
+            // swit[x].className.toggleClass('openSwitch')
+            $(swit[x]).toggleClass('closeSwitch')
 
 
+            
 
+            }
 
-
-
-
+        },
     },
 
     //搜尋企業欄位是沒有停權的範圍
@@ -80,7 +103,7 @@ Vue.component('company-jobdata',{
                 </h3>
                 <div class="state openSwitch">
                     <div class="appleSwitch">
-                        <div  @click="ChangeDisabled($event)" class="appleCircle"></div>
+                        <div  @click="toggle($event)" class="appleCircle"></div>
                     </div>
                 </div>
             </td>

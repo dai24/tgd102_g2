@@ -14,34 +14,28 @@ $statement->execute();
 $members = $statement->fetchAll();
 
 echo  json_encode($members);
+
+//原本寫法 從後端判斷好後呼叫一個字串給前端去接
 // if($statement->rowCount() > 0) {
 //     $member = $members[0];
 //     $member["successful"]= true;
 //     session_start();
 //     $_SESSION["loggedin"]= true;
 //     $_SESSION["member"]=(object) $member;
-    
+
+//無法用後端header直接轉網址
 //     // header('Location: http://localhost/tgd102_g2/dist/student_main.html');
-    
+// 成功的字串給前端
 //     echo ('successful');
+
 // }else {
 //     $member["successful"]= false;
 //     $member["message"]= "登入失敗";
 //     echo"<h1 style='color:red'>帳號密碼錯誤</h1>";
 //     // function_alert("帳號或密碼錯誤");
-//     // $errors['login'] = 'Invalid username or password';
 // }
  
 //echo json_encode($member["successful"]);
-
-// function function_alert($message) { 
-      
-//     // Display the alert box  
-//     echo "<script>alert('$message');
-//      window.location.href='welcome.php';
-//     </script>"; 
-//     return false;
-// } 
 
 
 

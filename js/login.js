@@ -5,6 +5,7 @@ $(function () {
     const password = document.querySelector('#password');
 
 
+
     document.querySelector('.submit').addEventListener('click',() => {
         // if(!account || !password) {
         //         alert('請輸入account,password!');
@@ -16,13 +17,6 @@ $(function () {
         return false
         }
     
-        // if($(account).val() == ""){
-        //     alert("請輸入帳號");
-        //     return false;
-        // }else if($(password ).val() == ""){
-        //     alert("請輸入密碼");
-        //     return false;
-        // }
 
         fetch('./php/login.php',{
             method:'POST',
@@ -47,10 +41,6 @@ $(function () {
                 alert("信箱密碼錯誤!!")
             }
         });
-        
-        
-        
-
         
         
         
@@ -84,4 +74,11 @@ $(function () {
 
     });
 
-})
+
+
+});
+
+
+
+
+
