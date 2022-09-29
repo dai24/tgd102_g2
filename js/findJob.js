@@ -59,11 +59,6 @@ new Vue({
                 name:'彰化縣'
             },
         ],
-        // all_category.a
-        // all_category:[
-        //     a:[],
-        //     b:[]
-        // ]
         sortTitle:['軟體','行銷','金融'],
         sortList1:[
             {
@@ -120,19 +115,19 @@ new Vue({
         moneyList:[
             {
                 id:'1',
-                name:'168'
+                name:168
             },
             {
                 id:'2',
-                name:'200'
+                name:200
             },
             {
                 id:'3',
-                name:'250'
+                name:250
             },
             {
                 id:'4',
-                name:'300'
+                name:300
             },
         ],
         distanceList:[
@@ -145,15 +140,22 @@ new Vue({
                 name:'否'
             },
         ],
-        checkedSort: [],
+        checkedSort1: [],
+        checkedSort2: [],
+        checkedSort3: [],
+        checkedSort4: [],
+        checkedSort5: [],
         searchJob1:'',
         searchJob2:[],
         com:[],
         jobID:[],
         jobID1:[],
         com2:[],
+        com3:[],
+        current_sort:'',
     },
     mounted() {
+
         fetch("../php/findJob.php",{
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
@@ -162,6 +164,20 @@ new Vue({
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.com2 = userArr
+            this.com2.forEach(element => {
+                if(element.TOTAL_EMPLOYEE <= 30){
+                    element.TOTAL_EMPLOYEE = '小'
+                    console.log(element.TOTAL_EMPLOYEE);
+                }
+                if(element.TOTAL_EMPLOYEE > 30 && element.TOTAL_EMPLOYEE <= 60){
+                    element.TOTAL_EMPLOYEE = '中'
+                    console.log(element.TOTAL_EMPLOYEE);
+                }
+                if(element.TOTAL_EMPLOYEE > 60){
+                    element.TOTAL_EMPLOYEE = '大'
+                    console.log(element.TOTAL_EMPLOYEE);
+                }
+            });
         })
 
         // fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
@@ -197,34 +213,60 @@ new Vue({
         } 
             
     },
-    
+    computed: {
+        new_array(){
+            const vw = this;
+            if (vw.checkedSort1.length === 0 && vw.checkedSort2.length === 0 && vw.checkedSort3.length === 0 && vw.checkedSort4.length === 0 && vw.checkedSort5.length === 0) {
+                return this.com2;
+            } else {
+                let resultArr = [...this.com2];
+
+                if (vw.checkedSort1.length !== 0) {
+                    resultArr = resultArr.filter(function(item){
+                        return vw.checkedSort1.findIndex(function(condition){
+                            return item.CITY.includes(condition);
+                        }) !== -1;
+                    })
+                }
+                if (vw.checkedSort2.length !== 0) {
+                    resultArr = resultArr.filter(function(item){
+                        return vw.checkedSort2.findIndex(function(condition){
+                            return item.DEPART.includes(condition);
+                        }) !== -1;
+                    })
+                }
+                if (vw.checkedSort3.length !== 0) {
+                    resultArr = resultArr.filter(function(item){
+                        return vw.checkedSort3.findIndex(function(condition){
+                            return item.TOTAL_EMPLOYEE.includes(condition);
+                        }) !== -1;
+                    })
+                }
+                if (vw.checkedSort4.length !== 0) {
+                    resultArr = resultArr.filter(function(item){
+                        return vw.checkedSort4.findIndex(function(condition){
+                            return ('' + item.SALARY).includes(condition);
+                        }) !== -1;
+                    })
+                }
+                return resultArr;
+            }
+        }
+    },
     methods: {
         comImg(comId){
             // console.log(comId);
             sessionStorage.setItem('comId',comId)
         },
         filiSort(a,b,c,d){
-            console.log(a);
-            fetch(`../php/searchJobCb.php?searchJob1=${a} & searchJob2=${a}`)
-            .then(rsp => rsp.json())
-            .then(userArr => {            
-                console.log(userArr);
-                this.com = userArr
-                console.log(this.com);
-            })
-            // this.mounted()
-            // if(this.com.SALARY == a){
-            //     return this.com;
-            // }else{
-            //     return this.com.filter(function(b) {
-			// 		return b.SALARY === this.com.SALARY;
-			// 	});
-            // }
-            // return this.com.filter(function(item){
-            //     console.log(item);
-            //     // if(item.SALARY == a){
-            //     //     this.com.push(item)
-            //     // }
+            this.current_sort = a
+            console.log(this.current_sort);
+            // const sort = a
+            // console.log(a);
+            // this.com2.filter(function(b){
+            //     console.log(b);
+            //     console.log(sort);
+            //     return b.JOB_NAME.includes(sort)
             // })
         },
         searchJob(){
@@ -292,11 +334,29 @@ new Vue({
         },
         remove(e){
             const pText = e.target.parentNode.children[0].innerText;
-            this.checkedSort.forEach((item, index, arr) => {
-                console.log(arr);
-                console.log(item);
+            this.checkedSort1.forEach((item, index, arr) => {
                 if(item == pText) {
-                    this.checkedSort.splice(index, 1);
+                    this.checkedSort1.splice(index, 1);
+                }
+            });
+            this.checkedSort2.forEach((item, index, arr) => {
+                if(item == pText) {
+                    this.checkedSort2.splice(index, 1);
+                }
+            });
+            this.checkedSort3.forEach((item, index, arr) => {
+                if(item == pText) {
+                    this.checkedSort3.splice(index, 1);
+                }
+            });
+            this.checkedSort4.forEach((item, index, arr) => {
+                if(item == pText) {
+                    this.checkedSort4.splice(index, 1);
+                }
+            });
+            this.checkedSort5.forEach((item, index, arr) => {
+                if(item == pText) {
+                    this.checkedSort5.splice(index, 1);
                 }
             });
         },
