@@ -14,7 +14,7 @@ ATTEND_SCHOOL_STATUS,SCHOOL_EXPERIENCE,JOB_APPLY,SKILL1,SKILL2,SKILL3,SKILL4,SKI
 VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 $statement = $pdo->prepare($sql);
 $statement->bindValue(1,$resume['student_id']);
-$statement->bindValue(2,1);
+$statement->bindValue(2,2);
 $statement->bindValue(3,0);
 $statement->bindValue(4,1);
 $statement->bindValue(5,$resume['fileName']);

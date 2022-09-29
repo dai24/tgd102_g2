@@ -361,6 +361,7 @@ Vue.component('model-A01', {
                 language1: '',
                 language2: '',
                 language3: '',
+                studentId: 0,
             },
         }
     },
@@ -534,7 +535,8 @@ Vue.component('model-A01', {
 
     },
     mounted() {
-        fetch('./php/getResume_model_All.php?model=1')
+        this.studentId = sessionStorage.getItem('StudentId')
+        fetch(`./php/getResume_sample_All.php?model=1&studentId${this.studentId}`)
         .then(rsp => rsp.json())
         .then(resume_model => {
             this.resume_modelAll = resume_model;
@@ -711,6 +713,7 @@ Vue.component('my-content', {
                 this.savePopup = open;
                 console.log('fileName:' + this.resume_modelOne.fileName)
                 console.log('學生id:' + this.studentId)
+                fetch('')
                 this.saveResume(this.studentId)
             } else if (type == 'share') {
                 this.sharePopup = open;
