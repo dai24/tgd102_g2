@@ -35,41 +35,41 @@
                 <ul class="findJobType">
                     <li class="findJobTypeTitle "><div class="btna16 dd_btn" data-name="dd_1" @click="place">地點<i class="fa-solid fa-chevron-down" data-arrow="dd_1"></i></div>
                         <ul class="findJobTypeArea dd dd_1" v-if="tab_1" >
-                            <li v-for="arrPlaceList in placeList" :key="arrPlaceList.id"><input type="checkbox" data-id="1"  v-model="checkedSort" :value="arrPlaceList.name" @click='filiSort(arrPlaceList.name)'><label for=" ">{{arrPlaceList.name}}</label></li>
+                            <li v-for="arrPlaceList in placeList" :key="arrPlaceList.id"><input type="checkbox" data-id="1"  v-model="checkedSort1" :value="arrPlaceList.name" ><label for=" ">{{arrPlaceList.name}}</label></li>
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_2"  @click="sort">職務類別<i class="fa-solid fa-chevron-down" data-arrow="dd_2"></i></div>
                         <ul class="findJobTypeSort dd dd_2" v-if="tab_2">
                             <li><div class="findJobTypeSortTitle">軟體</div>
                                 <ul>
-                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id" v-if="arrSortList1.sort=='軟體'" ><input type="checkbox" v-model="checkedSort" :value="arrSortList1.name"  @click="filiSort(arrSortList1.name)"><label for="">{{arrSortList1.name}}</label></li>
+                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id" v-if="arrSortList1.sort=='軟體'" ><input type="checkbox" v-model="checkedSort2" :value="arrSortList1.name"  ><label for="">{{arrSortList1.name}}</label></li>
                                 </ul>
                             </li>
                             <li><div class="findJobTypeSortTitle">行銷</div>
                                 <ul>
-                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id" v-if="arrSortList1.sort=='行銷'"><input type="checkbox" v-model="checkedSort" :value="arrSortList1.name"   @click="filiSort(arrSortList1.sort)"><label for="">{{arrSortList1.name}}</label></li>
+                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id" v-if="arrSortList1.sort=='行銷'"><input type="checkbox" v-model="checkedSort2" :value="arrSortList1.name"   ><label for="">{{arrSortList1.name}}</label></li>
                                 </ul>
                             </li>
                             <li><div class="findJobTypeSortTitle">金融</div>
                                 <ul>
-                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id"  v-if="arrSortList1.sort=='金融'"><input type="checkbox" v-model="checkedSort" :value="arrSortList1.name"  @click="filiSort(arrSortList1.name)"><label for="">{{arrSortList1.name}}</label></li>
+                                    <li v-for="arrSortList1 in sortList1" :key="arrSortList1.id"  v-if="arrSortList1.sort=='金融'"><input type="checkbox" v-model="checkedSort2" :value="arrSortList1.name"  ><label for="">{{arrSortList1.name}}</label></li>
                                 </ul>
                             </li> 
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_3"  @click="scale">公司規模<i class="fa-solid fa-chevron-down" data-arrow="dd_3"></i></div>
                         <ul class="findJobTypeArea dd dd_3" v-if="tab_3">
-                            <li v-for="arrScale in scaleList" :key="arrScale.id"><input type="checkbox" v-model="checkedSort" :value="arrScale.name"><label for="">{{arrScale.name}}</label></li>
+                            <li v-for="arrScale in scaleList" :key="arrScale.id"><input type="checkbox" v-model="checkedSort3" :value="arrScale.name"><label for="">{{arrScale.name}}</label></li>
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btna16 dd_btn" data-name="dd_4" @click="money">薪資<i class="fa-solid fa-chevron-down" data-arrow="dd_4"></i></div>
                         <ul class="findJobTypeArea dd dd_4" v-if="tab_4">
-                            <li v-for="arrMoney in moneyList" :key="arrMoney.id"><input type="checkbox" v-model="checkedSort" :value="arrMoney.name" @click="filiSort(arrMoney.name)"><label for="">{{arrMoney.name}} / h</label></li>
+                            <li v-for="arrMoney in moneyList" :key="arrMoney.id"><input type="checkbox" v-model="checkedSort4" :value="arrMoney.name" ><label for="">{{arrMoney.name}} / h</label></li>
                         </ul>
                     </li>
                     <li class="findJobTypeTitle"><div class="btna16 dd_btn"  data-name="dd_5" @click="distance">遠端工作<i class="fa-solid fa-chevron-down" data-arrow="dd_5"></i></div>
                         <ul class="findJobTypeArea dd dd_5" v-if="tab_5">
-                            <li v-for="arrDistance in distanceList" :key="arrDistance.id"><input type="checkbox" name="remote"  v-model="checkedSort" :value="arrDistance.name" @click="clickCB"><label for="">{{arrDistance.name}}</label></li>
+                            <li v-for="arrDistance in distanceList" :key="arrDistance.id"><input type="checkbox" name="remote"  v-model="checkedSort5" :value="arrDistance.name" ><label for="">{{arrDistance.name}}</label></li>
                         </ul>
                     </li>
                 </ul>
@@ -78,9 +78,16 @@
                 <img src="./images/index/findjob.png" alt="">
             </div>
         </div>
-        <div class="findJobFind" id="findJobFind"><div class="findJobFindSort" v-for="(theSort , i) in checkedSort"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div></div>
+        <div class="findJobFind" id="findJobFind">
+            <div class="findJobFindSort" v-for="(theSort , i) in checkedSort1"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div>
+            <div class="findJobFindSort" v-for="(theSort , i) in checkedSort2"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div>
+            <div class="findJobFindSort" v-for="(theSort , i) in checkedSort3"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div>
+            <div class="findJobFindSort" v-for="(theSort , i) in checkedSort4"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div>
+            <div class="findJobFindSort" v-for="(theSort , i) in checkedSort5"><p>{{theSort}}</p><i class="fa-solid fa-xmark cancel" @click="remove"></i></div>
+
+        </div>
         <div>
-            <div class="findJobVacancies" v-for='find in com' >
+            <div class="findJobVacancies" v-for='find in new_array' >
                 <div class="findJobVacanciesPicture">
                     <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom" @click="comImg(find.COMPANY_ID)">
                 </div>
