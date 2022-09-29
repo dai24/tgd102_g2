@@ -26,19 +26,19 @@
                             <!-- 擅長產業 -->
                             <li class="consultantIndustrySearch"><button class="btna21" @click="open1">{{industrytype}}<i class="fa-solid fa-chevron-down"></i></button>
                                 <ul class="consultantIndustry" v-if="isshow1" >
-                                    <allindustryclass v-bind:allindustrytypechild=" allindustrytypeparent " v-on:industryclass="industrytypeis"></allindustryclass>
+                                    <allindustryclass v-bind:allindustrytypechild=" allindustrytypeparent " v-on:industryclass="filter"></allindustryclass>
                                 </ul>
                             </li>
 
                             <!-- 擅長職務 -->
                             <li class="consultantJobSearch"><button class="btna21" @click="open2">{{jobclasstype}}<i class="fa-solid fa-chevron-down"></i></button>
                                 <ul class="consultantJob" v-if="isshow2" >
-                                    <alljobclass v-bind:alljobtypechild="alljobtypeparent " v-on:jobclass="jobclasstypeis"></alljobclass> 
+                                    <alljobclass v-bind:alljobtypechild="alljobtypeparent " v-on:jobclass="filter"></alljobclass> 
                                 </ul>
                             </li>
                         </div>
 
-                        <button class="btna8">搜尋</button>
+                        <button class="btna8" >搜尋</button>
 
                     </ul>
 

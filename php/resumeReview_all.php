@@ -37,6 +37,13 @@
         $stmt->execute();
         $industryClassList = $stmt->fetchAll();
         $teacherList[$i]["industryClassList"] = array_map(function($row){return $row["icn"];}, $industryClassList);
+
+        $sql2 = "select JOBCLASSNAME as jcn from TEACHER_JOBCLASS where TEACHERID = :teacherId";
+        $stmt2 = $pdo->prepare($sql2);
+        $stmt2->bindValue(":teacherId", $teacher["id"]);
+        $stmt2->execute();
+        $jobClassList = $stmt2->fetchAll();
+        $teacherList[$i]["jobClassList"] = array_map(function($row){return $row["jcn"];}, $jobClassList);
     }
 
 

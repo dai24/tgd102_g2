@@ -17,18 +17,7 @@
 
 }
 
-.resumeConsultants{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    max-width: 1280px;
 
-    @include m(){
-        width: 350px;
-        margin:  0 auto;
-    } 
-}
 
 // 履歷診療室 搜尋欄
 .searchbar{
@@ -134,14 +123,47 @@
 
 
 
+
+
 //履歷診療室 顧問老師
+// .resumeConsultants{
+//     display: flex;
+//     flex-direction: row;
+//     justify-content: space-between;
+//     flex-wrap: wrap;
+//     max-width: 1280px;
+
+//     @include m(){
+//         width: 350px;
+//         margin:  0 auto;
+//     } 
+// }
+
+.resumeConsultants{
+    display: grid;
+    justify-content: space-between;
+    max-width: 1280px;
+    grid-template-columns: repeat(auto-fill, 272px);
+
+    @include m(){
+        width: 350px;
+        margin:  0 auto;
+        grid-template-columns: repeat(auto-fill, 165px);
+    } 
+}
+
+
+
+
 .consultant{
 
+    width: 272px;
     margin-top: 64px;
 
     @include m(){
         margin-top: 24px;
         margin-bottom: 12px;
+        width: 165px;
     } 
 
     a{
