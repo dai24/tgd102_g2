@@ -12,7 +12,10 @@ Vue.component("allindustryclass", {
     methods:{
         searchindustryclass(i){
             console.log(this.$props.allindustrytypechild);
-            this.$emit("industryclass", this.allindustrytypechild[i].industryclassname)
+            this.$emit("industryclass", {
+                type: 'industry',
+                value: this.allindustrytypechild[i].industryclassname
+            })
             
         }
     },
@@ -32,7 +35,10 @@ Vue.component("alljobclass", {
     methods:{
         searchjobclass(i){
             console.log(this.$props.alljobtypechild);
-            this.$emit("jobclass", this.alljobtypechild[i].jobclassname)
+            this.$emit("jobclass", {
+                type: 'job',
+                value: this.alljobtypechild[i].jobclassname
+            })
         }
     },
 
@@ -47,8 +53,8 @@ const vm = new Vue({
         isshow2:false,
         resumecardshow:false,  // 履歷診療彈窗是否顯示
 
-        industrytype:"擅長產業",
-        jobclasstype:"擅長職務",
+        industrytype:"全部產業",
+        jobclasstype:"全部職務",
 
         allteachers:[
             // {tname:'王博均',tjobtitle:'人資經理',ttimes:5,tschool:'國立台灣大學商研所',tjobname:'Jobs雜誌 專欄作家',industrytype:'電子科技',jobclasstype:'管理幕僚',tdescription:'只要透過深入訪談',timg:'../images/resumeReview/1.jpg',tlink:'../dist/consultant.html'},
@@ -87,24 +93,36 @@ const vm = new Vue({
             this.resumecardshow =!this.resumecardshow
         },
 
-        industrytypeis(childindustrytype){
-            this.industrytype = childindustrytype;
-            this.isshow1 = !this.isshow1;
+        filter({type, value}){
+            switch(type) {
+                case 'industry':
+                    this.industrytype = value
+                    this.isshow1 = !this.isshow1;
+                    break;
+                case 'job':
+                    this.jobclasstype = value;
+                    this.isshow2 = !this.isshow2;
+                     break;
+            }
+            
+            
 
-            this.teachersFiltered = vm.industrytype === '全部' ? this.allteachers : this.allteachers.filter(
+            this.teachersFiltered = this.allteachers.filter(
                 function(teacher) {
-                    return teacher.industryClassList.findIndex(function(type){
+                    const condition1 = vm.industrytype === '全部產業' || teacher.industryClassList.findIndex(function(type){
                         return type === vm.industrytype;
                     }) !== -1;
+
+                    const condition2 = vm.jobclasstype === '全部職務' || teacher.jobClassList.findIndex(function(type){
+                        return type === vm.jobclasstype;
+                    }) !== -1;
+                    return condition1 && condition2;
+                
                 }
             );
-        },
-        jobclasstypeis(childjobclass){
-            this.jobclasstype = childjobclass;
-            this.isshow2 = !this.isshow2
-        }
 
-    
+
+        },
     },
 
     mounted() {
@@ -128,8 +146,9 @@ const vm = new Vue({
             .then(body => {
                 this.allteachers = body.teacherList
                 this.teachersFiltered = this.allteachers;
-                body.industryclassList.unshift({industryclassname: '全部'});
+                body.industryclassList.unshift({industryclassname: '全部產業'});
                 this.allindustrytypeparent = body.industryclassList;
+                body.jobclassList.unshift({jobclassname:'全部職務'});
                 this.alljobtypeparent = body.jobclassList
 
             });
