@@ -7,7 +7,11 @@ Vue.component('company-data',{
     methods:{
         banOpen(){
             // console.log()
-        }
+        },
+        comImg(comId){ //目標：顯示該公司的職缺
+            // alert(comId); //確認有抓到該公司ID
+            sessionStorage.setItem('backstageCompany',comId)
+        },
     },
     mounted() {       
         //顯示第一頁的資料
@@ -33,6 +37,8 @@ Vue.component('company-data',{
                 })
             })
         }
+
+        
     },
     template: `
     <tbody>
@@ -45,7 +51,7 @@ Vue.component('company-data',{
             <td class="city"><h3>{{companys.CITY}}</h3></td>
             <td class="district"><h3>{{companys.DISTRICT}}</h3></td>
             <td class="address"><h3>{{companys.ADDRESS}}</h3></td>
-            <td class="detail"><h3><button class="btna3"><h4><a href="./backstage_com_job.html">詳細資料</a></h4></button></h3></td>
+            <td class="detail"><h3><button class="btna3" @click="comImg(companys.ID)"><a href="./backstage_com_job.html"><h4>詳細資料</h4></a></button></h3></td>
             <td class="create-date"><h3>{{companys.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
             <td class="ban"><h3><i class="fa-solid fa-ban" @click="banOpen"></i></h3></td>
         </tr>
@@ -59,27 +65,52 @@ let vm = new Vue({ //設定想要預載的html結構
         //設定要先掛載的東西
     },
     methods: {},      
-    template: //預先掛載的div結構
-        `
-        <table>
-            <thead>
-                    <tr>
-                        <th class="id"><h3>公司編號</h3></th>
-                        <th class="name"><h3 >公司名稱</h3></th>
-                        <th class="property"><h3>資本額(萬)</h3></th>
-                        <th class="principle"><h3>負責人</h3></th>
-                        <th class="fee"><h3>年費方案</h3></th>
-                        <th class="city"><h3>縣市區</h3></th>
-                        <th class="district"><h3>鄉鎮市區</h3></th>
-                        <th class="addummernoteress"><h3>地址</h3></th>
-                        <th class="detail"></th>
-                        <th class="create-date"><h3>建立日期</h3></th>
-                        <th class="ban"><h3>停權</h3></th>
-                    </tr> 
-            </thead>
-                               
-            <company-data></company-data>            
-        </table>
+    template://預先掛載的div結構
+        ` 
+        <div class="wrapper" >
+            <h1 class="title">公司營運分析</h1>
+            <div class="wratable">
+                <div class="block">
+                    <div class="inputsearch">
+                        <i class="fa-solid fa-magnifying-glass"></i>
+                        <input type="Text" class="inputText" placeholder="搜尋公司名稱或編號" name="search">
+                    </div>                
+                </div>
+                
+                <table>
+                    <thead>
+                            <tr>
+                                <th class="id"><h3>公司編號</h3></th>
+                                <th class="name"><h3 >公司名稱</h3></th>
+                                <th class="property"><h3>資本額(萬)</h3></th>
+                                <th class="principle"><h3>負責人</h3></th>
+                                <th class="fee"><h3>年費方案</h3></th>
+                                <th class="city"><h3>縣市區</h3></th>
+                                <th class="district"><h3>鄉鎮市區</h3></th>
+                                <th class="addummernoteress"><h3>地址</h3></th>
+                                <th class="detail"></th>
+                                <th class="create-date"><h3>建立日期</h3></th>
+                                <th class="ban"><h3>停權</h3></th>
+                            </tr> 
+                    </thead>
+                                    
+                    <company-data></company-data>            
+                </table>
+            </div>      
+            
+            <div class="pagination-div">
+                <ul class="pagination-ul">
+                    <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                    <li><a href="#" class="pageContent">1</a></li>
+                    <li><a href="#" class="pageContent">2</a></li>
+                    <li><a href="#" class="pageContent">3</a></li>
+                    <li><a href="#" class="pageContent">4</a></li>
+                    <li><a href="#" class="pageContent">5</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+        </div>
+        
         `,  
 })     
 

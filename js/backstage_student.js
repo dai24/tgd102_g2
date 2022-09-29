@@ -22,7 +22,8 @@ Vue.component('student-data',{
                 // console.log(userArr);
                 this.studentData = userArr;
             })
-        }
+        },
+        
     },
     mounted() {       
         //顯示第一頁的資料
@@ -76,7 +77,7 @@ Vue.component('student-data',{
                 </thead>
                 <tbody>
                     <template  v-for="(students,key) in studentData">
-                    <tr class="item">
+                        <tr class="item">
                             <td class="id"><h3>C111{{students.ID}}</h3></td>
                             <td class="name"><h3>{{students.NAME}}</h3></td>
                             <td class="gender"><h3>{{students.GENDER}}</h3></td>
@@ -141,7 +142,7 @@ let vm = new Vue({ //設定想要預載的html結構
         // }
     },
     template:` 
-    <div  class="wrapper"> //預先掛載的div結構
+    <div  class="wrapper"> 
         <h1 class="title">學生會員資料</h1>
         <div class="wratable">
 

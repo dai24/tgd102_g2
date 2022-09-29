@@ -24,6 +24,8 @@
     }
     h4{
         font-size: $fontSize04;
+        font-weight: bold;
+        color:$secondary01;
     }
     a{
         color:$secondary01;
@@ -158,10 +160,10 @@
                 &:hover{
                     background-color:$secondary02;
                 }
-                a{
-                    color:$secondary01;
-                    font-weight: bold;
-                }
+                // a{
+                //     color:$secondary01;
+                //     font-weight: bold;
+                // }
                 @media screen and (max-width: 1460px) {
                     width:85px; 
                 }

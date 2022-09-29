@@ -1,5 +1,5 @@
 <?php
-    //目標：尋找資料庫的公司會員資料
+    //目標：backstage尋找資料庫的公司會員資料
 
     include('./PDO/Connection.php');
 
