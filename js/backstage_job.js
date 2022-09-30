@@ -15,6 +15,7 @@ Vue.component('job-data',{
             alert("aa")
         },
     },
+    
     mounted() {       
         //顯示第一頁的資料
         fetch(`php/searchjob.php?page=1`)
@@ -34,7 +35,7 @@ Vue.component('job-data',{
                 .then(userArr => {      
                     // console.log(userArr);    
                     this.jobData = userArr
-                    // console.log(this.jobData);
+                   
                 })
             })
         }
@@ -72,7 +73,7 @@ Vue.component('job-data',{
             </h3></td>
             <td class="create-date"><h3>{{jobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
             <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
-            <td class="ban"><h3><i class="fa-solid fa-ban" @click="comImg(jobs.ID)"></i></h3></td>
+            <td class="ban"><h3><i class="fa-solid fa-ban" @click="comImg(jobs.ID)" :style="{ 'opacity': jobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
         </tr>
     </tbody>
     `,
