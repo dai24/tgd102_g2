@@ -275,7 +275,7 @@ Vue.component('my-workspace',{
     },
     template:
     `
-    <div class="resume_make">
+    <div class="resume_make mode">
  
         <div class="resume_name_div">
             <label for="resume_name">檔案名稱: </label><input type="text" :value="resumeModelOne.fileName">

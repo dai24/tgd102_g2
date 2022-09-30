@@ -186,6 +186,7 @@ $editOutline : 2px solid black;
                 margin-top: 20px;
                 width: 470px;
                 height: 670px;
+                // background-color: #c14f33;
                 background-color: #FDEDE9;
                 line-height: 1.6;
                 padding: 25px;
@@ -279,10 +280,10 @@ $editOutline : 2px solid black;
                         position: relative;
                         cursor: pointer;
 
-                        input {
-                            // display: none;
+                        // input {
+                        //     // display: none;
 
-                        }
+                        // }
 
                         .fa-file-circle-plus {
                             // outline: 1px solid #6f00ff;
@@ -429,9 +430,9 @@ $editOutline : 2px solid black;
                             outline: $editOutline;
                             cursor: pointer;
                         }
-                        &:valid{
+                        // &:valid{
 
-                        }
+                        // }
                         @include m() {
                             width: 9rem;
                         }

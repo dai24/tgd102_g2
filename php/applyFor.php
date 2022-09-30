@@ -1,7 +1,7 @@
 <?php
     include('./PDO/Connection.php');
     $StudentTd = $_GET['StudentTd'];
-    $sql = "SELECT R.IMG_PATH , R.ID , R.STUDENT_ID
+    $sql = "SELECT R.FILE_NAME , R.IMG_PATH , R.ID , R.STUDENT_ID
             FROM RESUME R
             JOIN STUDENT S
             ON S.ID = R.STUDENT_ID

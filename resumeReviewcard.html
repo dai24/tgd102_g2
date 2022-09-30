@@ -23,17 +23,17 @@
             <div class="card2Inner">
 
                 <div class="resumeChoose">
-                    <label class="resumeChooseTitle">選擇履歷:</label>
+                    <label class="resumeChooseTitle" >選擇履歷:</label>
                     
-                    <label><input type="radio" name="resume" value="resume1"><span>履歷一</span></label>
+                    <label v-for="(resume,index) in resumeall"><input type="radio" name="resume" :value=`resume${index+1}`><span>{{resume}}</span></label>
                     
-                    <label><input type="radio" name="resume" value="resume2"><span>履歷二</span></label>
+                    <!-- <label><input type="radio" name="resume" value="resume2"><span>履歷二</span></label>
                     
                     <label><input type="radio" name="resume" value="resume3"><span>履歷三</span></label>
                     
                     <label><input type="radio" name="resume" value="resume4"><span>履歷四</span></label>
                     
-                    <label><input type="radio" name="resume" value="resume4"><span>履歷五</span></label>
+                    <label><input type="radio" name="resume" value="resume4"><span>履歷五</span></label> -->
                 </div>
                 
 
@@ -55,20 +55,23 @@
 
     <script src="https://unpkg.com/vue@2"></script>
     <script>
-        // new Vue({
-        //     el:'#app2',
-        //     data:{
-        //         isShow:true,
-        //     },
-        //     methods: {
-        //         open(){
-        //             this.isShow =!this.isShow
-        //         },
-        //         close(){
-        //             this.isShow =!this.isShow
-        //         },
-        //     },
-        // })
+        new Vue({
+            el:'#app2',
+            data:{
+                isShow:true,
+
+
+                resumeall:["履歷一","履歷二","履歷三","履歷四","履歷五"]
+            },
+            methods: {
+                open(){
+                    this.isShow =!this.isShow
+                },
+                close(){
+                    this.isShow =!this.isShow
+                },
+            },
+        })
 
     </script> 
 
