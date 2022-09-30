@@ -8,8 +8,9 @@ Vue.component('comjob-data',{
         }       
     },
     methods:{
-        
-        
+        banJob(jobId){ //目標：將要停權的目標id存到banId變數
+            banId = jobId
+        },        
     },
     mounted() {       
         //顯示該公司的職缺
@@ -43,10 +44,12 @@ Vue.component('comjob-data',{
                 // console.log(e.target)
                 if(e.target.classList.contains('-on')){
                     e.target.classList.toggle('-on')
-                    e.target.style.opacity = "10%"                    
+                    e.target.style.opacity = "10%"   
+                    fetch(`../php/backstage_banJob.php?jobId2=${banId}`) //修改資料庫ban欄位數值為0                 
                 }else {
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "100%"
+                    fetch(`../php/backstage_banJob.php?jobId=${banId}`) //修改資料庫ban欄位數值為1
                 }
             })
         }
@@ -84,7 +87,7 @@ Vue.component('comjob-data',{
                                 <td class="detail"><h3><button class="btna3" @click="opened_trs == null  ?  opened_trs = comjobs.ID : opened_trs = null"><h4>詳細資料</h4></button></h3></td>
                                 <td class="create-date"><h3>{{comjobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
                                 <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
-                                <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>
+                                <td class="ban"><h3><i class="fa-solid fa-ban" @click="banJob(comjobs.ID)" :style="{ 'opacity': comjobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
                             </tr>
                             <tr >
                                 <tr class="itemDetailTile" v-if="opened_trs == comjobs.ID">

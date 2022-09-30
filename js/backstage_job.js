@@ -7,12 +7,9 @@ Vue.component('job-data',{
         }       
     },
     methods:{
-        comImg(jobId){ //目標：顯示該公司的職缺
+        banJob(jobId){ //目標：將要停權的目標id存到banId變數
             // console.log(jobId); 
             banId = jobId
-        },
-        showban(){
-            alert("aa")
         },
     },
     
@@ -73,7 +70,7 @@ Vue.component('job-data',{
             </h3></td>
             <td class="create-date"><h3>{{jobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
             <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
-            <td class="ban"><h3><i class="fa-solid fa-ban" @click="comImg(jobs.ID)" :style="{ 'opacity': jobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
+            <td class="ban"><h3><i class="fa-solid fa-ban" @click="banJob(jobs.ID)" :style="{ 'opacity': jobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
         </tr>
     </tbody>
     `,

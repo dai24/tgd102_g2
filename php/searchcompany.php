@@ -19,7 +19,7 @@
         // echo "有查詢";        
         $sql = "SELECT
                     c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
-                    c.ADDRESS, c.CREATE_DATE, d.PRICE 
+                    c.ADDRESS, c.CREATE_DATE, c.BAN, d.PRICE 
                 FROM company c
                     JOIN COMPANY_COIN_DETAILS d
                     ON c.ID = d.COMPANY_ID
@@ -36,7 +36,7 @@
         // echo "未查詢";
         $sql = "SELECT
                     c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
-                    c.ADDRESS, c.CREATE_DATE, d.PRICE 
+                    c.ADDRESS, c.CREATE_DATE, c.BAN, d.PRICE 
                 FROM company c
                     JOIN COMPANY_COIN_DETAILS d
                     ON c.ID = d.COMPANY_ID

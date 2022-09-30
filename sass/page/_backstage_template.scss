@@ -104,8 +104,10 @@
             overflow: hidden;
             .resumeCard{ //一張履歷
                 margin: auto 35px 48px 35px; //履歷之間的間距
-                border-radius:20px;
                 box-shadow: 2px 2px 10px $secondary01;
+                border-radius:5px;
+                overflow: hidden;
+                
                 @media screen and (max-width:1850px) {
                     margin-right: 32px;
                 }

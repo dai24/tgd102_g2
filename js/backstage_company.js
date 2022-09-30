@@ -3,15 +3,17 @@ Vue.component('company-data',{
         return{
             companyData: [],
             searchcompany:'', //搜尋功能
+            banId:'', //停權用途
         }       
     },
     methods:{
-        banOpen(){
-            // console.log()
-        },
         comImg(comId){ //目標：顯示該公司的職缺
             // alert(comId); //確認有抓到該公司ID
             sessionStorage.setItem('backstageCompany',comId)
+        },
+        banCom(comId){ //目標：將要停權的目標id存到banId變數
+            // console.log(comId); 
+            banId = comId
         },
         search(){  //搜尋企業會員         
             const searcom = this.searchcompany;
@@ -29,6 +31,7 @@ Vue.component('company-data',{
         .then(rsp => rsp.json())
         .then(userArr => {    
             this.companyData = userArr
+            // console.log(this.companyData)
         })
 
         //根據選擇的頁碼，顯示不同筆資料
@@ -59,9 +62,11 @@ Vue.component('company-data',{
                 if(e.target.classList.contains('-on')){
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "10%"
+                    fetch(`../php/backstage_banCom.php?comId2=${banId}`) //修改資料庫ban欄位數值為0
                 }else {
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "100%"
+                    fetch(`../php/backstage_banCom.php?comId=${banId}`) //修改資料庫ban欄位數值為1
                 }
             })
         }
@@ -103,7 +108,7 @@ Vue.component('company-data',{
                         <td class="address"><h3>{{companys.ADDRESS}}</h3></td>
                         <td class="detail"><h3><button class="btna3" @click="comImg(companys.ID)"><a href="./backstage_com_job.html"><h4>詳細資料</h4></a></button></h3></td>
                         <td class="create-date"><h3>{{companys.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
-                        <td class="ban"><h3><i class="fa-solid fa-ban" @click="banOpen"></i></h3></td>
+                        <td class="ban"><h3><i class="fa-solid fa-ban" @click="banCom(companys.ID)" :style="{ 'opacity': companys.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
                     </tr>
                 </tbody>                              
             </table>

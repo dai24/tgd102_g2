@@ -13,6 +13,7 @@ Vue.component('my-resume_sample', {
 
             toggleSwitch: true, //切換停權
             toggleResume:false, //停權時，履歷的class屬性改變
+            banId:'', //停權用途
         }
     },
     methods: {
@@ -43,6 +44,10 @@ Vue.component('my-resume_sample', {
         toggleBan(){
             this.toggleSwitch = !this.toggleSwitch
         },       
+        banCom(comId){ //目標：將要停權的目標id存到banId變數
+            // console.log(comId); 
+            banId = comId
+        },
     },
     mounted() {
         
@@ -93,7 +98,7 @@ Vue.component('my-resume_sample', {
 
             <div class="pagination-div">
                 <ul class="pagination-ul">
-                <li><a href="#"><i class="fa-solid fa-chevron-lSeft"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                 <li><a href="#" class="pageContent">1</a></li>
                 <li><a href="#" class="pageContent">2</a></li>
                 <li><a href="#" class="pageContent">3</a></li>
