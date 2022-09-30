@@ -24,7 +24,7 @@ $statement->execute();
 if($statement->rowCount() > 0){
     $member['successful'] = true;
     $member['message'] = "like更新成功";
-    header("Location: ./getResume_sample_All.php");
+    // header("Location: ./getResume_sample_All.php");
 }else{
     $member['successful'] = false;
     $member['message'] = "like更新失敗";
