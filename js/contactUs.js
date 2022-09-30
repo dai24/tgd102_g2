@@ -72,9 +72,9 @@ Vue.component('my-list',{
             this.isShow =!this.isShow
         },
         sendGO(){
-            emailjs.init("ENI7VttaP9zc4WltW");
-            let a = 'service_6zovu1s'
-            let b = 'template_d2tejd8'
+            emailjs.init("ENI7VttaP9zc4WltW"); 
+            let a = 'service_6zovu1s'  
+            let b = 'template_d2tejd8' 
             let templateParams = {
                 text : this.msg,
                 reply_to : this.email
