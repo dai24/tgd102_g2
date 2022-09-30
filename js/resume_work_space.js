@@ -127,6 +127,187 @@ Vue.component('win-payplan', {
 // 儲存彈窗
 Vue.component('win-save', {
     data() {
+}
+}) 
+ 
+ //編輯履歷
+ Vue.component('model-A01',{
+    props: {
+        resumeModelOne:{},
+        summerdata:'',
+    },
+    data(){
+        return {
+           image:'',
+           fileInput: false,
+           Avatar:false,
+        }
+    },
+    methods:{
+       fileChange(e){
+            let file = e.target.files[0]
+            let readFile = new FileReader()
+            
+            readFile.readAsDataURL(file)
+            readFile.addEventListener('load',()=>{
+                this.image = readFile.result
+                this.Avatar = true
+ 
+            })
+             
+       },
+       summernote(element){
+        this.$emit('summer',true,'summernote')
+        this.$emit('summerelement',element)
+       }
+    },
+    mounted() {
+        let resume = document.querySelector('.work_space_a4')
+        resume.addEventListener('click',(e) => {
+            this.summernote(e.target)
+            console.log(e.target.innerHTML)
+        })
+    },
+    template:
+    `
+    <div class="resume_make mode">
+ 
+        <div class="resume_name_div">
+            <label for="resume_name">檔案名稱: </label><input type="text" :value="resumeModelOne.fileName">
+        </div>
+        <div class="work_space_a4">
+ 
+            <div class="work_space_a4_1">
+ 
+                <h3 title="姓名" >{{resumeModelOne.name}}</h3>
+ 
+                <h4 title="職務" >{{resumeModelOne.job_apply}}</h4>
+                <h5>聯絡方式</h5>
+                <p class="p1">地址：<span class="span1">{{resumeModelOne.address}}</span></p>
+                <p class="p2">電話：<span class="span2">{{resumeModelOne.phone}}</span></p>
+                <p class="p3">信箱：<span class="span3">{{resumeModelOne.email}}</span></p>
+                <p class="p4">作品：<span class="span4">{{resumeModelOne.porfolio}}</span></p>
+            </div>
+ 
+            <div title="上傳圖片" class="work_space_a4_2">
+                <label for="upload" class="upload" >
+                    <input v-show="fileInput" id="upload" type="file" accept="image/*" @change="fileChange">
+                    <i class="fa-solid fa-file-circle-plus"></i>
+                </label>
+                <label for="upload" class="Avatar"><img v-if="Avatar" :src="image"></label>
+            </div>
+ 
+            <div class="work_space_a4_3">
+ 
+                <div class="work_space_a4_3_1">
+                    <h4>學歷</h4>
+                    <h5>{{resumeModelOne.school}}</h5>
+                    <h6>{{resumeModelOne.during_school}}</h6>
+                    <span>{{resumeModelOne.department}}</span><span> /</span><span>{{resumeModelOne.attend_school_status}}</span>
+                </div>
+ 
+                <div class="work_space_a4_3_2">
+                    <h4>自傳</h4>
+                    <textarea name="" id="" cols="27" rows="5" maxlength="65" disabled>{{resumeModelOne.autobiography}}</textarea>
+                        
+                    </div>
+ 
+                    <div class="work_space_a4_3_3">
+                        <h4>就學期間</h4>
+                        <textarea name="" id="" cols="27" rows="6" maxlength="65" disabled>{{resumeModelOne.school_experience}}</textarea>
+                    </div>
+ 
+                    <div class="work_space_a4_3_4">
+                        <h4>工作經歷</h4>
+                        <h5>{{resumeModelOne.work_experience_job}}</h5>
+                        <h6>{{resumeModelOne.during_work}}</h6>
+                        <textarea name="" id="" cols="27" rows="4" maxlength="50" disabled>{{resumeModelOne.work_content}}</textarea>
+                    <p>
+                        
+                    </p>
+                </div>
+ 
+                <div class="work_space_a4_3_5">
+                    <h4>工作技能</h4>
+                    <p>{{resumeModelOne.skill1}}</p>
+                    <p>{{resumeModelOne.skill2}}</p>
+                    <p>{{resumeModelOne.skill3}}</p>
+                    <p>{{resumeModelOne.skill4}}</p>
+                </div>
+ 
+                <div class="work_space_a4_3_6">
+                    <h4>語文能力</h4>
+                    <p>{{resumeModelOne.language1}}</p>
+                    <p>{{resumeModelOne.language2}}</p>
+                </div>
+ 
+            </div>
+ 
+        </div>
+    </div>
+    `,
+ })
+ 
+ 
+ //summernote
+ Vue.component('edit-summernote',{   
+    data(){
+        return {
+           data:'',
+           
+        }
+    },
+    methods: {
+        submitData(){
+            
+         //    this.data =  $($("#summernote1").summernote("code")).text();
+             this.data = $("#summernote1").summernote("code")
+             console.log(this.data)
+             this.$emit('summerData',this.data)
+             // $("#summernote1").code('')   
+        }
+        
+    },
+    mounted() {
+        let summer = $('#summernote1').summernote({
+            toolbar:
+                [
+                    ['fontsize', ['fontsize']],
+                    ['font', ['bold', 'italic', 'underline']],
+                    ['hr'],
+                    ['fontname', ['fontname']],
+                    ['forecolor'],
+                    ['para', ['ul', 'ol', 'paragraph', 'height']],
+                    ['clear', ['clear', 'undo' , 'redo']],
+ 
+                ],
+ 
+            height: 150,
+            dialogsFade: true,
+            focus: true,
+            placeholder: "",
+            fontSizes: ['8', '9', '10', '11', '12', '14', '18', '24', '28','30','36', ],//字体大小配置
+            focus: true,
+            placeholder: "",
+            disableDragAndDrop: true,
+            
+        });
+        
+    },
+    template:
+    `
+    <div class="sumEdit">
+        <div id="summernote1"></div>
+        <div class="btna3 sumerbtn" @click="submitData">確定</div>
+    </div>
+    `,
+ })
+ 
+ 
+ 
+ // 儲存彈窗
+ Vue.component('win-save',{   
+    data(){
         return {
             // closewin: false,
         }

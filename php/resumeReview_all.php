@@ -2,7 +2,6 @@
 
     include('./PDO/Connection.php');
     
-    //目標們
     //目標：尋找資料庫的履歷診療老師資料
     $sql_teacher = "SELECT ID as id, TNAME as tname, PHOTO as img, JOBTITLE as tjobtitle , TIMES as ttimes FROM TEACHER;";
 

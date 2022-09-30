@@ -12,15 +12,8 @@
             <div class="resumeChoose">
                 <label class="resumeChooseTitle">選擇履歷:</label>
                 
-                <label><input type="radio" name="resume" value="resume1"><span>履歷一</span></label>
-                
-                <label><input type="radio" name="resume" value="resume2"><span>履歷二</span></label>
-                
-                <label><input type="radio" name="resume" value="resume3"><span>履歷三</span></label>
-                
-                <label><input type="radio" name="resume" value="resume4"><span>履歷四</span></label>
-                
-                <label><input type="radio" name="resume" value="resume4"><span>履歷五</span></label>
+                <label v-for="(item,index) in resumeall"><input type="radio" name="resume" :value=`resume${index+1}`><span>{{item.FILE_NAME}}</span></label>
+
             </div>
             
 
@@ -46,6 +39,7 @@
         // 以下為要放的三個內容
         data:{
             resumecardshow:false,  // 履歷診療彈窗是否顯示
+            resumeall:["履歷一","履歷二","履歷三","履歷四","履歷五"]
         },
         methods: {
            openreviewcard(){

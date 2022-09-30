@@ -61,14 +61,18 @@ const vm = new Vue({
         ],
 
         allindustrytypeparent:[
-              // "電子科技","資訊","軟體","金融","休閒","出版","藝文相關","法律","顧問","研發","餐飲","旅遊"
+            //   "電子科技","資訊","軟體","金融","休閒","出版","藝文相關","法律","顧問","研發","餐飲","旅遊"
         ],
 
         alljobtypeparent:[
             // "管理幕僚","人資","金融","財會","貿易","客服","行銷","企劃","資訊","專案管理","顧問","保險"
         ],
-        teachersFiltered: []
 
+        teachersFiltered: [],
+        
+        resumeall:[
+           '履歷一','履歷二'
+        ],
 
     },
     methods: {
@@ -79,6 +83,8 @@ const vm = new Vue({
             this.isshow2 = !this.isshow2
         },
 
+       
+
         openreviewcard(){
             if(JSON.stringify(sessionStorage.getItem('StudentId'))== 'null'){
                 alert("請先登入會員")
@@ -86,7 +92,18 @@ const vm = new Vue({
             }else{
                 this.resumecardshow =!this.resumecardshow
             }
-             
+
+
+            // 依照sessionStorage的StudentId(登入會員ID)去抓該會員的履歷 
+
+            fetch(`../php/resumeReviewcard.php?StudentId=${Number(sessionStorage.getItem('StudentId'))}`) //從後端JS拿到資料
+            .then(rsp => rsp.json())
+            .then(userArr => {            // userArr 是抓 resumeReviewcard.php 的 echo json_encode($resumeList);
+                this.resumeall= userArr   // resumeall 的data 抓userArr
+                // console.log(this.resumeall);
+            })
+
+
         },
 
         closereviewcard(){
