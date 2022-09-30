@@ -102,7 +102,7 @@ const vm = new Vue({
                 case 'job':
                     this.jobclasstype = value;
                     this.isshow2 = !this.isshow2;
-                     break;
+                    break;
             }
             
             
