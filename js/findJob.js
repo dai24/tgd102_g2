@@ -159,7 +159,6 @@ new Vue({
 
     },
     mounted() {
-
         fetch("../php/findJob.php",{
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
@@ -184,42 +183,7 @@ new Vue({
                     console.log(element.TOTAL_EMPLOYEE);
                 }
             });
-        })
-
-        // fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
-        //     .then(rsp => rsp.json())
-        //     .then(userArr => {            
-        //         // console.log(userArr);
-        //         this.com = userArr
-        //         console.log(this.com);
-        // })
-
-        //顯示第一頁的資料
-        fetch(`../php/pageFindJob.php?page=1`)
-        .then(rsp => rsp.json())
-        .then(userArr => {    
-            // console.log(userArr)
-            this.com = userArr
-            
-            
-        })
-
-        //根據選擇的頁碼，顯示不同筆資料
-        let pageContent = document.querySelectorAll(".pageContent");
-        for(let i = 0; i < pageContent.length; i++ ){
-            pageContent[i].addEventListener("click", e => {
-                console.log('asd');
-                // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
-                fetch(`../php/pageFindJob.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
-                //${e.target.innerText}
-                .then(rsp => rsp.json())
-                .then(userArr => {            
-                    // console.log(userArr)
-                    this.com = userArr  
-                })
-            })
-        } 
-            
+        })            
     },
     computed: {
         new_array(){
@@ -268,21 +232,12 @@ new Vue({
         },
         filiSort(a,b,c,d){
             this.current_sort = a
-            console.log(this.current_sort);
-            // const sort = a
-            // console.log(a);
-            // this.com2.filter(function(b){
-            //     console.log(b);
-            //     console.log(sort);
-            //     return b.JOB_NAME.includes(sort)
-            // })
+            // console.log(this.current_sort);
         },
         searchJob(){
-            // this.searchJob2 = this.com
             fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
-                // console.log(userArr);
                 this.com = userArr
             })
         },  
@@ -369,8 +324,6 @@ new Vue({
             });
         },
         jobMainGo(idNum,comidNum,brow){
-            // console.log(comidNum);
-            // console.log(brow++);
             brow++
             console.log(brow);
             sessionStorage.setItem('findJobId', idNum);
@@ -385,14 +338,10 @@ new Vue({
                 console.log(this.jobID1[i]);
                 fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
                 fetch(`../php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
-                //jobId : this.jobID1[i]
             }
             
             location='./jobMain.html'
         },
-        
-        
-        
     },
     filters:{
         ellipsis(value){
