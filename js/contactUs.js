@@ -2,6 +2,8 @@ Vue.component('my-list',{
     data() {
         return {
             isShow:false,
+            email:'',
+            msg:''
         }
     },
     template:`
@@ -20,13 +22,13 @@ Vue.component('my-list',{
             <h2>謝謝您的主動聯絡，請留下要諮詢的問題，我們會用以下資訊進行回覆。</h2>
             <form action="">
             <div class="contactUSG">
-                <input type="text" name="" value="" placeholder="請輸入電子郵件">
+                <input type="text" name="" value="" placeholder="請輸入電子郵件" v-model="email">
             </div>
             <div class="contactUSM">
-                <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !"  id="talk"></textarea>
+                <textarea rows="10" maxlength="200" placeholder="請輸入您的訊息，我們會盡快聯繫您 !"  id="talk" v-model="msg"></textarea>
                 <p id="feedback"></p>
             </div>
-            <div class="btna3" @click="close">送出</div>
+            <div class="btna3" @click="sendGO">送出</div>
             </form>
         </div>
     </div>
@@ -69,6 +71,17 @@ Vue.component('my-list',{
         close(){
             this.isShow =!this.isShow
         },
+        sendGO(){
+            emailjs.init("ENI7VttaP9zc4WltW");
+            let a = 'service_6zovu1s'
+            let b = 'template_d2tejd8'
+            let templateParams = {
+                text : this.msg,
+                reply_to : this.email
+            }
+            emailjs.send(a, b, templateParams);
+            this.isShow =!this.isShow
+        }
     },
 })
 new Vue({

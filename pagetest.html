@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>旅遊景點簡介</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.1/css/all.min.css"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4/dist/vue-loading.css"
+      rel="stylesheet"
+    />
+    <style>
+      .bg-base {
+        background-color: #e8e8e8;
+        min-height: 100vh;
+      }
+      .img-cover {
+        object-fit: cover;
+      }
+      .card-main:hover .img-cover {
+        transform: scale(1.6);
+      }
+      .img-wrapper {
+        overflow: hidden;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <loading :active.sync="isLoading"></loading>
+      <div class="bg-base py-5">
+        <h1 class="text-center">高雄旅遊景點</h1>
+        <div class="container py-3">
+            <div class="row">
+                <card v-for="item in spotsData" :item="item"></card>
+            </div>
+            <div class="row">
+            <pagination-btn
+                :page-item="pageItem"
+                @go-to-page="toPage"
+            ></pagination-btn>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.0.2/vue.global.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue-loading-overlay@4"></script>
+    <script>
+      const card = {
+        props: ["item"],
+        template: `
+        <div class="col-md-4  mb-3">
+              <div class="card mb-3 h-100 card-main">
+                <div class="card img-wrapper">
+                <img :src="item.Picture1" class="card-img-top img-cover" height="180" alt="item.Name">
+                <div class="card-img-overlay d-flex align-items-end">
+                  <h5 class="card-title text-white"><strong>{{item.Name}}</strong></h5>
+                </div>
+              </div>
+                <div class="card-body">
+                  <p class="card-text"><i class="far fa-clock text-primary me-2"></i>{{item.Opentime}}</p>
+                  <p class="card-text"><i class="fas fa-map-marker-alt text-danger me-2"></i>{{item.Add}}</p>
+                  <p class="card-text"><a :href="'tel:' + item.Tel"><i class="fas fa-phone-alt text-success me-2"></i>{{item.Tel}}</a></p>
+                </div>
+              </div>
+            </div>`,
+      };
+
+      const paginationBtn = {
+        props: ["pageItem"],
+        template: `<nav aria-label="Page navigation" v-if="pageItem.currentPage!=0">
+              <ul class="pagination justify-content-center">
+                <li class="page-item" :class="{'disabled':!pageItem.hasPage}">
+                  <a
+                    class="page-link"
+                    href="#"
+                    aria-label="Previous"
+                    @click.prevent="toPage(Number(pageItem.currentPage)-1)"
+                  >
+                    <span aria-hidden="true">&laquo;</span>
+                  </a>
+                </li>
+                <li class="page-item" v-if="pageItem.pageTagHasPre"><a href="#" class="page-link" @click.prevent="toPage((pageItem.currentPageTag-1)*pageItem.showPage)">...</a></li>
+                <li class="page-item" v-for="i in pageItem.pageCurrent" :key="i"
+                :class="{'active':pageItem.currentPage===i}">
+                  <a class="page-link" href="#" @click.prevent="toPage(i)"
+                    >{{i}}</a
+                  >
+                </li>
+                <li class="page-item" v-if="pageItem.pageTagHasNext"><a href="#" class="page-link" @click.prevent="toPage((pageItem.currentPageTag+1)*pageItem.showPage)">...</a></li>
+                <li class="page-item" :class="{'disabled':!pageItem.hasNext}">
+                  <a
+                    class="page-link"
+                    href="#"
+                    aria-label="Next"
+                    @click.prevent="toPage(Number(pageItem.currentPage)+1)"
+                  >
+                    <span aria-hidden="true">&raquo;</span>
+                  </a>
+                </li>
+              </ul>
+            </nav>`,
+        methods: {
+          toPage(item) {
+            this.$emit("goToPage", item);
+          },
+        },
+      };
+
+      const app = {
+        data() {
+          return {
+            spots: [],
+            spotsData: [],
+            pageItem: {
+            pageTotal: 0,
+            currentPage: 0,
+            hasPage: true,
+            hasNext: false,
+            showPage: 10,
+            pageCurrent: [],
+            currentPageTag: 1,
+            PageTagTotal: 0,
+            pageTagHasPre: false,
+            pageTagHasNext: false,
+            },
+            isLoading: false,
+          };
+        },
+        components: {
+          card,
+          paginationBtn,
+        },
+        methods: {
+          getSpots() {
+            const apiUrl =
+              "https://api.kcg.gov.tw/api/service/Get/9c8e1450-e833-499c-8320-29b36b7ace5c";
+            this.isLoading = true;
+            axios.get(apiUrl).then((res) => {
+              if (res.data.success) {
+                this.spots = res.data.data.XML_Head.Infos.Info;
+                this.pagination(this.spots, 1);
+                this.isLoading = false;
+              }
+            });
+          },
+          pagination(Data, page) {
+            this.spotsData = [];
+            const dataTotal = Data.length;
+            const perPage = 15;
+            const showPage = 10;
+            const pageTotal = Math.ceil(dataTotal / perPage);
+            let currentPage = page;
+            if (currentPage > pageTotal) {
+              currentPage = pageTotal;
+            }
+            const minData = currentPage * perPage - perPage + 1;
+            const maxData = currentPage * perPage;
+
+            Data.forEach((item, index) => {
+              const num = index + 1;
+              if (num >= minData && num <= maxData) {
+                this.spotsData.push(item);
+              }
+            });
+
+            //分頁一頁顯示十筆頁碼
+            this.pageItem.pageCurrent = [];
+            const PageTagTotal = Math.ceil(pageTotal / showPage);
+            const currentPageTag = Math.ceil(page / showPage);
+            let pageCurrentItem = [];
+
+            const minPage = currentPageTag * showPage - showPage + 1;
+            const maxPage = currentPageTag * showPage;
+
+            for (let i = 1; i < pageTotal + 1; i++) {
+                if (i >= minPage && i <= maxPage) {
+                    pageCurrentItem.push(i);
+                }
+            }
+
+            this.pageItem = {
+            pageTotal,
+            currentPage,
+            hasPage: currentPage > 1,
+            hasNext: currentPage < pageTotal,
+            showPage: showPage,
+            pageCurrent: Array.from(pageCurrentItem),
+            currentPageTag,
+            PageTagTotal,
+            pageTagHasPre: currentPageTag > 1,
+            pageTagHasNext: currentPageTag < PageTagTotal,
+            };
+          },
+          toPage(page) {
+            this.pagination(this.spots, page);
+          },
+        },
+        created() {
+          this.getSpots();
+        },
+      };
+      Vue.createApp(app)
+        .use(VueLoading)
+        .component("loading", VueLoading)
+        .mount("#app");
+    </script>
+  </body>
+</html>

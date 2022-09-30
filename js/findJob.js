@@ -153,6 +153,10 @@ new Vue({
         com2:[],
         com3:[],
         current_sort:'',
+        conmLength:null,
+        comPage:2,
+        showPage:4
+
     },
     mounted() {
 
@@ -164,6 +168,8 @@ new Vue({
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.com2 = userArr
+            this.conmLength = this.com2.length
+            // console.log(this.com2.length);
             this.com2.forEach(element => {
                 if(element.TOTAL_EMPLOYEE <= 30){
                     element.TOTAL_EMPLOYEE = '小'
@@ -194,6 +200,8 @@ new Vue({
         .then(userArr => {    
             // console.log(userArr)
             this.com = userArr
+            
+            
         })
 
         //根據選擇的頁碼，顯示不同筆資料
