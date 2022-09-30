@@ -536,7 +536,8 @@ Vue.component('model-A01', {
     },
     mounted() {
         this.studentId = sessionStorage.getItem('StudentId')
-        fetch(`./php/getResume_sample_All.php?model=1&studentId${this.studentId}`)
+        console.log(this.studentId)
+        fetch(`./php/getResume_sample_All.php?model=1&studentId=${this.studentId}`)
         .then(rsp => rsp.json())
         .then(resume_model => {
             this.resume_modelAll = resume_model;
