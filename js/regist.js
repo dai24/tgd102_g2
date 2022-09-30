@@ -2,7 +2,7 @@ $(function () {
 
     // 名稱不要正規表達式限制住
 
-    // const name = document.querySelector("#name")
+    const name = document.querySelector("#name")
     // let alertNameTrue = true
     // name.addEventListener("blur",function(){
     // let pattern = /^[a-zA-Z][a-zA-Z0-9_]{4,15}/;

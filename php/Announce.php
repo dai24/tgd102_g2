@@ -4,8 +4,8 @@ include('./PDO/Connection.php');
 $member = json_decode(file_get_contents("php://input"), true);
 // $sql = "insert into student(name,email,password,phone,create_date) 
 // values(?,?,?,?,?)";
-$sql = "insert into job(NAME,JOB,SALARY,REQUIRE,CONDITION,PLUS,WFH,CREATE_DATE) 
-values(?,?,?,?,?,?,?,?)";
+$sql = "INSERT INTO `JOB` (NAME,`JOB`,SALARY,`REQUIRE`,`CONDITION`,PLUS,WFH,CREATE_DATE) 
+VALUES(?,?,?,?,?,?,?,?)";
  $statement = $pdo->prepare($sql);
  $statement->bindValue(1,$member['name']);
  $statement->bindValue(2,$member['job']);

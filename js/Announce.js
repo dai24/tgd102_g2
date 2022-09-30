@@ -10,7 +10,7 @@ $(function () {
     const plus = document.querySelector("#plus")
     // const wfh = document.querySelector("#wfh")
     let wfh1 ='';
-    let  wfh = document.getElementsByName('wfh');
+    let wfh = document.getElementsByName('wfh');
         for(let i = 0;i < wfh.length;i++){
             wfh[i].addEventListener('click',()=>{
             if(wfh[i].checked){
@@ -18,10 +18,9 @@ $(function () {
                 wfh1 = wfh[i].value;
                 console.log(wfh1);
 
-            }
-            
-            
-        })
+                }
+                    
+            })
 
         
 
@@ -51,11 +50,13 @@ $(function () {
             })
         })
         .then(resp => resp.json(
-            console.log(resp)
-        ))
-        // .then(body => {
-        //     console.log(body)
-        // })
+            console.log(resp)))
+
+
+
+        .then(body => {
+            console.log(body)
+        })
 
 
     })
