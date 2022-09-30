@@ -152,8 +152,8 @@
                     }
                 }                
                 .itemDetailTile{ //詳細資料欄位
-                    border:3px solid $primary02;
-                    border-top: 1.5px solid $primary02;
+                    border-left:3px solid $primary04;
+                    border-right:3px solid $primary04;
                     h3{
                         font-weight: bold;
                         color: $secondary01;
@@ -170,8 +170,8 @@
                     }
                 }   
                 .itemDetail{ //會員詳細資料
-                    border: 3px solid $primary02;
-                    border-top: 1.5px solid $primary02;
+                    border-left: 3px solid $primary04H;
+                    border-right: 3px solid $primary04H;
                     th{
                         background-color:$primary04H;
                     }

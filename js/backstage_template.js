@@ -93,7 +93,7 @@ Vue.component('my-resume_sample', {
 
             <div class="pagination-div">
                 <ul class="pagination-ul">
-                <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="#"><i class="fa-solid fa-chevron-lSeft"></i></a></li>
                 <li><a href="#" class="pageContent">1</a></li>
                 <li><a href="#" class="pageContent">2</a></li>
                 <li><a href="#" class="pageContent">3</a></li>

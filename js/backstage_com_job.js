@@ -3,23 +3,20 @@ Vue.component('comjob-data',{
         return{
             comjobData: [],
             opened_trs:null,
-            openDetail:false,
+            searchjob:'', //搜尋功能
+            banId:'', //停權用途
         }       
     },
     methods:{
-        banOpen(){
-            // console.log()
-        },
-        toggleDetail(comjobs){
-            comjobs.openDetail = !comjobs.openDetail
-        }
+        
+        
     },
     mounted() {       
         //顯示該公司的職缺
         fetch(`php/searchjob.php?comId=${sessionStorage.getItem('backstageCompany')}`) //撈到session的該公司ID，傳給php，
         .then(rsp => rsp.json())
         .then(userArr => {    
-            console.log(userArr); 
+            // console.log(userArr); 
             this.comjobData = userArr
         })
 
@@ -29,20 +26,34 @@ Vue.component('comjob-data',{
             pageContent[i].addEventListener("click", e => {
                 // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
                 fetch(`php/searchJob.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
-                //${e.target.innerText}
+                
                 .then(rsp => rsp.json())
-                .then(userArr => {            
-                    
+                .then(userArr => {        
                     // console.log(userArr);    
                     this.comjobData = userArr
-                    // console.log(this.comjobData) //確認過有抓到資料
                 })
+            })
+        }
+    },
+    updated() {
+        //目標：職缺是否要停權
+        let fa_ban = document.querySelectorAll(".fa-ban")
+        for(let i = 0; i < fa_ban.length; i++){
+            fa_ban[i].addEventListener("click", e => {
+                // console.log(e.target)
+                if(e.target.classList.contains('-on')){
+                    e.target.classList.toggle('-on')
+                    e.target.style.opacity = "10%"                    
+                }else {
+                    e.target.classList.toggle('-on')
+                    e.target.style.opacity = "100%"
+                }
             })
         }
     },
     template: `
         <div class="wrapper">
-                <h1 class="title">小野水產</h1>
+                <h1 class="title">公司所有職缺</h1>
                 <div class="wratable">            
                     
                 <table id="table">     
@@ -119,10 +130,7 @@ Vue.component('comjob-data',{
 
                 <div class="pagination-div">
                     <ul class="pagination-ul">
-                        <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                         <li><a href="#" class="pageContent">1</a></li>
-                        <li><a href="#" class="pageContent">2</a></li>                    
-                        <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
                     </ul>
                 </div>
             </div>

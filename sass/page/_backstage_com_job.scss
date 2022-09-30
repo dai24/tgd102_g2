@@ -111,6 +111,9 @@
                 margin-top: 10px;
                 opacity: 10%;
             }
+            // .toggleBan{ //Vue 開關停權icon使用
+            //     opacity: 10%;
+            // }
             //每筆資料
             .item{
                 border: solid $primary02;
@@ -125,6 +128,9 @@
                     @media screen and (max-width: 1800px) {
                         font-size:$fontSize04;                 
                     }
+                }
+                h4{ //詳細資料button
+                    font-weight: bold;
                 }
                 //欄位：ID
                 .id{
@@ -147,15 +153,15 @@
                 }
             }
             .itemDetailTile{ //詳細資料欄位
-                border:3px solid $primary02;
-                border-top: 1.5px solid $primary02;
+                border-left:3px solid $primary04;
+                border-right:3px solid $primary04;
                 h3{
                     font-weight: bold;
                     color: $secondary01;
                     text-align: center;
                 }
                 th{ //修改欄位底色
-                    background-color: $primary04;
+                    background-color:$primary04;
                 }
                 //欄位：職業種類
                 .category{
@@ -165,11 +171,10 @@
                 }
             }  
             .itemDetail{ //職缺詳細資料
-                border: 3px solid $primary02;
-                border-top: 1.5px solid $primary02;
+                border-left: 3px solid $primary04H;
+                border-right: 3px solid $primary04H;
                 th{
-                    background-color: #f6e9dd;
-                    // background-color: #FFFFFF;
+                    background-color:$primary04H;
                 }
                 h3{
                     text-align: center;

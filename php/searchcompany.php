@@ -9,25 +9,48 @@
     $content = 5; //設定每頁有多少筆資料
     $omitData = 0; //預設 省略0筆
     
-    $page = $_GET["page"]; //前端傳來要第幾頁的資料
+    $page = isset($_GET["page"]) ? $_GET["page"] : 1 ; //前端傳來要第幾頁的資料
     $omitData = $content * ( $page - 1 ) ; //要省略多少筆資料 
+    
+    $company = isset($_GET["company"]) ? $_GET["company"] : 0; //查詢功能
+    $company2 = "%$company%";
 
-    $sql = "SELECT
-                c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
-                c.ADDRESS, c.CREATE_DATE, d.PRICE 
-            FROM company c
-                JOIN COMPANY_COIN_DETAILS d
-                ON c.ID = d.COMPANY_ID
-            LIMIT
-                $omitData, $content;
-            "
-            ;    
+    if(isset($_GET["student"])){
+        // echo "有查詢";        
+        $sql = "SELECT
+                    c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
+                    c.ADDRESS, c.CREATE_DATE, d.PRICE 
+                FROM company c
+                    JOIN COMPANY_COIN_DETAILS d
+                    ON c.ID = d.COMPANY_ID
+                WHERE c.ID like :ID or c.`NAME` like :NAME
+                LIMIT
+                    $omitData, $content;
+                "
+                ;  
+        $stmt = $pdo->prepare($sql);
+        $stmt -> bindValue(":ID" , $company2);
+        $stmt -> bindValue(":NAME" , $company2);
+        $stmt->execute(); //執行 
+    }else{
+        // echo "未查詢";
+        $sql = "SELECT
+                    c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
+                    c.ADDRESS, c.CREATE_DATE, d.PRICE 
+                FROM company c
+                    JOIN COMPANY_COIN_DETAILS d
+                    ON c.ID = d.COMPANY_ID
+                LIMIT
+                    $omitData, $content;
+                "
+                ;   
+        //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料    
+        $stmt = $pdo->prepare($sql);    
+        $stmt->execute(); //執行
+    }
+     
     
-    //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
     
-    $stmt = $pdo->prepare($sql);
-    
-    $stmt->execute(); //執行
     
     //---------------------------------------------------
     

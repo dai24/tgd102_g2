@@ -4,7 +4,7 @@ Vue.component('student-data',{
     data(){
         return{
             studentData: [],
-            opened_tr:null,
+            opened_tr:null, //開關詳細資料
             searchstudent:'', 
         }       
     },
@@ -14,7 +14,7 @@ Vue.component('student-data',{
         },
         search(){  //搜尋學生會員          
             // console.log(this.searchstudent)
-            const searstu = this.searchstudent
+            const searstu = this.searchstudent;
             // console.log(searstu)
             fetch(`../php/searchstudent.php?student=${searstu}`)
             .then(rsp => rsp.json())
@@ -50,7 +50,20 @@ Vue.component('student-data',{
         }     
     },
     updated() {
-        
+        //目標：職缺是否要停權
+        let fa_ban = document.querySelectorAll(".fa-ban")
+        for(let i = 0; i < fa_ban.length; i++){
+            fa_ban[i].addEventListener("click", e => {
+                // console.log(e.target)
+                if(e.target.classList.contains('-on')){
+                    e.target.classList.toggle('-on')
+                    e.target.style.opacity = "10%"
+                }else {
+                    e.target.classList.toggle('-on')
+                    e.target.style.opacity = "100%"
+                }
+            })
+        }
     },
     template: `
         <div>
@@ -85,7 +98,7 @@ Vue.component('student-data',{
                             <td class="coin"><h3>{{students.COIN}}</h3></td>
                             <td class="blacklist"><a href="#"><h3>{{students.BLACKLIST}}</h3></a></td>
                             <td class="record"><a href="#"><h3>10</h3></a></td>
-                            <td class="detail"><h3><button class="btna3 detailBtn" @click="opened_tr === null  ?  opened_tr = key : opened_tr = null"><h4>詳細資料</h4></button></h3></td>
+                            <td class="detail"><h3><button class="btna3 detailBtn" @click="opened_tr === null  ?  opened_tr = students.ID : opened_tr = null"><h4>詳細資料</h4></button></h3></td>
                             <td class="create-date"><h3>{{students.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
                             <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>    
                         </tr>     

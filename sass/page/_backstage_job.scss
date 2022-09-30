@@ -161,6 +161,11 @@
                         color:#313131;
                     }
                 }
+                .ban{
+                    h3{
+                        text-align: center;
+                    }
+                }
             }                
         }
         
@@ -174,6 +179,10 @@
             a{
                 color:$secondary01;
                 font-weight: bold;
+            }
+            h4{
+                font-weight: bold;
+                color:$secondary01;
             }
             @media screen and (max-width: 1300px) {
                 width:112px; 

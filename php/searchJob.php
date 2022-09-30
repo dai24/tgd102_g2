@@ -21,7 +21,7 @@ if(isset($_GET["comId"])){
             FROM JOB j
                 JOIN COMPANY c
                 on j.COMPANY_ID = c.ID
-            WHERE j.COMPANY_ID = :ID
+            WHERE j.COMPANY_ID = :ID 
             LIMIT
             $omitData, $content;
             ";
@@ -36,7 +36,7 @@ if(isset($_GET["comId"])){
                 c.NAME as COMPANYNAME
             FROM JOB j
                 JOIN COMPANY c
-                on j.COMPANY_ID = c.ID
+                on j.COMPANY_ID = c.ID            
             LIMIT
             $omitData, $content;
             ";
