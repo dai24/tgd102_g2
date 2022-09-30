@@ -56,6 +56,7 @@ header {
     right: 110px;
     font-size: 30px;
     color: #313131;
+    cursor: pointer;
     @include m(){
         position: absolute;
         top: 23px;

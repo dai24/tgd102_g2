@@ -115,4 +115,29 @@
   //     location = `${getContextPath()}/tgd102_g1/dist/index.html`;
   //   });
   // } catch (error) {}
+
+
+// 回到前面的路徑 (功能尚未明確)
+// function getContextPath() {
+//   return window.location.pathname.substring(
+//     0,
+//     window.location.pathname.indexOf("/", 2)
+//   );
+// }
+
+// // 登出鍵
+// try {
+//   // 嘗試綁定
+//   logout.addEventListener("click", () => {
+//     // 移除 sessionStorage NAME 值
+//     sessionStorage.removeItem("StudentId");
+//     sessionStorage.removeItem("CompanyId");
+
+//     fetch("./php/logout.php");
+//     location = `${getContextPath()}/tgd102_g1/dist/index.html`;
+//   });
+// } catch (error) {}
+
+
+  
 })();

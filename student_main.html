@@ -7,9 +7,15 @@
 </head>
 <body>
     @@include('./layout/header.html')
-    <div class="student_main">
+    <div class="student_main" id="student_main">
+
        
-        <div class="studenMainWrapperTitle">
+            <student-list></student-list>
+
+       
+        
+       
+        <!-- <div class="studenMainWrapperTitle">
 
             <div class="studenMainWrapperTitle_left">
 
@@ -45,7 +51,7 @@
 
             </div>
         
-        </div>
+        </div> -->
 
         <h2>我的履歷</h2>
         <div class="studenMainWrapper_resumebottom">
@@ -53,7 +59,8 @@
         </div>
     </div>
     @@include('./layout/footer.html')
-    <script>
+    <script src="./js/student_main.js"></script>
+    <!-- <script>
         function Avatar_upload(){
             let upload = document.querySelector('#upload');
             let Avatar = document.querySelector('.student_photo img')
@@ -70,6 +77,6 @@
 
             })
         }
-    </script>
+    </script> -->
 </body>
 </html>
