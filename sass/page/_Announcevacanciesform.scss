@@ -2,6 +2,7 @@
 .Announcevacanciesformwrapper{
 
 
+
     .Announcevacancies{
         width: 100%;
         margin: 0 auto;
@@ -114,7 +115,7 @@
     }
     
 
-    .Announcevacanciesformwrapper .Announcevacanciesform {
+    .Announcevacanciesform {
       
         
         background-color: #F4F1EC;
@@ -122,10 +123,11 @@
         border-radius: 5px;
         z-index: 40;
         position: absolute;
-        top: 80%;
+        top: 65%;
         left: 50%;
         transform: translate(-50%, -50%);
         width: 100%;
+        height: 840px;
 
     }
 
@@ -137,6 +139,7 @@
 
 
 }
+
 
     
 

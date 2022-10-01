@@ -4,38 +4,41 @@
     @@include('./layout/head.html',{
         "title" : "公司會員登入"
         })
+        <script src="https://unpkg.com/vue@2"></script>
 </head>
 <body>
 @@include('./layout/header.html')
-<main class="company_login">
-    <div class="logincard">
-        <img src="./images/student-login/student.jpg" alt="企業圖案" class="figure">
-        <h1 class="cardH1">企業登入</h1>
-        <div class="wrapper">
-            <section class="input01">
-                <input type="text" placeholder="請輸入電子信箱" class="inputText" name="account" id="account"maxlength="30" value="qweertqwesdas@gmail.com">
-                <h4 class="inputAlert">信箱格式錯誤</h4>
-            </section>
-            <section class="input01">
-                <input type="text" placeholder="請輸入密碼" class="inputText" name="passeord" id="password"maxlength="12" value="123456321">
-                <h4 class="inputAlert">密碼格式錯誤</h4>
-            </section>
-            
-            <section>                
-                <button class="forgotpw"><h4><a href="company_forgotpw.html">忘記密碼</a></h4></button>
-            </section>    
+<div id="company_login_app"></div>
 
-            <section>
-                <input type="submit" class="btna17 submit" value="登入" name="submit" id="submit">
-            </section>
+    <!-- <main class="company_login">
+        <div class="logincard">
+            <img src="./images/student-login/student.jpg" alt="企業圖案" class="figure">
+            <h1 class="cardH1">企業登入</h1>
+            <div class="wrapper">
+                <section class="input01">
+                    <input type="text" placeholder="請輸入電子信箱" class="inputText" name="account" id="account"maxlength="30" value="qweertqwesdas@gmail.com">
+                    <h4 class="inputAlert">信箱格式錯誤</h4>
+                </section>
+                <section class="input01">
+                    <input type="text" placeholder="請輸入密碼" class="inputText" name="passeord" id="password"maxlength="12" value="123456321">
+                    <h4 class="inputAlert">密碼格式錯誤</h4>
+                </section>
+                
+                <section>                
+                    <button class="forgotpw"><h4><a href="company_forgotpw.html">忘記密碼</a></h4></button>
+                </section>    
 
-            <div class="gosign">
-                <h4>還沒有註冊帳號嗎?</h4>
-                <h4><a href="company_sign.html">註冊</a></h4>
-            </div>
-        </div>   
-    </div>
-</main> 
+                <section>
+                    <input type="submit" class="btna17 submit" value="登入" name="submit" id="submit">
+                </section>
+
+                <div class="gosign">
+                    <h4>還沒有註冊帳號嗎?</h4>
+                    <h4><a href="company_sign.html">註冊</a></h4>
+                </div>
+            </div>   
+        </div>
+    </main>  -->
 @@include('./layout/footer.html')
 <script src="./js/company_login.js"></script>
 
