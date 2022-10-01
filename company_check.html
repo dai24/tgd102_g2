@@ -6,7 +6,9 @@
 <body>
     @@include('./layout/header.html')
     <div class="companyCheckWrapper">
-        <div class="companyHeader">
+
+        <div id="company_main_app"></div>
+        <!-- <div class="companyHeader">
             <div class="companyHeaderLogo">
                 <img src="./images/findJob/kobayashi.png" alt="公司LOGO">
             </div>
@@ -26,7 +28,7 @@
                     <h4><a href="./Announcevacanciesform.html">發布職缺</a></h4>
                 </div>
             </div>
-        </div>
+        </div> -->
         <div class="companyFooter">
             <ul class="block">
                 <li>
@@ -42,11 +44,11 @@
             <table id="table">     
                 <tbody>
                     <tr class="item">
-                        <td class="id"><h3>林利人</h3></td>
-                        <td class="detail"><button class="btna20"><h4>查看履歷</h4></button><button class="btna20"><h4><a href="./interviewinviteform.html">發出面試邀約</a></h4></button></td>
+                        <td class="id"><h3>胡濁塵</h3></td>
+                        <td class="detail"><button class="btna20"><h4>查看履歷</h4></button><button class="btna20" id="inviteform"><h4>發出面試邀約</h4></button></td>
                     </tr>
     
-                    <tr class="item">
+                    <!-- <tr class="item">
                         <td class="id"><h3>陸紫芸</h3></td>
                         <td class="detail"><button class="btna20"><h4>查看履歷</h4></button><button class="btna20"><h4><a href="./interviewinviteform.html">發出面試邀約</a></h4></button></td>
                     </tr>
@@ -59,12 +61,70 @@
                     <tr class="item">
                         <td class="id"><h3>鄭芳宜</h3></td>
                         <td class="detail"><button class="btna20"><h4>查看履歷</h4></button><button class="btna20"><h4><a href="./interviewinviteform.html">發出面試邀約</a></h4></button></td>
-                    </tr>                
+                    </tr>                 -->
                 </tbody>
             </table>
         </div>
         @@include('./layout/pagination.html') 
+
+        <div class="interviewinviteformwrapper">
+            <div class="interviewinviteform_contactUSInner" ></div>
+            <div class="card3">
+                <ul class="cardUl">
+                    <li>
+                        <h1 class="cardH1">立即邀約</h1>
+                    </li>
+                    <li class="close_A">
+                        <!-- <a href="./company_check.html"><i class="fa-solid fa-xmark cardXmark"></i></a> -->
+                        <i class="fa-solid fa-xmark cardXmark"></i>
+                    </li>
+                </ul>
+                <div class="cardInner applyfor interviewinviteform">
+                    
+                    
+                    <h2 class="question">收信人：胡濁塵</h2>
+                    <h2 class="question">信件內容：</h2>
+                    <textarea name="" id="" cols="30" rows="6" placeholder="本公司看到您的履歷，覺得您很符合這個職位需要的能力請問能否約在9/2814:00出來進行面試呢?"></textarea>
+                    <a href="./company_check.html"><div class="btna21">送出</div></a>
+                </div>
+            </div>
+    
+        </div>
+
+
+
+    
     </div>
     @@include('./layout/footer.html')
+
+
+    <script>
+
+    //開關彈窗
+
+        let inviteform = document.querySelector("#inviteform");
+        let inviteform_needtoopen = document.querySelector(".interviewinviteformwrapper");
+
+        let close_A = document.querySelector(".close_A");
+
+        // console.log(inviteform_needtoopen);
+
+        //按鈕打擊打開彈窗
+        inviteform.addEventListener("click",()=>{
+            inviteform_needtoopen.classList.add("show");
+       
+        })
+
+        //叉叉關閉回去
+        close_A.addEventListener("click",()=>{
+            inviteform_needtoopen.classList.remove("show");
+        
+        })
+        
+
+
+    </script>
+
+    <script src="./js/company_check.js"></script>
 </body>
 </html>
