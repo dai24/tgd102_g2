@@ -83,7 +83,7 @@ Vue.component('my-list-com2',{
                         <div class="companyStatement"><h3>公司照片</h3></div>
                         <div>
                             <div>
-                                <img :src="'./images/' + comPic1 + '.jpg'" alt="" v-for="comPic1 in comPic">
+                                <img :src="'./images/' + comPic1" alt="" v-for="comPic1 in comPic">
                             </div>
                         </div>
                     </div>
