@@ -3,6 +3,7 @@
     @@include('./layout/head.html',{
         "title" : "找實習"
     })
+
 <body>
     @@include('./layout/header.html')
 
@@ -87,7 +88,7 @@
 
         </div>
         <div>
-            <div class="findJobVacancies" v-for='find in new_array' >
+            <div class="findJobVacancies" v-for='(find,i) in new_array' >
                 <div class="findJobVacanciesPicture">
                     <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom" @click="comImg(find.COMPANY_ID)">
                 </div>
@@ -119,14 +120,11 @@
                 </div>
             </div>
         </div>
+        
         <div class="pagination-div">
             <ul class="pagination-ul">
                 <li><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
-                <li><a href="#" class="pageContent">1</a></li>
-                <li><a href="#" class="pageContent">2</a></li>
-                <li><a href="#" class="pageContent">3</a></li>
-                <li><a href="#" class="pageContent">4</a></li>
-                <li><a href="#" class="pageContent">5</a></li>
+                <li v-for="(page,i) in pageTotal"><a href="#" class="pageContent" @click="pageid()">{{i+1}}</a></li>
                 <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
             </ul>
         </div>

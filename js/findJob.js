@@ -1,3 +1,4 @@
+
 new Vue({
     el: '#findJobApp',
     data:{
@@ -155,8 +156,8 @@ new Vue({
         current_sort:'',
         conmLength:null,
         comPage:2,
-        showPage:4
-
+        minPage:1,
+        showPage:1,
     },
     mounted() {
         fetch("../php/findJob.php",{
@@ -168,7 +169,6 @@ new Vue({
         .then(userArr => {            
             this.com2 = userArr
             this.conmLength = this.com2.length
-            // console.log(this.com2.length);
             this.com2.forEach(element => {
                 if(element.TOTAL_EMPLOYEE <= 30){
                     element.TOTAL_EMPLOYEE = '小'
@@ -185,10 +185,25 @@ new Vue({
             });
         })            
     },
-    computed: {
-        new_array(){
+    computed: { 
+        new_array(i){
             const vw = this;
             if (vw.checkedSort1.length === 0 && vw.checkedSort2.length === 0 && vw.checkedSort3.length === 0 && vw.checkedSort4.length === 0 && vw.checkedSort5.length === 0) {
+                this.pageTotal = Math.ceil(this.conmLength/this.comPage) //page 按鈕總數量公式 總資料數量 / 每一頁要顯示的資料
+                // if (this.minPage > this.pageTotal) {
+                //     this.minPage = this.pageTotal;
+                // }
+                // this.minData  = (this.minPage * this.comPage) -  this.comPage + 1;
+                // this.maxData = (this.minPage * this.comPage);
+                // this.com2.forEach(function(item,index){
+                //     // console.log(i);
+                //     i.num = index + 1;
+                //     console.log(i.num);
+                //     if ( i.num >= i.minData && i.num <= i.maxData) {
+                //         i.com3.push(item);
+                //     }
+                // })
+                
                 return this.com2;
             } else {
                 let resultArr = [...this.com2];
@@ -223,7 +238,7 @@ new Vue({
                 }
                 return resultArr;
             }
-        }
+        },
     },
     methods: {
         comImg(comId){
@@ -238,7 +253,7 @@ new Vue({
             fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
-                this.com = userArr
+                this.com2 = userArr
             })
         },  
         saveGo(){
@@ -339,9 +354,9 @@ new Vue({
                 fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
                 fetch(`../php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
             }
-            
             location='./jobMain.html'
         },
+        
     },
     filters:{
         ellipsis(value){

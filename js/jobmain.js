@@ -270,10 +270,7 @@ new Vue({
             .then(rsp => rsp.json())
             .then(userArr => {            
                 this.resumeBrow= userArr
-                console.log(this.resumeBrow);
-                // this.resumePic = this.resumeBrow[0].PICTURE.split('|')
-                // console.log(this.resumeBrow[0].PICTURE.split('|'));
-                
+                // console.log(this.resumeBrow);
             })
         
             
