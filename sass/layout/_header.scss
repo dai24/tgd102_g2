@@ -52,8 +52,8 @@ header {
 //會員icon
 .fa-user {
     position: absolute;
-    top: 40px;
-    right: 110px;
+    top: 43px;
+    right: 210px;
     font-size: 30px;
     color: #313131;
     cursor: pointer;
@@ -64,10 +64,37 @@ header {
         font-size: 20px;
 
     }
-
+    
 
 }
 
+//登出鍵
+#member_logout a{
+    display: block;
+    position: absolute;
+    top: 47px;
+    right: 300px;
+    font-size: 24px;
+    color: #313131;
+    cursor: pointer;
+    // display: none;
+    @include m(){
+        top: 24px;
+        left: 215px;
+        font-size: 20px;
+        width: 100%;
+
+    }
+
+}
+
+//登出隱藏
+.hide{
+    display: none;
+}
+
+  
+//有登入狀態會員頭像顏色變更
 .loging{
     color: #D25541 !important;
 }
@@ -75,13 +102,11 @@ header {
 
 
 
-
-
 //錢幣icon
 .money_icon {
     position: absolute;
-    top: 38px;
-    right: 210px;
+    top: 40px;
+    right: 110px;
     font-size: 25px;
 
     color: #313131;

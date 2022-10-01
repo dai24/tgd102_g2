@@ -30,6 +30,7 @@ $(function () {
 
     document.querySelector('.submit').addEventListener('click', () => {
         console.log('true');  
+        location = "./company_main.html";
               
         
        
