@@ -4,28 +4,11 @@
     @@include('./layout/head.html',{
         "title" : "後台登入"
         })
+        <script src="https://unpkg.com/vue@2"></script>
 </head>
 <body>
-<main class="backstage_login">
-    <div class="logincard">
-        <h1 class="cardH1">管理員登入</h1>
-        <div class="wrapper">
-            <section class="input01">
-                <input type="text" placeholder="請輸入帳號" class="inputText" name="account">
-                <h4 class="inputAlert">帳號錯誤</h4>
-            </section>
-            <section class="input01">
-                <input type="text" placeholder="請輸入密碼" class="inputText" name="passeord">
-                <h4 class="inputAlert">密碼錯誤</h4>
-            </section>
-
-            <section>                
-                <button class="btna17 submit" name="submit">登入</button>
-            </section>
-            
-        </div>   
-    </div>
-</main> 
+    <div id="backstage_login_app"></div>
+    
 <script src="./js/backstage_login.js"></script>
 </body>
 </html>
