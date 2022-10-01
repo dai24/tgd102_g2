@@ -1,5 +1,5 @@
 new Vue({
-    el:"#consultanttest",
+    el:"#consultant",
     data:{
         teacherinfo:[
             // img:"../images/consultant/1.jpg",
@@ -23,6 +23,11 @@ new Vue({
             // "管理幕僚","人資","金融","財會"
         ],
 
+        resumeall:[
+            //    '履歷一','履歷二'
+        ],
+
+
         resumecardshow:false,  // 履歷診療彈窗是否顯示
     },
 
@@ -34,6 +39,15 @@ new Vue({
             }else{
                 this.resumecardshow =!this.resumecardshow
             }
+
+            // 依照sessionStorage的StudentId(登入會員ID)去抓該會員的履歷 
+
+            fetch(`../php/resumeReviewcard.php?StudentId=${Number(sessionStorage.getItem('StudentId'))}`) //從後端JS拿到資料
+            .then(rsp => rsp.json())
+            .then(userArr => {            // userArr 是抓 resumeReviewcard.php 的 echo json_encode($resumeList);
+                this.resumeall= userArr   // resumeall 的data 抓userArr
+                // console.log(this.resumeall);
+            })
 
         },
 

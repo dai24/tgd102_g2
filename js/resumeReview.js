@@ -71,7 +71,7 @@ const vm = new Vue({
         teachersFiltered: [],
         
         resumeall:[
-           '履歷一','履歷二'
+        //    '履歷一','履歷二'
         ],
 
     },
