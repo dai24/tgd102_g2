@@ -13,7 +13,7 @@ NAME,ADDRESS,PHONE,EMAIL,PORFOLIO,AUTOBIOGRAPHY,WORK_EXPERIENCE_JOB,DURING_WORK,
 ATTEND_SCHOOL_STATUS,SCHOOL_EXPERIENCE,JOB_APPLY,SKILL1,SKILL2,SKILL3,SKILL4,SKILL5,SKILL6,LANGUAGE1,LANGUAGE2,LANGUAGE3,CREATE_DATE) 
 VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
 $statement = $pdo->prepare($sql);
-$statement->bindValue(1,$resume['student_id']);
+$statement->bindValue(1,$resume['studentId']);
 $statement->bindValue(2,2);
 $statement->bindValue(3,0);
 $statement->bindValue(4,1);

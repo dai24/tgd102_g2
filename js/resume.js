@@ -58,11 +58,12 @@ Vue.component('my-pagination',{
            close() {
                this.isPopup = false
            },
-           clickLike(likeCount,sId){
-               fetch(`./php/updateResume.php?Student_id=${sId}&like_count=${likeCount}`)
+           clickLike(likeCount,sId,id){
+            console.log(likeCount)
+               fetch(`./php/updateResume.php?id=${id}&studentId=${sId}&likeCount=${likeCount}`)
                .then(rsp => rsp.json())
-               .then(like_count => {
-                   this.resume_sample = like_count;
+               .then(updateSample => {
+                   this.resume_sample = updateSample;
                })
            },
            clickCategory(category){
@@ -99,7 +100,7 @@ Vue.component('my-pagination',{
                            <img :src='resume.IMG_PATH' class="" alt="resume_1">
                            <div class="card_body">
                                <div class="row">
-                                   <div class="col-2"><button @click="clickLike(resume.LIKE_COUNT+=1,resume.STUDENT_ID)" class="fa-solid fa-heart"></button></div>
+                                   <div class="col-2"><button @click="clickLike(resume.LIKE_COUNT+=1,resume.STUDENT_ID,resume.ID)" class="fa-solid fa-heart"></button></div>
                                    <div class="col-1 align-self-center"><span>{{resume.LIKE_COUNT}}</span></div>
                                    <div class="offset-7 col-1">
                                        <button class="resume_zoom_btn" @click="open(resume.IMG_PATH)" >

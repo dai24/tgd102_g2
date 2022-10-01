@@ -335,6 +335,10 @@ Vue.component('model-A01', {
                 price: 0,
                 unlock: 0,
                 fileName: '',
+                public_status: 0,
+                category: '',
+                like_count: 0,
+                ban: 0,
                 avatar:'',
                 img_path: '',
                 name: '',
@@ -476,7 +480,8 @@ Vue.component('model-A01', {
             }
  
         },
-        submitData(id, student_id, model, price, unlock, fileName, img_path, name, address, phone, email, porfolio, autobiography,
+        submitData(id, student_id, model, price, unlock, fileName, public_status, category, like_count, ban,img_path, name, 
+            address, phone, email, porfolio, autobiography,
             work_experience_job, during_work, work_content, school, during_school, department, attend_school_status,
             school_experience, job_apply, skill1, skill2, skill3, skill4, language1, language2) {
             if (fileName != undefined) {
@@ -487,6 +492,10 @@ Vue.component('model-A01', {
                     this.resume_modelOne.price = price,
                     this.resume_modelOne.unlock = unlock,
                     this.resume_modelOne.fileName = fileName,
+                    this.resume_modelOne.public_status = public_status,
+                    this.resume_modelOne.like_count = like_count,
+                    this.resume_modelOne.category = category,
+                    this.resume_modelOne.ban = ban,
                     this.resume_modelOne.img_path = img_path,
                     this.resume_modelOne.name = name,
                     this.resume_modelOne.address = address,
@@ -575,7 +584,8 @@ Vue.component('model-A01', {
         <div class="resume_model-border" v-show="modelpopup">
             <button class="xmark_btn" @click="submitData()"><i class="fa-solid fa-xmark"></i></button>            
             <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0}" v-for="model in resume_modelAll"  
-                @click="submitData(model.ID,model.STUDENT_ID,model.MODEL,model.PRICE,model.UNLOCK_STATUS,model.FILE_NAME,model.IMG_PATH,
+                @click="submitData(model.ID,model.STUDENT_ID,model.MODEL,model.PRICE,model.UNLOCK_STATUS,model.FILE_NAME,
+                    model.PUBLIC_STATUS,model.CATEGORY,model.LIKE_COUNT,model.BAN,model.IMG_PATH,
                 model.NAME,model.ADDRESS,model.PHONE,model.EMAIL,model.PORFOLIO,model.AUTOBIOGRAPHY,model.WORK_EXPERIENCE_JOB,model.DURING_WORK,
                 model.WORK_CONTENT,model.SCHOOL,model.DURING_SCHOOL,model.DEPARTMENT,model.ATTEND_SCHOOL_STATUS,model.SCHOOL_EXPERIENCE,
                 model.JOB_APPLY,model.SKILL1,model.SKILL2,model.SKILL3,model.SKILL4,model.LANGUAGE1,model.LANGUAGE2)">
@@ -715,14 +725,31 @@ Vue.component('my-content', {
                 fetch(`./php/getResume_sample_All.php?model=2&studentId=${this.studentId}`)
                 .then(rsp => rsp.json())
                 .then(data => {
-                    
-                    this.ResumeTotal = data.total
-                    console.log(this.ResumeTotal)
+                    this.ResumeTotal = 0
+                    for(total in data){
+                        // console.log('id:' + data[total].ID)
+                        // console.log('studentId:' + data[total].STUDENT_ID)
+                        this.ResumeTotal++                        
+                    }
+                    // console.log('total:' + this.ResumeTotal)
+                    // console.log('id:' + this.resume_modelOne.id)
+                    // console.log('studentid:' + this.resume_modelOne.student_id)
+                    // console.log('sessionstudentid:' + this.studentId)
+                    // this.ResumeTotal = data
+                    // console.log('圖檔:' + this.resume_modelOne.avatar)
                     if(this.ResumeTotal == 5){
                         alert('製作履歷數量已達上限5個')
                     }else{
+                        
+                        
+                        if( this.resume_modelOne.student_id == null){
+                            this.saveResume()
+                        }else{
+                            
+                            console.log(this.resume_modelOne.public_status)
+                            this.updateResume()
+                        }
                         this.savePopup = open;
-                        this.saveResume(this.studentId)
                     }
                 })
 
@@ -757,7 +784,11 @@ Vue.component('my-content', {
         deleteResume(deleteCheck) {
             this.deleteResumeBorder = deleteCheck;
             this.deletePopup = false
-            // this.saveResume()
+            fetch(`./php/deleteResume.php?id=${this.resume_modelOne.id}&studentId=${this.studentId}`)
+                .then(rsp => rsp.json())
+                .then(data => {
+                   console.log(data.message)
+                })
         },
         selectedModel(open, resume_modelOne) {
             this.resume_modelOne = resume_modelOne
@@ -781,12 +812,13 @@ Vue.component('my-content', {
             // this.modelBorder = false;
 
         },
-        saveResume(student_id){
+        saveResume(){
             fetch('./php/insertResume.php',{
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
-                    student_id: student_id,
+                    id: this.resume_modelOne.id,
+                    studentId: this.studentId,
                     model: this.resume_modelOne.model,
                     price: this.resume_modelOne.price,
                     unlock: this.resume_modelOne.unlock,
@@ -825,12 +857,53 @@ Vue.component('my-content', {
                 console.log(data.message)
             })
         },
-        saveResume(){
-            fetch(`./php/deleteResume.php?id=${this.resume_modelOne.id}&studentId=${this.studentId}`)
-                .then(rsp => rsp.json())
-                .then(data => {
-                   console.log(data.message)
+        updateResume(){
+            fetch('./php/updateResume.php',{
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    id: this.resume_modelOne.id,
+                    studentId: this.studentId,
+                    model: this.resume_modelOne.model,
+                    price: this.resume_modelOne.price,
+                    unlock: this.resume_modelOne.unlock,
+                    fileName: this.resume_modelOne.fileName,
+                    avatar: this.resume_modelOne.avatar,
+                    public_status: this.resume_modelOne.public_status,
+                    category: this.resume_modelOne.category,
+                    like_count: this.resume_modelOne.like_count,
+                    ban: this.resume_modelOne.ban,
+                    name: this.resume_modelOne.name,
+                    address: this.resume_modelOne.address,
+                    phone: this.resume_modelOne.phone,
+                    email: this.resume_modelOne.email,
+                    porfolio: this.resume_modelOne.porfolio,
+                    autobiography: this.resume_modelOne.autobiography,
+                    work_experience_job: this.resume_modelOne.work_experience_job,
+                    during_work: this.resume_modelOne.during_work,
+                    work_content: this.resume_modelOne.work_content,
+                    school: this.resume_modelOne.school,
+                    during_school: this.resume_modelOne.during_school,
+                    department: this.resume_modelOne.department,
+                    attend_school_status: this.resume_modelOne.attend_school_status,
+                    school_experience: this.resume_modelOne.school_experience,
+                    job_apply: this.resume_modelOne.job_apply,
+                    skill1: this.resume_modelOne.skill1,
+                    skill2: this.resume_modelOne.skill2,
+                    skill3: this.resume_modelOne.skill3,
+                    skill4: this.resume_modelOne.skill4,
+                    skill5: this.resume_modelOne.skill5,
+                    skill6: this.resume_modelOne.skill6,
+                    language1: this.resume_modelOne.language1,
+                    language2: this.resume_modelOne.language2,
+                    language3: this.resume_modelOne.language3,
+    
                 })
+            })
+            .then(resp => resp.json())
+            .then(data => {
+                console.log(data.message)
+            })
         }
 
 
