@@ -169,44 +169,54 @@ Vue.component('win-save', {
 Vue.component('win-share', {
     data() {
         return {
-            // closewin: false,
+            categorys:['請選擇履歷種類','工程','管理','媒體','銷售','金融','行政','科技','服務'],
+            category:'請選擇履歷種類',
+            public_status: 0,
+            
         }
     },
     methods: {
         submitData() {
-            this.$emit('sharewin', false);
-            console.log('winshare')
+            
+            if(this.category == '請選擇履歷種類'){
+                alert('請選擇履歷分類')
+                return;
+            }else{
+                this.$emit('category',this.category,this.public_status);
+            }
+            this.$emit('sharewin', false);    
+        },
+        close(){
+            this.$emit('sharewin', false); 
+        },
+        publicStatus(e){
+            if(e.target.checked){
+                this.public_status = 1
+            }
         },
 
     },
     template:
         `
         <div>
-            <div class="m-a-s-k" @click="submitData"></div>
+            <div class="m-a-s-k" @click="close"></div>
             <div class="card_resume resume_window">
                 <ul class="cardUl">
                     <li>
                         <h1 class="cardH1">分享您的履歷</h1>
                     </li>
                     <li>
-                        <i class="fa-solid fa-xmark cardXmark" @click="submitData"></i>
+                        <i class="fa-solid fa-xmark cardXmark" @click="close"></i>
                     </li>
                 </ul>
                 <div class="cardInner shareresumeform ">
                     <div class="applyTitle">
-                        <select name="" id="shareresumeform_select"><option value="設計">請選擇履歷種類</option>
-                            <option value="工程">工程</option>
-                            <option value="管理">管理</option>
-                            <option value="媒體">媒體</option>
-                            <option value="銷售">銷售</option>
-                            <option value="金融">金融</option>
-                            <option value="行政">行政</option>
-                            <option value="科技">科技</option>
-                            <option value="服務">服務</option>
+                        <select name="" id="shareresumeform_select" v-model="category">
+                            <option v-for="category in categorys" >{{category}}</option>
                         </select>    
                     </div>
                     <div class="shareresumeform_1">
-                        <input type="radio">
+                        <input type="radio" v-model="public_status" value="1" @click="publicStatus">
                         <i class="fa-solid fa-earth-asia"></i>
                         <span>公開 網站上的人都可以找到並檢視。</span>
                         <div class="share_ig_fb">
@@ -214,7 +224,7 @@ Vue.component('win-share', {
                             <a href="#"><img src="./images/careertest//icon_instagram.svg" alt="IG"></a>
                             <a href="#"><img src="./images/careertest//icon_facebook.svg" alt="臉書"></a>
                         </div>
-                        <div class="btna3 check_btn">確定</div>
+                        <div class="btna3 check_btn" @click="submitData">確定</div>
                     </div>
                 </div>
             </div>
@@ -708,7 +718,7 @@ Vue.component('my-content', {
     },
     methods: {
         // 依哪個click功能就打開彈窗
-        open(open, type) {
+        open(open, type,...args) {
             // console.log(open,type)
             // 連點模板可以開啟關閉，換替 toggle
             if (type == 'model') {
@@ -745,8 +755,6 @@ Vue.component('my-content', {
                         if( this.resume_modelOne.student_id == null){
                             this.saveResume()
                         }else{
-                            
-                            console.log(this.resume_modelOne.public_status)
                             this.updateResume()
                         }
                         this.savePopup = open;
@@ -904,7 +912,17 @@ Vue.component('my-content', {
             .then(data => {
                 console.log(data.message)
             })
+        },
+        shareResume(category,public_status){
+            this.resume_modelOne.category = category
+            this.resume_modelOne.public_status = public_status
+            this.updateResume()
+            // fetch(`./php/updateResume.php?
+            // category=${category}&public_status${public_status}`)
+            // .then(resp => resp.json())
+            // .then(data => console.log(data.message))
         }
+        
 
 
     },
@@ -921,7 +939,7 @@ Vue.component('my-content', {
         <model-A01 :modelpopup="modelBorder" :resumepopup="deleteResumeBorder" @selectModel="selectedModel" @modelBorder="close"></model-A01>
         
         <win-save v-if="savePopup" @savewin="close"></win-save>
-        <win-share v-if="sharePopup" @sharewin="close"></win-share>
+        <win-share v-if="sharePopup" @sharewin="close" @category="shareResume"></win-share>
         <win-pdf v-if="pdfPopup" @pdfwin="close"></win-pdf>
         <win-pay v-if="payPopup" @paywin="close" @payCheckwin="open" :fileName="fileName" :price="price"></win-pay>
         <win-payplan v-if="payplan" @payplanwin="close"></win-payplan>
