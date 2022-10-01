@@ -17,7 +17,7 @@ Vue.component('company-data',{
         },
         search(){  //搜尋企業會員         
             const searcom = this.searchcompany;
-            fetch(`../php/searchcompany.php?company=${searcom}`)
+            fetch(`./php/searchcompany.php?company=${searcom}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
                 // console.log(userArr);
@@ -39,7 +39,7 @@ Vue.component('company-data',{
         for(let i = 0; i < pageContent.length; i++ ){
             pageContent[i].addEventListener("click", e => {
                 // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
-                fetch(`php/searchcompany.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+                fetch(`./php/searchcompany.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
                 //${e.target.innerText}
                 .then(rsp => rsp.json())
                 .then(userArr => {            
@@ -62,11 +62,11 @@ Vue.component('company-data',{
                 if(e.target.classList.contains('-on')){
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "10%"
-                    fetch(`../php/backstage_banCom.php?comId2=${banId}`) //修改資料庫ban欄位數值為0
+                    fetch(`./php/backstage_banCom.php?comId2=${banId}`) //修改資料庫ban欄位數值為0
                 }else {
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "100%"
-                    fetch(`../php/backstage_banCom.php?comId=${banId}`) //修改資料庫ban欄位數值為1
+                    fetch(`./php/backstage_banCom.php?comId=${banId}`) //修改資料庫ban欄位數值為1
                 }
             })
         }

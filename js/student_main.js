@@ -105,10 +105,10 @@ Vue.component('student-list',{
             </div>
 
             <div class="studenMainWrapperTitle_right">
-                <button><a href="#">已儲存職缺<h1>100</h1></a></button>
-                <button><a href="#">已應徵職缺<h1>30</h1></a></button>
-                <button><a href="./student_interviewinvite.html">面試邀約<h1>10</h1></a></button>
-                <button><a href="#">近期履歷<br>被查閱數<h1>10</h1></a></button>
+                <button><a href="#"><h4>已儲存職缺</h4><h1>100</h1></a></button>
+                <button><a href="#"><h4>已應徵職缺<h1>30</h1></h4></a></button>
+                <button><a href="./student_interviewinvite.html"><h4>面試邀約</h4><h1>10</h1></a></button>
+                <button><a href="#"><h4>近期履歷<br>被查閱數</h4><h1>10</h1></a></button>
             </div>
         </div>
     </div>
@@ -120,15 +120,51 @@ Vue.component('student-list',{
 Vue.component('myResume',{
     data() {
         return {
-            
+            addResume:true, //顯示or關閉 新增履歷功能  
+            myStuId:'',
+            myResumeData:[],
         }
     },
     methods: {
         
     },
+    mounted() {
+        //顯示該學生的履歷
+        const myStuId = sessionStorage.getItem("StudentId")
+
+        fetch(`./php/searchMyResume.php?stuId=${myStuId}`)
+        .then(rsp => rsp.json())
+        .then(userArr => {    
+            // console.log(userArr)
+            this.myResumeData = userArr
+            // console.log(this.myResumeData.length)
+            if(this.myResumeData.length >= 5){ //如果會員已經有五筆履歷，則隱藏新增履歷功能
+                this.addResume = false
+            }else{
+                this.addResume = true
+            }            
+        })
+    },
     template:`
-        <div>
-        </div>
+    <ul class="resume">
+        <li class="myResume" v-for="(resumes, key) in myResumeData" :key=resumes.ID>
+            <img :src="resumes.IMG_PATH" alt="我的履歷">
+            <ul class="resumeDetail">
+                <li class="create-date"><h3>{{resumes.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></li>
+                <div class="editicon">
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-trash"></i>
+                </div>
+            </ul>
+        </li>
+
+        <!--新增履歷-->
+        <li class="studenMainWrapper_resumebottom">
+            <button v-if="addResume"><a href="resume_work_space.html"><i class="fa-solid fa-file-circle-plus"></i></a></button>
+            
+        </li>
+    </ul>
+        
     `,
 })
 
@@ -136,7 +172,7 @@ Vue.component('myResume',{
 let vm = new Vue({
     el:"#student_main_app",
     data:{
-        addResume:true, //顯示or關閉 新增履歷功能  
+       
     },
     methods: {
         
@@ -147,9 +183,7 @@ let vm = new Vue({
             <student-list></student-list>
 
             <h2>我的履歷</h2>
-            <div class="studenMainWrapper_resumebottom">
-                <button v-if="addResume"><a href="resume_work_space.html"><i class="fa-solid fa-file-circle-plus"></i></a></button>
-            </div>
+            <myResume></myResume>
         </div>
     `,
 })

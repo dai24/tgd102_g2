@@ -5,8 +5,6 @@
     margin: 32px auto 0px;
     @include m(){
         max-width: 375px;
-       
-        
     }
 
     h1{
@@ -26,7 +24,12 @@
             text-align: center;
         }
     }
-    .interviewinviteWrapper_1{
+    .wrapper{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    section{
         height: 100%;
         background-color: #ffffff;
         margin-bottom: 15px;
@@ -47,21 +50,13 @@
     }
     .btna1{
         margin: 0 auto;
-
-        a{
-            color: #ffffff;
-
-        }
-
-        
-        
-    
         @include m(){
             @include btn2(192px ,$fontSize03, $space01,$primary02, $secondary02,5px,$secondary02,$primary02);
+        }    
+        a{
+            color: $secondary02;
         }
-    
     }
-  
 }
 
 

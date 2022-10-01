@@ -17,7 +17,7 @@ Vue.component('student-data',{
             // console.log(this.searchstudent)
             const searstu = this.searchstudent;
             // console.log(searstu)
-            fetch(`../php/searchstudent.php?student=${searstu}`)
+            fetch(`./php/searchstudent.php?student=${searstu}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
                 // console.log(userArr);
@@ -27,7 +27,7 @@ Vue.component('student-data',{
     },
     mounted() {       
         //顯示第一頁的資料
-        fetch(`php/searchstudent.php?page=1`)
+        fetch(`./php/searchstudent.php?page=1`)
         .then(rsp => rsp.json())
         .then(userArr => {    
             console.log(userArr)
@@ -39,7 +39,7 @@ Vue.component('student-data',{
         for(let i = 0; i < pageContent.length; i++ ){
             pageContent[i].addEventListener("click", e => {
                 // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
-                fetch(`../php/searchstudent.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+                fetch(`./php/searchstudent.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
                 //${e.target.innerText}
                 .then(rsp => rsp.json())
                 .then(userArr => {            
@@ -58,11 +58,11 @@ Vue.component('student-data',{
                 if(e.target.classList.contains('-on')){
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "10%"
-                    fetch(`../php/backstage_banStu.php?stuId2=${banId}`) //修改資料庫ban欄位數值為0
+                    fetch(`./php/backstage_banStu.php?stuId2=${banId}`) //修改資料庫ban欄位數值為0
                 }else {
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "100%"
-                    fetch(`../php/backstage_banStu.php?stuId=${banId}`) //修改資料庫ban欄位數值為1
+                    fetch(`./php/backstage_banStu.php?stuId=${banId}`) //修改資料庫ban欄位數值為1
                 }
             })
         }
@@ -142,19 +142,9 @@ Vue.component('student-data',{
 let vm = new Vue({ //設定想要預載的html結構
     el:'#backstage_student_app',
     data:{
-        // searchstudent:'', 
     },
     methods:{
-        // search(){            
-        //     // console.log(this.searchstudent)
-        //     const searstu = this.searchstudent
-        //     // console.log(searstu)
-        //     fetch(`../php/searchstudent.php?student=${searstu}`)
-        //     .then(rsp => rsp.json())
-        //     .then(userArr => {            
-        //         console.log(userArr);
-        //     })
-        // }
+        
     },
     template:` 
     <div  class="wrapper"> 

@@ -10,10 +10,23 @@
         font-size: $fontSize01;
         font-weight: bold;
         margin: 40px 0;
+        margin-left: 16px;
         @include m(){
             font-size: $R-fontSize01;
             text-align: center;
             margin: 20px 0;
+        }
+    }
+    h3{
+        font-size:$fontSize03;
+        @include m(){
+                font-size:$R-fontSize04;
+        }
+    }
+    h4{
+        font-size: $fontSize04;
+        @include m(){
+            font-size: $R-fontSize04;
         }
     }
     a{
@@ -73,20 +86,11 @@
                     @include m(){
                         width: 120px;
                     } 
-
                     input {
                         display: none;
-
                     }
-
                 }
-
-
-
-
-
         }
-
         
         //點數
         .coin{
@@ -94,6 +98,9 @@
                 padding-right: 16px;
                 color: $secondary02;
                 background-color: $primary02;
+                &:hover{
+                    color: $secondary01;
+                }
                 @include m(){
                     margin-right: 87px; //讓"歷史加值紀錄"換行
                 }
@@ -139,6 +146,18 @@
             justify-content: center;
             margin-top: -50px;
         }
+        :nth-of-type(4){ //"近期履歷被查閱數"button
+            h4{ //"近期履歷被查閱數"
+                font-size: 17px; //因為多行，字體大小略小
+                margin-top: 8px;
+            }
+            h1{
+                margin-top: 0;
+            }
+        }
+        h4{
+            font-weight: bold;
+        }
         h1{
             margin-top: 15px;
             font-size: $fontSize01;
@@ -163,25 +182,88 @@
         }
     }
     
-    .studenMainWrapper_resumebottom{ //我的履歷
+    .resume{ //新增履歷 父層
         display: flex;
-        button{
-            width: 200px;
-            height: 300px;
-            border: 3px dashed #313131;
-            @include m(){
-                width: 145px;
-                height: 240px;    
-                padding: 10px;
-             }    
+        flex-wrap:wrap;
+        padding-left: 16px;
+        padding-right: 16px;
+        @include m(){
+            width:352px;
+            padding-left: 0;
+            padding-right: 0;
+            
         }
-        .fa-file-circle-plus{
-            font-size: 60px;
+        .myResume{ //一張履歷
+            width: 220px;
+            margin-right: 35px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 10px $secondary01;
+            overflow: hidden;
             @include m(){
-                font-size: 30px;             
-             }
+                width: 160px;
+                margin-left: 4px;
+                margin-right: 12px;
+                margin-bottom: 22px;
+            }
+            img{
+                display: block;
+                width: 100%;
+            }
+            .resumeDetail{ //履歷詳細資料
+                height: 48px;
+                line-height: 48px;
+                background-color: #FFFFFF;
+                display: flex;
+                justify-content: space-between;
+                @include m(){
+                    height: 40px;
+                    line-height: 40px;
+                }
+                h3{ //建立日期
+                    line-height: 48px;
+                    padding-left: 16px;
+                    @include m(){
+                        line-height: 40px;
+                        padding-left: 8px;
+                        font-size: 14px;
+                    }
+                }
+                .editicon{
+                    display: flex;
+                    justify-content: space-between;
+                    margin-right: 16px;
+                    .fa-solid{
+                        font-size: 24px;
+                        margin: auto 0;
+                        margin-left: 16px;
+                        @include m(){
+                            font-size: 20px;
+                            margin-left: 8px;
+                        }
+                    }
+                }
+            }
         }
-    } 
+        .studenMainWrapper_resumebottom{ //新增履歷
+            button{
+                width: 220px;
+                height: 352px;
+                border-radius: 5px;
+                border: 3px dashed #313131;
+                @include m(){
+                    width: 160px;
+                    height: 261px;  
+                 }    
+            }
+            .fa-file-circle-plus{
+                font-size: 40px;
+                @include m(){
+                    font-size: 30px;             
+                 }
+            }
+        } 
+    }
+    
 
     //彈窗：加值點數
     .studentaddmoneywrapper{

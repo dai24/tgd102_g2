@@ -14,7 +14,7 @@ Vue.component('comjob-data',{
     },
     mounted() {       
         //顯示該公司的職缺
-        fetch(`php/searchjob.php?comId=${sessionStorage.getItem('backstageCompany')}`) //撈到session的該公司ID，傳給php，
+        fetch(`./php/searchjob.php?comId=${sessionStorage.getItem('backstageCompany')}`) //撈到session的該公司ID，傳給php，
         .then(rsp => rsp.json())
         .then(userArr => {    
             // console.log(userArr); 
@@ -45,11 +45,11 @@ Vue.component('comjob-data',{
                 if(e.target.classList.contains('-on')){
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "10%"   
-                    fetch(`../php/backstage_banJob.php?jobId2=${banId}`) //修改資料庫ban欄位數值為0                 
+                    fetch(`./php/backstage_banJob.php?jobId2=${banId}`) //修改資料庫ban欄位數值為0                 
                 }else {
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "100%"
-                    fetch(`../php/backstage_banJob.php?jobId=${banId}`) //修改資料庫ban欄位數值為1
+                    fetch(`./php/backstage_banJob.php?jobId=${banId}`) //修改資料庫ban欄位數值為1
                 }
             })
         }

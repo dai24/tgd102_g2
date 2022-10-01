@@ -3,60 +3,55 @@
     @@include('./layout/head.html',{
         "title" : "面試邀約"
     })
+    <script src="https://unpkg.com/vue@2"></script>
 <body>
     @@include('./layout/header.html')
-    
+    <div id="student_interviewinvite_app"></div>
     <div class="interviewinviteWrapper">
-
-
         <h1>面試邀約通知</h1>
-
-
-        <form action="#">
-
-            <div class="interviewinviteWrapper_1">
-            
+        <div class="wrapper">
+            <section>            
                 <div class="interviewinviteWrapperTitle">
                     <h3>小野水產股份有限公司 | 行銷實習生</h3>
                     <p>本公司已經看過您的履歷並對於您的資歷很感興趣，請問您10/22 14:00有空能來面試嗎?</p>
-                </div>
-                
-            </div>
-            <div class="interviewinviteWrapper_1">
-                
+                </div>                
+            </section>
+
+            <section>                
                 <div class="interviewinviteWrapperTitle">
                     <h3>Easy 3C電商股份有限公司 | 行銷實習生</h3>
                     <p>公司已經看過您的履歷並對於您的資歷很感興趣，想要跟你預約面試日期，請回覆參加面試意願</p>
-                </div>
-                
-            </div>
-            <div class="interviewinviteWrapper_1">
-                
+                </div>                
+            </section>
+
+            <section>                
                 <div class="interviewinviteWrapperTitle">
                     <h3>kaku家具 | 專案企劃實習生</h3>
                     <p>公司對於您的作品集很感興趣，請問您以下時間是否有空能前來面試? 之後會附上面試應準備的資料</p>
-                </div>
-                
-            </div>
-            <div class="interviewinviteWrapper_1">
-                
+                </div>                
+            </section>
+
+            <section>                
                 <div class="interviewinviteWrapperTitle">
                     <h3>百日花藝 | 社群媒體經營實習生</h3>
                     <p>先生您好! 本公司看完您的履歷認為本公司適合您，想要與你確認面試時間，麻煩盡快回覆 謝謝</p>
-                </div>
-                
-            </div>
-    
-           
-
-
-
-        </form>
-
-        <div class="btna1 submit"><a href="./student_main.html">返回</a></div>
-      
+                </div>                
+            </section>
+            <button class="btna1" @click="submit"><a href="./student_main.html">返回</a></button>
+        </div>
                   
     </div>
     @@include('./layout/footer.html')
+
+<script>
+    new Vue({
+        el:"#student_interviewinvite_app",
+        methods: {
+            submit(){
+                location.href="./student_main.html"
+            }
+        },
+    })
+</script>
 </body>
 </html>
