@@ -15,17 +15,17 @@
     $company = isset($_GET["company"]) ? $_GET["company"] : 0; //查詢功能
     $company2 = "%$company%";
 
-    if(isset($_GET["student"])){
+    if(isset($_GET["company"])){
         // echo "有查詢";        
         $sql = "SELECT
                     c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
                     c.ADDRESS, c.CREATE_DATE, c.BAN, d.PRICE 
                 FROM company c
-                    JOIN COMPANY_COIN_DETAILS d
-                    ON c.ID = d.COMPANY_ID
+                JOIN COMPANY_COIN_DETAILS d
+                ON c.ID = d.COMPANY_ID
                 WHERE c.ID like :ID or c.`NAME` like :NAME
                 LIMIT
-                    $omitData, $content;
+                $omitData, $content;
                 "
                 ;  
         $stmt = $pdo->prepare($sql);
@@ -38,19 +38,16 @@
                     c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
                     c.ADDRESS, c.CREATE_DATE, c.BAN, d.PRICE 
                 FROM company c
-                    JOIN COMPANY_COIN_DETAILS d
-                    ON c.ID = d.COMPANY_ID
+                JOIN COMPANY_COIN_DETAILS d
+                ON c.ID = d.COMPANY_ID
                 LIMIT
-                    $omitData, $content;
-                "
-                ;   
+                $omitData, $content;
+        "
+        ;   
         //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料    
         $stmt = $pdo->prepare($sql);    
         $stmt->execute(); //執行
     }
-     
-    
-    
     
     //---------------------------------------------------
     

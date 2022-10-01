@@ -17,7 +17,7 @@ Vue.component('company-data',{
         },
         search(){  //搜尋企業會員         
             const searcom = this.searchcompany;
-            fetch(`../php/searchcompany.php?findcom=${searcom}`)
+            fetch(`../php/searchcompany.php?company=${searcom}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
                 // console.log(userArr);

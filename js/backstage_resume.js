@@ -21,9 +21,10 @@ Vue.component('resumedata',{
             <img src="./images/resume/resume_model4.jpg" alt="模板">
             <div class="edit">
                 <h3>2022/10/03</h3>
-                <div class="editIcon">
-                    <a href="#"><i class="fa-solid fa-pen"></i></a>
-                    <a href="#"><i class="fa-solid fa-trash"></i></a>
+                <div class="editIcon">                
+                    <i class="fa-solid fa-pen"></i>
+                    <i class="fa-solid fa-upload"></i>
+                    <i class="fa-solid fa-download"></i>
                 </div>                    
             </div>
         </li>
@@ -46,10 +47,6 @@ let vm = new Vue({
                     <li class="template"><a href="./backstage_template.html"><h3>範本預覽</h3></a></li>
                 </ul>
                 <ul class="block-right">
-                    <div class="add">
-                        <li><h4>新增模板</h4></li>
-                        <li><i class="fa-solid fa-arrow-up-from-bracket"></i></li>
-                    </div>
                     <div class="inputsearch">
                         <i class="fa-solid fa-magnifying-glass"></i>
                         <input type="Text" class="inputText" placeholder="搜尋模板名稱或編號" name="search">

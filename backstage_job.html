@@ -9,47 +9,10 @@
 <body>
 <main  class="backstage_job">
     @@include('./layout/backstage_nav.html')
-    <div  class="wrapper">
-        <h1 class="title">實習職缺</h1>
-        <div class="wratable">
-            <div class="block">
-                <div class="category">
-                    <h3>職缺種類：</h3>
-                    <div class="consultantIndustrySearch">
-                        <button class="btna21">全部<i class="fa-solid fa-chevron-down"></i></button>
-                        <ul class="consultantIndustry searchItem" style="display:none;">
-                            <li><button class="btna22">軟體</button></li>
-                            <li><button class="btna22">行銷</button></li>
-                            <li><button class="btna22">金融</button></li>
-                        </ul>
-                    </div>
-                </div>
-
-                <div class="inputsearch">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="Text" class="inputText" placeholder="搜尋職缺名稱或編號" name="search">
-                </div>                
-            </div>
-
-            <div id="backstage_job_app"></div>
-           
-        </div>      
-        
-        <div class="pagination-div">
-            <ul class="pagination-ul">
-              <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
-              <li><a href="#" class="pageContent">1</a></li>
-              <li><a href="#" class="pageContent">2</a></li>              
-              <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
-            </ul>
-        </div>
-    </div>   
+    <div id="backstage_job_app"></div>    
     
 </main>
 
-<script>
-    
-</script>
 <script src="./js/backstage_job.js"></script>
 </body>
 </html>

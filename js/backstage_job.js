@@ -4,12 +4,24 @@ Vue.component('job-data',{
             jobData: [],
             opened_tr:null, //開關詳細資料
             banId:'', //停權用途
+            searchjob:'', //搜尋關鍵字
         }       
     },
     methods:{
         banJob(jobId){ //目標：將要停權的目標id存到banId變數
             // console.log(jobId); 
             banId = jobId
+        },
+        search(){  //搜尋職缺         
+            // console.log(this.searchjob)
+            const searjob = this.searchjob;
+            // console.log(searstu)
+            fetch(`../php/searchJob.php?job=${searjob}`)
+            .then(rsp => rsp.json())
+            .then(userArr => {            
+                // console.log(userArr);
+                this.jobData = userArr;
+            })
         },
     },
     
@@ -56,23 +68,62 @@ Vue.component('job-data',{
         }
     },
     template: `
-    <tbody>
-        <tr class="item" v-for="jobs in jobData">
-            <td class="id"><h3>J111{{jobs.ID}}</h3></td>
-            <td class="companyname"><h3>{{jobs.COMPANYNAME}}</h3></td>
-            <td class="name"><h3>{{jobs.NAME}}</h3></td>
-            <td class="workplace"><h3>{{jobs.WORKPLACE}}</h3></td>
-            <td class="browsed"><h3>{{jobs.BROWSED}}</h3></td>
-            <td class="apply"><h3>130</h3></td>
-            <td class="interview"><h3>43</h3></td>
-            <td class="detail"><h3>
-                <button class="btna3"><h4>詳細資料</h4></button>
-            </h3></td>
-            <td class="create-date"><h3>{{jobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
-            <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
-            <td class="ban"><h3><i class="fa-solid fa-ban" @click="banJob(jobs.ID)" :style="{ 'opacity': jobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
-        </tr>
-    </tbody>
+        <div class="wratable">
+            <div class="block">
+                <div class="category">
+                    <h3>職缺種類：</h3>
+                    <div class="consultantIndustrySearch">
+                        <button class="btna21">全部<i class="fa-solid fa-chevron-down"></i></button>
+                        <ul class="consultantIndustry searchItem" style="display:none;">
+                            <li><button class="btna22">軟體</button></li>
+                            <li><button class="btna22">行銷</button></li>
+                            <li><button class="btna22">金融</button></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="inputsearch">
+                    <i class="fa-solid fa-magnifying-glass"></i>
+                    <input type="Text" class="inputText" v-model="searchjob" @keyup="search" placeholder="搜尋職缺名稱或編號" name="search">
+                </div>                
+            </div>
+
+            <table>
+                <thead class="thead">
+                    <tr>
+                        <th class="id"><h3>職缺編號</h3></th>
+                        <th class="companyname"><h3 >公司名稱</h3></th>
+                        <th class="name"><h3 >職缺名稱</h3></th>
+                        <th class="workplace"><h3>工作地點</h3></th>
+                        <th class="browsed"><h3>被瀏覽數</h3></th>
+                        <th class="apply"><h3>應徵次數</h3></th>
+                        <th class="interview"><h3>面試次數</h3></th>
+                        <th class="detail"><h3></h3></th>
+                        <th class="create-date"><h3>建立日期</h3></th>
+                        <th class="state"><h3>職缺狀態</h3></th>
+                        <th class="ban"><h3 >停權</h3></th>
+                    </tr> 
+                </thead>
+                        
+                <tbody>
+                    <tr class="item" v-for="jobs in jobData">
+                        <td class="id"><h3>J111{{jobs.ID}}</h3></td>
+                        <td class="companyname"><h3>{{jobs.COMPANYNAME}}</h3></td>
+                        <td class="name"><h3>{{jobs.NAME}}</h3></td>
+                        <td class="workplace"><h3>{{jobs.WORKPLACE}}</h3></td>
+                        <td class="browsed"><h3>{{jobs.BROWSED}}</h3></td>
+                        <td class="apply"><h3>130</h3></td>
+                        <td class="interview"><h3>43</h3></td>
+                        <td class="detail"><h3>
+                            <button class="btna3"><h4>詳細資料</h4></button>
+                        </h3></td>
+                        <td class="create-date"><h3>{{jobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
+                        <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
+                        <td class="ban"><h3><i class="fa-solid fa-ban" @click="banJob(jobs.ID)" :style="{ 'opacity': jobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
     `,
 })
 
@@ -84,25 +135,21 @@ let vm = new Vue({ //設定想要預載的html結構
     methods: {},      
     template: //預先掛載的div結構
         `
-        <table>
-            <thead class="thead">
-                <tr>
-                    <th class="id"><h3>職缺編號</h3></th>
-                    <th class="companyname"><h3 >公司名稱</h3></th>
-                    <th class="name"><h3 >職缺名稱</h3></th>
-                    <th class="workplace"><h3>工作地點</h3></th>
-                    <th class="browsed"><h3>被瀏覽數</h3></th>
-                    <th class="apply"><h3>應徵次數</h3></th>
-                    <th class="interview"><h3>面試次數</h3></th>
-                    <th class="detail"><h3></h3></th>
-                    <th class="create-date"><h3>建立日期</h3></th>
-                    <th class="state"><h3>職缺狀態</h3></th>
-                    <th class="ban"><h3 >停權</h3></th>
-                </tr> 
-            </thead>
-                    
+        <div  class="wrapper">
+            <h1 class="title">實習職缺</h1>
+            
             <job-data></job-data>
-        </table>
+            
+            <div class="pagination-div">
+                <ul class="pagination-ul">
+                <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li><a href="#" class="pageContent">1</a></li>
+                <li><a href="#" class="pageContent">2</a></li>              
+                <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
+            </div>
+        </div>   
+        
         `,  
     })     
 

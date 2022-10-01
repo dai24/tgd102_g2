@@ -6,11 +6,12 @@ Vue.component('student-data',{
             studentData: [],
             opened_tr:null, //開關詳細資料
             searchstudent:'', 
+            banId:'', //停權用途
         }       
     },
     methods:{
-        banOpen(){
-            // console.log()
+        banStu(stuId){ //目標：將要停權的目標id存到banId變數
+            banId = stuId
         },
         search(){  //搜尋學生會員          
             // console.log(this.searchstudent)
@@ -22,15 +23,14 @@ Vue.component('student-data',{
                 // console.log(userArr);
                 this.studentData = userArr;
             })
-        },
-        
+        },        
     },
     mounted() {       
         //顯示第一頁的資料
         fetch(`php/searchstudent.php?page=1`)
         .then(rsp => rsp.json())
         .then(userArr => {    
-            // console.log(userArr)
+            console.log(userArr)
             this.studentData = userArr
         })
 
@@ -58,9 +58,11 @@ Vue.component('student-data',{
                 if(e.target.classList.contains('-on')){
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "10%"
+                    fetch(`../php/backstage_banStu.php?stuId2=${banId}`) //修改資料庫ban欄位數值為0
                 }else {
                     e.target.classList.toggle('-on')
                     e.target.style.opacity = "100%"
+                    fetch(`../php/backstage_banStu.php?stuId=${banId}`) //修改資料庫ban欄位數值為1
                 }
             })
         }
@@ -100,7 +102,7 @@ Vue.component('student-data',{
                             <td class="record"><a href="#"><h3>10</h3></a></td>
                             <td class="detail"><h3><button class="btna3 detailBtn" @click="opened_tr === null  ?  opened_tr = students.ID : opened_tr = null"><h4>詳細資料</h4></button></h3></td>
                             <td class="create-date"><h3>{{students.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
-                            <td class="ban"><h3><i class="fa-solid fa-ban"></i></h3></td>    
+                            <td class="ban"><h3><i class="fa-solid fa-ban" @click="banStu(students.ID)" :style="{ 'opacity': students.BAN == 1 ? 1 : 0.1 }"></i></h3></td>    
                         </tr>     
                         <tr >
                             <tr class="itemDetailTile"  v-if="opened_tr === students.ID">

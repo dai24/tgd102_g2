@@ -141,17 +141,19 @@
                     .editIcon{
                         display: flex;
                         margin-right: 16px;
-                        line-height:$editHeight;
                         @media screen and (max-width:1500px) {
                             margin-right: 8px;
                         }
                         .fa-solid{
+                            display: block;
                             font-size: 20px;
                             margin-left: 16px;
+                            line-height:$editHeight;
                             @media screen and (max-width:1500px) {
                                 margin-left: 8px;
-                            }                            
-                        }                       
+                            }           
+                                          
+                        }          
                     }
                 }                    
             }

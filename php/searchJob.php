@@ -12,6 +12,9 @@ $omitData = $content * ( $page - 1 ) ; //要省略多少筆資料
 $comjob = isset($_GET["comId"]) ? $_GET["comId"] : 1;
 // $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
+$job = isset($_GET["job"]) ? $_GET["job"] : 0; //查詢功能
+$job2 = "%$job%";
+
 if(isset($_GET["comId"])){
     $sql = "SELECT
                 j.ID, j.NAME, j.COMPANY_ID, j.WORKPLACE, j.SCALE, 
@@ -29,7 +32,25 @@ if(isset($_GET["comId"])){
             $stmt -> bindValue(":ID" , $comjob);
             $stmt->execute(); //執行
             
+}else if(isset($_GET["job"])){
+    // echo "有查詢";
+    $sql = "SELECT
+                j.ID, j.NAME, j.COMPANY_ID, j.WORKPLACE, j.SCALE, 
+                j.SALARY, j.WFH, j.JOB, j.BROWSED, j.BAN, j.CREATE_DATE, 
+                c.NAME as COMPANYNAME
+            FROM JOB j
+                JOIN COMPANY c
+                on j.COMPANY_ID = c.ID   
+            WHERE j.ID like :ID or j.NAME like :NAME         
+            LIMIT
+            $omitData, $content;
+            ";
+            $stmt = $pdo->prepare($sql);
+            $stmt -> bindValue(":ID" , $job2);
+            $stmt -> bindValue(":NAME" , $job2);
+            $stmt->execute(); //執行
 }else{
+    // echo "未查詢";
     $sql = "SELECT
                 j.ID, j.NAME, j.COMPANY_ID, j.WORKPLACE, j.SCALE, 
                 j.SALARY, j.WFH, j.JOB, j.BROWSED, j.BAN, j.CREATE_DATE, 
