@@ -7,57 +7,8 @@
 </head>
 <body>
     @@include('./layout/header.html')
-    <div class="student_main" id="student_main">
-
-       
-            <student-list></student-list>
-
-       
-        
-       
-        <!-- <div class="studenMainWrapperTitle">
-
-            <div class="studenMainWrapperTitle_left">
-
-                <div class="student_photo">
-                    <label for="upload" class="upload">
-                        <input id="upload" type="file" accept="image/*">
-                        <img src="./images/student-login/student.jpg" alt="大頭貼">
-                    </label>
-                    <label for="upload"  class="Avatar"><img src=""></label>
-                </div>
-                <ul>
-                    <li><h3>會員名稱：<span>林立人</span></h3></li>
-                    <li><h3>電話：<span>0988247518</span></h3></li>
-                    <li><h3>信箱：<span>dsfvvfe@gmail.com</span></h3></li>
-                    <li class="coin">
-                        <h3>點數：
-                            <span><a href="./student_addmoney.html">500</a></span>
-                            <a href="#">歷史加值紀錄</a>
-                        </h3>
-                    </li>
-                    <div class="btna11">
-                        <a href="./userinfo_edit.html"><h4>編輯個人檔案</h4></a>
-                    </div>
-                </ul>
-            </div>
-
-            <div class="studenMainWrapperTitle_right">
-
-                <button><a href="#">已儲存職缺<h1>100</h1></a></button>
-                <button><a href="#">已應徵職缺<h1>30</h1></a></button>
-                <button><a href="./student_interviewinvite.html">面試邀約<h1>10</h1></a></button>
-                <button><a href="#">近期履歷<br>被查閱數<h1>10</h1></a></button>
-
-            </div>
-        
-        </div> -->
-
-        <h2>我的履歷</h2>
-        <div class="studenMainWrapper_resumebottom">
-            <button><a href="resume_work_space.html"><i class="fa-solid fa-file-circle-plus"></i></a></button>
-        </div>
-    </div>
+    <div id="student_main_app"></div>
+    
     @@include('./layout/footer.html')
     <script src="./js/student_main.js"></script>
     <!-- <script>
@@ -72,9 +23,7 @@
                     Avatar.src = readFile.result;
                     Avatar.style.display = 'block';
                     upload_img.style.display = 'none'
-
                 })
-
             })
         }
     </script> -->

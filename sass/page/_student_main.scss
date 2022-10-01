@@ -90,6 +90,14 @@
         
         //點數
         .coin{
+            button{
+                padding-right: 16px;
+                color: $secondary02;
+                background-color: $primary02;
+                @include m(){
+                    margin-right: 87px; //讓"歷史加值紀錄"換行
+                }
+            }            
             a{ //歷史加值紀錄
                 color:$secondary02;
                 margin-right: 16px;
@@ -136,11 +144,11 @@
             font-size: $fontSize01;
         }
         button{
-            // outline: 1px solid #D25541;
             margin: 10px 10px;
             width: 130px;
             height: 100px;
             background-color: #FFFFFF;
+            border-radius: 5px;
             &:hover{
                 background-color: #B5B1A6;
             }
@@ -155,7 +163,8 @@
         }
     }
     
-    .studenMainWrapper_resumebottom{
+    .studenMainWrapper_resumebottom{ //我的履歷
+        display: flex;
         button{
             width: 200px;
             height: 300px;
@@ -173,12 +182,95 @@
              }
         }
     } 
-    
-    .studenMainWrapper_resumebottom .fa-file-circle-plus{
-        font-size: 60px;
-        @include m(){
-            font-size: 30px;             
-         }
+
+    //彈窗：加值點數
+    .studentaddmoneywrapper{
+        .contactUSInner{
+            display: block;
+        }   
+        .cardUl li a{
+            color: #ffff;
+        }
+        .cardInner{
+            .studentaddmoney_applyTitle{ //加值方案 父層
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                .applyTitle_main{ //每種加值方案
+                    width: 350px; //每筆方案最大寬度
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    margin-bottom: $space04;
+                    @include m(){
+                        width: 260px; //每筆方案最大寬度
+                    }
+                    .left{ //左半部
+                        display: flex;
+                        justify-content: start;
+                    }
+                    .right{
+                        display: flex;
+                        justify-content: start;
+                    }
+                    img{ //金幣圖案
+                        width: 30px;
+                        height: 30px;
+                        margin-right: 20px;
+                        @include m(){
+                            width: 24px;
+                            height: 24px;
+                            margin-right: 12px;
+                        }
+                    }
+                    input{ //單選radio
+                        width: 20px;
+                        height: 20px;
+                        margin-right: 10px;
+                    }
+                    h2{
+                        font-size: $fontSize02;
+                        color: $secondary01;
+                        margin-top: 0; //消除student_main原本設定  
+                        margin-bottom: 0; //消除student_main原本設定    
+                        @include m(){
+                            font-size: $R-fontSize03;
+                        }                   
+                    }
+                    .nt{                        
+                        @include m(){
+                            margin-right: 0;
+                        }
+                    }                    
+                }  
+                .a1{ //方案一
+                    .nt{
+                        padding-right: 28px;
+                    }
+                    .right img{
+                        margin-right: 34px;
+                        @include m(){
+                            margin-right: 24px;
+                        }
+                    }
+                }                    
+                .a2{ //方案二
+                    .nt{
+                        padding-right: 28px;
+                    }  
+                    .right img{
+                        margin-right: 34px;
+                        @include m(){
+                            margin-right: 24px;
+                        }
+                    }
+                }
+            }
+            //確認鍵
+            .btna3{
+                margin: 0 auto;
+            }
+        }
     }
 }
 
