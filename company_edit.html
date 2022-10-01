@@ -84,15 +84,14 @@
                     <td class="id"><h3>公司照片</h3></td>
                     <td class="detail">
                         
-                        <label for="upload" class="upload">
-                            <img src="./images/company/company1.jpg" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
-                            <img src="" alt="">
+                        <label for="upload" class="upload" id="imgLabel">
+                            <!-- <img src="" alt="" class="imgCom">
+                            <img src="" alt="" class="imgCom">
+                            <img src="" alt="" class="imgCom"> -->
                             <input id="upload" type="file" multiple="multiple" accept="image/*">
                         </label>
                     </td>
-                    <label for="upload"  class="Avatar" ><img src=""></label>
+                    
                     <td class="editIcon"></td>
 
                 </tr>
@@ -100,7 +99,7 @@
         </table>
 
         <div>
-            <input type="submit" class="btna17 save" value="儲存" name="submit">
+            <input type="button" class="btna17 save" value="儲存" name="submit" id="submit">
         </div>
     </div>
     @@include('./layout/footer.html')
@@ -162,22 +161,36 @@
             })
         }
 
-        function Avatar_upload(){
+            let imgLabel = document.getElementById('imgLabel')
             let upload = document.querySelector('#upload');
-            let Avatar = document.querySelector('.company_photochange img')
-            let upload_img = document.querySelector('.company_photochange .img')
+            let Avatar = document.getElementsByClassName('imgCom')
+            let imgStr = []
+            let imgStrJoin = '' //傳到php
+            
             upload.addEventListener('change', (e) => {
-                let readFile = new FileReader()
-                readFile.readAsDataURL(upload.files[0])
-                readFile.addEventListener('load', function () {
-                    Avatar.src = readFile.result;
-                    Avatar.style.display = 'block';
-                    upload_img.style.display = 'none'
-
-                })
-
+                // console.log(upload.files[0].name);
+                if(imgStr.length <= 2){
+                    imgStr.push(upload.files[0].name)
+                    let readFile = new FileReader()
+                    readFile.readAsDataURL(upload.files[0])
+                    readFile.addEventListener('load', function (e) {
+                        // imgBase64.push(readFile.result)
+                        let str = '';
+                        str += ` <img src="${readFile.result}" alt="">`
+                        // console.log(str);
+                        imgLabel.insertAdjacentHTML("afterbegin", str)
+                        
+                    })
+                }else{
+                    upload.setAttribute('disabled', '');
+                    e.preventDefault();
+                    alert('最多上傳三張')
+                }
+                imgStrJoin = imgStr.join('|') 
+                console.log(imgStrJoin); 
             })
-        }
+            
+            
 
 
     </script>
