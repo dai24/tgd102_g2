@@ -1,11 +1,8 @@
 <?php
 include('./PDO/Connection.php');
 
-$resume;
-$resume;
-if(isset($resume)){
-    $resume = json_decode(file_get_contents("php://input"), true);
-}else{
+$resume = json_decode(file_get_contents("php://input"), true);
+if(!isset($resume)){
     $resume['id'] = htmlspecialchars($_GET['id']);
     $resume['studentId'] = htmlspecialchars($_GET['studentId']);
     $resume['public_status'] = isset($_GET['publicStatus'])?htmlspecialchars($_GET['publicStatus']):0;
