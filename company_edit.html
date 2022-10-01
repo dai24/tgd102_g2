@@ -14,70 +14,60 @@
             <tbody>
                 <tr class="item">
                     <td class="id"><h3>公司名稱</h3></td>
-                    <td class="detail"><h3 class="para">小野水產</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="comTitle"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>公司介紹</h3></td>
-                    <td class="detail"><h3 class="para">小野水產是來自基隆的在地漁夫，在崁仔頂漁市經營三十餘年 2021年推廣食育觀念，希望讓更多家庭能夠認識當季的魚貨 當日現撈的海產靠港立即用低溫冷凍宅配 幾個小時就出現在您的餐桌</h3><textarea type="text" class="area" ></textarea></td>
+                    <td class="detail"><h3 class="para" id="comIntro"></h3><textarea type="text" class="area" ></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>公司規模</h3></td>
-                    <td class="detail"><h3 class="para">小規模</h3><textarea type="text"  class="area" ></textarea></td>
+                    <td class="detail"><h3 class="para" id="range">小規模</h3><textarea type="text"  class="area" ></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>服務項目</h3></td>
-                    <td class="detail"><h3 class="para">生鮮漁獲及加工品販售</h3><textarea type="text" class="area"></textarea></td>
-                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
-                </tr>
-                <tr class="item">
-                    <td class="id"><h3>職業種類</h3></td>
-                    <td class="detail"><h3 class="para">生鮮漁獲及加工品販售</h3><textarea type="text"  class="area"></textarea></td>
-                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
-                </tr>
-                <tr class="item">
-                    <td class="id"><h3>部門種類</h3></td>
-                    <td class="detail"><h3 class="para">銷售部門</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="serve"></h3><textarea type="text" class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr> 
                 <tr class="item">
-                    <td class="id"><h3>資本額</h3></td>
-                    <td class="detail"><h3 class="para">1000萬</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="id"><h3>資本額/萬</h3></td>
+                    <td class="detail"><span class="para" id="property"></span><textarea type="text" class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>               
                 <tr class="item">
                     <td class="id"><h3>公司地址</h3></td>
-                    <td class="detail"><h3 class="para">基隆市仁愛區孝一路</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="address"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
                 <tr class="item">
                     <td class="id"><h3>聯絡信箱</h3></td>
-                    <td class="detail"><h3 class="para">kobayashi@gmail.com</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="email"></h3><textarea type="text" class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
                 <tr class="item">
                     <td class="id"><h3>負責人</h3></td>
-                    <td class="detail"><h3 class="para">王威宏</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="principle"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"></td>
                 </tr>
                 <tr class="item">
                     <td class="id"><h3>公司電話</h3></td>
-                    <td class="detail"><h3 class="para">(02)26789348 分機103</h3><textarea type="text" disabled="disabled" class="area"></textarea></td>
-                    <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
+                    <td class="detail"><h3 class="para" id="phone">(02)26789348 分機103</h3><textarea type="text" disabled="disabled" class="area"></textarea></td>
+                    <td class="editIcon"></td>
                 </tr>
                 <tr class="item">
                     <td class="id"><h3>負責人手機</h3></td>
-                    <td class="detail"><h3 class="para">0988273788</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="perPhone">0988273788</h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
                 <tr class="item">
                     <td class="id"><h3>年費方案</h3></td>
-                    <td class="detail"><h3 class="para">A方案</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="coin"></h3><textarea type="text" class="area"></textarea></td>
                     <td class="editIcon"></td>
                 </tr>
                 <tr class="item company_photochange">
@@ -88,7 +78,7 @@
                             <!-- <img src="" alt="" class="imgCom">
                             <img src="" alt="" class="imgCom">
                             <img src="" alt="" class="imgCom"> -->
-                            <input id="upload" type="file" multiple="multiple" accept="image/*">
+                            <input id="upload" type="file" multiple="multiple" accept=".jpg">
                         </label>
                     </td>
                     
@@ -161,38 +151,87 @@
             })
         }
 
-            let imgLabel = document.getElementById('imgLabel')
-            let upload = document.querySelector('#upload');
-            let Avatar = document.getElementsByClassName('imgCom')
-            let imgStr = []
-            let imgStrJoin = '' //傳到php
-            
-            upload.addEventListener('change', (e) => {
-                // console.log(upload.files[0].name);
-                if(imgStr.length <= 2){
-                    imgStr.push(upload.files[0].name)
-                    let readFile = new FileReader()
-                    readFile.readAsDataURL(upload.files[0])
-                    readFile.addEventListener('load', function (e) {
-                        // imgBase64.push(readFile.result)
-                        let str = '';
-                        str += ` <img src="${readFile.result}" alt="">`
-                        // console.log(str);
-                        imgLabel.insertAdjacentHTML("afterbegin", str)
-                        
-                    })
-                }else{
-                    upload.setAttribute('disabled', '');
-                    e.preventDefault();
-                    alert('最多上傳三張')
-                }
-                imgStrJoin = imgStr.join('|') 
-                console.log(imgStrJoin); 
-            })
-            
-            
+        let imgLabel = document.getElementById('imgLabel')
+        let upload = document.querySelector('#upload');
+        let Avatar = document.getElementsByClassName('imgCom')
+        let imgStr = []
+        let imgStrJoin = '' //傳到php
+        upload.addEventListener('change', (e) => {
+            // console.log(upload.files[0].name);
+            if(imgStr.length <= 3){
+                imgStr.push(upload.files[0].name)
+                let readFile = new FileReader()
+                readFile.readAsDataURL(upload.files[0])
+                readFile.addEventListener('load', function (e) {
+                    // imgBase64.push(readFile.result)
+                    let str = '';
+                    str += ` <img src="${readFile.result}" alt="" class='picCom'>`
+                    // console.log(str);
+                    imgLabel.insertAdjacentHTML("afterbegin", str)
+                    let picCom = document.getElementsByClassName('picCom')
+                    console.log(picCom);
+                })
+            }else{
+                upload.setAttribute('disabled', '');
+                e.preventDefault();
+                alert('最多上傳三張')
+            }
+            imgStrJoin = imgStr.join('|') 
+            console.log(imgStrJoin); 
+        })
 
-
+        let comMember = []   
+        let comImgMu = [] 
+        let comTitle = document.getElementById('comTitle')
+        let comIntro = document.getElementById('comIntro')
+        let range = document.getElementById('range')
+        let property = document.getElementById('property')
+        let serve = document.getElementById('serve')
+        let address = document.getElementById('address')
+        let email = document.getElementById('email')
+        let principle = document.getElementById('principle')
+        let phone = document.getElementById('phone')
+        let perPhone = document.getElementById('perPhone')
+        let coin = document.getElementById('coin')
+        fetch(`../php/editCompany.php?comId=${sessionStorage.getItem('CompanyId')}`)
+        .then(rsp => rsp.json())
+        .then(userArr => {
+            comMember = userArr
+            comTitle.innerText = comMember[0].NAME
+            comIntro.innerText = comMember[0].DESCRIBE
+            address.innerText = comMember[0].ADDRESS
+            serve.innerText = comMember[0].SERVE
+            if(comMember[0].TOTAL_EMPLOYEE <= 30){
+                range.innerText = comMember[0].TOTAL_EMPLOYEE
+            }
+            if(comMember[0].TOTAL_EMPLOYEE > 30 && comMember[0].TOTAL_EMPLOYEE <= 60){
+                range.innerText = comMember[0].TOTAL_EMPLOYEE
+            }
+            if(comMember[0].TOTAL_EMPLOYEE > 60){
+                range.innerText = comMember[0].TOTAL_EMPLOYEE
+            }
+            property.innerText = comMember[0].PROPERTY
+            email.innerText = comMember[0].EMAIL
+            principle.innerText = comMember[0].PRINCIPLE
+            phone.innerText = `${comMember[0].PHONE} 分機 ${comMember[0].EXT}`
+            perPhone.innerText = comMember[0].PRINCIPLE_TEL
+            if(comMember[0].PRICE == 3000){
+                coin.innerText = 'A方案'
+            }else if(comMember[0].PRICE == 6000){
+                coin.innerText = 'B方案'
+            }else{
+                coin.innerText = 'C方案'
+            }
+            comImgMu = comMember[0].PHOTO.split('|')
+            imgStr = comImgMu
+            let str = '';
+            imgStr.forEach(element => {
+                str += ` <img src="./images/${element}" alt="" class='picCom'>`
+            });
+            imgLabel.insertAdjacentHTML("afterbegin", str)
+            imgStrJoin = comImgMu.join('|') 
+            // console.log(imgStrJoin); 
+        })   
     </script>
 </body>
 </html>
