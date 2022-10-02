@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    @@include('./layout/head.html',{
+    "title" : "履歷工作區"
+    })
+    
+</head>
+<body>
+   
+        <div class="resume_wrapper">
+            @@include('./layout/header.html')
+            @@include('./layout/breadcrumb3.html',{
+            'home' : "首頁",
+            'nav' : "履歷",
+            'active' : "履歷工作台",
+            'nav_url' : "resume.html",
+            })
+
+            
+            <div class="work_space">
+                <div id="resumeWorkSpace">
+
+                    <my-content></my-content>
+
+                </div>   
+            </div>
+        </div>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.20/summernote-lite.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/croppie/2.6.5/croppie.min.js"></script>
+<script src="https://unpkg.com/vue@2"></script>
+<script src="https://unpkg.com/vuex@3"></script>
+<script src="https://unpkg.com/vue-router@3"></script>
+<script src="./js/main.js"></script>
+<script src="./js/header.js"></script>
+<script src="./js/resume.js"></script>
+<script src="./js/resume_work_spaceByChuang.js"></script>
+<script type="module" src="./js/contactUs.js"></script>
+<script type="module" src="./js/applyFor.js"></script>
+<script src="./js/saveApply.js"></script>
+<script type="module" src="./js/findJob.js"></script>
+<script type="module" src="./js/jobMain.js"></script>
+<script type="module" src="./js/company.js"></script>
+<script src="./js/login_logout.js"></script>
+<script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+
+
+</body>
+
+</html>
