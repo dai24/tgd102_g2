@@ -254,16 +254,16 @@ Vue.component('win-pdf', {
                 html2canvas: {
                     scale: 2,
                     width: 470, // canvas 寬度, 視情況調整
-                    height: 865, // canvas 單頁高度, 請自行調整
+                    height: 856, // canvas 單頁高度, 請自行調整
                     useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
                 },
                 imageType: 'image/jpeg',
                 imageQuality: 1,
                 margin: {
-                    top: -256,
+                    top: -280,
                     right: 0,
                     bottom: 0,
-                    left: 0,
+                    left: -20,
                 },
                 output: this.pdfName
 
@@ -371,6 +371,7 @@ Vue.component('model-A01', {
                 price: 0,
                 unlock: 0,
                 fileName: '',
+                avatar:'',
                 public_status: 0,
                 category: '',
                 like_count: 0,
@@ -516,7 +517,7 @@ Vue.component('model-A01', {
             }
 
         },
-        submitData(id, student_id, model, price, unlock, fileName, public_status, category, like_count, ban, img_path, name,
+        submitData(id, student_id, model, price, unlock, fileName, avatar, public_status, category, like_count, ban, img_path, name,
             address, phone, email, porfolio, autobiography,
             work_experience_job, during_work, work_content, school, during_school, department, attend_school_status,
             school_experience, job_apply, skill1, skill2, skill3, skill4, language1, language2) {
@@ -528,6 +529,8 @@ Vue.component('model-A01', {
                     this.resume_modelOne.price = price,
                     this.resume_modelOne.unlock = unlock,
                     this.resume_modelOne.fileName = fileName,
+                    this.resume_modelOne.avatar = avatar,
+                    console.log(this.resume_modelOne.avatar)
                     this.resume_modelOne.public_status = public_status,
                     this.resume_modelOne.like_count = like_count,
                     this.resume_modelOne.category = category,
@@ -564,13 +567,14 @@ Vue.component('model-A01', {
 
         },
         fileChange(e) {
+           
             let file = e.target.files[0]
             let readFile = new FileReader()
 
             readFile.readAsDataURL(file)
             readFile.addEventListener('load', () => {
                 this.resume_modelOne.avatar = readFile.result
-                console.log()
+                // console.log(readFile.result)
                 this.Avatar = true
 
             })
@@ -586,7 +590,11 @@ Vue.component('model-A01', {
             .then(rsp => rsp.json())
             .then(resume_model => {
                 this.resume_modelAll = resume_model;
-
+                // for(index in this.resume_modelAll){
+                //     console.log(index + " : " + this.resume_modelAll[index].AVATAR)
+                // }
+                
+                
             })
 
         let summer = $('#summernote1').summernote({
@@ -620,7 +628,7 @@ Vue.component('model-A01', {
         <div class="resume_model-border" v-show="modelpopup">
             <button class="xmark_btn" @click="submitData()"><i class="fa-solid fa-xmark"></i></button>            
             <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0}" v-for="model in resume_modelAll"  
-                @click="submitData(model.ID,model.STUDENT_ID,model.MODEL,model.PRICE,model.UNLOCK_STATUS,model.FILE_NAME,
+                @click="submitData(model.ID,model.STUDENT_ID,model.MODEL,model.PRICE,model.UNLOCK_STATUS,model.FILE_NAME,model.AVATAR,
                     model.PUBLIC_STATUS,model.CATEGORY,model.LIKE_COUNT,model.BAN,model.IMG_PATH,
                 model.NAME,model.ADDRESS,model.PHONE,model.EMAIL,model.PORFOLIO,model.AUTOBIOGRAPHY,model.WORK_EXPERIENCE_JOB,model.DURING_WORK,
                 model.WORK_CONTENT,model.SCHOOL,model.DURING_SCHOOL,model.DEPARTMENT,model.ATTEND_SCHOOL_STATUS,model.SCHOOL_EXPERIENCE,
@@ -657,7 +665,7 @@ Vue.component('model-A01', {
                         <input v-show="fileInput" id="upload" name="upload" type="file" accept="image/*" @change="fileChange">
                         <i class="fa-solid fa-file-circle-plus"></i>
                     </label>
-                    <label for="upload" class="Avatar"><img v-if="Avatar" :src="resume_modelOne.avatar"></label>
+                    <label for="upload" class="Avatar"><img v-if="Avatar = resume_modelOne.avatar?true:false" :src="resume_modelOne.avatar"></label>
                 </div>
     
                 <div class="work_space_a4_3">
@@ -773,18 +781,20 @@ Vue.component('my-content', {
                         // console.log('sessionstudentid:' + this.studentId)
                         // this.ResumeTotal = data
                         // console.log('圖檔:' + this.resume_modelOne.avatar)
-                        if (this.ResumeTotal == 5) {
-                            alert('製作履歷數量已達上限5個')
-                        } else {
+                        
 
 
                             if (this.resume_modelOne.student_id == null) {
-                                this.saveResume()
+                                if (this.ResumeTotal == 5) {
+                                    alert('製作履歷數量已達上限5個')
+                                } else {
+                                    this.saveResume()
+                                }   
                             } else {
                                 this.updateResume()
                             }
                             this.savePopup = open;
-                        }
+                        
                     })
 
             } else if (type == 'share') {
@@ -902,6 +912,7 @@ Vue.component('my-content', {
                 })
         },
         updateResume() {
+            // console.log(this.resume_modelOne.avatar)
             fetch('./php/updateResume.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -915,7 +926,7 @@ Vue.component('my-content', {
                     avatar: this.resume_modelOne.avatar,
                     public_status: this.resume_modelOne.public_status,
                     category: this.resume_modelOne.category,
-                    like_count: this.resume_modelOne.like_count,
+                    // like_count: this.resume_modelOne.like_count,
                     ban: this.resume_modelOne.ban,
                     name: this.resume_modelOne.name,
                     address: this.resume_modelOne.address,

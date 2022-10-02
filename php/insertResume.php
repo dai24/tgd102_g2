@@ -2,11 +2,27 @@
 include('./PDO/Connection.php');
 
 $resume = json_decode(file_get_contents("php://input"), true);
-// if($_FILES[$resume['avatar']]["error"] > 0){
-//     echo "頭像上傳失敗:".$_FILES[$resume['avatar']]["error"];
-// }else{
-//     echo $_FILES[$resume['avatar']];
-// }
+
+if($resume['avatar']){
+    $image = $resume['avatar'];
+    $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';
+            if (strstr($image,",")){
+                $image = explode(',',$image);
+                $image = $image[1];
+            }
+            $sqlPath = "./";
+            $previousPath = "../";
+            $path = "images/resume/Avatar/".date("Ymd",time());
+            $previousPath = $previousPath.$path;
+            if (!is_dir($previousPath)){ //判斷目錄是否存在 不存在就建立
+                mkdir($previousPath,0777,true);
+            }
+            $sqlPath = $sqlPath.$path;
+            $resume['avatar'] = $sqlPath."/". $imageName;  //圖片名字
+
+            $r = file_put_contents($previousPath."/". $imageName, base64_decode($image));
+}
+
 // 36欄
 $sql = "INSERT INTO RESUME (STUDENT_ID,MODEL,PRICE,UNLOCK_STATUS,FILE_NAME,AVATAR,PUBLIC_STATUS,CATEGORY,IMG_PATH,LIKE_COUNT,BAN,
 NAME,ADDRESS,PHONE,EMAIL,PORFOLIO,AUTOBIOGRAPHY,WORK_EXPERIENCE_JOB,DURING_WORK,WORK_CONTENT,SCHOOL,DURING_SCHOOL,DEPARTMENT,
@@ -18,7 +34,7 @@ $statement->bindValue(2,2);
 $statement->bindValue(3,0);
 $statement->bindValue(4,1);
 $statement->bindValue(5,$resume['fileName']);
-$statement->bindValue(6,'');
+$statement->bindValue(6,$resume['avatar']);
 $statement->bindValue(7,0);
 $statement->bindValue(8,'');
 $statement->bindValue(9,'');
