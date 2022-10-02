@@ -14,43 +14,43 @@
             <tbody>
                 <tr class="item">
                     <td class="id"><h3>會員名稱</h3></td>
-                    <td class="detail"><h3 class="para">林立人</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="stuTitle"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>手機</h3></td>
-                    <td class="detail"><h3 class="para">0988274578</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="phone"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>電子郵件</h3></td>
-                    <td class="detail"><h3 class="para">dsfvvfe@gmail.com</h3><textarea type="text" class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="email"></h3><textarea type="text" class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>性別</h3></td>
-                    <td class="detail"><h3 class="para">男</h3><textarea type="text"  class="area" ></textarea></td>
+                    <td class="detail"><h3 class="para" id="gender"></h3><textarea type="text"  class="area" ></textarea></td>
                     <td class="editIcon"></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>生日</h3></td>
-                    <td class="detail"><h3 class="para">1994/10/20</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para"  id="birthday"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>密碼</h3></td>
-                    <td class="detail"><h3 class="para">*********</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="password"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
 
                 <tr class="item">
                     <td class="id"><h3>通訊地址</h3></td>
-                    <td class="detail"><h3 class="para">台北市信義區松仁路97號</h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para"  id="address"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
 
@@ -62,7 +62,7 @@
         </div>
     </div>
     @@include('./layout/footer.html')
-    <script src="./js/student_edit.js"></script>
+    <!-- <script src="./js/student_edit.js"></script> -->
     <script>
         let editIcon = document.getElementsByClassName('fa-solid fa-pen')
 
@@ -119,6 +119,36 @@
                     
             })
         }
+
+        let stuMember = []   
+        let stuTitle = document.getElementById('stuTitle')
+        let address = document.getElementById('address')
+        let email = document.getElementById('email')
+        let phone = document.getElementById('phone')
+        let gender = document.getElementById('gender')
+        let birthday = document.getElementById('birthday')
+        let password = document.getElementById('password')
+        
+
+        fetch(`../php/editStudent.php?stuId=${sessionStorage.getItem('StudentId')}`)
+        .then(rsp => rsp.json())
+        .then(userArr => {
+            stuMember = userArr
+            stuTitle.innerText = stuMember[0].NAME
+            address.innerText = stuMember[0].ADDRESS
+            email.innerText = stuMember[0].EMAIL
+            phone.innerText = stuMember[0].PHONE
+            gender.innerText = stuMember[0].GENDER
+            birthday.innerText = stuMember[0].BIRTHDAY
+            password.innerText = stuMember[0].PASSWORD
+
+            if(password.innerText = stuMember[0].PASSWORD){
+                password.innerText = "********"
+            }
+        })   
+
+
+
     </script>
 </body>
 </html>
