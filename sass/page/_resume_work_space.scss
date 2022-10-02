@@ -1,86 +1,86 @@
 $editOutline : 2px solid black;
 
-// 套用範本1  class="model1"
-// .work_space .work_space_make.model1 .resume_make {
+// 這個class 是 model1 要加在resume_make的後面
+.work_space .work_space_make .resume_make.model1  {
     
-//     //背景色
-//     .work_space_a4{
-//         background-color: #4973b2;
-//         padding: 25px 0;
+    //背景色
+    .work_space_a4{
+        background-color: #4973b2;
+        padding: 25px 0;
 
-//          //個人資料
-//         .work_space_a4_1{
-//             order:2;
-//             width: 50%;
-//             color: white;
-//         }
+         //個人資料
+        .work_space_a4_1{
+            order:2;
+            width: 50%;
+            color: white;
+        }
 
-//         //大頭照
-//         .work_space_a4_2 {
-//             order: 1;
-//             margin-left: 30px; 
-//             border-radius: 50%;
+        //大頭照
+        .work_space_a4_2 {
+            order: 1;
+            margin-left: 30px; 
+            border-radius: 50%;
                 
-//         }
+        }
 
 
-//         //履歷主要內容
-//         .work_space_a4_3{
-//             order:3;
-//             padding-top: 10px;
-//             // background-color: #4973b2;
+        //履歷主要內容
+        .work_space_a4_3{
+            order:3;
+            padding-top: 10px;
+            // background-color: #4973b2;
 
 
-//             // textarea{
-//             //     background-color: #e8f0f3;
-//             // }
-//         }
+            // textarea{
+            //     background-color: #e8f0f3;
+            // }
+        }
 
-//         //履歷學歷
-//         .work_space_a4_3_1{
-//             order:4;
-//             // background-color: #e8f0f3;
-//         }
+        //履歷學歷
+        .work_space_a4_3_1{
+            order:4;
+            // background-color: #e8f0f3;
+        }
 
-//         // 履歷自傳
-//         .work_space_a4_3_2{
-//             order:9;
-//             // background-color:#FFFFFF;
+        // 履歷自傳
+        .work_space_a4_3_2{
+            order:9;
+            // background-color:#FFFFFF;
 
 
-//         }
+        }
 
-//         // 履歷就學期間自傳
-//         .work_space_a4_3_3{
-//             order:8;
-//             // background-color: #e8f0f3;
+        // 履歷就學期間自傳
+        .work_space_a4_3_3{
+            order:8;
+            // background-color: #e8f0f3;
 
-//         }
+        }
 
-//         // 履歷工作經歷
-//         .work_space_a4_3_4{
-//             order:7;
-//             // background-color:#FFFFFF;
+        // 履歷工作經歷
+        .work_space_a4_3_4{
+            order:7;
+            // background-color:#FFFFFF;
 
-//         }
+        }
 
-//         // 履歷工作技能
-//         .work_space_a4_3_5{
-//             order:6;
-//             // background-color: #e8f0f3;
+        // 履歷工作技能
+        .work_space_a4_3_5{
+            order:6;
+            // background-color: #e8f0f3;
 
-//         }
+        }
 
-//         // 履歷語文能力
-//         .work_space_a4_3_6{
-//             order:5;
-//             // background-color:#FFFFFF;
-//         }
+        // 履歷語文能力
+        .work_space_a4_3_6{
+            order:5;
+            // background-color:#FFFFFF;
+        }
 
-//     }   
+    }   
 
    
-// }
+}
 
 // 以上為套用範本
 
