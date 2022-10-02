@@ -85,7 +85,7 @@
                     <h2 class="question">收信人：胡濁塵</h2>
                     <h2 class="question">信件內容：</h2>
                     <textarea name="" id="" cols="30" rows="6" placeholder="本公司看到您的履歷，覺得您很符合這個職位需要的能力請問能否約在9/2814:00出來進行面試呢?"></textarea>
-                    <a href="./company_check.html"><div class="btna21">送出</div></a>
+                    <div class="btna21" id="sendout">送出</div>
                 </div>
             </div>
     
@@ -102,24 +102,31 @@
 
     //開關彈窗
 
-        let inviteform = document.querySelector("#inviteform");
-        let inviteform_needtoopen = document.querySelector(".interviewinviteformwrapper");
-
-        let close_A = document.querySelector(".close_A");
+        let inviteform = document.querySelector("#inviteform"); // 發出面試邀約按鈕
+        let sendout = document.querySelector("#sendout"); // 彈窗送出按鈕
+        let inviteform_needtoopen = document.querySelector(".interviewinviteformwrapper"); // 彈窗最外層
+        let close_A = document.querySelector(".close_A"); // xx 的父層
 
         // console.log(inviteform_needtoopen);
 
-        //按鈕打擊打開彈窗
+        //按鈕點擊打開彈窗
         inviteform.addEventListener("click",()=>{
             inviteform_needtoopen.classList.add("show");
        
         })
 
+        //按鈕送出後關閉彈窗
+        sendout.addEventListener("click",()=>{
+            inviteform_needtoopen.classList.remove("show");
+        
+        })
+        
         //叉叉關閉回去
         close_A.addEventListener("click",()=>{
             inviteform_needtoopen.classList.remove("show");
         
         })
+
         
 
 
