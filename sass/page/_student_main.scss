@@ -236,6 +236,9 @@
                         font-size: 24px;
                         margin: auto 0;
                         margin-left: 16px;
+                        &:hover{
+                            cursor: pointer;
+                        }
                         @include m(){
                             font-size: 20px;
                             margin-left: 8px;
@@ -298,7 +301,7 @@
                     img{ //金幣圖案
                         width: 30px;
                         height: 30px;
-                        margin-right: 20px;
+                        margin-right: 0px;
                         @include m(){
                             width: 24px;
                             height: 24px;
@@ -308,7 +311,11 @@
                     input{ //單選radio
                         width: 20px;
                         height: 20px;
+                        margin-top: 5px;
                         margin-right: 10px;
+                        @include m(){
+                            margin-top: 3px;
+                        }
                     }
                     h2{
                         font-size: $fontSize02;
@@ -330,7 +337,7 @@
                         padding-right: 28px;
                     }
                     .right img{
-                        margin-right: 34px;
+                        // margin-right: 34px;
                         @include m(){
                             margin-right: 24px;
                         }
@@ -341,7 +348,7 @@
                         padding-right: 28px;
                     }  
                     .right img{
-                        margin-right: 34px;
+                        // margin-right: 34px;
                         @include m(){
                             margin-right: 24px;
                         }

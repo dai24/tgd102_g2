@@ -137,9 +137,6 @@ let vm = new Vue({ //設定想要預載的html結構
                     <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                     <li><a href="#" class="pageContent">1</a></li>
                     <li><a href="#" class="pageContent">2</a></li>
-                    <li><a href="#" class="pageContent">3</a></li>
-                    <li><a href="#" class="pageContent">4</a></li>
-                    <li><a href="#" class="pageContent">5</a></li>
                     <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
                 </ul>
             </div>

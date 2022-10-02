@@ -30,7 +30,7 @@ Vue.component('student-data',{
         fetch(`./php/searchstudent.php?page=1`)
         .then(rsp => rsp.json())
         .then(userArr => {    
-            console.log(userArr)
+            // console.log(userArr)
             this.studentData = userArr
         })
 
