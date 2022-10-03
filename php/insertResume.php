@@ -6,21 +6,38 @@ $resume = json_decode(file_get_contents("php://input"), true);
 if($resume['avatar']){
     $image = $resume['avatar'];
     $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';
-            if (strstr($image,",")){
-                $image = explode(',',$image);
-                $image = $image[1];
-            }
-            $sqlPath = "./";
-            $previousPath = "../";
-            $path = "images/resume/Avatar/".date("Ymd",time());
-            $previousPath = $previousPath.$path;
-            if (!is_dir($previousPath)){ //判斷目錄是否存在 不存在就建立
-                mkdir($previousPath,0777,true);
-            }
-            $sqlPath = $sqlPath.$path;
-            $resume['avatar'] = $sqlPath."/". $imageName;  //圖片名字
-
-            $r = file_put_contents($previousPath."/". $imageName, base64_decode($image));
+    if (strstr($image,",")){
+        $image = explode(',',$image);
+        $image = $image[1];
+    }
+    $sqlPath = "./";
+    $previousPath = "../";
+    $path = "images/resume/Avatar/".date("Ymd",time());
+    $previousPath = $previousPath.$path;
+    if (!is_dir($previousPath)){ //判斷目錄是否存在 不存在就建立
+        mkdir($previousPath,0777,true);
+    }
+    $sqlPath = $sqlPath.$path;
+    $resume['avatar'] = $sqlPath."/". $imageName;  //圖片名字
+    file_put_contents($previousPath."/". $imageName, base64_decode($image));
+}
+if($resume['img_path']){
+    $image = $resume['img_path'];
+    $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';
+    if (strstr($image,",")){
+        $image = explode(',',$image);
+        $image = $image[1];
+    }
+    $sqlPath = "./";
+    $previousPath = "../";
+    $path = "images/resume/resume_".date("Ymd",time());
+    $previousPath = $previousPath.$path;
+    if (!is_dir($previousPath)){ //判斷目錄是否存在 不存在就建立
+        mkdir($previousPath,0777,true);
+    }
+    $sqlPath = $sqlPath.$path;
+    $resume['img_path'] = $sqlPath."/". $imageName;  //圖片名字
+    file_put_contents($previousPath."/". $imageName, base64_decode($image));
 }
 
 // 36欄
@@ -37,7 +54,7 @@ $statement->bindValue(5,$resume['fileName']);
 $statement->bindValue(6,$resume['avatar']);
 $statement->bindValue(7,0);
 $statement->bindValue(8,'');
-$statement->bindValue(9,'');
+$statement->bindValue(9,$resume['img_path']);
 $statement->bindValue(10,0);
 $statement->bindValue(11,0);
 $statement->bindValue(12,$resume['name']);

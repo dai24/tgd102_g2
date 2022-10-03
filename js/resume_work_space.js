@@ -245,29 +245,59 @@ Vue.component('win-pdf', {
             this.$emit('pdfwin', false);
         },
         pdfDowload() {
-            let page = document.querySelector('.work_space_a4');
-            html2PDF(page, {
-                jsPDF: {
-                    unit: "pt",
-                    format: 'a4',
-                },
-                html2canvas: {
-                    scale: 2,
-                    width: 470, // canvas 寬度, 視情況調整
-                    height: 856, // canvas 單頁高度, 請自行調整
-                    useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
-                },
-                imageType: 'image/jpeg',
-                imageQuality: 1,
-                margin: {
-                    top: -280,
-                    right: 0,
-                    bottom: 0,
-                    left: -20,
-                },
-                output: this.pdfName
-
-            });
+            let page = $('.work_space_a4');
+            
+            // 手機版
+            if(page.width() < 370){
+                // page.width('470')
+                // page.height('670')
+                html2PDF(page, {
+                    jsPDF: {
+                        unit: "pt",
+                        format: 'a4',
+                    },
+                    html2canvas: {
+                        scale: 2,
+                        width: 470, // canvas 寬度, 視情況調整
+                        height: 800, // canvas 單頁高度, 請自行調整
+                        useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
+                    },
+                    imageType: 'image/jpeg',
+                    imageQuality: 1,
+                    margin: {
+                        top: 30,
+                        right: 30,
+                        bottom: 0,
+                        left: 30,
+                    },
+                    output: this.pdfName
+    
+                });
+            }else{
+                html2PDF(page, {
+                    jsPDF: {
+                        unit: "pt",
+                        format: 'a4',
+                    },
+                    html2canvas: {
+                        scale: 2,
+                        width: 470, // canvas 寬度, 視情況調整
+                        height: 900, // canvas 單頁高度, 請自行調整
+                        useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
+                    },
+                    imageType: 'image/jpeg',
+                    imageQuality: 1,
+                    margin: {
+                        top: -255,
+                        right: 20,
+                        bottom: 0,
+                        left: 10,
+                    },
+                    output: this.pdfName
+    
+                });
+            }
+            
             this.submitData()
         }
 
@@ -411,10 +441,12 @@ Vue.component('model-A01', {
             this.resume_modelOne.fileName = e.target.value
             console.log(e.target.value)
         },
-        openSummer(type) {
+        openSummer(type,$event) {
             this.summerPopup = true
             this.type = type
             console.log('get:' + type)
+            console.log($event.target);
+
             // if(type == 'name'){
             //     $($("#summernote1").summernote("code",this.resume_modelOne.name));
             // }else if(type == 'job_apply'){
@@ -460,17 +492,18 @@ Vue.component('model-A01', {
         },
         getSummer() {
             data = $($("#summernote1").summernote("code")).text();
-            // this.data = $("#summernote1").summernote("code")
+            // data = $("#summernote1").summernote("code")
             console.log(data + ',' + this.type)
             if (this.type == 'name') {
                 this.resume_modelOne.name = data
-                console.log(data)
+
+                console.log("summernote:" + data)
             } else if (this.type == 'job_apply') {
                 this.resume_modelOne.job_apply = data
-                console.log(data)
+                // console.log(data)
             } else if (this.type == 'address') {
                 this.resume_modelOne.address = data
-                console.log(data)
+                // console.log(data)
             } else if (this.type == 'phone') {
                 this.resume_modelOne.phone = data
             } else if (this.type == 'email') {
@@ -530,7 +563,7 @@ Vue.component('model-A01', {
                     this.resume_modelOne.unlock = unlock,
                     this.resume_modelOne.fileName = fileName,
                     this.resume_modelOne.avatar = avatar,
-                    console.log(this.resume_modelOne.avatar)
+                    // console.log(this.resume_modelOne.avatar)
                     this.resume_modelOne.public_status = public_status,
                     this.resume_modelOne.like_count = like_count,
                     this.resume_modelOne.category = category,
@@ -650,14 +683,14 @@ Vue.component('model-A01', {
     
                 <div class="work_space_a4_1">
     
-                    <h3 :class="{'borderStyle':type == 'name'}" v-if="resume_modelOne.name" @click="openSummer('name')">{{resume_modelOne.name}}</h3>
+                    <h3 :class="{'borderStyle':type == 'name'}" v-if="resume_modelOne.name" @click="openSummer('name',$event)">{{resume_modelOne.name}}</h3>
     
-                    <h4 :class="{'borderStyle':type == 'job_apply'}" v-if="resume_modelOne.job_apply" @click="openSummer('job_apply')">{{resume_modelOne.job_apply}}</h4>
+                    <h4 :class="{'borderStyle':type == 'job_apply'}" v-if="resume_modelOne.job_apply" @click="openSummer('job_apply',$event)">{{resume_modelOne.job_apply}}</h4>
                     <h5>聯絡方式</h5>
-                    <p class="p1">地址：<span class="span1" :class="{'borderStyle':type == 'address'}" v-if="resume_modelOne.address" @click="openSummer('address')">{{resume_modelOne.address}}</span></p>
-                    <p class="p2">電話：<span class="span2" :class="{'borderStyle':type == 'phone'}" v-if="resume_modelOne.phone" @click="openSummer('phone')">{{resume_modelOne.phone}}</span></p>
-                    <p class="p3">信箱：<span class="span3" :class="{'borderStyle':type == 'email'}" v-if="resume_modelOne.email" @click="openSummer('email')">{{resume_modelOne.email}}</span></p>
-                    <p class="p4">作品：<span class="span4" :class="{'borderStyle':type == 'porfolio'}" v-if="resume_modelOne.porfolio" @click="openSummer('porfolio')">{{resume_modelOne.porfolio}}</span></p>
+                    <p class="p1">地址：<span class="span1" :class="{'borderStyle':type == 'address'}" v-if="resume_modelOne.address" @click="openSummer('address',$event)">{{resume_modelOne.address}}</span></p>
+                    <p class="p2">電話：<span class="span2" :class="{'borderStyle':type == 'phone'}" v-if="resume_modelOne.phone" @click="openSummer('phone',$event)">{{resume_modelOne.phone}}</span></p>
+                    <p class="p3">信箱：<span class="span3" :class="{'borderStyle':type == 'email'}" v-if="resume_modelOne.email" @click="openSummer('email',$event)">{{resume_modelOne.email}}</span></p>
+                    <p class="p4">作品：<span class="span4" :class="{'borderStyle':type == 'porfolio'}" v-if="resume_modelOne.porfolio" @click="openSummer('porfolio',$event)">{{resume_modelOne.porfolio}}</span></p>
                 </div>
     
                 <div title="上傳圖片" class="work_space_a4_2">
@@ -672,47 +705,45 @@ Vue.component('model-A01', {
     
                     <div class="work_space_a4_3_1">
                         <h4>學歷</h4>
-                        <h5 :class="{'borderStyle':type == 'school'}" @click="openSummer('school')">{{resume_modelOne.school}}</h5>
-                        <h6 :class="{'borderStyle':type == 'during_school'}" @click="openSummer('during_school')">{{resume_modelOne.during_school}}</h6>
-                        <span :class="{'borderStyle':type == 'department'}" @click="openSummer('department')">{{resume_modelOne.department}}</span>
+                        <h5 :class="{'borderStyle':type == 'school'}" @click="openSummer('school',$event)">{{resume_modelOne.school}}</h5>
+                        <h6 :class="{'borderStyle':type == 'during_school'}" @click="openSummer('during_school',$event)">{{resume_modelOne.during_school}}</h6>
+                        <span :class="{'borderStyle':type == 'department'}" @click="openSummer('department',$event)">{{resume_modelOne.department}}</span>
                         <span> /</span>
-                        <span :class="{'borderStyle':type == 'attend_school_status'}" @click="openSummer('attend_school_status')">{{resume_modelOne.attend_school_status}}</span>
+                        <span :class="{'borderStyle':type == 'attend_school_status'}" @click="openSummer('attend_school_status',$event)">{{resume_modelOne.attend_school_status}}</span>
                     </div>
     
                     <div class="work_space_a4_3_2">
                     <h4>自傳</h4>
-                    <textarea :class="{'borderStyle':type == 'autobiography'}" cols="27" rows="5" maxlength="65" readonly @click="openSummer('autobiography')">{{resume_modelOne.autobiography}}</textarea>
+                    <textarea :class="{'borderStyle':type == 'autobiography'}" cols="27" rows="5" maxlength="65" readonly @click="openSummer('autobiography',$event)">{{resume_modelOne.autobiography}}</textarea>
                         
                     </div>
     
                     <div class="work_space_a4_3_3">
                         <h4>就學期間</h4>
-                        <textarea :class="{'borderStyle':type == 'school_experience'}" cols="27" rows="6" maxlength="65" readonly @click="openSummer('school_experience')">{{resume_modelOne.school_experience}}</textarea>
+                        <textarea :class="{'borderStyle':type == 'school_experience'}" cols="27" rows="6" maxlength="65" readonly @click="openSummer('school_experience',$event)">{{resume_modelOne.school_experience}}</textarea>
                     </div>
     
                     <div class="work_space_a4_3_4">
                         <h4>工作經歷</h4>
-                        <h5 :class="{'borderStyle':type == 'work_experience_job'}" @click="openSummer('work_experience_job')">{{resume_modelOne.work_experience_job}}</h5>
-                        <h6 :class="{'borderStyle':type == 'during_work'}" @click="openSummer('during_work')">{{resume_modelOne.during_work}}</h6>
-                        <textarea :class="{'borderStyle':type == 'work_content'}" cols="27" rows="4" maxlength="50" readonly @click="openSummer('work_content')">{{resume_modelOne.work_content}}</textarea>
+                        <h5 :class="{'borderStyle':type == 'work_experience_job'}" @click="openSummer('work_experience_job',$event)">{{resume_modelOne.work_experience_job}}</h5>
+                        <h6 :class="{'borderStyle':type == 'during_work'}" @click="openSummer('during_work',$event)">{{resume_modelOne.during_work}}</h6>
+                        <textarea :class="{'borderStyle':type == 'work_content'}" cols="27" rows="4" maxlength="50" readonly @click="openSummer('work_content',$event)">{{resume_modelOne.work_content}}</textarea>
 
                     </div>
     
                     <div class="work_space_a4_3_5">
                         <h4>工作技能</h4>
-                        <p :class="{'borderStyle':type == 'skill1'}" @click="openSummer('skill1')">{{resume_modelOne.skill1}}</p>
-                        <p :class="{'borderStyle':type == 'skill2'}" @click="openSummer('skill2')">{{resume_modelOne.skill2}}</p>
-                        <p :class="{'borderStyle':type == 'skill3'}" @click="openSummer('skill3')">{{resume_modelOne.skill3}}</p>
-                        <p :class="{'borderStyle':type == 'skill4'}" @click="openSummer('skill4')">{{resume_modelOne.skill4}}</p>
-                        <p :class="{'borderStyle':type == 'skill5'}" @click="openSummer('skill5')">{{resume_modelOne.skill5}}</p>
-                        <p :class="{'borderStyle':type == 'skill6'}" @click="openSummer('skill6')">{{resume_modelOne.skill6}}</p>
+                        <p :class="{'borderStyle':type == 'skill1'}" @click="openSummer('skill1',$event)">{{resume_modelOne.skill1}}</p>
+                        <p :class="{'borderStyle':type == 'skill2'}" @click="openSummer('skill2',$event)">{{resume_modelOne.skill2}}</p>
+                        <p :class="{'borderStyle':type == 'skill3'}" @click="openSummer('skill3',$event)">{{resume_modelOne.skill3}}</p>
+                        
                     </div>
     
                     <div class="work_space_a4_3_6">
                         <h4>語文能力</h4>
-                        <p :class="{'borderStyle':type == 'language1'}" @click="openSummer('language1')">{{resume_modelOne.language1}}</p>
-                        <p :class="{'borderStyle':type == 'language2'}" @click="openSummer('language2')">{{resume_modelOne.language2}}</p>
-                        <p :class="{'borderStyle':type == 'language3'}" @click="openSummer('language3')">{{resume_modelOne.language3}}</p>
+                        <p :class="{'borderStyle':type == 'language1'}" @click="openSummer('language1',$event)">{{resume_modelOne.language1}}</p>
+                        <p :class="{'borderStyle':type == 'language2'}" @click="openSummer('language2',$event)">{{resume_modelOne.language2}}</p>
+                        <p :class="{'borderStyle':type == 'language3'}" @click="openSummer('language3',$event)">{{resume_modelOne.language3}}</p>
                     </div>
     
                 </div>
@@ -733,6 +764,7 @@ Vue.component('model-A01', {
 Vue.component('my-content', {
     data() {
         return {
+            temp: '',
             savePopup: false,
             sharePopup: false,
             pdfPopup: false,
@@ -775,19 +807,12 @@ Vue.component('my-content', {
                             // console.log('studentId:' + data[total].STUDENT_ID)
                             this.ResumeTotal++
                         }
-                        // console.log('total:' + this.ResumeTotal)
-                        // console.log('id:' + this.resume_modelOne.id)
-                        // console.log('studentid:' + this.resume_modelOne.student_id)
-                        // console.log('sessionstudentid:' + this.studentId)
-                        // this.ResumeTotal = data
-                        // console.log('圖檔:' + this.resume_modelOne.avatar)
-                        
-
 
                             if (this.resume_modelOne.student_id == null) {
                                 if (this.ResumeTotal == 5) {
                                     alert('製作履歷數量已達上限5個')
                                 } else {
+                                    // this.resumeBase64()
                                     this.saveResume()
                                 }   
                             } else {
@@ -859,106 +884,117 @@ Vue.component('my-content', {
 
         },
         saveResume() {
-            fetch('./php/insertResume.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    id: this.resume_modelOne.id,
-                    studentId: this.studentId,
-                    model: this.resume_modelOne.model,
-                    price: this.resume_modelOne.price,
-                    unlock: this.resume_modelOne.unlock,
-                    fileName: this.resume_modelOne.fileName,
-                    avatar: this.resume_modelOne.avatar,
-                    img_path: this.resume_modelOne.img_path,
-                    name: this.resume_modelOne.name,
-                    address: this.resume_modelOne.address,
-                    phone: this.resume_modelOne.phone,
-                    email: this.resume_modelOne.email,
-                    porfolio: this.resume_modelOne.porfolio,
-                    autobiography: this.resume_modelOne.autobiography,
-                    work_experience_job: this.resume_modelOne.work_experience_job,
-                    during_work: this.resume_modelOne.during_work,
-                    work_content: this.resume_modelOne.work_content,
-                    school: this.resume_modelOne.school,
-                    during_school: this.resume_modelOne.during_school,
-                    department: this.resume_modelOne.department,
-                    attend_school_status: this.resume_modelOne.attend_school_status,
-                    school_experience: this.resume_modelOne.school_experience,
-                    job_apply: this.resume_modelOne.job_apply,
-                    skill1: this.resume_modelOne.skill1,
-                    skill2: this.resume_modelOne.skill2,
-                    skill3: this.resume_modelOne.skill3,
-                    skill4: this.resume_modelOne.skill4,
-                    skill5: this.resume_modelOne.skill5,
-                    skill6: this.resume_modelOne.skill6,
-                    language1: this.resume_modelOne.language1,
-                    language2: this.resume_modelOne.language2,
-                    language3: this.resume_modelOne.language3,
+            html2canvas(document.querySelector('.work_space_a4'), {
+                onrendered: canvas => {
+                    this.resume_modelOne.img_path = canvas.toDataURL();
 
-                })
-            })
-                .then(resp => resp.json())
-                .then(data => {
-                    console.log(data.message)
-
-                    html2canvas(document.querySelector('.work_space_a4'), {
-                        onrendered: function (canvas) {
-                            // document.body.appendChild(canvas);
-                            return Canvas2Image.saveAsJPEG(canvas);
-                        }
-                    });
-
-                })
+                    fetch('./php/insertResume.php', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({
+                            id: this.resume_modelOne.id,
+                            studentId: this.studentId,
+                            model: this.resume_modelOne.model,
+                            price: this.resume_modelOne.price,
+                            unlock: this.resume_modelOne.unlock,
+                            fileName: this.resume_modelOne.fileName,
+                            avatar: this.resume_modelOne.avatar,
+                            img_path: this.resume_modelOne.img_path,
+                            name: this.resume_modelOne.name,
+                            address: this.resume_modelOne.address,
+                            phone: this.resume_modelOne.phone,
+                            email: this.resume_modelOne.email,
+                            porfolio: this.resume_modelOne.porfolio,
+                            autobiography: this.resume_modelOne.autobiography,
+                            work_experience_job: this.resume_modelOne.work_experience_job,
+                            during_work: this.resume_modelOne.during_work,
+                            work_content: this.resume_modelOne.work_content,
+                            school: this.resume_modelOne.school,
+                            during_school: this.resume_modelOne.during_school,
+                            department: this.resume_modelOne.department,
+                            attend_school_status: this.resume_modelOne.attend_school_status,
+                            school_experience: this.resume_modelOne.school_experience,
+                            job_apply: this.resume_modelOne.job_apply,
+                            skill1: this.resume_modelOne.skill1,
+                            skill2: this.resume_modelOne.skill2,
+                            skill3: this.resume_modelOne.skill3,
+                            skill4: this.resume_modelOne.skill4,
+                            skill5: this.resume_modelOne.skill5,
+                            skill6: this.resume_modelOne.skill6,
+                            language1: this.resume_modelOne.language1,
+                            language2: this.resume_modelOne.language2,
+                            language3: this.resume_modelOne.language3,
+        
+                        })
+                    })
+                        .then(resp => resp.json())
+                        .then(data => {
+                            console.log(data.message)
+        
+                            // this.resumeJPEG()
+        
+                        })
+                    
+                    
+                }
+            });
+            
+            
         },
         updateResume() {
-            // console.log(this.resume_modelOne.avatar)
-            fetch('./php/updateResume.php', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    id: this.resume_modelOne.id,
-                    studentId: this.studentId,
-                    model: this.resume_modelOne.model,
-                    price: this.resume_modelOne.price,
-                    unlock: this.resume_modelOne.unlock,
-                    fileName: this.resume_modelOne.fileName,
-                    avatar: this.resume_modelOne.avatar,
-                    public_status: this.resume_modelOne.public_status,
-                    category: this.resume_modelOne.category,
-                    // like_count: this.resume_modelOne.like_count,
-                    ban: this.resume_modelOne.ban,
-                    name: this.resume_modelOne.name,
-                    address: this.resume_modelOne.address,
-                    phone: this.resume_modelOne.phone,
-                    email: this.resume_modelOne.email,
-                    porfolio: this.resume_modelOne.porfolio,
-                    autobiography: this.resume_modelOne.autobiography,
-                    work_experience_job: this.resume_modelOne.work_experience_job,
-                    during_work: this.resume_modelOne.during_work,
-                    work_content: this.resume_modelOne.work_content,
-                    school: this.resume_modelOne.school,
-                    during_school: this.resume_modelOne.during_school,
-                    department: this.resume_modelOne.department,
-                    attend_school_status: this.resume_modelOne.attend_school_status,
-                    school_experience: this.resume_modelOne.school_experience,
-                    job_apply: this.resume_modelOne.job_apply,
-                    skill1: this.resume_modelOne.skill1,
-                    skill2: this.resume_modelOne.skill2,
-                    skill3: this.resume_modelOne.skill3,
-                    skill4: this.resume_modelOne.skill4,
-                    skill5: this.resume_modelOne.skill5,
-                    skill6: this.resume_modelOne.skill6,
-                    language1: this.resume_modelOne.language1,
-                    language2: this.resume_modelOne.language2,
-                    language3: this.resume_modelOne.language3,
+            html2canvas(document.querySelector('.work_space_a4'), {
+                onrendered: canvas => {
+                    this.resume_modelOne.img_path = canvas.toDataURL();
+                fetch('./php/updateResume.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        id: this.resume_modelOne.id,
+                        studentId: this.studentId,
+                        model: this.resume_modelOne.model,
+                        price: this.resume_modelOne.price,
+                        unlock: this.resume_modelOne.unlock,
+                        fileName: this.resume_modelOne.fileName,
+                        avatar: this.resume_modelOne.avatar,
+                        img_path: this.resume_modelOne.img_path,
+                        public_status: this.resume_modelOne.public_status,
+                        category: this.resume_modelOne.category,
+                        like_count: this.resume_modelOne.like_count,
+                        ban: this.resume_modelOne.ban,
+                        name: this.resume_modelOne.name,
+                        address: this.resume_modelOne.address,
+                        phone: this.resume_modelOne.phone,
+                        email: this.resume_modelOne.email,
+                        porfolio: this.resume_modelOne.porfolio,
+                        autobiography: this.resume_modelOne.autobiography,
+                        work_experience_job: this.resume_modelOne.work_experience_job,
+                        during_work: this.resume_modelOne.during_work,
+                        work_content: this.resume_modelOne.work_content,
+                        school: this.resume_modelOne.school,
+                        during_school: this.resume_modelOne.during_school,
+                        department: this.resume_modelOne.department,
+                        attend_school_status: this.resume_modelOne.attend_school_status,
+                        school_experience: this.resume_modelOne.school_experience,
+                        job_apply: this.resume_modelOne.job_apply,
+                        skill1: this.resume_modelOne.skill1,
+                        skill2: this.resume_modelOne.skill2,
+                        skill3: this.resume_modelOne.skill3,
+                        skill4: this.resume_modelOne.skill4,
+                        skill5: this.resume_modelOne.skill5,
+                        skill6: this.resume_modelOne.skill6,
+                        language1: this.resume_modelOne.language1,
+                        language2: this.resume_modelOne.language2,
+                        language3: this.resume_modelOne.language3,
 
+                    })
                 })
-            })
-                .then(resp => resp.json())
-                .then(data => {
-                    console.log(data.message)
-                })
+                    .then(resp => resp.json())
+                    .then(data => {
+                        console.log(data.message)
+                        // this.resumeJPEG()
+                    })
+                }
+            });
         },
         shareResume(category, public_status) {
             this.resume_modelOne.category = category
@@ -968,10 +1004,33 @@ Vue.component('my-content', {
             // category=${category}&public_status${public_status}`)
             // .then(resp => resp.json())
             // .then(data => console.log(data.message))
+        },
+        resumeBase64(){
+            // console.log('base64:' + this.resume_modelOne.img_path);
+            let imgPath = ''
+            html2canvas(document.querySelector('.work_space_a4'), {
+                onrendered: canvas => {
+                    console.log('TEST2');
+                    let resumebase64 = canvas.toDataURL();
+                    imgPath = resumebase64
+                    
+                    // console.log(imgPath)
+                    // 
+                    console.log('base64-1:' + this.resume_modelOne.img_path);
+
+                    this.resume_modelOne.img_path = imgPath
+                    console.log('base64-2:' + this.resume_modelOne.img_path);
+
+                    AJAX
+                    // console.log(this.$set(this.resume_modelOne.img_path,resumebase64))
+                    
+                }
+            });
+
+            console.log('TEST1');
+            // this.resume_modelOne.img_path = imgPath
+            // console.log("base64-3:" + this.resume_modelOne.img_path)
         }
-
-
-
     },
     mounted() {
 

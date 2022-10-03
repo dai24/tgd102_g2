@@ -156,13 +156,28 @@
             }
         }
 
+        .row>* {
+            width:auto;
+            .offset-7 {
+                margin-left: 147px;
+            }
+        }
+        
         .resume_sample_row {
             margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content:start;
+            @include m() {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
         
+            }
             .col {
                 padding: 0 12px;
                 margin-top: 30px;
-            
+                flex:none;
                 @include m() {
                     // margin: 15px auto 15px auto;
             
@@ -223,22 +238,6 @@
     content: "\f004";
     font-size: 30px;
     color: #D25541;
-}
-
-
-
-
-
-
-
-
-
-
-
-.fa-heart:before {
-    content: "\f004";
-    font-size: 30px;
-    color: D25541;
 }
 
 
