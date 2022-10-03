@@ -97,9 +97,9 @@ Vue.component('comjob-data',{
                                     <th class="salary"><h3>時薪</h3></th>
                                     <th class="wfh"><h3>是否遠端</h3></th>
                                     <th class="job"><h3>職缺人數</h3></th>
-                                    <th class="describe"><h3>職缺描述</h3></th>
-                                    <th class="require"><h3>職務需求</h3></th>
-                                    <th class="plus"><h3>加分條件</h3></th>
+                                    <th><h3></h3></th>
+                                    <th><h3></h3></th>
+                                    <th><h3></h3></th>
                                     <th><h3></h3></th>
                                 </tr>
                                 <tr class="itemDetail" v-if="opened_trs == comjobs.ID">
