@@ -34,7 +34,7 @@ Vue.component('my-resume_sample', {
         },
         clickCategory(category){
             this.current = category;
-            fetch(`./php/getResume_sample_All.php?category=${category}`)
+            fetch(`./php/backstage_getResume_sample_All.php?category=${category}`)
             .then(rsp => rsp.json())
             .then(updateResume_sample => {
                 this.resume_sample = updateResume_sample;
@@ -51,7 +51,7 @@ Vue.component('my-resume_sample', {
     },
     mounted() {
         
-        fetch('./php/getResume_sample_All.php')
+        fetch('./php/backstage_getResume_sample_All.php')
             .then(rsp => rsp.json())
             .then(resume_sample => {
                 this.resume_sample = resume_sample;
@@ -100,10 +100,6 @@ Vue.component('my-resume_sample', {
                 <ul class="pagination-ul">
                 <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
                 <li><a href="#" class="pageContent">1</a></li>
-                <li><a href="#" class="pageContent">2</a></li>
-                <li><a href="#" class="pageContent">3</a></li>
-                <li><a href="#" class="pageContent">4</a></li>
-                <li><a href="#" class="pageContent">5</a></li>
                 <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
                 </ul>
             </div>
