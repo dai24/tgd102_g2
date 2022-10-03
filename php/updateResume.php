@@ -2,28 +2,61 @@
 include('./PDO/Connection.php');
 
 $resume = json_decode(file_get_contents("php://input"), true);
-if(!isset($resume)){
+if(!$resume){
     $resume['id'] = htmlspecialchars($_GET['id']);
     $resume['studentId'] = htmlspecialchars($_GET['studentId']);
     $resume['public_status'] = isset($_GET['publicStatus'])?htmlspecialchars($_GET['publicStatus']):0;
-    $resume['like_count'] = isset($_GET['likeCount'])?htmlspecialchars($_GET['likeCount']):0;
+    
+    if($_GET['likeCount']){
+        $resume['like_count'] = $_GET['likeCount'];
+        $sql = "UPDATE RESUME SET LIKE_COUNT=? WHERE ID = ? AND STUDENT_ID = ?";
+        $statement = $pdo->prepare($sql);
+        $statement->bindValue(1,isset($resume['like_count'])?$resume['like_count']:0);
+        $statement->bindValue(2,$resume['id']);
+        $statement->bindValue(3,$resume['studentId']);
+    }
     $resume['category'] = isset($_GET['category'])?htmlspecialchars($_GET['category']):'';
 }
 
-// if($resume['id'] != null && $resume['studentId'] != null){
+if($resume['avatar']){
+    $image = $resume['avatar'];
+    $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';
+            if (strstr($image,",")){
+                $image = explode(',',$image);
+                $image = $image[1];
+            }
+            $sqlPath = "./";
+            $previousPath = "../";
+            $path = "images/resume/Avatar/".date("Ymd",time());
+            $previousPath = $previousPath.$path;
+            if (!is_dir($previousPath)){ //判斷目錄是否存在 不存在就建立
+                mkdir($previousPath,0777,true);
+            }
+            $sqlPath = $sqlPath.$path;
+            $resume['avatar'] = $sqlPath."/". $imageName;  //圖片名字
+
+            $r = file_put_contents($previousPath."/". $imageName, base64_decode($image));
+}
+
+if($_GET['likeCount']){
+    $resume['like_count'] = $_GET['likeCount'];
+    $sql = "UPDATE RESUME SET LIKE_COUNT=? WHERE ID = ? AND STUDENT_ID = ?";
+    $statement = $pdo->prepare($sql);
+    $statement->bindValue(1,isset($resume['like_count'])?$resume['like_count']:0);
+    $statement->bindValue(2,$resume['id']);
+    $statement->bindValue(3,$resume['studentId']);
+}else{
     $sql = "UPDATE RESUME SET FILE_NAME=?,AVATAR=?,PUBLIC_STATUS=?,
     CATEGORY=?,LIKE_COUNT=?,BAN=?,NAME=?,ADDRESS=?,PHONE=?,EMAIL=?,PORFOLIO=?,AUTOBIOGRAPHY=?,
     WORK_EXPERIENCE_JOB=?,DURING_WORK=?,WORK_CONTENT=?,SCHOOL=?,DURING_SCHOOL=?,DEPARTMENT=?,ATTEND_SCHOOL_STATUS=?,
     SCHOOL_EXPERIENCE=?,JOB_APPLY=?,SKILL1=?,SKILL2=?,SKILL3=?,SKILL4=?,SKILL5=?,SKILL6=?,LANGUAGE1=?,LANGUAGE2=?,
     LANGUAGE3=?
     WHERE ID = ? AND STUDENT_ID = ?";
-// }
-
 
     $statement = $pdo->prepare($sql);
  
     $statement->bindValue(1,isset($resume['fileName'])?$resume['fileName']:'');
-    $statement->bindValue(2,isset($resume['avatar'])?$resume['avatar']:'');
+    $statement->bindValue(2,$resume['avatar']);
     $statement->bindValue(3,isset($resume['public_status'])?$resume['public_status']:0);
     $statement->bindValue(4,isset($resume['category'])?$resume['category']:'');
     $statement->bindValue(5,isset($resume['like_count'])?$resume['like_count']:0);
@@ -54,6 +87,8 @@ if(!isset($resume)){
     $statement->bindValue(30,isset($resume['language3'])?$resume['language3']:'');
     $statement->bindValue(31,$resume['id']);
     $statement->bindValue(32,$resume['studentId']);
+}
+    
     
 
 

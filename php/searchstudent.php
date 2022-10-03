@@ -6,7 +6,7 @@
     //建立SQL語法
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
 
-    $content = 5; //設定每頁有多少筆資料
+    $content = 10; //設定每頁有多少筆資料
     $omitData = 0; //預設 省略0筆
     
     $page = isset($_GET["page"]) ? $_GET["page"] : 1 ; //前端傳來要第幾頁的資料

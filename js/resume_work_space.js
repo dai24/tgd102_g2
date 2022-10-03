@@ -169,28 +169,28 @@ Vue.component('win-save', {
 Vue.component('win-share', {
     data() {
         return {
-            categorys:['請選擇履歷種類','工程','管理','媒體','銷售','金融','行政','科技','服務'],
-            category:'請選擇履歷種類',
+            categorys: ['請選擇履歷種類', '工程', '管理', '媒體', '銷售', '金融', '行政', '科技', '服務'],
+            category: '請選擇履歷種類',
             public_status: 0,
-            
+
         }
     },
     methods: {
         submitData() {
-            
-            if(this.category == '請選擇履歷種類'){
+
+            if (this.category == '請選擇履歷種類') {
                 alert('請選擇履歷分類')
                 return;
-            }else{
-                this.$emit('category',this.category,this.public_status);
+            } else {
+                this.$emit('category', this.category, this.public_status);
             }
-            this.$emit('sharewin', false);    
+            this.$emit('sharewin', false);
         },
-        close(){
-            this.$emit('sharewin', false); 
+        close() {
+            this.$emit('sharewin', false);
         },
-        publicStatus(e){
-            if(e.target.checked){
+        publicStatus(e) {
+            if (e.target.checked) {
                 this.public_status = 1
             }
         },
@@ -234,16 +234,42 @@ Vue.component('win-share', {
 
 //下載pdf彈窗
 Vue.component('win-pdf', {
+    props: ['pdfName'],
     data() {
         return {
-            // closewin: false,
+
         }
     },
     methods: {
         submitData() {
             this.$emit('pdfwin', false);
-            console.log('winpdf')
         },
+        pdfDowload() {
+            let page = document.querySelector('.work_space_a4');
+            html2PDF(page, {
+                jsPDF: {
+                    unit: "pt",
+                    format: 'a4',
+                },
+                html2canvas: {
+                    scale: 2,
+                    width: 470, // canvas 寬度, 視情況調整
+                    height: 856, // canvas 單頁高度, 請自行調整
+                    useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
+                },
+                imageType: 'image/jpeg',
+                imageQuality: 1,
+                margin: {
+                    top: -280,
+                    right: 0,
+                    bottom: 0,
+                    left: -20,
+                },
+                output: this.pdfName
+
+            });
+            this.submitData()
+        }
 
     },
     template:
@@ -265,10 +291,10 @@ Vue.component('win-pdf', {
                         <i class="fa-solid fa-file-circle-plus"></i>
                     </div>
                     <div class="deleteTitleMain">
-                        <h3>新鮮人履歷.pdf</h3>
+                        <h3>{{pdfName}}</h3>
                     </div>
                 </div>
-                <div class="btna3 check_btn pdf_dowload">下載 PDF</div>
+                <div class="btna3 check_btn pdf_dowload" @click="pdfDowload">下載 PDF</div>
             </div>
         </div>
     </div>
@@ -328,14 +354,14 @@ Vue.component('win-delete', {
 
 //編輯履歷
 Vue.component('model-A01', {
-    props: ['modelpopup','resumepopup'],
+    props: ['modelpopup', 'resumepopup'],
     data() {
         return {
             image: '',
             fileInput: false,
             Avatar: false,
             summerPopup: false,
-            summerData:'',
+            summerData: '',
             type: '',
             resume_modelAll: [],
             resume_modelOne: {
@@ -345,11 +371,12 @@ Vue.component('model-A01', {
                 price: 0,
                 unlock: 0,
                 fileName: '',
+                avatar:'',
                 public_status: 0,
                 category: '',
                 like_count: 0,
                 ban: 0,
-                avatar:'',
+                avatar: '',
                 img_path: '',
                 name: '',
                 address: '',
@@ -380,11 +407,11 @@ Vue.component('model-A01', {
         }
     },
     methods: {
-        setFileName(e){
+        setFileName(e) {
             this.resume_modelOne.fileName = e.target.value
             console.log(e.target.value)
         },
-        openSummer(type){
+        openSummer(type) {
             this.summerPopup = true
             this.type = type
             console.log('get:' + type)
@@ -429,68 +456,68 @@ Vue.component('model-A01', {
             // }else if(type == 'language2'){
             //     $($("#summernote1").summernote("code",this.resume_modelOne.language2));
             // }
-            
+
         },
-        getSummer() {           
-            data =  $($("#summernote1").summernote("code")).text();
+        getSummer() {
+            data = $($("#summernote1").summernote("code")).text();
             // this.data = $("#summernote1").summernote("code")
-            console.log(data+ ',' + this.type)
-            if(this.type == 'name'){
-                this.resume_modelOne.name = data 
+            console.log(data + ',' + this.type)
+            if (this.type == 'name') {
+                this.resume_modelOne.name = data
                 console.log(data)
-            }else if(this.type == 'job_apply'){
+            } else if (this.type == 'job_apply') {
                 this.resume_modelOne.job_apply = data
                 console.log(data)
-            }else if(this.type == 'address'){
+            } else if (this.type == 'address') {
                 this.resume_modelOne.address = data
                 console.log(data)
-            }else if(this.type == 'phone'){
+            } else if (this.type == 'phone') {
                 this.resume_modelOne.phone = data
-            }else if(this.type == 'email'){
+            } else if (this.type == 'email') {
                 this.resume_modelOne.email = data
-            }else if(this.type == 'porfolio'){
+            } else if (this.type == 'porfolio') {
                 this.resume_modelOne.porfolio = data
-            }else if(this.type == 'school'){
+            } else if (this.type == 'school') {
                 this.resume_modelOne.school = data
-            }else if(this.type == 'during_school'){
+            } else if (this.type == 'during_school') {
                 this.resume_modelOne.during_school = data
-            }else if(this.type == 'department'){
+            } else if (this.type == 'department') {
                 this.resume_modelOne.department = data
-            }else if(this.type == 'attend_school_status'){
+            } else if (this.type == 'attend_school_status') {
                 this.resume_modelOne.attend_school_status = data
-            }else if(this.type == 'autobiography'){
+            } else if (this.type == 'autobiography') {
                 this.resume_modelOne.autobiography = data
-                console.log('autobiography:' + this.type )
-            }else if(this.type == 'school_experience'){
+                console.log('autobiography:' + this.type)
+            } else if (this.type == 'school_experience') {
                 this.resume_modelOne.school_experience = data
-            }else if(this.type == 'work_experience_job'){
+            } else if (this.type == 'work_experience_job') {
                 this.resume_modelOne.work_experience_job = data
-            }else if(this.type == 'during_work'){
+            } else if (this.type == 'during_work') {
                 this.resume_modelOne.during_work = data
-            }else if(this.type == 'work_content'){
+            } else if (this.type == 'work_content') {
                 this.resume_modelOne.work_content = data
-            }else if(this.type == 'skill1'){
+            } else if (this.type == 'skill1') {
                 this.resume_modelOne.skill1 = data
-            }else if(this.type == 'skill2'){
+            } else if (this.type == 'skill2') {
                 this.resume_modelOne.skill2 = data
-            }else if(this.type == 'skill3'){
+            } else if (this.type == 'skill3') {
                 this.resume_modelOne.skill3 = data
-            }else if(this.type == 'skill4'){
+            } else if (this.type == 'skill4') {
                 this.resume_modelOne.skill4 = data
-            }else if(this.type == 'skill5'){
+            } else if (this.type == 'skill5') {
                 this.resume_modelOne.skill5 = data
-            }else if(this.type == 'skill6'){
+            } else if (this.type == 'skill6') {
                 this.resume_modelOne.skill6 = data
-            }else if(this.type == 'language1'){
+            } else if (this.type == 'language1') {
                 this.resume_modelOne.language1 = data
-            }else if(this.type == 'language2'){
+            } else if (this.type == 'language2') {
                 this.resume_modelOne.language2 = data
-            }else if(this.type == 'language3'){
+            } else if (this.type == 'language3') {
                 this.resume_modelOne.language3 = data
             }
- 
+
         },
-        submitData(id, student_id, model, price, unlock, fileName, public_status, category, like_count, ban,img_path, name, 
+        submitData(id, student_id, model, price, unlock, fileName, avatar, public_status, category, like_count, ban, img_path, name,
             address, phone, email, porfolio, autobiography,
             work_experience_job, during_work, work_content, school, during_school, department, attend_school_status,
             school_experience, job_apply, skill1, skill2, skill3, skill4, language1, language2) {
@@ -502,6 +529,8 @@ Vue.component('model-A01', {
                     this.resume_modelOne.price = price,
                     this.resume_modelOne.unlock = unlock,
                     this.resume_modelOne.fileName = fileName,
+                    this.resume_modelOne.avatar = avatar,
+                    console.log(this.resume_modelOne.avatar)
                     this.resume_modelOne.public_status = public_status,
                     this.resume_modelOne.like_count = like_count,
                     this.resume_modelOne.category = category,
@@ -538,30 +567,35 @@ Vue.component('model-A01', {
 
         },
         fileChange(e) {
+           
             let file = e.target.files[0]
             let readFile = new FileReader()
 
             readFile.readAsDataURL(file)
             readFile.addEventListener('load', () => {
                 this.resume_modelOne.avatar = readFile.result
-                console.log()
+                // console.log(readFile.result)
                 this.Avatar = true
 
             })
 
         },
-        
+
 
     },
     mounted() {
         this.studentId = sessionStorage.getItem('StudentId')
         console.log(this.studentId)
         fetch(`./php/getResume_sample_All.php?model=1&studentId=${this.studentId}`)
-        .then(rsp => rsp.json())
-        .then(resume_model => {
-            this.resume_modelAll = resume_model;
-            
-        })
+            .then(rsp => rsp.json())
+            .then(resume_model => {
+                this.resume_modelAll = resume_model;
+                // for(index in this.resume_modelAll){
+                //     console.log(index + " : " + this.resume_modelAll[index].AVATAR)
+                // }
+                
+                
+            })
 
         let summer = $('#summernote1').summernote({
             toolbar:
@@ -594,7 +628,7 @@ Vue.component('model-A01', {
         <div class="resume_model-border" v-show="modelpopup">
             <button class="xmark_btn" @click="submitData()"><i class="fa-solid fa-xmark"></i></button>            
             <div :class="{'resume_model':true,'resume_pay':model.UNLOCK_STATUS == 0}" v-for="model in resume_modelAll"  
-                @click="submitData(model.ID,model.STUDENT_ID,model.MODEL,model.PRICE,model.UNLOCK_STATUS,model.FILE_NAME,
+                @click="submitData(model.ID,model.STUDENT_ID,model.MODEL,model.PRICE,model.UNLOCK_STATUS,model.FILE_NAME,model.AVATAR,
                     model.PUBLIC_STATUS,model.CATEGORY,model.LIKE_COUNT,model.BAN,model.IMG_PATH,
                 model.NAME,model.ADDRESS,model.PHONE,model.EMAIL,model.PORFOLIO,model.AUTOBIOGRAPHY,model.WORK_EXPERIENCE_JOB,model.DURING_WORK,
                 model.WORK_CONTENT,model.SCHOOL,model.DURING_SCHOOL,model.DEPARTMENT,model.ATTEND_SCHOOL_STATUS,model.SCHOOL_EXPERIENCE,
@@ -631,7 +665,7 @@ Vue.component('model-A01', {
                         <input v-show="fileInput" id="upload" name="upload" type="file" accept="image/*" @change="fileChange">
                         <i class="fa-solid fa-file-circle-plus"></i>
                     </label>
-                    <label for="upload" class="Avatar"><img v-if="Avatar" :src="resume_modelOne.avatar"></label>
+                    <label for="upload" class="Avatar"><img v-if="Avatar = resume_modelOne.avatar?true:false" :src="resume_modelOne.avatar"></label>
                 </div>
     
                 <div class="work_space_a4_3">
@@ -712,13 +746,13 @@ Vue.component('my-content', {
             unlock: 0,
             price: 0,
             studentId: 0,
-            ResumeTotal:0,
-           
+            ResumeTotal: 0,
+            pdfFileName: '',
         }
     },
     methods: {
         // 依哪個click功能就打開彈窗
-        open(open, type,...args) {
+        open(open, type, ...args) {
             // console.log(open,type)
             // 連點模板可以開啟關閉，換替 toggle
             if (type == 'model') {
@@ -728,42 +762,46 @@ Vue.component('my-content', {
                 } else {
                     // 第1次點擊打開模板
                     this.modelBorder = open;
-                   
+
                 }
 
             } else if (type == 'save') {
                 fetch(`./php/getResume_sample_All.php?model=2&studentId=${this.studentId}`)
-                .then(rsp => rsp.json())
-                .then(data => {
-                    this.ResumeTotal = 0
-                    for(total in data){
-                        // console.log('id:' + data[total].ID)
-                        // console.log('studentId:' + data[total].STUDENT_ID)
-                        this.ResumeTotal++                        
-                    }
-                    // console.log('total:' + this.ResumeTotal)
-                    // console.log('id:' + this.resume_modelOne.id)
-                    // console.log('studentid:' + this.resume_modelOne.student_id)
-                    // console.log('sessionstudentid:' + this.studentId)
-                    // this.ResumeTotal = data
-                    // console.log('圖檔:' + this.resume_modelOne.avatar)
-                    if(this.ResumeTotal == 5){
-                        alert('製作履歷數量已達上限5個')
-                    }else{
-                        
-                        
-                        if( this.resume_modelOne.student_id == null){
-                            this.saveResume()
-                        }else{
-                            this.updateResume()
+                    .then(rsp => rsp.json())
+                    .then(data => {
+                        this.ResumeTotal = 0
+                        for (total in data) {
+                            // console.log('id:' + data[total].ID)
+                            // console.log('studentId:' + data[total].STUDENT_ID)
+                            this.ResumeTotal++
                         }
-                        this.savePopup = open;
-                    }
-                })
+                        // console.log('total:' + this.ResumeTotal)
+                        // console.log('id:' + this.resume_modelOne.id)
+                        // console.log('studentid:' + this.resume_modelOne.student_id)
+                        // console.log('sessionstudentid:' + this.studentId)
+                        // this.ResumeTotal = data
+                        // console.log('圖檔:' + this.resume_modelOne.avatar)
+                        
+
+
+                            if (this.resume_modelOne.student_id == null) {
+                                if (this.ResumeTotal == 5) {
+                                    alert('製作履歷數量已達上限5個')
+                                } else {
+                                    this.saveResume()
+                                }   
+                            } else {
+                                this.updateResume()
+                            }
+                            this.savePopup = open;
+                        
+                    })
 
             } else if (type == 'share') {
                 this.sharePopup = open;
             } else if (type == 'pdf') {
+                const date = new Date()
+                this.pdfFileName = `resume-${date.getTime()}.pdf`
                 this.pdfPopup = open;
             } else if (type == 'delete') {
                 this.deletePopup = open;
@@ -772,7 +810,7 @@ Vue.component('my-content', {
                 this.payPopup = open;
             } else if (type == 'payCheck') {
                 this.payplan = open;
-            } 
+            }
 
         },
         // 關閉彈窗
@@ -795,7 +833,7 @@ Vue.component('my-content', {
             fetch(`./php/deleteResume.php?id=${this.resume_modelOne.id}&studentId=${this.studentId}`)
                 .then(rsp => rsp.json())
                 .then(data => {
-                   console.log(data.message)
+                    console.log(data.message)
                 })
         },
         selectedModel(open, resume_modelOne) {
@@ -820,8 +858,8 @@ Vue.component('my-content', {
             // this.modelBorder = false;
 
         },
-        saveResume(){
-            fetch('./php/insertResume.php',{
+        saveResume() {
+            fetch('./php/insertResume.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -857,16 +895,25 @@ Vue.component('my-content', {
                     language1: this.resume_modelOne.language1,
                     language2: this.resume_modelOne.language2,
                     language3: this.resume_modelOne.language3,
-    
+
                 })
             })
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data.message)
-            })
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data.message)
+
+                    html2canvas(document.querySelector('.work_space_a4'), {
+                        onrendered: function (canvas) {
+                            // document.body.appendChild(canvas);
+                            return Canvas2Image.saveAsJPEG(canvas);
+                        }
+                    });
+
+                })
         },
-        updateResume(){
-            fetch('./php/updateResume.php',{
+        updateResume() {
+            // console.log(this.resume_modelOne.avatar)
+            fetch('./php/updateResume.php', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify({
@@ -879,7 +926,7 @@ Vue.component('my-content', {
                     avatar: this.resume_modelOne.avatar,
                     public_status: this.resume_modelOne.public_status,
                     category: this.resume_modelOne.category,
-                    like_count: this.resume_modelOne.like_count,
+                    // like_count: this.resume_modelOne.like_count,
                     ban: this.resume_modelOne.ban,
                     name: this.resume_modelOne.name,
                     address: this.resume_modelOne.address,
@@ -905,15 +952,15 @@ Vue.component('my-content', {
                     language1: this.resume_modelOne.language1,
                     language2: this.resume_modelOne.language2,
                     language3: this.resume_modelOne.language3,
-    
+
                 })
             })
-            .then(resp => resp.json())
-            .then(data => {
-                console.log(data.message)
-            })
+                .then(resp => resp.json())
+                .then(data => {
+                    console.log(data.message)
+                })
         },
-        shareResume(category,public_status){
+        shareResume(category, public_status) {
             this.resume_modelOne.category = category
             this.resume_modelOne.public_status = public_status
             this.updateResume()
@@ -922,12 +969,12 @@ Vue.component('my-content', {
             // .then(resp => resp.json())
             // .then(data => console.log(data.message))
         }
-        
+
 
 
     },
     mounted() {
-        
+
         this.studentId = sessionStorage.getItem('StudentId')
 
     },
@@ -940,7 +987,7 @@ Vue.component('my-content', {
         
         <win-save v-if="savePopup" @savewin="close"></win-save>
         <win-share v-if="sharePopup" @sharewin="close" @category="shareResume"></win-share>
-        <win-pdf v-if="pdfPopup" @pdfwin="close"></win-pdf>
+        <win-pdf v-if="pdfPopup" @pdfwin="close" :pdfName="pdfFileName"></win-pdf>
         <win-pay v-if="payPopup" @paywin="close" @payCheckwin="open" :fileName="fileName" :price="price"></win-pay>
         <win-payplan v-if="payplan" @payplanwin="close"></win-payplan>
         <win-delete v-if="deletePopup" @deletewin="close" @deletecheck="deleteResume"></win-delete>
