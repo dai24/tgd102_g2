@@ -2,7 +2,7 @@
 let save = document.querySelector(".save");
 
 save.addEventListener("click", () => {
-    fetch(`php/updateEditUser.php`, {
+    fetch(`./php/updateEditUser.php`, {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({

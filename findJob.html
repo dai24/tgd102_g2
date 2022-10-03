@@ -123,9 +123,9 @@
         
         <div class="pagination-div">
             <ul class="pagination-ul">
-                <li><a href=""><i class="fa-solid fa-chevron-left"></i></a></li>
-                <li v-for="(page,i) in pageTotal"><a href="#" class="pageContent" @click="pageid()">{{i+1}}</a></li>
-                <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#" @click="left()"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li v-for="(page,i) in pageTotal"><a href="#" class="pageContent" @click="pageid(page)">{{page}}</a></li>
+                <li><a href="#" @click="right()"><i class="fa-solid fa-chevron-right"></i></a></li>
             </ul>
         </div>
     </div>
