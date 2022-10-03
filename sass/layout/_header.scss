@@ -111,6 +111,13 @@ header {
     cursor: pointer;
 
     color: #313131;
+    @include m(){
+        // display: none;
+        top: 21px;
+        left: 310px;
+
+    }
+
     img{
 
         @include m(){
@@ -120,8 +127,6 @@ header {
         }
         
 
-        display: none;
-        
     }
 
 }

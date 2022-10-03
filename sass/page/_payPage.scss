@@ -94,6 +94,10 @@
         height: 54vw;
         padding: 20px;
         margin: 0 auto;
+        @include m(){
+            max-width: 314px;
+    
+        }
     }
     
     #ccsingle {
@@ -318,6 +322,7 @@
     
     .container {
         perspective: 1000px;
+
     }
     
     .creditcard {
