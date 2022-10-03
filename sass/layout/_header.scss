@@ -60,7 +60,7 @@ header {
     @include m(){
         position: absolute;
         top: 23px;
-        left: 280px;
+        left: 266px;
         font-size: 20px;
 
     }
@@ -79,10 +79,10 @@ header {
     cursor: pointer;
     // display: none;
     @include m(){
-        top: 24px;
-        left: 215px;
-        font-size: 20px;
-        width: 100%;
+        top: 27px;
+        left: 206px;
+        font-size: 16px;
+        width: 45px;
 
     }
 
@@ -108,10 +108,24 @@ header {
     top: 40px;
     right: 110px;
     font-size: 25px;
+    cursor: pointer;
 
     color: #313131;
     @include m(){
-        display: none;
+        // display: none;
+        top: 21px;
+        left: 310px;
+
+    }
+
+    img{
+
+        @include m(){
+            width: 20px;
+            
+    
+        }
+        
 
     }
 

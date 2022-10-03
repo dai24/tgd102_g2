@@ -95,11 +95,11 @@ Vue.component('student-list',{
                     <li class="coin">
                         <h3>點數：
                             <button @click="openAddCoin"><span>{{studentTitlec.COIN}}</span></button>
-                            <a href="#">歷史加值紀錄</a>
+                            
                         </h3>
                     </li>
                     <div class="btna11">
-                        <a href="./userinfo_edit.html"><h4>編輯個人檔案</h4></a>
+                        <a href="./userinfo_edit.html">編輯個人檔案</a>
                     </div>
                 </ul>
             </div>
@@ -108,7 +108,7 @@ Vue.component('student-list',{
                 <button><a href="#"><h4>已儲存職缺</h4><h1>100</h1></a></button>
                 <button><a href="#"><h4>已應徵職缺<h1>30</h1></h4></a></button>
                 <button><a href="./student_interviewinvite.html"><h4>面試邀約</h4><h1>10</h1></a></button>
-                <button><a href="#"><h4>近期履歷<br>被查閱數</h4><h1>10</h1></a></button>
+                <button><a href="#"><h4>履歷查閱數</h4><h1>10</h1></a></button>
             </div>
         </div>
     </div>
