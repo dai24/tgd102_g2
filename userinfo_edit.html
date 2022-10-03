@@ -135,7 +135,7 @@
         let password = document.getElementById('password')
         let passwordedit = document.getElementById('passwordedit')
        
-        fetch(`../php/editStudent.php?stuId=${sessionStorage.getItem('StudentId')}`)
+        fetch(`./php/editStudent.php?stuId=${sessionStorage.getItem('StudentId')}`)
         .then(rsp => rsp.json())
         .then(userArr => {
             stuMember = userArr
