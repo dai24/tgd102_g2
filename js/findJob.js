@@ -155,12 +155,13 @@ new Vue({
         com3:[],
         current_sort:'',
         conmLength:null,
-        comPage:2,
+        comPage:4,
         minPage:1,
         showPage:1,
+        pageTotal:0,
     },
     mounted() {
-        fetch("../php/findJob.php",{
+        fetch("./php/findJob.php",{
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
         })
@@ -168,7 +169,8 @@ new Vue({
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.com2 = userArr
-            this.conmLength = this.com2.length
+            this.conmLength = this.com2.length //資料長度
+            this.pageTotal = Math.ceil(this.conmLength/this.comPage) //page 按鈕總數量公式 總資料數量 / 每一頁要顯示的資料
             this.com2.forEach(element => {
                 if(element.TOTAL_EMPLOYEE <= 30){
                     element.TOTAL_EMPLOYEE = '小'
@@ -188,23 +190,10 @@ new Vue({
     computed: { 
         new_array(i){
             const vw = this;
+            this.com2.slice((vw.showPage-1)*4, (vw.showPage-1)*4+4);
+            // this.com2.slice((this.showPage-1)*2, (this.showPage-1)*2+2);
             if (vw.checkedSort1.length === 0 && vw.checkedSort2.length === 0 && vw.checkedSort3.length === 0 && vw.checkedSort4.length === 0 && vw.checkedSort5.length === 0) {
-                this.pageTotal = Math.ceil(this.conmLength/this.comPage) //page 按鈕總數量公式 總資料數量 / 每一頁要顯示的資料
-                // if (this.minPage > this.pageTotal) {
-                //     this.minPage = this.pageTotal;
-                // }
-                // this.minData  = (this.minPage * this.comPage) -  this.comPage + 1;
-                // this.maxData = (this.minPage * this.comPage);
-                // this.com2.forEach(function(item,index){
-                //     // console.log(i);
-                //     i.num = index + 1;
-                //     console.log(i.num);
-                //     if ( i.num >= i.minData && i.num <= i.maxData) {
-                //         i.com3.push(item);
-                //     }
-                // })
-                
-                return this.com2;
+                return this.com2.slice((vw.showPage-1)*4, (vw.showPage-1)*4+4);
             } else {
                 let resultArr = [...this.com2];
 
@@ -241,6 +230,21 @@ new Vue({
         },
     },
     methods: {
+        left(){
+            this.showPage--
+            if(this.showPage<=0){
+                this.showPage= 1
+            }
+        },
+        right(){
+            this.showPage++
+            if(this.showPage >= this.pageTotal){
+                this.showPage=  this.pageTotal
+            }
+        },
+        pageid(i){
+            this.showPage = i
+        },
         comImg(comId){
             // console.log(comId);
             sessionStorage.setItem('comId',comId)
@@ -250,7 +254,7 @@ new Vue({
             // console.log(this.current_sort);
         },
         searchJob(){
-            fetch(`../php/searchJobFront.php?searchJob1=${this.searchJob1}`)
+            fetch(`./php/searchJobFront.php?searchJob1=${this.searchJob1}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
                 this.com2 = userArr
@@ -351,8 +355,8 @@ new Vue({
             })
             for(let i = 0; i < this.jobID1.length; i++){
                 console.log(this.jobID1[i]);
-                fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
-                fetch(`../php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
+                fetch(`./php/jobMain.php?home=${this.jobID1[i]}`)
+                fetch(`./php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
             }
             location='./jobMain.html'
         },

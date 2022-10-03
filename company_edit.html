@@ -193,7 +193,7 @@
         let phone = document.getElementById('phone')
         let perPhone = document.getElementById('perPhone')
         let coin = document.getElementById('coin')
-        fetch(`../php/editCompany.php?comId=${sessionStorage.getItem('CompanyId')}`)
+        fetch(`./php/editCompany.php?comId=${sessionStorage.getItem('CompanyId')}`)
         .then(rsp => rsp.json())
         .then(userArr => {
             comMember = userArr

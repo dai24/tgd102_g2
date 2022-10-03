@@ -7,7 +7,7 @@ Vue.component('my-list-com',{
         }
     },
     mounted() {
-        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
+        fetch(`./php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.companyTitle= userArr
@@ -53,7 +53,7 @@ Vue.component('my-list-com2',{
         }
     },
     mounted() {
-        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
+        fetch(`./php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.companyMain= userArr
@@ -102,7 +102,7 @@ Vue.component('my-list-com3',{
         }
     },
     mounted() {
-        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
+        fetch(`./php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.companyOth= userArr
@@ -160,7 +160,7 @@ Vue.component('my-list-com3',{
                     })
                     for(let i = 0; i < this.jobID1.length; i++){
                         console.log(this.jobID1[i]);
-                        fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
+                        fetch(`./php/jobMain.php?home=${this.jobID1[i]}`)
                         
                         //jobId : this.jobID1[i]
                     }

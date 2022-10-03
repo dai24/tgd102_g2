@@ -5,7 +5,7 @@ Vue.component('my-list1',{
         }
     },
     mounted() {
-        fetch(`../php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobTitle = userArr
@@ -33,7 +33,7 @@ Vue.component('my-list2',{
         }
     },
     mounted() {
-        fetch(`../php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobMain = userArr
@@ -116,7 +116,7 @@ Vue.component('my-list3',{
         }
     },
     mounted() {
-        fetch(`../php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobCompany = userArr
@@ -168,7 +168,7 @@ Vue.component('my-list4',{
         }
     },
     mounted() {
-        fetch(`../php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
+        fetch(`./php/findCompany.php?comid=${sessionStorage.getItem('findJobcomId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobOth= userArr
@@ -226,7 +226,7 @@ Vue.component('my-list4',{
             })
             for(let i = 0; i < this.jobID1.length; i++){
                 console.log(this.jobID1[i]);
-                fetch(`../php/jobMain.php?home=${this.jobID1[i]}`)
+                fetch(`./php/jobMain.php?home=${this.jobID1[i]}`)
                 
                 //jobId : this.jobID1[i]
             }
@@ -250,7 +250,7 @@ new Vue({
         resumeSrr:''
     },
     mounted() {
-        fetch(`../php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobApply = userArr
@@ -266,7 +266,7 @@ new Vue({
                 this.isShow =!this.isShow
             }
             
-            fetch(`../php/applyFor.php?StudentTd=${Number(sessionStorage.getItem('StudentId'))}`) //從後端JS拿到資料
+            fetch(`./php/applyFor.php?StudentTd=${Number(sessionStorage.getItem('StudentId'))}`) //從後端JS拿到資料
             .then(rsp => rsp.json())
             .then(userArr => {            
                 this.resumeBrow= userArr
@@ -289,14 +289,6 @@ new Vue({
             console.log(re);
             this.isShowR =!this.isShowR
             this.resumeSrr += re
-            // fetch(`../php/applyFor.php?StudentTd=${sessionStorage.getItem('StudentTd')}`) //從後端JS拿到資料
-            // .then(rsp => rsp.json())
-            // .then(userArr => {            
-            //     this.resumeBrow= userArr
-            //     // this.resumePic = this.resumeBrow[0].PICTURE.split('|')
-            //     console.log(this.resumeBrow[0].PICTURE.split('|'));
-                
-            // })
         },
         isShowResClose(){
             this.isShowR =!this.isShowR

@@ -109,7 +109,7 @@ surePayCoin.addEventListener('click', function(){
     if(name.value=='' ||cardnumber.value==''||expirationdate.value==''||securitycode.value==''){
         alert('請填寫完整資訊')
     }else{
-        fetch(`php/payCoin.php`, {
+        fetch(`./php/payCoin.php`, {
             method: 'POST',
             headers: {'Content-Type' : 'application/json'},
             body: JSON.stringify({
