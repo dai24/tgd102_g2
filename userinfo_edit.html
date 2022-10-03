@@ -41,10 +41,11 @@
                     <td class="detail"><h3 class="para"  id="birthday"></h3><textarea type="text"  class="area"></textarea></td>
                     <td class="editIcon"></td>
                 </tr>
+                
 
                 <tr class="item">
                     <td class="id"><h3>密碼</h3></td>
-                    <td class="detail"><h3 class="para" id="password"></h3><textarea type="text"  class="area"></textarea></td>
+                    <td class="detail"><h3 class="para" id="password"></h3><textarea type="text" class="area" id="passwordedit"></textarea></td>
                     <td class="editIcon"><i class="fa-solid fa-pen"></i></td>
                 </tr>
 
@@ -86,6 +87,10 @@
                         paraTextFirst.style.display = 'none'
                         areaEdit.style.display = 'block'
                         areaEdit.value = paraTextFirst.innerText
+                        
+                        
+                        
+                        
                         for(let i = 0; i < codePath.length; i++){
                             let para = document.getElementsByClassName('para');
                             codePath[i].addEventListener('input', function(){
@@ -128,7 +133,7 @@
         let gender = document.getElementById('gender')
         let birthday = document.getElementById('birthday')
         let password = document.getElementById('password')
-        
+        let passwordedit = document.getElementById('passwordedit')
        
         fetch(`../php/editStudent.php?stuId=${sessionStorage.getItem('StudentId')}`)
         .then(rsp => rsp.json())
@@ -142,13 +147,10 @@
             birthday.innerText = stuMember[0].BIRTHDAY
             password.innerText = stuMember[0].PASSWORD
 
-            if(password.innerText = stuMember[0].PASSWORD){
-                password.innerText = "********"
-            }
             
         })
        
-
+        
 
 
     </script>
