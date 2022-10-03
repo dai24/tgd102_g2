@@ -12,10 +12,10 @@ Vue.component('teacher-data',{
     },
     mounted() {
         //顯示履歷導師的資料
-        fetch(`./php/resumeReview.php`)
+        fetch(`./php/resumeReview_all.php`)
         .then(rsp => rsp.json())
         .then(userArr => {    
-            this.teacherData = userArr
+            this.teacherData = userArr.teacherList
             // console.log(this.teacherData) //確認有回傳資料
         })
     },
