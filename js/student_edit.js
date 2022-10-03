@@ -6,7 +6,7 @@ save.addEventListener("click", () => {
         method: 'POST',
         headers: {'Content-Type' : 'application/json'},
         body: JSON.stringify({
-            stuid : sessionStorage.getItem('StudentId'),
+            stuid : Number(sessionStorage.getItem('StudentId')),
             PHONE : phone.innerText,
             EMAIL : email.innerText,
             PASSWORD : password.innerText,

@@ -8,7 +8,7 @@
 
 
     $sql = "UPDATE STUDENT AS S
-            SET  S.PHONE = :phone , S.EMAIL = :EMAIL, S.PASSWORD = :PASSWORD , S.ADDRESS = :ADDRESS
+            SET  S.PHONE = :PHONE , S.EMAIL = :EMAIL, S.PASSWORD = :PASW , S.ADDRESS = :ADDR
             WHERE S.ID = :stuid"
             ;    
 
@@ -18,8 +18,8 @@
     $stmt -> bindValue(":stuid" , $member['stuid']);
     $stmt -> bindValue(":PHONE" , $member['PHONE']);
     $stmt -> bindValue(":EMAIL" , $member['EMAIL']);
-    $stmt -> bindValue(":PASSWORD" , $member['PASSWORD']);
-    $stmt -> bindValue(":ADDRESS" , $member['ADDRESS']);
+    $stmt -> bindValue(":PASW" , $member['PASSWORD']);
+    $stmt -> bindValue(":ADDR" , $member['ADDRESS']);
 
     $stmt->execute(); //執行
         

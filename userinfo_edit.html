@@ -62,7 +62,7 @@
         </div>
     </div>
     @@include('./layout/footer.html')
-    <!-- <script src="./js/student_edit.js"></script> -->
+    <script src="./js/student_edit.js"></script>
     <script>
         let editIcon = document.getElementsByClassName('fa-solid fa-pen')
 
@@ -129,7 +129,7 @@
         let birthday = document.getElementById('birthday')
         let password = document.getElementById('password')
         
-
+       
         fetch(`../php/editStudent.php?stuId=${sessionStorage.getItem('StudentId')}`)
         .then(rsp => rsp.json())
         .then(userArr => {
@@ -145,7 +145,9 @@
             if(password.innerText = stuMember[0].PASSWORD){
                 password.innerText = "********"
             }
-        })   
+            
+        })
+       
 
 
 
