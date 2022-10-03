@@ -25,11 +25,11 @@ let vm = new Vue({
             })
             .then(resp => resp.json())
             .then(result => {
-                loginData = result; //回傳資料裝進去空陣列
-                if(loginData.length > 0) { //登入成功
+                this.loginData = result; //回傳資料裝進去空陣列
+                if(this.loginData.length > 0) { //登入成功
                     alert("歡迎! 一般管理員")
                     location.replace('../dist/backstage.html');
-                    sessionStorage.setItem('BackstageId',loginData[0].ID)
+                    sessionStorage.setItem('BackstageId',this.loginData[0].ID)
                 }else{ //登入失敗
                     alert("信箱密碼錯誤!!")
                 }
