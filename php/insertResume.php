@@ -2,7 +2,7 @@
 include('./PDO/Connection.php');
 
 $resume = json_decode(file_get_contents("php://input"), true);
-
+// 大頭照下載到指定目錄
 if($resume['avatar']){
     $image = $resume['avatar'];
     $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';
@@ -21,6 +21,7 @@ if($resume['avatar']){
     $resume['avatar'] = $sqlPath."/". $imageName;  //圖片名字
     file_put_contents($previousPath."/". $imageName, base64_decode($image));
 }
+// 履歷截圖下載到指定目錄
 if($resume['img_path']){
     $image = $resume['img_path'];
     $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';

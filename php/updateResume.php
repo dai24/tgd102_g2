@@ -6,18 +6,9 @@ if(!$resume){
     $resume['id'] = htmlspecialchars($_GET['id']);
     $resume['studentId'] = htmlspecialchars($_GET['studentId']);
     $resume['public_status'] = isset($_GET['publicStatus'])?htmlspecialchars($_GET['publicStatus']):0;
-    
-    // if($_GET['likeCount']){
-    //     $resume['like_count'] = $_GET['likeCount'];
-    //     $sql = "UPDATE RESUME SET LIKE_COUNT=? WHERE ID = ? AND STUDENT_ID = ?";
-    //     $statement = $pdo->prepare($sql);
-    //     $statement->bindValue(1,isset($resume['like_count'])?$resume['like_count']:0);
-    //     $statement->bindValue(2,$resume['id']);
-    //     $statement->bindValue(3,$resume['studentId']);
-    // }
     $resume['category'] = isset($_GET['category'])?htmlspecialchars($_GET['category']):'';
 }
-
+// 大頭照下載到指定目錄
 if($resume['avatar']){
     $sql = "SELECT AVATAR FROM RESUME WHERE ID=? AND STUDENT_ID=?;";
     $statement = $pdo->prepare($sql);
@@ -46,7 +37,7 @@ if($resume['avatar']){
     }
     
 }
-
+// 履歷截圖下載到指定目錄
 if($resume['img_path']){
     $image = $resume['img_path'];
     $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';
@@ -65,7 +56,7 @@ if($resume['img_path']){
             $resume['img_path'] = $sqlPath."/". $imageName;  //圖片名字
             file_put_contents($previousPath."/". $imageName, base64_decode($image));
 }
-
+// like功能
 if(isset($_GET['likeCount'])){
     $resume['like_count'] = $_GET['likeCount'];
     $sql = "UPDATE RESUME SET LIKE_COUNT=? WHERE ID = ? AND STUDENT_ID = ?";
@@ -74,7 +65,7 @@ if(isset($_GET['likeCount'])){
     $statement->bindValue(2,$resume['id']);
     $statement->bindValue(3,$resume['studentId']);
     
-}else{
+}else{// 修改履歷
     $sql = "UPDATE RESUME SET FILE_NAME=?,AVATAR=?,PUBLIC_STATUS=?,
     CATEGORY=?,IMG_PATH=?,LIKE_COUNT=?,BAN=?,NAME=?,ADDRESS=?,PHONE=?,EMAIL=?,PORFOLIO=?,AUTOBIOGRAPHY=?,
     WORK_EXPERIENCE_JOB=?,DURING_WORK=?,WORK_CONTENT=?,SCHOOL=?,DURING_SCHOOL=?,DEPARTMENT=?,ATTEND_SCHOOL_STATUS=?,
@@ -125,7 +116,7 @@ $statement->execute();
 if($statement->rowCount() > 0){
     $member['successful'] = true;
     $member['message'] = "更新成功";
-    header("Location: ./getResume_sample_All.php");
+    // header("Location: ./getResume_sample_All.php");
 }else{
     $member['successful'] = false;
     $member['message'] = "更新失敗";

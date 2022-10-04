@@ -7,7 +7,7 @@ $category = isset($_GET['category'])?htmlspecialchars($_GET['category']):'';
 
 if($category != '' && $category != '全部'){ // 範本分類
     $sql = "SELECT STUDENT_ID,LIKE_COUNT,IMG_PATH, CREATE_DATE FROM RESUME WHERE MODEL = 2 AND PUBLIC_STATUS = 1 AND CATEGORY = ? "; 
-}else if($model == 2 && $studentId != 0){ // 算有幾個履歷
+}else if($model == 2 && $studentId != 0){ // 算1個學生有幾個履歷
     $sql = "SELECT ID,STUDENT_ID FROM RESUME WHERE STUDENT_ID = ?";
 }else if($model == 1 || $studentId != 0){ // 模板區顯示模板跟學生做好的履歷
     $sql = "SELECT ID,STUDENT_ID,MODEL,PRICE,UNLOCK_STATUS,FILE_NAME,AVATAR,PUBLIC_STATUS,CATEGORY,LIKE_COUNT,BAN,IMG_PATH,NAME,ADDRESS,PHONE,EMAIL,PORFOLIO,AUTOBIOGRAPHY,

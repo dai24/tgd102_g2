@@ -101,8 +101,8 @@ Vue.component('my-pagination',{
                            <div class="card_body">
                                <div class="row">
                                    <div class="col-2"><button @click="clickLike(resume.LIKE_COUNT+=1,resume.STUDENT_ID,resume.ID)" class="fa-solid fa-heart"></button></div>
-                                   <div class="col-1 align-self-center"><span>{{resume.LIKE_COUNT}}</span></div>
-                                   <div class="offset-7 col-1">
+                                   <div class="col-3 align-self-center likeCount"><span>{{resume.LIKE_COUNT}}</span></div>
+                                   <div class="col-2 zoom">
                                        <button class="resume_zoom_btn" @click="open(resume.IMG_PATH)" >
                                            <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30"
                                                fill="currentColor" class="bi bi-box-arrow-up-right"

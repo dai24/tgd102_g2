@@ -340,6 +340,7 @@ Vue.component('win-delete', {
         }
     },
     methods: {
+        // 關閉彈窗
         submitData(type) {
             if (type == 'close') {
                 this.$emit('deletewin', false);
@@ -393,8 +394,8 @@ Vue.component('model-A01', {
             summerPopup: false,
             summerData: '',
             type: '',
-            resume_modelAll: [],
-            resume_modelOne: {
+            resume_modelAll: [], // 全部模板
+            resume_modelOne: { // 儲存編輯的資料
                 id: 0,
                 student_id: 0,
                 model: 0,
@@ -437,16 +438,19 @@ Vue.component('model-A01', {
         }
     },
     methods: {
+        // 檔名有blur事件時，取得input資料
         setFileName(e) {
             this.resume_modelOne.fileName = e.target.value
             console.log(e.target.value)
         },
+        // 點擊編輯的地方就把summernote打開
         openSummer(type,$event) {
             this.summerPopup = true
             this.type = type
             console.log('get:' + type)
             console.log($event.target);
 
+            // 點選編輯位置時，會把值帶到summernote，帶值有問題先不處理 
             // if(type == 'name'){
             //     $($("#summernote1").summernote("code",this.resume_modelOne.name));
             // }else if(type == 'job_apply'){
@@ -490,6 +494,7 @@ Vue.component('model-A01', {
             // }
 
         },
+        // summernote 輸入的值放到對應的物件中
         getSummer() {
             data = $($("#summernote1").summernote("code")).text();
             // data = $("#summernote1").summernote("code")
@@ -550,6 +555,7 @@ Vue.component('model-A01', {
             }
 
         },
+        // 把點到的模板資料傳點父層
         submitData(id, student_id, model, price, unlock, fileName, avatar, public_status, category, like_count, ban, img_path, name,
             address, phone, email, porfolio, autobiography,
             work_experience_job, during_work, work_content, school, during_school, department, attend_school_status,
@@ -591,7 +597,7 @@ Vue.component('model-A01', {
                     this.resume_modelOne.language1 = language1,
                     this.resume_modelOne.language2 = language2,
                     this.$emit('selectModel', true, this.resume_modelOne)
-                console.log('selectModel: ' + "檔名:" + fileName + "，解鎖:" + unlock + "，價格:" + price)
+                // console.log('selectModel: ' + "檔名:" + fileName + "，解鎖:" + unlock + "，價格:" + price)
             } else {
                 // 關閉rwd視窗
                 this.$emit('modelBorder', false)
@@ -599,6 +605,7 @@ Vue.component('model-A01', {
             }
 
         },
+        // 讀取上傳的圖片存到物件中
         fileChange(e) {
            
             let file = e.target.files[0]
@@ -607,7 +614,7 @@ Vue.component('model-A01', {
             readFile.readAsDataURL(file)
             readFile.addEventListener('load', () => {
                 this.resume_modelOne.avatar = readFile.result
-                // console.log(readFile.result)
+                // 因上傳圖片的icon跟預覽的img重壘，上傳圖片時要把大頭照img顯示
                 this.Avatar = true
 
             })
@@ -619,17 +626,15 @@ Vue.component('model-A01', {
     mounted() {
         this.studentId = sessionStorage.getItem('StudentId')
         console.log(this.studentId)
+        // 取得模板所有資料
         fetch(`./php/getResume_sample_All.php?model=1&studentId=${this.studentId}`)
             .then(rsp => rsp.json())
             .then(resume_model => {
                 this.resume_modelAll = resume_model;
-                // for(index in this.resume_modelAll){
-                //     console.log(index + " : " + this.resume_modelAll[index].AVATAR)
-                // }
-                
-                
+
             })
 
+        // summernote 編輯器設定
         let summer = $('#summernote1').summernote({
             toolbar:
                 [
@@ -783,8 +788,8 @@ Vue.component('my-content', {
         }
     },
     methods: {
-        // 依哪個click功能就打開彈窗
-        open(open, type, ...args) {
+        // 依功能列哪個click就打開彈窗
+        open(open, type) {
             // console.log(open,type)
             // 連點模板可以開啟關閉，換替 toggle
             if (type == 'model') {
@@ -796,8 +801,9 @@ Vue.component('my-content', {
                     this.modelBorder = open;
 
                 }
-
+                // 組件儲存傳送 'save'過來後要存檔
             } else if (type == 'save') {
+                // 查看該學生有幾筆履歷
                 fetch(`./php/getResume_sample_All.php?model=2&studentId=${this.studentId}`)
                     .then(rsp => rsp.json())
                     .then(data => {
@@ -807,17 +813,20 @@ Vue.component('my-content', {
                             // console.log('studentId:' + data[total].STUDENT_ID)
                             this.ResumeTotal++
                         }
-
+                        // 沒有student_id代表是新增履歷
                             if (this.resume_modelOne.student_id == null) {
+                                // 履歷達到5筆時的提示
                                 if (this.ResumeTotal == 5) {
                                     alert('製作履歷數量已達上限5個')
                                 } else {
-                                    // this.resumeBase64()
+                                    // 存檔
                                     this.saveResume()
                                 }   
                             } else {
+                                // 有student_id代表是修改履歷
                                 this.updateResume()
                             }
+                            // 儲存完資料後，儲存視窗要顯示
                             this.savePopup = open;
                         
                     })
@@ -826,11 +835,12 @@ Vue.component('my-content', {
                 this.sharePopup = open;
             } else if (type == 'pdf') {
                 const date = new Date()
+                // pdf彈窗的檔名
                 this.pdfFileName = `resume-${date.getTime()}.pdf`
                 this.pdfPopup = open;
             } else if (type == 'delete') {
                 this.deletePopup = open;
-                this.Delete = type
+                // this.Delete = type
             } else if (type == 'pay') {
                 this.payPopup = open;
             } else if (type == 'payCheck') {
@@ -861,6 +871,7 @@ Vue.component('my-content', {
                     console.log(data.message)
                 })
         },
+        // 點擊模板帶過來的資料
         selectedModel(open, resume_modelOne) {
             this.resume_modelOne = resume_modelOne
             // console.log(this.resume_modelOne)
@@ -870,19 +881,18 @@ Vue.component('my-content', {
                 this.deleteResumeBorder = open;
             } else {
                 // 付費彈窗
-
                 this.payPopup = open
-
                 this.fileName = resume_modelOne.fileName
                 this.unlock = resume_modelOne.unlock
                 this.price = resume_modelOne.price
                 // this.resume_modelOne = ''
-                console.log('prselectedModel:' + resume_modelOne.fileName + ',' + resume_modelOne.unlock + ',' + resume_modelOne.price)
+                // console.log('prselectedModel:' + resume_modelOne.fileName + ',' + resume_modelOne.unlock + ',' + resume_modelOne.price)
             }
 
             // this.modelBorder = false;
 
         },
+        // 儲存
         saveResume() {
             html2canvas(document.querySelector('.work_space_a4'), {
                 onrendered: canvas => {
@@ -941,6 +951,7 @@ Vue.component('my-content', {
             
             
         },
+        // 修改
         updateResume() {
             html2canvas(document.querySelector('.work_space_a4'), {
                 onrendered: canvas => {
@@ -996,41 +1007,14 @@ Vue.component('my-content', {
                 }
             });
         },
+        // 分享
         shareResume(category, public_status) {
             this.resume_modelOne.category = category
             this.resume_modelOne.public_status = public_status
             this.updateResume()
-            // fetch(`./php/updateResume.php?
-            // category=${category}&public_status${public_status}`)
-            // .then(resp => resp.json())
-            // .then(data => console.log(data.message))
+
         },
-        resumeBase64(){
-            // console.log('base64:' + this.resume_modelOne.img_path);
-            let imgPath = ''
-            html2canvas(document.querySelector('.work_space_a4'), {
-                onrendered: canvas => {
-                    console.log('TEST2');
-                    let resumebase64 = canvas.toDataURL();
-                    imgPath = resumebase64
-                    
-                    // console.log(imgPath)
-                    // 
-                    console.log('base64-1:' + this.resume_modelOne.img_path);
 
-                    this.resume_modelOne.img_path = imgPath
-                    console.log('base64-2:' + this.resume_modelOne.img_path);
-
-                    AJAX
-                    // console.log(this.$set(this.resume_modelOne.img_path,resumebase64))
-                    
-                }
-            });
-
-            console.log('TEST1');
-            // this.resume_modelOne.img_path = imgPath
-            // console.log("base64-3:" + this.resume_modelOne.img_path)
-        }
     },
     mounted() {
 
