@@ -496,8 +496,8 @@ Vue.component('model-A01', {
         },
         // summernote 輸入的值放到對應的物件中
         getSummer() {
-            data = $($("#summernote1").summernote("code")).text();
-            // data = $("#summernote1").summernote("code")
+            let data = $($("#summernote1").summernote("code")).text();
+            // let data = $("#summernote1").summernote("code")
             console.log(data + ',' + this.type)
             if (this.type == 'name') {
                 this.resume_modelOne.name = data
@@ -807,11 +807,10 @@ Vue.component('my-content', {
                 fetch(`./php/getResume_sample_All.php?model=2&studentId=${this.studentId}`)
                     .then(rsp => rsp.json())
                     .then(data => {
-                        this.ResumeTotal = 0
+                        // this.ResumeTotal = 0
                         for (total in data) {
-                            // console.log('id:' + data[total].ID)
-                            // console.log('studentId:' + data[total].STUDENT_ID)
-                            this.ResumeTotal++
+                            this.ResumeTotal = ++total
+                            console.log('total:' + this.ResumeTotal)    
                         }
                         // 沒有student_id代表是新增履歷
                             if (this.resume_modelOne.student_id == null) {
