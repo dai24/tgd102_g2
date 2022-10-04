@@ -282,13 +282,13 @@ Vue.component('win-pdf', {
                     html2canvas: {
                         scale: 2,
                         width: 470, // canvas 寬度, 視情況調整
-                        height: 900, // canvas 單頁高度, 請自行調整
+                        height: 880, // canvas 單頁高度, 請自行調整
                         useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
                     },
                     imageType: 'image/jpeg',
                     imageQuality: 1,
                     margin: {
-                        top: -255,
+                        top: -220,
                         right: 20,
                         bottom: 0,
                         left: 10,
@@ -812,7 +812,7 @@ Vue.component('my-content', {
                             this.ResumeTotal = ++total
                             console.log('total:' + this.ResumeTotal)    
                         this.ResumeTotal = 0
-                       
+                        }
                         // 沒有student_id代表是新增履歷
                             if (this.resume_modelOne.student_id == null) {
                                 // 履歷達到5筆時的提示

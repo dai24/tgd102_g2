@@ -143,7 +143,7 @@ $editOutline : 2px solid black;
         grid-template-rows: 1fr;
 
         .resume_model-border {
-            padding: 10px 1em 10px 0px;
+            padding-top: 15px;
             background-color: $primary01;
             width: 13rem;
             height: 465px;
@@ -154,13 +154,14 @@ $editOutline : 2px solid black;
             display: flex;
             flex-wrap: wrap;
             @include m() {
+                // padding: 0;
                 position: fixed;
                 top: 0;
                 left: 0;
                 z-index: 100;
                 width: 100%;
                 height: 100%;
-
+                justify-content: space-between;
             }
 
             .xmark_btn {
@@ -186,7 +187,8 @@ $editOutline : 2px solid black;
                 cursor: pointer;
 
                 @include m() {
-                   
+                    margin:0;
+                    
                     
 
                 }
