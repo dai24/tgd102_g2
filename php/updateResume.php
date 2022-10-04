@@ -9,7 +9,7 @@ if(!$resume){
     $resume['category'] = isset($_GET['category'])?htmlspecialchars($_GET['category']):'';
 }
 // 大頭照下載到指定目錄
-if($resume['avatar']){
+if(isset($resume['avatar'])){
     $sql = "SELECT AVATAR FROM RESUME WHERE ID=? AND STUDENT_ID=?;";
     $statement = $pdo->prepare($sql);
     $statement->bindValue(1,$resume['id']);
@@ -38,7 +38,7 @@ if($resume['avatar']){
     
 }
 // 履歷截圖下載到指定目錄
-if($resume['img_path']){
+if(isset($resume['img_path'])){
     $image = $resume['img_path'];
     $imageName = "25220_".date("His",time())."_".rand(1111,9999).'.jpg';
             if (strstr($image,",")){
@@ -116,7 +116,7 @@ $statement->execute();
 if($statement->rowCount() > 0){
     $member['successful'] = true;
     $member['message'] = "更新成功";
-    // header("Location: ./getResume_sample_All.php");
+    header("Location: ./getResume_sample_All.php");
 }else{
     $member['successful'] = false;
     $member['message'] = "更新失敗";
