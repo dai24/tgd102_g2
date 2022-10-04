@@ -21,6 +21,7 @@
         font-size:$fontSize03;
         @include m(){
                 font-size:$R-fontSize04;
+                word-wrap: break-word;
         }
     }
     h4{

@@ -72,7 +72,7 @@
 let vm = new Vue({
     el:"#company_login_app",
     data:{
-        account:'qweertqwesdas@gmail.com', //預設顯示的內容
+        account:'otis29516368@gmail.com', //預設顯示的內容
         password:'123456321', //預設顯示的內容
         companyData:[], //裝驗證回來的資料
     },
