@@ -8,7 +8,7 @@
     $member = json_decode(file_get_contents("php://input"), true); //接收前端傳來的json格式
     // echo $member;
     $sql = "SELECT *
-            FROM Student S
+            FROM STUDENT S
             WHERE S.ID = :stuid"
             ;    
 
