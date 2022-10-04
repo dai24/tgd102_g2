@@ -77,7 +77,7 @@
         @include m(){
           padding: 10px 0 0 0;
         }
-        .student_photo{
+        .student_photo{ //大頭貼
                 .upload{
                     width: 230px;
                     // outline: 1px solid red;
@@ -88,6 +88,10 @@
                     } 
                     input {
                         display: none;
+                    }
+                    img{ //限制大頭貼的長寬
+                        width: 230px;
+                        height: 230px;
                     }
                 }
         }

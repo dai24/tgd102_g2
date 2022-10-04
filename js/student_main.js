@@ -4,11 +4,34 @@ Vue.component('student-list',{
         return{
             studentTitle:[],
             addCoin:false, //顯示or關閉 加值功能
+            figure:'', //存放大頭貼
         }
     },
     methods: {
         openAddCoin(){ //顯示or關閉 加值功能
             this.addCoin = !this.addCoin
+        },
+        changeFigure(e){ //更換大頭貼
+            const file = document.querySelector(".student_photo").querySelector("input[type=file]").files[0]; 
+            const figureNow = document.querySelector(".figureNow")
+            const reader = new FileReader();
+            
+            reader.addEventListener('load', () => {
+                figureNow.src = file ? URL.createObjectURL(file) : '';              
+                // console.log(figureNow.src)
+            },false);
+
+            if(file){
+                reader.readAsDataURL(file); 
+                console.log(figureNow.src)
+                fetch('./php/updateStudentFigure.php', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        
+                    })
+                })
+            }           
         },
     },
     mounted() {
@@ -83,10 +106,9 @@ Vue.component('student-list',{
 
                 <div class="student_photo">
                     <label for="upload" class="upload">
-                        <input id="upload" type="file" accept="image/*">
-                        <img :src="studentTitlec.PICTURE + '.jpg'" alt="">
-                    </label>
-                    <label for="upload"  class="Avatar"><img src=""></label>
+                        <input  id="upload" type="file" accept="image/*" @change="changeFigure">
+                        <img class="figureNow" :src="studentTitlec.PICTURE + '.jpg'" alt="大頭貼">
+                    </label>                    
                 </div>
                 <ul>
                     <li><h3>會員名稱：<span>{{studentTitlec.NAME}}</span></h3></li>
@@ -95,7 +117,7 @@ Vue.component('student-list',{
                     <li class="coin">
                         <h3>點數：
                             <button @click="openAddCoin"><span>{{studentTitlec.COIN}}</span></button>
-                            <a href="#">歷史加值紀錄</a>
+                            <a href="#" style="display:none">歷史加值紀錄</a>
                         </h3>
                     </li>
                     <div class="btna11">
@@ -187,3 +209,5 @@ let vm = new Vue({
         </div>
     `,
 })
+
+//<label for="upload"  class="Avatar"><img src=""></label>
