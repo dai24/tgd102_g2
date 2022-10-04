@@ -16,7 +16,7 @@ Vue.component('job-data',{
             // console.log(this.searchjob)
             const searjob = this.searchjob;
             // console.log(searstu)
-            fetch(`./php/searchJob.php?job=${searjob}`)
+            fetch(`./php/search_job.php?job=${searjob}`)
             .then(rsp => rsp.json())
             .then(userArr => {            
                 // console.log(userArr);
@@ -27,7 +27,7 @@ Vue.component('job-data',{
     
     mounted() {       
         //顯示第一頁的資料
-        fetch(`./php/searchjob.php?page=1`)
+        fetch(`./php/search_job.php?page=1`)
         .then(rsp => rsp.json())
         .then(userArr => {    
             this.jobData = userArr
@@ -38,7 +38,7 @@ Vue.component('job-data',{
         for(let i = 0; i < pageContent.length; i++ ){
             pageContent[i].addEventListener("click", e => {
                 // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
-                fetch(`./php/searchJob.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+                fetch(`./php/search_job.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
                 //${e.target.innerText}
                 .then(rsp => rsp.json())
                 .then(userArr => {      
