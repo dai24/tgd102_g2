@@ -34,10 +34,12 @@ body{
     }
 }
 .section1{
+    margin-top: 120px;
     display: flex;
     justify-content: center;
     align-items: center;
     line-height: 3;
+    
     .test img{
         max-width: 290px;
         width: 100%;
@@ -100,9 +102,16 @@ body{
         display: flex;
     }
 }
+#resumeAll{
+    @include m(){
+        margin: 20px 0 60px 0;
+    }
+}
 .resumeAll{
     display: flex;
     flex-direction: column;
+    
+    // margin: 20px 0 60px 0;
     .upHead{
         margin-top: 20px;
         img{
@@ -133,9 +142,18 @@ body{
     text-align: center;
     letter-spacing: 2px;
     margin-bottom: 110px;
+    
+}
+#howResume{
+    margin-top: 60px;
+    @include m(){
+        margin-top: 20px;
+    }
 }
 
-
+#jobhunting{
+    margin-top: 60px;
+}
 #fp-nav ul li a span{
     background-color: $focus01 !important; 
 }
@@ -163,7 +181,7 @@ body{
     }
     
     .section1{
-        margin: 0 auto;
+        margin: 60px auto;
         flex-direction: column;
         line-height: 2;
         text-align: center;
@@ -231,9 +249,7 @@ body{
         }
     }
     .resumeStep{
-        // .section1_resume{
-        //     margin-bottom: 16px;
-        // }
+        margin: 20px 0 60px 0;
         img{
             display: block;
             max-width: 140px;
@@ -322,7 +338,10 @@ body{
         display: none;
     }
     
-    #resumeStepSection{
-        margin-top: 42px;
-    }
+
+}
+.section{
+    .fp-tableCell{
+    vertical-align: baseline;
+}
 }

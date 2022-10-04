@@ -51,8 +51,8 @@
             </div>
         </div>
         <div class="section indexBgc01">
-            <h1 >求職指南</h1>
-            <div class="section1 section2 resumeAll">
+            <h1 id="jobhunting">求職指南</h1>
+            <div class="section1 section2 resumeAll" id="resumeAll">
                 <div class="resumeMain">
                     <div class="section1_resume">
                         <img src="./images/index/step1.png" alt="">
@@ -141,7 +141,32 @@
             resize:true,
             paddingBottom:'10px',
         });
-       
+        const moveToCareerTest = document.getElementById('moveToCareerTest')
+        const moveToResume = document.getElementById('moveToResume')
+        const moveToResume_work = document.getElementById('moveToResume_work')
+        const moveToResumeReview = document.getElementById('moveToResumeReview')
+        const findJobBtn = document.getElementById('findJobBtn')
+        
+        moveToCareerTest.addEventListener('click', function(){
+            window.open('./careertest.html');
+        })
+        moveToResume.addEventListener('click', function(){
+            location='./resume.html'
+        })
+        moveToResume_work.addEventListener('click', function(){
+            if(JSON.stringify(sessionStorage.getItem('StudentId'))  === 'null'){
+                alert('請先登入會員')
+                location='./student_login.html'
+            }else{
+                location='./resume.html'
+            }
+        })
+        moveToResumeReview.addEventListener('click', function(){
+            location='./resumeReview.html'
+        })
+        findJobBtn.addEventListener('click', function(){
+            location='./findJob.html'
+        })
     </script>
 </body>
 

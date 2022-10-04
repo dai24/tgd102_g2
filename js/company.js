@@ -160,7 +160,7 @@ Vue.component('my-list-com3',{
                     })
                     for(let i = 0; i < this.jobID1.length; i++){
                         console.log(this.jobID1[i]);
-                        fetch(`./php/jobMain.php?home=${this.jobID1[i]}`)
+                        fetch(`./php/jobmain.php?home=${this.jobID1[i]}`)
                         
                         //jobId : this.jobID1[i]
                     }
@@ -178,10 +178,18 @@ new Vue({
     },
     methods: {
         saveGo(){
-            this.isShowSave =!this.isShowSave
+            if(JSON.stringify(sessionStorage.getItem('StudentId'))  === 'null'){
+                alert('請先登入會員')
+                location='./student_login.html'
+            }else{
+                this.isShowSave =!this.isShowSave
+            }
         },
         saveClose(){
             this.isShowSave =!this.isShowSave
+        },
+        goStudentMain(){
+            location='./student_main.html'
         },
     },
     

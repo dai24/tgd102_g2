@@ -90,7 +90,7 @@
         <div>
             <div class="findJobVacancies" v-for='(find,i) in new_array' >
                 <div class="findJobVacanciesPicture">
-                    <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom" @click="comImg(find.COMPANY_ID)">
+                    <img :src= "find.LOGO + '.jpg'"  alt="" class="moveToCom" @click='moveCom(find.COMPANY_ID)'>
                 </div>
                 <div class="findJobVacanciesTitle">
                     <h3 class="moveToJob">{{find.JOB_NAME}}</h3>

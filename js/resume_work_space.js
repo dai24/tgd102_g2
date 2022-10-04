@@ -811,7 +811,8 @@ Vue.component('my-content', {
                         for (let total in data) {
                             this.ResumeTotal = ++total
                             console.log('total:' + this.ResumeTotal)    
-                        }
+                        this.ResumeTotal = 0
+                       
                         // 沒有student_id代表是新增履歷
                             if (this.resume_modelOne.student_id == null) {
                                 // 履歷達到5筆時的提示

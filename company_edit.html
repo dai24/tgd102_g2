@@ -158,7 +158,7 @@
         let imgStrJoin = '' //傳到php
         upload.addEventListener('change', (e) => {
             // console.log(upload.files[0].name);
-            if(imgStr.length <= 3){
+            if(imgStr.length <= 2){
                 imgStr.push(upload.files[0].name)
                 let readFile = new FileReader()
                 readFile.readAsDataURL(upload.files[0])
