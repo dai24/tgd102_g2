@@ -496,8 +496,8 @@ Vue.component('model-A01', {
         },
         // summernote 輸入的值放到對應的物件中
         getSummer() {
-            data = $($("#summernote1").summernote("code")).text();
-            // data = $("#summernote1").summernote("code")
+            let data = $($("#summernote1").summernote("code")).text();
+            // let data = $("#summernote1").summernote("code")
             console.log(data + ',' + this.type)
             if (this.type == 'name') {
                 this.resume_modelOne.name = data
@@ -808,8 +808,7 @@ Vue.component('my-content', {
                     .then(rsp => rsp.json())
                     .then(data => {
                         this.ResumeTotal = 0
-                        for (total1 in data) {
-                            console.log(total1);
+                        for (total in data) {
                             // console.log('id:' + data[total].ID)
                             // console.log('studentId:' + data[total].STUDENT_ID)
                             this.ResumeTotal++

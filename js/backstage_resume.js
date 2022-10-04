@@ -8,7 +8,7 @@ Vue.component('resumedata',{
         
     },
     mounted() {
-        fetch(`./php/getResume_sample_All.php?model=1`)
+        fetch(`./php/backstage_resume.php`)
         .then(rsp => rsp.json())
         .then(resume_model => {
             this.resume_modelAll = resume_model;
@@ -18,9 +18,9 @@ Vue.component('resumedata',{
     template:`
     <div class="content">
         <li v-for="models in resume_modelAll">
-            <img src="./images/resume/resume_model4.jpg" alt="模板">
+            <img :src="models.IMG_PATH" alt="模板">
             <div class="edit">
-                <h3>2022/10/03</h3>
+                <h3>{{models.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3>
                 <div class="editIcon">                
                     <i class="fa-solid fa-pen"></i>
                     <i class="fa-solid fa-upload"></i>
