@@ -2,7 +2,8 @@ $(function () {
 
     // 名稱不要正規表達式限制住
 
-    const name = document.querySelector("#name")
+    const name = document.querySelector("#name_sign")
+    // console.log("abc",name.value)
     // let alertNameTrue = true
     // name.addEventListener("blur",function(){
     // let pattern = /^[a-zA-Z][a-zA-Z0-9_]{4,15}/;
@@ -116,13 +117,23 @@ $(function () {
                 phone: phone.value
 
             })
+            
         })
-        .then(resp => resp.json(
-            console.log(resp)
-        ))
-        .then(body => {
-            console.log(body)
-        })
+        
+        .then(resp => resp.json())
+        .then(result => {
+            let studentData = []; //準備一個空陣列用來裝回傳的資料
+            studentData = result; //回傳資料裝進去空陣列
+            location.replace('../dist/student_login.html');
+            // console.log(studentData) //確認回傳結果有ID值
+            // console.log(studentData[0].name) //有找到ID
+            // console.log('test', result == 'successful');
+             
+         });
+
+        // .then(body => {
+        //     console.log(body)
+        // })
 
 
     })
