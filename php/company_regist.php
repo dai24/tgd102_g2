@@ -5,7 +5,7 @@ $member = json_decode(file_get_contents("php://input"), true);
 // $sql = "insert into student(name,email,password,phone,create_date) 
 // values(?,?,?,?,?)";
 $sql = "INSERT INTO COMPANY(NAME,UNIT_NUM,PRINCIPLE,PROPERTY,CITY,DISTRICT,ADDRESS,INTRO,SERVE,WELFARE,CREATE_DATE,PASSWORD,PHONE,EMAIL,PRINCIPLE_TEL,EXT) 
-values(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
+VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)";
  $statement = $pdo->prepare($sql);
  $statement->bindValue(1,$member['name']);
  $statement->bindValue(2,$member['unit_num']);

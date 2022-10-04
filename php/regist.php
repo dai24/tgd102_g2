@@ -3,7 +3,7 @@ include('./PDO/Connection.php');
 
 $member = json_decode(file_get_contents("php://input"), true);
 $sql = "INSERT INTO STUDENT(NAME,EMAIL,PASSWORD,PHONE,CREATE_DATE) 
-values(?,?,?,?,?)";
+VALUES(?,?,?,?,?)";
  $statement = $pdo->prepare($sql);
  $statement->bindValue(1,$member['name']);
  $statement->bindValue(2,$member['email']);
