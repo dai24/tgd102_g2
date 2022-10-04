@@ -87,7 +87,7 @@
 let vm = new Vue({
     el:"#student_login_app",
     data:{
-        account:'interngo@gmail.com', //預設顯示的內容
+        account:'jeremy801223@gmail.com', //預設顯示的內容
         password:'123456', //預設顯示的內容
         studentData:[], //裝驗證回來的資料
     },
