@@ -18,12 +18,12 @@
     if(isset($_GET["company"])){
         // echo "有查詢";        
         $sql = "SELECT
-                    c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
-                    c.ADDRESS, c.CREATE_DATE, c.BAN, d.PRICE 
-                FROM company c
-                JOIN COMPANY_COIN_DETAILS d
-                ON c.ID = d.COMPANY_ID
-                WHERE c.ID like :ID or c.`NAME` like :NAME
+                    C.ID, C.NAME, C.ADDRESS, C.PROPERTY, C.PRINCIPLE, C.CITY, C.DISTRICT,
+                    C.ADDRESS, C.CREATE_DATE, C.BAN, D.PRICE 
+                FROM company C
+                JOIN COMPANY_COIN_DETAILS D
+                ON C.ID = D.COMPANY_ID
+                WHERE C.ID like :ID or C.`NAME` like :NAME
                 LIMIT
                 $omitData, $content;
                 "
@@ -35,11 +35,11 @@
     }else{
         // echo "未查詢";
         $sql = "SELECT
-                    c.ID, c.NAME, c.ADDRESS, c.PROPERTY, c.PRINCIPLE, c.CITY, c.DISTRICT,
-                    c.ADDRESS, c.CREATE_DATE, c.BAN, d.PRICE 
-                FROM company c
-                JOIN COMPANY_COIN_DETAILS d
-                ON c.ID = d.COMPANY_ID
+                    C.ID, C.NAME, C.ADDRESS, C.PROPERTY, C.PRINCIPLE, C.CITY, C.DISTRICT,
+                    C.ADDRESS, C.CREATE_DATE, C.BAN, D.PRICE 
+                FROM COMPANY C
+                JOIN COMPANY_COIN_DETAILS D
+                ON C.ID = D.COMPANY_ID
                 LIMIT
                 $omitData, $content;
         "
