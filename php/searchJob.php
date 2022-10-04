@@ -2,7 +2,7 @@
 //目標：backstage頁面尋找資料庫job資料
 include('./PDO/Connection.php');
 
-$content = 2; //設定每頁有多少筆資料
+$content = 4; //設定每頁有多少筆資料
 $omitData = 0; //預設 省略0筆
 
 $page = isset($_GET["page"]) ? $_GET["page"] : 1 ; //前端傳來要第幾頁的資料，若無傳值則代1
