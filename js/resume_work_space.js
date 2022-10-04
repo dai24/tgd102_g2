@@ -808,10 +808,9 @@ Vue.component('my-content', {
                     .then(rsp => rsp.json())
                     .then(data => {
                         // this.ResumeTotal = 0
-                        for (total1 in data) {
-                            // console.log('id:' + data[total].ID)
-                            // console.log('studentId:' + data[total].STUDENT_ID)
-                            this.ResumeTotal++
+                        for (total in data) {
+                            this.ResumeTotal = ++total
+                            console.log('total:' + this.ResumeTotal)    
                         }
                         // 沒有student_id代表是新增履歷
                             if (this.resume_modelOne.student_id == null) {
