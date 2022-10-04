@@ -17,20 +17,21 @@ Vue.component('student-list',{
             const reader = new FileReader();
             
             reader.addEventListener('load', () => {
-                figureNow.src = file ? URL.createObjectURL(file) : '';              
+                figureNow.src = file ? URL.createObjectURL(file) : ''; //如果條件成立，則創建一個臨時網址              
                 // console.log(figureNow.src)
             },false);
 
             if(file){
                 reader.readAsDataURL(file); 
-                console.log(figureNow.src)
-                fetch('./php/updateStudentFigure.php', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        
-                    })
-                })
+                console.log(figureNow.src.str)
+                // fetch('./php/updateStudentFigure.php', { //準備大頭貼更新到資料庫
+                //     method: 'POST',
+                //     headers: { 'Content-Type': 'application/json' },
+                //     body: JSON.stringify({
+                //         id: sessionStorage.getItem("StudentId"),
+                //         picture: figureNow.src,
+                //     })
+                // })
             }           
         },
     },
