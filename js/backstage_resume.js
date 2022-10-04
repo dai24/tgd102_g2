@@ -20,7 +20,7 @@ Vue.component('resumedata',{
         <li v-for="models in resume_modelAll">
             <img :src="models.IMG_PATH" alt="模板">
             <div class="edit">
-                <h3>2022/10/03</h3>
+                <h3>{{models.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3>
                 <div class="editIcon">                
                     <i class="fa-solid fa-pen"></i>
                     <i class="fa-solid fa-upload"></i>
