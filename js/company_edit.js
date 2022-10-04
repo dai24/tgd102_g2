@@ -19,5 +19,5 @@ save.addEventListener("click", () => {
     })
     .then (res => res.json())
     .then (body => {})
-    window.location.assign(window.location.href);
+    
 })

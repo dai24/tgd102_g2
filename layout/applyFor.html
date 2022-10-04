@@ -9,7 +9,7 @@
             </li>
         </ul>
         <div class="cardInner applyfor" >
-            <div class="applyTitle">
+            <div class="applyTitle" id="applyTitle">
                 <div v-for="jobApply1 in jobApply">
                     <img :src="jobApply1.LOGO + '.jpg'" alt="">
                 </div>
@@ -49,7 +49,7 @@
 
 <div class="m-a-s-k_applyFor" id="m-a-s-k_applyFor" v-if="isShowR" @click="isShowResClose"></div>
 <div class="m-a-s-k_applyForIn" id="m-a-s-k_applyForIn" v-if="isShowR">
-    <img :src="resumeSrr" class='resume_zoom_imggg'>
+    <img :src="resumeSrr" class='resume_zoom_imggg' >
 </div>
 
 
