@@ -248,9 +248,9 @@ Vue.component('win-pdf', {
             let page = $('.work_space_a4');
             
             // 手機版
-            if(page.width() < 370){
-                // page.width('470')
-                // page.height('670')
+            if(page.width() < 420){
+                console.log('428')
+                console.log(page.width())
                 html2PDF(page, {
                     jsPDF: {
                         unit: "pt",
@@ -259,16 +259,16 @@ Vue.component('win-pdf', {
                     html2canvas: {
                         scale: 2,
                         width: 470, // canvas 寬度, 視情況調整
-                        height: 800, // canvas 單頁高度, 請自行調整
+                        height: 600, // canvas 單頁高度, 請自行調整
                         useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
                     },
                     imageType: 'image/jpeg',
                     imageQuality: 1,
                     margin: {
-                        top: 30,
-                        right: 30,
+                        top: 130,
+                        right: 0,
                         bottom: 0,
-                        left: 30,
+                        left: 105,
                     },
                     output: this.pdfName
     
@@ -282,16 +282,16 @@ Vue.component('win-pdf', {
                     html2canvas: {
                         scale: 2,
                         width: 470, // canvas 寬度, 視情況調整
-                        height: 880, // canvas 單頁高度, 請自行調整
+                        height: 925, // canvas 單頁高度, 請自行調整
                         useCORS: true, // 沒有的話轉成PDF後所有的<img>內容都會不見
                     },
                     imageType: 'image/jpeg',
                     imageQuality: 1,
                     margin: {
-                        top: -220,
-                        right: 20,
+                        top: -330,
+                        right: 0,
                         bottom: 0,
-                        left: 10,
+                        left: 0,
                     },
                     output: this.pdfName
     
@@ -560,7 +560,7 @@ Vue.component('model-A01', {
             address, phone, email, porfolio, autobiography,
             work_experience_job, during_work, work_content, school, during_school, department, attend_school_status,
             school_experience, job_apply, skill1, skill2, skill3, skill4, language1, language2) {
-            if (fileName != undefined) {
+            if (unlock == 1) {
                 // 28
                 this.resume_modelOne.id = id
                 this.resume_modelOne.student_id = student_id,
@@ -598,6 +598,11 @@ Vue.component('model-A01', {
                     this.resume_modelOne.language2 = language2,
                     this.$emit('selectModel', true, this.resume_modelOne)
                 // console.log('selectModel: ' + "檔名:" + fileName + "，解鎖:" + unlock + "，價格:" + price)
+            }else if(unlock == 0){ // 付費
+                this.resume_modelOne.fileName = fileName,
+                this.resume_modelOne.unlock = unlock,
+                this.resume_modelOne.price = price,
+                this.$emit('selectModel', true,this.resume_modelOne)
             } else {
                 // 關閉rwd視窗
                 this.$emit('modelBorder', false)
@@ -688,14 +693,14 @@ Vue.component('model-A01', {
     
                 <div class="work_space_a4_1">
     
-                    <h3 :class="{'borderStyle':type == 'name'}" v-if="resume_modelOne.name" @click="openSummer('name',$event)">{{resume_modelOne.name}}</h3>
+                    <h3 :class="{'borderStyle':type == 'name'}"@click="openSummer('name',$event)">{{resume_modelOne.name}}</h3>
     
-                    <h4 :class="{'borderStyle':type == 'job_apply'}" v-if="resume_modelOne.job_apply" @click="openSummer('job_apply',$event)">{{resume_modelOne.job_apply}}</h4>
+                    <h4 :class="{'borderStyle':type == 'job_apply'}"@click="openSummer('job_apply',$event)">{{resume_modelOne.job_apply}}</h4>
                     <h5>聯絡方式</h5>
-                    <p class="p1">地址：<span class="span1" :class="{'borderStyle':type == 'address'}" v-if="resume_modelOne.address" @click="openSummer('address',$event)">{{resume_modelOne.address}}</span></p>
-                    <p class="p2">電話：<span class="span2" :class="{'borderStyle':type == 'phone'}" v-if="resume_modelOne.phone" @click="openSummer('phone',$event)">{{resume_modelOne.phone}}</span></p>
-                    <p class="p3">信箱：<span class="span3" :class="{'borderStyle':type == 'email'}" v-if="resume_modelOne.email" @click="openSummer('email',$event)">{{resume_modelOne.email}}</span></p>
-                    <p class="p4">作品：<span class="span4" :class="{'borderStyle':type == 'porfolio'}" v-if="resume_modelOne.porfolio" @click="openSummer('porfolio',$event)">{{resume_modelOne.porfolio}}</span></p>
+                    <p class="p1">地址：<span class="span1" :class="{'borderStyle':type == 'address'}" @click="openSummer('address',$event)">{{resume_modelOne.address}}</span></p>
+                    <p class="p2">電話：<span class="span2" :class="{'borderStyle':type == 'phone'}" @click="openSummer('phone',$event)">{{resume_modelOne.phone}}</span></p>
+                    <p class="p3">信箱：<span class="span3" :class="{'borderStyle':type == 'email'}" @click="openSummer('email',$event)">{{resume_modelOne.email}}</span></p>
+                    <p class="p4">作品：<span class="span4" :class="{'borderStyle':type == 'porfolio'}" @click="openSummer('porfolio',$event)">{{resume_modelOne.porfolio}}</span></p>
                 </div>
     
                 <div title="上傳圖片" class="work_space_a4_2">
@@ -807,11 +812,11 @@ Vue.component('my-content', {
                 fetch(`./php/getResume_sample_All.php?model=2&studentId=${this.studentId}`)
                     .then(rsp => rsp.json())
                     .then(data => {
+                        // this.ResumeTotal = 0
+                        for (let total in data) {
+                            this.ResumeTotal = ++total
+                            console.log('total:' + this.ResumeTotal)    
                         this.ResumeTotal = 0
-                        for (total in data) {
-                            // console.log('id:' + data[total].ID)
-                            // console.log('studentId:' + data[total].STUDENT_ID)
-                            this.ResumeTotal++
                         }
                         // 沒有student_id代表是新增履歷
                             if (this.resume_modelOne.student_id == null) {
@@ -872,12 +877,10 @@ Vue.component('my-content', {
                 })
         },
         // 點擊模板帶過來的資料
-        selectedModel(open, resume_modelOne) {
-            this.resume_modelOne = resume_modelOne
-            // console.log(this.resume_modelOne)
-            if (resume_modelOne.unlock == 1) {
+        selectedModel(open, resume_modelOne) {  
+            if (resume_modelOne.price == 0) {
+                this.resume_modelOne = resume_modelOne
                 // 選擇模板編譯履歷
-                // console.log('resumeborder:' + resume_modelOne.id)
                 this.deleteResumeBorder = open;
             } else {
                 // 付費彈窗
@@ -885,12 +888,9 @@ Vue.component('my-content', {
                 this.fileName = resume_modelOne.fileName
                 this.unlock = resume_modelOne.unlock
                 this.price = resume_modelOne.price
-                // this.resume_modelOne = ''
-                // console.log('prselectedModel:' + resume_modelOne.fileName + ',' + resume_modelOne.unlock + ',' + resume_modelOne.price)
+                
             }
-
-            // this.modelBorder = false;
-
+            
         },
         // 儲存
         saveResume() {
