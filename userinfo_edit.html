@@ -125,7 +125,7 @@
             })
         }
 
-        let stuMember = []   
+        
         let stuTitle = document.getElementById('stuTitle')
         let address = document.getElementById('address')
         let email = document.getElementById('email')
@@ -138,7 +138,9 @@
         fetch(`./php/editStudent.php?stuId=${sessionStorage.getItem('StudentId')}`)
         .then(rsp => rsp.json())
         .then(userArr => {
+            let stuMember = []   
             stuMember = userArr
+            console.log(stuMember);
             stuTitle.innerText = stuMember[0].NAME
             address.innerText = stuMember[0].ADDRESS
             email.innerText = stuMember[0].EMAIL

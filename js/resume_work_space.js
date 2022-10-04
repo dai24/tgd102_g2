@@ -808,7 +808,8 @@ Vue.component('my-content', {
                     .then(rsp => rsp.json())
                     .then(data => {
                         this.ResumeTotal = 0
-                        for (total in data) {
+                        for (total1 in data) {
+                            console.log(total1);
                             // console.log('id:' + data[total].ID)
                             // console.log('studentId:' + data[total].STUDENT_ID)
                             this.ResumeTotal++

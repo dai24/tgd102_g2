@@ -12,6 +12,8 @@ Vue.component('student-list',{
             this.addCoin = !this.addCoin
         },
         changeFigure(e){ //更換大頭貼
+            let vm = this 
+            const blob = new Blob([buffer], { type: type });
             const file = document.querySelector(".student_photo").querySelector("input[type=file]").files[0]; 
             const figureNow = document.querySelector(".figureNow")
             const reader = new FileReader();
@@ -22,8 +24,24 @@ Vue.component('student-list',{
             },false);
 
             if(file){
-                reader.readAsDataURL(file); 
-                console.log(figureNow.src.str)
+                reader.readAsDataURL(file);
+                reader.onload = function () {
+                    
+                    console.log(reader.result);
+                    vm.figure = reader.result
+                    console.log(vm.figure);
+                    fetch(`./php/updateStudentFigure.php`, {
+                        method: 'POST',
+                        headers: {'Content-Type' : 'application/json'},
+                        body: JSON.stringify({
+                            id : sessionStorage.getItem('StudentId'),
+                            picture : vm.figure,
+                        })
+                    })
+                };
+                // reader.readAsDataURL(file); 
+                // console.log();
+                // console.log(figureNow.src.str)
                 // fetch('./php/updateStudentFigure.php', { //準備大頭貼更新到資料庫
                 //     method: 'POST',
                 //     headers: { 'Content-Type': 'application/json' },

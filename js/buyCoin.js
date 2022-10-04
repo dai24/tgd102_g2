@@ -1,7 +1,7 @@
 
 
 
-const name = document.getElementById('name');
+const name1 = document.getElementById('name');
 const cardnumber = document.getElementById('cardnumber');
 const expirationdate = document.getElementById('expirationdate');
 const securitycode = document.getElementById('securitycode');
@@ -105,8 +105,8 @@ for(let i = 0; i < inputCoin.length; i++){
 surePayCoin.addEventListener('click', function(){
     
     console.log(Number(buyCoin));
-    console.log(name.value);
-    if(name.value=='' ||cardnumber.value==''||expirationdate.value==''||securitycode.value==''){
+    console.log(name1.value);
+    if(name1.value=='' ||cardnumber.value==''||expirationdate.value==''||securitycode.value==''){
         alert('請填寫完整資訊')
     }else{
         fetch(`./php/payCoin.php`, {
@@ -356,8 +356,8 @@ document.querySelector('.creditcard').addEventListener('click', function () {
 })
 
 //On Input Change Events
-name.addEventListener('input', function () {
-    if (name.value.length == 0) {
+name1.addEventListener('input', function () {
+    if (name1.value.length == 0) {
         document.getElementById('svgname').innerHTML = 'John Doe';
         document.getElementById('svgnameback').innerHTML = 'John Doe';
     } else {
@@ -391,7 +391,7 @@ securitycode_mask.on('accept', function () {
 });
 
 //On Focus Events
-name.addEventListener('focus', function () {
+name1.addEventListener('focus', function () {
     document.querySelector('.creditcard').classList.remove('flipped');
 });
 
