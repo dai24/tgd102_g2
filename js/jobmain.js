@@ -5,7 +5,7 @@ Vue.component('my-list1',{
         }
     },
     mounted() {
-        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobmain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobTitle = userArr
@@ -250,7 +250,7 @@ new Vue({
         resumeSrr:''
     },
     mounted() {
-        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobmain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobApply = userArr
