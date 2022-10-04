@@ -33,7 +33,7 @@ Vue.component('my-list2',{
         }
     },
     mounted() {
-        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobmain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobMain = userArr
@@ -116,7 +116,7 @@ Vue.component('my-list3',{
         }
     },
     mounted() {
-        fetch(`./php/jobMain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
+        fetch(`./php/jobmain.php?home=${sessionStorage.getItem('findJobId')}`) //從後端JS拿到資料
         .then(rsp => rsp.json())
         .then(userArr => {            
             this.jobCompany = userArr
@@ -131,7 +131,7 @@ Vue.component('my-list3',{
         <div class="jobMainWrapperComTitle">
             <div><a @click='moveCom(jobC.COMPANY_ID)' ><img :src="jobC.LOGO + '.jpg'" alt="" class="moveToCom"></a></div>
             <div class="jobMainWrapperComIconT">
-                    <a><h2 class="moveToCom">{{jobC.COM_NAME}}</h2></a>
+                    <a><h2 class="moveToCom" @click='moveCom(jobC.COMPANY_ID)'>{{jobC.COM_NAME}}</h2></a>
                 <div class="jobMainWrapperComIconTM">
                     <div class="jobMainWrapperComIcon">
                         <a title="總人數"><i class="fa-solid fa-users"></i><p>{{jobC.SCALE}}</p></a>
@@ -226,7 +226,7 @@ Vue.component('my-list4',{
             })
             for(let i = 0; i < this.jobID1.length; i++){
                 console.log(this.jobID1[i]);
-                fetch(`./php/jobMain.php?home=${this.jobID1[i]}`)
+                fetch(`./php/jobmain.php?home=${this.jobID1[i]}`)
                 
                 //jobId : this.jobID1[i]
             }
@@ -280,7 +280,12 @@ new Vue({
             this.resumePic=[]
         },
         saveGo(){
-            this.isShowSave =!this.isShowSave
+            if(JSON.stringify(sessionStorage.getItem('StudentId'))  === 'null'){
+                alert('請先登入會員')
+                location='./student_login.html'
+            }else{
+                this.isShowSave =!this.isShowSave
+            }
         },
         saveClose(){
             this.isShowSave =!this.isShowSave
@@ -294,7 +299,9 @@ new Vue({
             this.isShowR =!this.isShowR
             this.resumeSrr = ''
         },
-
+        goStudentMain(){
+            location='./student_main.html'
+        },
         
     },
 

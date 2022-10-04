@@ -13,7 +13,7 @@ Vue.component('student-list',{
         },
         changeFigure(e){ //更換大頭貼
             let vm = this 
-            const blob = new Blob([buffer], { type: type });
+            // const blob = new Blob([buffer], { type: type });
             const file = document.querySelector(".student_photo").querySelector("input[type=file]").files[0]; 
             const figureNow = document.querySelector(".figureNow")
             const reader = new FileReader();
@@ -39,6 +39,7 @@ Vue.component('student-list',{
                         })
                     })
                 };
+                // reader.readAsDataURL(blob)
                 // reader.readAsDataURL(file); 
                 // console.log();
                 // console.log(figureNow.src.str)
@@ -126,7 +127,7 @@ Vue.component('student-list',{
                 <div class="student_photo">
                     <label for="upload" class="upload">
                         <input  id="upload" type="file" accept="image/*" @change="changeFigure">
-                        <img class="figureNow" :src="studentTitlec.PICTURE + '.jpg'" alt="大頭貼">
+                        <img class="figureNow" :src="studentTitlec.PICTURE" alt="大頭貼">
                     </label>                    
                 </div>
                 <ul>

@@ -230,6 +230,7 @@ new Vue({
         },
     },
     methods: {
+        
         left(){
             this.showPage--
             if(this.showPage<=0){
@@ -261,7 +262,13 @@ new Vue({
             })
         },  
         saveGo(){
-            this.isShowSave =!this.isShowSave
+            if(JSON.stringify(sessionStorage.getItem('StudentId'))  === 'null'){
+                alert('請先登入會員')
+                location='./student_login.html'
+            }else{
+                this.isShowSave =!this.isShowSave
+            }
+            
         },
         saveClose(){
             this.isShowSave =!this.isShowSave
@@ -355,11 +362,19 @@ new Vue({
             })
             for(let i = 0; i < this.jobID1.length; i++){
                 console.log(this.jobID1[i]);
-                fetch(`./php/jobMain.php?home=${this.jobID1[i]}`)
+                fetch(`./php/jobmain.php?home=${this.jobID1[i]}`)
                 fetch(`./php/jobMainBrow.php?home=${this.jobID1[i]}&brow=${brow}`)
             }
             location='./jobMain.html'
         },
+        moveCom(comId){
+            sessionStorage.setItem('findJobcomId', comId);
+            console.log(comId)
+            location='./company.html'
+        },
+        goStudentMain(){
+            location='./student_main.html'
+        }
         
     },
     filters:{
@@ -370,6 +385,6 @@ new Vue({
             }
             return value
         }
-    }
+    },
 })
 
