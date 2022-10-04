@@ -92,6 +92,11 @@
                     img{ //限制大頭貼的長寬
                         width: 230px;
                         height: 230px;
+                        @include m(){
+                            width: 120px;
+                            height: 120px;
+                            margin-left: -10px;
+                        } 
                     }
                 }
         }
@@ -131,7 +136,7 @@
             @include m(){
                 font-size: $R-fontSize05;
                 position: relative;
-                top: -45px;
+                top: -33px;
                 left: -140px;
                 width: 120px;
                 padding: 10px 0;
