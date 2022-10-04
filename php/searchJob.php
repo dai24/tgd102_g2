@@ -17,14 +17,14 @@ $job2 = "%$job%";
 
 if(isset($_GET["comId"])){
     $sql = "SELECT
-                j.ID, j.NAME, j.COMPANY_ID, j.WORKPLACE, j.SCALE, 
-                j.SALARY, j.WFH, j.JOB, j.DESCRIBE,  j.REQUIRE, j.CONDITION, j.BROWSED, j.PLUS, j.BAN, j.CREATE_DATE, 
-                j.CATEGORY, j.DEPART,                
-                c.NAME as COMPANYNAME
-            FROM JOB j
-                JOIN COMPANY c
-                on j.COMPANY_ID = c.ID
-            WHERE j.COMPANY_ID = :ID 
+                J.ID, J.NAME, J.COMPANY_ID, J.WORKPLACE, J.SCALE, 
+                J.SALARY, J.WFH, J.JOB, J.DESCRIBE,  J.REQUIRE, J.CONDITION, J.BROWSED, J.PLUS, J.BAN, J.CREATE_DATE, 
+                J.CATEGORY, J.DEPART,                
+                C.NAME as COMPANYNAME
+            FROM JOB J
+                JOIN COMPANY C
+                on J.COMPANY_ID = C.ID
+            WHERE J.COMPANY_ID = :ID 
             LIMIT
             $omitData, $content;
             ";
@@ -35,13 +35,13 @@ if(isset($_GET["comId"])){
 }else if(isset($_GET["job"])){
     // echo "有查詢";
     $sql = "SELECT
-                j.ID, j.NAME, j.COMPANY_ID, j.WORKPLACE, j.SCALE, 
-                j.SALARY, j.WFH, j.JOB, j.BROWSED, j.BAN, j.CREATE_DATE, 
-                c.NAME as COMPANYNAME
-            FROM JOB j
-                JOIN COMPANY c
-                on j.COMPANY_ID = c.ID   
-            WHERE j.ID like :ID or j.NAME like :NAME         
+                J.ID, J.NAME, J.COMPANY_ID, J.WORKPLACE, J.SCALE, 
+                J.SALARY, J.WFH, J.JOB, J.BROWSED, J.BAN, J.CREATE_DATE, 
+                C.NAME as COMPANYNAME
+            FROM JOB J
+                JOIN COMPANY C
+                on J.COMPANY_ID = C.ID   
+            WHERE J.ID like :ID or J.NAME like :NAME         
             LIMIT
             $omitData, $content;
             ";
@@ -52,12 +52,12 @@ if(isset($_GET["comId"])){
 }else{
     // echo "未查詢";
     $sql = "SELECT
-                j.ID, j.NAME, j.COMPANY_ID, j.WORKPLACE, j.SCALE, 
-                j.SALARY, j.WFH, j.JOB, j.BROWSED, j.BAN, j.CREATE_DATE, 
-                c.NAME as COMPANYNAME
-            FROM JOB j
-                JOIN COMPANY c
-                on j.COMPANY_ID = c.ID            
+                J.ID, J.NAME, J.COMPANY_ID, J.WORKPLACE, J.SCALE, 
+                J.SALARY, J.WFH, J.JOB, J.BROWSED, J.BAN, J.CREATE_DATE, 
+                C.NAME as COMPANYNAME
+            FROM JOB J
+                JOIN COMPANY C
+                on J.COMPANY_ID = C.ID            
             LIMIT
             $omitData, $content;
             ";
