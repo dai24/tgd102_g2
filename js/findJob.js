@@ -174,15 +174,15 @@ new Vue({
             this.com2.forEach(element => {
                 if(element.TOTAL_EMPLOYEE <= 30){
                     element.TOTAL_EMPLOYEE = '小'
-                    console.log(element.TOTAL_EMPLOYEE);
+                    // console.log(element.TOTAL_EMPLOYEE);
                 }
                 if(element.TOTAL_EMPLOYEE > 30 && element.TOTAL_EMPLOYEE <= 60){
                     element.TOTAL_EMPLOYEE = '中'
-                    console.log(element.TOTAL_EMPLOYEE);
+                    // console.log(element.TOTAL_EMPLOYEE);
                 }
                 if(element.TOTAL_EMPLOYEE > 60){
                     element.TOTAL_EMPLOYEE = '大'
-                    console.log(element.TOTAL_EMPLOYEE);
+                    // console.log(element.TOTAL_EMPLOYEE);
                 }
             });
         })            
