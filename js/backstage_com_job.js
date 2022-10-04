@@ -14,7 +14,7 @@ Vue.component('comjob-data',{
     },
     mounted() {       
         //顯示該公司的職缺
-        fetch(`./php/searchjob.php?comId=${sessionStorage.getItem('backstageCompany')}`) //撈到session的該公司ID，傳給php，
+        fetch(`./php/search_job.php?comId=${sessionStorage.getItem('backstageCompany')}`) //撈到session的該公司ID，傳給php，
         .then(rsp => rsp.json())
         .then(userArr => {    
             // console.log(userArr); 
@@ -26,7 +26,7 @@ Vue.component('comjob-data',{
         for(let i = 0; i < pageContent.length; i++ ){
             pageContent[i].addEventListener("click", e => {
                 // alert(e.target.innerText) //確認傳遞的數值和頁碼相同
-                fetch(`php/searchJob.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
+                fetch(`php/search_job.php?page=${e.target.innerText}`) //連到資料庫 。?的右邊可自訂變數讓php取資料    
                 
                 .then(rsp => rsp.json())
                 .then(userArr => {        
