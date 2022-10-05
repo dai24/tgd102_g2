@@ -99,9 +99,10 @@ for(let i = 0; i < inputCoin.length; i++){
     inputCoin[i].addEventListener('change',function(){
         console.log(inputCoin[i].value);
         buyCoin = inputCoin[i].value
+        
     })
 }
-
+let coinNow = 0
 surePayCoin.addEventListener('click', function(){
     
     console.log(Number(buyCoin));
@@ -118,7 +119,9 @@ surePayCoin.addEventListener('click', function(){
             })
         })
         .then (res => res.json())
-        .then (body => {})
+        .then(userArr => {            
+            console.log(userArr);
+        })
         if(payPageFlag){
             outPayPager.style.display="block";
             payPageFlag=false;
