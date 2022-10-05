@@ -3,6 +3,7 @@
     max-width: 405px;
     width: 100%;
     margin: 0 auto;
+    text-align: left;
     @include m(){
         max-width: 375px;
     }
@@ -102,7 +103,4 @@
             margin: 18px 18px;
         }
     }
-}
-.applyfor{
-    text-align: left;
 }

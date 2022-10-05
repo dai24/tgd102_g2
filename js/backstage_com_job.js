@@ -89,7 +89,7 @@ Vue.component('comjob-data',{
                                 <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
                                 <td class="ban"><h3><i class="fa-solid fa-ban" @click="banJob(comjobs.ID)" :style="{ 'opacity': comjobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
                             </tr>
-                            <tr >
+                            <tr>
                                 <tr class="itemDetailTile" v-if="opened_trs == comjobs.ID">
                                     <th class="category"><h3>職業種類</h3></th>
                                     <th class="depart"><h3 >部門種類</h3></th>

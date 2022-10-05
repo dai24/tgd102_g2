@@ -7,6 +7,17 @@ Vue.component('student-data',{
             opened_tr:null, //開關詳細資料
             searchstudent:'', 
             banId:'', //停權用途
+            
+            conmLength:null,
+            comPage:4,
+            minPage:1,
+            showPage:1,
+            pageTotal:0,
+            checkedSort1: [],
+            checkedSort2: [],
+            checkedSort3: [],
+            checkedSort4: [],
+            checkedSort5: [],
         }       
     },
     methods:{
@@ -22,8 +33,28 @@ Vue.component('student-data',{
             .then(userArr => {            
                 // console.log(userArr);
                 this.studentData = userArr;
+                this.conmLength = this.studentData.length //資料長度
+                this.pageTotal = Math.ceil(this.conmLength/this.comPage) //page 按鈕總數量公式 總資料數量 / 每一頁要顯示的資料                
             })
-        },        
+        },     
+        left(){
+            this.showPage--
+            if(this.showPage<=0){
+                this.showPage= 1
+            }
+        },
+        right(){
+            this.showPage++
+            if(this.showPage >= this.pageTotal){
+                this.showPage=  this.pageTotal
+            }
+        },
+        pageid(i){
+            this.showPage = i
+        },   
+    },
+    computed: { 
+        
     },
     mounted() {       
         //顯示第一頁的資料
@@ -32,6 +63,8 @@ Vue.component('student-data',{
         .then(userArr => {    
             // console.log(userArr)
             this.studentData = userArr
+            this.conmLength = this.studentData.length //資料長度
+            this.pageTotal = Math.ceil(this.conmLength/this.comPage) //page 按鈕總數量公式 總資料數量 / 每一頁要顯示的資料
         })
 
         //根據選擇的頁碼，顯示不同筆資料
@@ -45,10 +78,12 @@ Vue.component('student-data',{
                 .then(userArr => {            
                     // console.log(userArr)
                     this.studentData = userArr  
+                    this.conmLength = this.studentData.length //資料長度
+                    this.pageTotal = Math.ceil(this.conmLength/this.comPage) //page 按鈕總數量公式 總資料數量 / 每一頁要顯示的資料
                 })
             })
         }     
-    },
+    },    
     updated() {
         //目標：職缺是否要停權
         let fa_ban = document.querySelectorAll(".fa-ban")
@@ -72,7 +107,7 @@ Vue.component('student-data',{
             <div class="block">
                 <div class="inputsearch">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="Text" class="inputText" v-model="searchstudent" @keyup="search" placeholder="搜尋會員名稱或編號" name="search">
+                    <input type="Text" class="inputText" v-model="searchstudent" @change="search" placeholder="搜尋會員名稱或編號" name="search">
                 </div>                
             </div>
             <table>
@@ -102,7 +137,7 @@ Vue.component('student-data',{
                             <td class="record"><a href="#"><h3>10</h3></a></td>
                             <td class="detail"><h3><button class="btna3 detailBtn" @click="opened_tr === null  ?  opened_tr = students.ID : opened_tr = null"><h4>詳細資料</h4></button></h3></td>
                             <td class="create-date"><h3>{{students.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
-                            <td class="ban"><h3><i class="fa-solid fa-ban" @click="banStu(students.ID)" :style="{ 'opacity': students.BAN == 1 ? 1 : 0.1 }"></i></h3></td>    
+                            <td class="ban"><h3><i class="fa-solid fa-ban" @click="banStu(students.ID)"></i></h3></td>    
                         </tr>     
                         <tr >
                             <tr class="itemDetailTile"  v-if="opened_tr === students.ID">
@@ -142,8 +177,12 @@ Vue.component('student-data',{
 let vm = new Vue({ //設定想要預載的html結構
     el:'#backstage_student_app',
     data:{
+        
     },
     methods:{
+        
+    },
+    computed:{
         
     },
     template:` 
@@ -155,16 +194,13 @@ let vm = new Vue({ //設定想要預載的html結構
 
         </div>      
        
-        <div class="pagination-div">
+        <div class="pagination-div" id="pagination-div">
             <ul class="pagination-ul">
-              <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
-              <li><a href="#" class="pageContent">1</a></li>              
-              <li><a href="#" class="pageContent">2</a></li>              
-              <li><a href="#" class="pageContent">3</a></li>              
-              <li><a href="#" class="pageContent">4</a></li>
-              <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                <li><a href="#" @click="left()"><i class="fa-solid fa-chevron-left"></i></a></li>
+                <li v-for="(page,i) in pageTotal"><a href="#" class="pageContent" @click="pageid(page)">{{page}}</a></li>
+                <li><a href="#" @click="right()"><i class="fa-solid fa-chevron-right"></i></a></li>
             </ul>
-        </div>
+        </div>        
     </div>
         `,  
     })     

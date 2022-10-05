@@ -36,7 +36,8 @@ if(isset($_GET["comId"])){
     // echo "有查詢";
     $sql = "SELECT
                 J.ID, J.NAME, J.COMPANY_ID, J.WORKPLACE, J.SCALE, 
-                J.SALARY, J.WFH, J.JOB, J.BROWSED, J.BAN, J.CREATE_DATE, 
+                J.SALARY, J.WFH, J.JOB, J.DESCRIBE,  J.REQUIRE, J.CONDITION, J.BROWSED, J.PLUS, J.BAN, J.CREATE_DATE, 
+                J.CATEGORY, J.DEPART,                
                 C.NAME as COMPANYNAME
             FROM JOB J
                 JOIN COMPANY C
@@ -53,7 +54,8 @@ if(isset($_GET["comId"])){
     // echo "未查詢";
     $sql = "SELECT
                 J.ID, J.NAME, J.COMPANY_ID, J.WORKPLACE, J.SCALE, 
-                J.SALARY, J.WFH, J.JOB, J.BROWSED, J.BAN, J.CREATE_DATE, 
+                J.SALARY, J.WFH, J.JOB, J.DESCRIBE,  J.REQUIRE, J.CONDITION, J.BROWSED, J.PLUS, J.BAN, J.CREATE_DATE, 
+                J.CATEGORY, J.DEPART,                
                 C.NAME as COMPANYNAME
             FROM JOB J
                 JOIN COMPANY C

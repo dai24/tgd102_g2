@@ -29,7 +29,7 @@ Vue.component('student-list',{
                     
                     console.log(reader.result);
                     vm.figure = reader.result
-                    console.log(vm.figure);
+                    // console.log(vm.figure);
                     fetch(`./php/updateStudentFigure.php`, {
                         method: 'POST',
                         headers: {'Content-Type' : 'application/json'},

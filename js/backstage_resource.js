@@ -70,21 +70,66 @@ let vm = new Vue({
     data:{        
         toggleAddTeacher:false, //打開彈窗。新增導師
         figure:'',
-
+        tname:'',
+        tschool:'',
+        jobtitle:'',
+        temail:'',
+        tdescription:'',
+        checkIndustry:[],
+        industryList:"",
+        checkSkill:[],
+        skillList:"",
     },
     methods:{
-        addTeacher(){
+        closeWindow(){ //關閉彈窗
             this.toggleAddTeacher = !this.toggleAddTeacher
         },
         changeFigure(e){
-            const file = e.target.files.item(0); 
+            const file = e.target.files[0]; 
             const reader = new FileReader();
-            reader.addEventListener('load', this.imageLoaded);
-            reader.readAsDataURL(file);              
+
+            reader.readAsDataURL(file); 
+            reader.addEventListener("load", () => {
+                // console.log(reader.result)
+                this.figure = reader.result
+                // console.log(this.figure) //顯示新增的導師照片
+            })      
+            // console.log(this.figure)       
         },
-        imageLoaded(e) {
-            this.figure = e.target.result; 
-          },
+        addTeacher(){ //新增導師
+            console.log(this.tname) //顯示輸入的導師名稱
+            console.log(this.figure) //顯示導師照片
+            console.log(this.tschool) //顯示導師最高學歷
+            console.log(this.jobtitle) //顯示導師職業
+            console.log(this.temail) //顯示導師信箱
+            console.log(this.tdescription) //顯示導師簡介
+            this.industryList = this.checkIndustry.join(" / ")            
+            this.skillList = this.checkSkill.join(" / ")
+            console.log(this.industryList) //顯示導師擅長產業
+            console.log(this.skillList) //顯示導師擅長領域
+
+            fetch("./php/backstage_addteacher.php",{
+                method: "POST",
+                headers: { "Content-Type": "application/json"},
+                body: JSON.stringify({
+                    tname:this.tname,
+                    figure:this.figure,
+                    school:this.tschool,
+                    job:this.jobtitle,
+                    email:this.temail,
+                    descript:this.tdescription,
+                    industry:this.industryList,
+                    skill:this.skillList,
+                })
+            })    
+            .then(rsp => rsp.json())
+            .then(userArr => {})           
+            this.toggleAddTeacher = !this.toggleAddTeacher
+        },
+        
+        // imageLoaded(e) {
+        //     this.figure = e.target.result; 
+        //   },
     },
     template:`
     <div>
@@ -98,13 +143,13 @@ let vm = new Vue({
                             <h1 class="cardH1">新增導師</h1>
                         </li>
                         <li>
-                            <i class="fa-solid fa-xmark cardXmark" @click="addTeacher"></i>
+                            <i class="fa-solid fa-xmark cardXmark" @click="closeWindow"></i>
                         </li>
                     </ul>
-                    <div class="cardInner applyfor">
+                    <div class="cardInner ">
                         <section class="input01">
                             <h2 class="question">導師名稱</h2>
-                            <input class="inputText" type="text" placeholder="請輸入導師姓名">
+                            <input class="inputText" v-model="tname" type="text" placeholder="請輸入導師姓名">
                         </section>
 
                         <section class="input01">
@@ -117,15 +162,51 @@ let vm = new Vue({
 
                         <section class="input01">
                             <h2 class="question">導師資料</h2>
-                            <input  class="inputText school" type="text" placeholder="請輸入最高學歷">
-                            <input  class="inputText industry" type="text" placeholder="請輸入擅長產業">
-                            <textarea class="skill" placeholder="請輸入擅長職務"></textarea>
-                            <textarea class="tdescription" placeholder="導師簡介"></textarea>
+                            <input  class="inputText school" type="text" v-model="tschool" placeholder="請輸入最高學歷">
+                            <input  class="inputText" type="text" v-model="jobtitle" placeholder="請輸入導師職業">
+                            <input  class="inputText" type="text" v-model="temail" placeholder="請輸入聯絡信箱">
+                            <textarea v-model="tdescription"  placeholder="導師簡介"></textarea>
+                        </section>
+
+                        <section class="input01 industry">
+                            <h2 class="question">導師擅長產業</h2>
+                            <div class="industrywra">
+                                <label><input type="checkbox" value="電子科技" v-model="checkIndustry"><h4>電子科技</h4></label>
+                                <label><input type="checkbox" value="資訊" v-model="checkIndustry"><h4>資訊</h4></label>
+                                <label><input type="checkbox" value="軟體" v-model="checkIndustry"><h4>軟體</h4></label>
+                                <label><input type="checkbox" value="金融" v-model="checkIndustry"><h4>金融</h4></label>
+                                <label><input type="checkbox" value="休閒" v-model="checkIndustry"><h4>休閒</h4></label>
+                                <label><input type="checkbox" value="出版" v-model="checkIndustry"><h4>出版</h4></label>
+                                <label><input type="checkbox" value="藝文相關" v-model="checkIndustry"><h4>藝文相關</h4></label>
+                                <label><input type="checkbox" value="法律" v-model="checkIndustry"><h4>法律</h4></label>
+                                <label><input type="checkbox" value="顧問" v-model="checkIndustry"><h4>顧問</h4></label>
+                                <label><input type="checkbox" value="研發" v-model="checkIndustry"><h4>研發</h4></label>
+                                <label><input type="checkbox" value="餐飲" v-model="checkIndustry"><h4>餐飲</h4></label>
+                                <label><input type="checkbox" value="旅遊" v-model="checkIndustry"><h4>旅遊</h4></label>
+                            </div>
+                        </section>
+
+                        <section class="input01 skill">
+                            <h2 class="question">導師擅長職務</h2>
+                            <div class="skillwra">
+                                <label><input type="checkbox" value="管理幕僚" v-model="checkSkill"><h4>管理幕僚</h4></label>
+                                <label><input type="checkbox" value="人資" v-model="checkSkill"><h4>人資</h4></label>
+                                <label><input type="checkbox" value="金融" v-model="checkSkill"><h4>金融</h4></label>
+                                <label><input type="checkbox" value="財會" v-model="checkSkill"><h4>財會</h4></label>
+                                <label><input type="checkbox" value="貿易" v-model="checkSkill"><h4>貿易</h4></label>
+                                <label><input type="checkbox" value="客服" v-model="checkSkill"><h4>客服</h4></label>
+                                <label><input type="checkbox" value="行銷" v-model="checkSkill"><h4>行銷</h4></label>
+                                <label><input type="checkbox" value="企劃" v-model="checkSkill"><h4>企劃</h4></label>
+                                <label><input type="checkbox" value="資訊" v-model="checkSkill"><h4>資訊</h4></label>
+                                <label><input type="checkbox" value="專案管理" v-model="checkSkill"><h4>專案管理</h4></label>
+                                <label><input type="checkbox" value="顧問" v-model="checkSkill"><h4>顧問</h4></label>
+                                <label><input type="checkbox" value="保險" v-model="checkSkill"><h4>保險</h4></label>
+                            </div>
                         </section>
 
                         <!-- 按鈕：儲存、取消 -->
                         <ul class="edit">
-                            <li class="btna3" @click="addTeacher">取消</li>
+                            <li class="btna3" @click="closeWindow">取消</li>
                             <li class="btna4" @click="addTeacher">儲存</li>
                         </ul>
                     </div>
@@ -139,8 +220,8 @@ let vm = new Vue({
 
             <li>
                 <ul class="addTeacher">                    
-                    <li @click="addTeacher"><h4>新增導師</h4></li>
-                    <li><i class="fa-solid fa-arrow-up-from-bracket" @click="addTeacher"></i></li>
+                    <li @click="closeWindow"><h4>新增導師</h4></li>
+                    <li><i class="fa-solid fa-arrow-up-from-bracket" @click="closeWindow"></i></li>
                 </ul>
                 <div class="inputsearch">
                     <i class="fa-solid fa-magnifying-glass"></i>

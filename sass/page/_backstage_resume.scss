@@ -79,6 +79,7 @@
                     .fa-solid{
                         font-size: 20px;
                         color: $secondary02;
+                        cursor: pointer;
                         margin-left: 8px;
                         margin-right: 24px;
                     }
@@ -110,15 +111,25 @@
                 @media screen and (max-width:1850px) {
                     margin-right: 32px;
                 }
-                // @media screen and (min-width:1850px) { //配合backstage_nav變成漢堡
-                //     padding-right: 30px;
-                //     padding-left: 30px;
-                // }
-                //履歷
-                img{
-                    display: block;
-                    width: 100%;
-                }
+                .resumewra{
+                    position: relative;
+                    //履歷遮罩
+                    .imgMask{
+                        // width:307px;
+                        width: 100%;
+                        height: 100%;
+                        // height:432px;
+                        background-color: #313131;
+                        position: absolute;
+                        opacity: 0.4;
+                        z-index: 2;
+                    }
+                    //履歷
+                    img{
+                        display: block;
+                        width: 100%;
+                    }
+                }                
                 //編輯
                 .edit{
                     height:$editHeight;                    
@@ -145,14 +156,19 @@
                             margin-right: 8px;
                         }
                         .fa-solid{
-                            display: block;
+                            display: flex;
                             font-size: 20px;
                             margin-left: 16px;
-                            line-height:$editHeight;
+                            line-height:$editHeight;                            
+                            cursor: pointer;
                             @media screen and (max-width:1500px) {
                                 margin-left: 8px;
                             }           
-                                          
+                            h4{
+                                line-height:$editHeight;
+                                font-weight: bold;
+                                margin-left: 4px;
+                            }              
                         }          
                     }
                 }                    

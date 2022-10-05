@@ -4,6 +4,7 @@
     display: flex;
     $trheight:80px; //每筆資料高度
     $winheight:1190px; //網頁高度
+    $itemMarLeft:16px; //欄位margin-left
     h1{
         font-size:$fontSize01;
         margin-top:44px;
@@ -119,36 +120,26 @@
                 border: solid $primary02;
                 border-top: 0;
                 &:hover{ //hover時，該筆資料和按鈕都變色
-                    background-color:$primary03;                    
+                    background-color:$primary03;
+                    
                 }
                 h3{
-                    padding:12px 0; //每筆資料垂直置中
-                }
-                //公司名稱
-                .companyname{
-                    h3{
-                        line-height: 1.6;
+                    line-height: 1.6;
+                    padding: 12px 0;
+                    @media screen and (max-width: 1800px) {
+                        font-size:$fontSize04;                 
                     }
                 }
-                //應徵次數
-                .bro{
+                h4{ //詳細資料button
+                    font-weight: bold;
+                }
+                //欄位：ID
+                .id{
                     h3{
                         text-align: center;
                     }
-                } 
-                //應徵次數
-                .apply{
-                    h3{
-                        text-align: center;
-                    }
-                } 
-                //面試次數
-                .interview{
-                    h3{
-                        text-align: center;
-                    }
-                }                    
-                //職缺狀態
+                }
+                //欄位：職缺狀態
                 .state{
                     text-align: center;
                     .fa-lightbulb{
@@ -161,12 +152,74 @@
                         color:#313131;
                     }
                 }
-                .ban{
+            }
+            .itemDetailTile{ //詳細資料欄位
+                border-left:3px solid $primary04;
+                border-right:3px solid $primary04;
+                h3{
+                    font-weight: bold;
+                    color: $secondary01;
+                    text-align: center;
+                }
+                th{ //修改欄位底色
+                    background-color:$primary04;
+                }
+                //欄位：職業種類
+                .category{
                     h3{
-                        text-align: center;
+                        margin-left:$itemMarLeft;
                     }
                 }
-            }                
+            }  
+            .itemDetail{ //職缺詳細資料
+                border-left: 3px solid $primary04H;
+                border-right: 3px solid $primary04H;
+                th{
+                    background-color:$primary04H;
+                }
+                h3{
+                    text-align: center;
+                }
+                .describe{ //欄位：職缺描述
+                    max-width: 300px;
+                    max-height: 100px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    padding-bottom: 12px;
+                    // overflow: hidden;
+                    h3{
+                        text-align: left;
+                    }
+                }
+                .require{
+                    max-width: 300px;
+                    max-height: 100px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    padding-bottom: 12px;
+                    // overflow: hidden;
+                    h3{
+                        text-align: left;
+                    }
+                }
+                .plus{
+                    max-width: 300px;
+                    max-height: 100px;
+                    padding-left: 12px;
+                    padding-right: 12px;
+                    padding-bottom: 12px;
+                    // overflow: hidden;
+                    h3{
+                        text-align: left;
+                    }
+                }
+                //欄位：職業種類
+                .category{
+                    h3{
+                        margin-left:$itemMarLeft;
+                    }
+                }
+            }                 
         }
         
         //按鈕：詳細資料

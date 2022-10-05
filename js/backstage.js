@@ -1,5 +1,5 @@
 //canvas 網站性別比 -----------------------------------------------------
-var ctx = document.getElementById('chart_gender');
+let ctx = document.getElementById('chart_gender');
 var myChart = new Chart(ctx, {
   type: 'pie', //圖表類型。line / bar長條圖 / radar雷達圖 / polarArea / pie圓餅圖 / doughnut甜甜圈 / bebble泡泡圖
   data: {
@@ -42,7 +42,7 @@ var myChart = new Chart(ctx, {
 });
 
 //canvas 今日瀏覽人數長條圖 -----------------------------------------------------
-var ctx1 = document.getElementById('chart_todayVisit');
+let ctx1 = document.getElementById('chart_todayVisit');
 
 var myChart = new Chart(ctx1, {
   type: 'bar', //圖表類型。line / bar長條圖 / radar雷達圖 / polarArea / pie圓餅圖 / doughnut甜甜圈 / bebble泡泡圖
@@ -194,33 +194,3 @@ const inputs = {
     }
   ];
 
-
-  //-----------------------------------------------------------------
-
-  // </block:actions>
-  
-  // <block:config:1>
-  // const config = {
-  //   type: 'line',
-  //   data: data,
-  //   options: {
-  //     plugins: {
-  //       filler: {
-  //         propagate: false,
-  //       },
-  //       title: {
-  //         display: true,
-  //         text: (ctx) => 'Fill: ' + ctx.chart.data.datasets[0].fill
-  //       }
-  //     },
-  //     interaction: {
-  //       intersect: false,
-  //     }
-  //   },
-  // };
-  // // </block:config>
-  
-  // module.exports = {
-  //   actions: actions,
-  //   config: config,
-  // };

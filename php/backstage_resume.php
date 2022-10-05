@@ -3,9 +3,9 @@
 include('./PDO/Connection.php');
 
 $member = json_decode(file_get_contents("php://input"), true);
-$sql = "SELECT ID, `NAME`, IMG_PATH, CREATE_DATE
+$sql = "SELECT ID, `NAME`, IMG_PATH, CREATE_DATE, BAN
         FROM RESUME  
-        WHERE MODEL = 1
+        WHERE MODEL = 1 
         LIMIT 0,8
         ";
 

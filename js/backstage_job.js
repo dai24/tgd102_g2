@@ -2,7 +2,7 @@ Vue.component('job-data',{
     data(){
         return{
             jobData: [],
-            opened_tr:null, //開關詳細資料
+            opened_trs:null, //開關詳細資料
             banId:'', //停權用途
             searchjob:'', //搜尋關鍵字
         }       
@@ -84,12 +84,12 @@ Vue.component('job-data',{
 
                 <div class="inputsearch">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="Text" class="inputText" v-model="searchjob" @keyup="search" placeholder="搜尋職缺名稱或編號" name="search">
+                    <input type="Text" class="inputText" v-model="searchjob" @change="search" placeholder="搜尋職缺名稱或編號" name="search">
                 </div>                
             </div>
 
             <table>
-                <thead class="thead">
+                <thead>
                     <tr>
                         <th class="id"><h3>職缺編號</h3></th>
                         <th class="companyname"><h3 >公司名稱</h3></th>
@@ -106,21 +106,60 @@ Vue.component('job-data',{
                 </thead>
                         
                 <tbody>
-                    <tr class="item" v-for="jobs in jobData">
-                        <td class="id"><h3>J111{{jobs.ID}}</h3></td>
-                        <td class="companyname"><h3>{{jobs.COMPANYNAME}}</h3></td>
-                        <td class="name"><h3>{{jobs.NAME}}</h3></td>
-                        <td class="workplace"><h3>{{jobs.WORKPLACE}}</h3></td>
-                        <td class="browsed"><h3>{{jobs.BROWSED}}</h3></td>
-                        <td class="apply"><h3>130</h3></td>
-                        <td class="interview"><h3>43</h3></td>
-                        <td class="detail"><h3>
-                            <button class="btna3"><h4>詳細資料</h4></button>
-                        </h3></td>
-                        <td class="create-date"><h3>{{jobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
-                        <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
-                        <td class="ban"><h3><i class="fa-solid fa-ban" @click="banJob(jobs.ID)" :style="{ 'opacity': jobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
-                    </tr>
+                    <template v-for="(jobs, key) in jobData">
+                        <tr class="item">
+                            <td class="id"><h3>J111{{jobs.ID}}</h3></td>
+                            <td class="companyname"><h3>{{jobs.COMPANYNAME}}</h3></td>
+                            <td class="name"><h3>{{jobs.NAME}}</h3></td>
+                            <td class="workplace"><h3>{{jobs.WORKPLACE}}</h3></td>
+                            <td class="browsed"><h3>{{jobs.BROWSED}}</h3></td>
+                            <td class="apply"><h3>130</h3></td>
+                            <td class="interview"><h3>43</h3></td>
+                            <td class="detail"><h3><button class="btna3" @click="opened_trs == null  ?  opened_trs = jobs.ID : opened_trs = null"><h4>詳細資料</h4></button></h3></td>
+                            <td class="create-date"><h3>{{jobs.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3></td>
+                            <td class="state"><i class="fa-solid fa-lightbulb"></i></td>
+                            <td class="ban"><h3><i class="fa-solid fa-ban" @click="banJob(jobs.ID)" :style="{ 'opacity': jobs.BAN == 1 ? 1 : 0.1 }"></i></h3></td>
+                        </tr>
+                        <tr>
+                            <tr class="itemDetailTile" v-if="opened_trs == jobs.ID">
+                                <th class="category"><h3>職業種類</h3></th>
+                                <th class="depart"><h3>部門種類</h3></th>
+                                <th class="scale"><h3>公司規模(人數)</h3></th>
+                                <th class="salary"><h3>時薪</h3></th>
+                                <th class="wfh"><h3>是否遠端</h3></th>
+                                <th class="job"><h3>職缺人數</h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                            </tr>
+                            <tr class="itemDetail" v-if="opened_trs == jobs.ID">
+                                <th class="category"><h3>{{jobs.CATEGORY}}</h3></th>
+                                <th class="depart"><h3>{{jobs.DEPART}}</h3></th>
+                                <th class="scale"><h3>{{jobs.SCALE}}</h3></th>
+                                <th class="salary"><h3>{{jobs.SALARY}}</h3></th>
+                                <th class="wfh"><h3>{{jobs.WFH}}</h3></th>
+                                <th class="job"><h3>{{jobs.JOB}}</h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                                <th><h3></h3></th>
+                            </tr>
+                            <tr class="itemDetailTile" v-if="opened_trs == jobs.ID">
+                                <th class="describe" colspan="4"><h3>職缺描述</h3></th>
+                                <th class="require" colspan="3"><h3>職務需求</h3></th>
+                                <th class="plus" colspan="3"><h3>加分條件</h3></th>
+                                <th><h3></h3></th>
+                            </tr>
+                            <tr class="itemDetail" v-if="opened_trs == jobs.ID">                                    
+                                <th class="describe" colspan="4"><h3>{{jobs.DESCRIBE}}</h3></th>
+                                <th class="require" colspan="4"><h3>{{jobs.REQUIRE}}</h3></th>
+                                <th class="plus" colspan="3"><h3>{{jobs.PLUS}}</h3></th>  
+                            </tr> 
+                        </tr>
+                    </template>
                 </tbody>
             </table>
         </div>

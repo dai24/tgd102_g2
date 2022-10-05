@@ -292,6 +292,11 @@
                 top: 60%; //調整彈窗與上方的距離
             }
             .cardInner{
+                max-width: 405px;
+                text-align: left;
+                h2{
+                    text-align: left;
+                }
                 .question{ //表單標題
                     margin-bottom: 16px;
                 }
@@ -301,16 +306,22 @@
                     margin-bottom: 16px; //消除原本設定
                     
                 } 
-            }
-            .applyfor{
-                textarea{ //修改原本設定
+                textarea{ 
+                    width: $inputWidth;
+                    max-width: 405px;
                     height: 200px;
+                    font-size: $fontSize05;
                     border-radius: 5px;
                     border: 0.5px solid $secondary01;
-                    width: $inputWidth;
+
+                    padding: 8px;
+                    outline: none;
                     margin-top: 0;
+                    margin-bottom: 16px;
+
+                    resize: none;
                 }
-            }  
+            }
             .teacherPhoto{
                 display: flex;
                 margin-bottom: 16px;
@@ -318,12 +329,51 @@
                     height: 100px;
                 }
             }
+            //欄位：導師擅長產業
+            .industry{
+                .industrywra{
+                    display: flex;
+                    flex-wrap: wrap;
+                    input{
+                        width: 20px;
+                        height: 20px;
+                    }
+                    label{
+                        display: flex;
+                        margin-bottom: 8px;
+                    }
+                    h4{
+                        margin-left: 8px;
+                        margin-right: 16px;
+                    }
+                }
+            }
+            //欄位：導師擅長職務
+            .skill{
+                margin-top: 16px;
+                .skillwra{
+                    display: flex;
+                    flex-wrap: wrap;
+                    input{
+                        width: 20px;
+                        height: 20px;
+                    }
+                    label{
+                        display: flex;
+                        margin-bottom: 8px;
+                    }
+                    h4{
+                        margin-left: 8px;
+                        margin-right: 16px;
+                    }
+                }                
+            }
             //按鈕
             .edit{
                 width:$inputWidth; //暫時。配合text寬度
                 display: flex;
                 justify-content: flex-end;
-                
+                margin-top: 32px;
                 .btna3{ //"取消"按鈕
                     margin: 0; //清除原本設定
                     margin-right: 18px;
