@@ -116,9 +116,10 @@ $statement->execute();
 if($statement->rowCount() > 0){
     $member['successful'] = true;
     $member['message'] = "更新成功";
-    header("Location: ./getResume_sample_All.php");
+    
 }else{
     $member['successful'] = false;
     $member['message'] = "更新失敗";
 }
+header("Location: ./getResume_sample_All.php");
 echo json_encode($member);
