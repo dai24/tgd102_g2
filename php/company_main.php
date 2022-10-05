@@ -15,7 +15,7 @@
     // $endData = $omitData + $content;
 
     // $sql = "SELECT NAME FROM JOB where COMPANY_ID = 9 and ban = 0";    
-    $sql = "SELECT * FROM JOB WHERE ban = 0 ";  
+    $sql = "SELECT * FROM JOB WHERE BAN = 0 ";  
 
 
     //執行並查詢，會回傳查詢結果的物件，必須使用fetch、fetchAll...等方式取得資料
