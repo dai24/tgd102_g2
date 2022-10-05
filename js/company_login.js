@@ -128,7 +128,7 @@ let vm = new Vue({
                         <h4 class="inputAlert">信箱格式錯誤</h4>
                     </section>
                     <section class="input01">
-                        <input type="text" placeholder="請輸入密碼" class="inputText"  v-model.lazy="password" name="passeord" id="password"maxlength="12" >
+                        <input type="password" placeholder="請輸入密碼" class="inputText"  v-model.lazy="password" name="password" id="password"maxlength="12" >
                         <h4 class="inputAlert">密碼格式錯誤</h4>
                     </section>
                     
