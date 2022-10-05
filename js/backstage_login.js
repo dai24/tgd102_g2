@@ -2,8 +2,8 @@
 let vm = new Vue({
     el:"#backstage_login_app",
     data:{
-        account:'456@gmail.com', //預設顯示的內容
-        password:'456', //預設顯示的內容
+        account:'interngo2022@gmail.com', //預設顯示的內容
+        password:'123', //預設顯示的內容
         loginData:[], //裝驗證回來的資料
     },
     methods: {
@@ -27,7 +27,7 @@ let vm = new Vue({
             .then(result => {
                 this.loginData = result; //回傳資料裝進去空陣列
                 if(this.loginData.length > 0) { //登入成功
-                    alert("歡迎! 一般管理員")
+                    alert("歡迎! 高級管理員")
                     location.replace('../dist/backstage.html');
                     sessionStorage.setItem('BackstageId',this.loginData[0].ID)
                 }else{ //登入失敗
