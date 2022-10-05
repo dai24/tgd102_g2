@@ -76,7 +76,7 @@ Vue.component('company-data',{
             <div class="block">
                 <div class="inputsearch">
                     <i class="fa-solid fa-magnifying-glass"></i>
-                    <input type="Text" class="inputText" v-model="searchcompany" @keyup="search" placeholder="搜尋公司名稱或編號" name="search">
+                    <input type="Text" class="inputText" v-model="searchcompany" @keyup="search()" placeholder="搜尋公司名稱或編號" name="search">
                 </div>                
             </div>
             
