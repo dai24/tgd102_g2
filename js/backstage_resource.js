@@ -102,7 +102,7 @@ let vm = new Vue({
             // console.log(this.figure) //顯示導師照片
             // console.log(this.tschool) //顯示導師最高學歷
             // console.log(this.jobtitle) //顯示導師職業
-            // console.log(this.temail) //顯示導師信箱
+            console.log(this.temail) //顯示導師信箱
             // console.log(this.tdescription) //顯示導師簡介
             this.industryList = this.checkIndustry.join(" / ")            
             this.skillList = this.checkSkill.join(" / ")
@@ -117,7 +117,7 @@ let vm = new Vue({
                     figure:this.figure,
                     school:this.tschool,
                     job:this.jobtitle,
-                    email:this.temail,
+                    temail:this.temail,
                     descript:this.tdescription,
                     industry:this.industryList,
                     skill:this.skillList,
