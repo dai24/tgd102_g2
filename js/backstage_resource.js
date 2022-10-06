@@ -117,7 +117,7 @@ let vm = new Vue({
                     figure:this.figure,
                     school:this.tschool,
                     job:this.jobtitle,
-                    // email:this.temail,
+                    email:this.temail,
                     descript:this.tdescription,
                     industry:this.industryList,
                     skill:this.skillList,

@@ -2,8 +2,8 @@
 let vm = new Vue({
     el:"#backstage_login_app",
     data:{
-        account:'interngo2022@gmail.com', //預設顯示的內容
-        password:'123', //預設顯示的內容
+        account:'', //預設顯示的內容
+        password:'', //預設顯示的內容
         loginData:[], //裝驗證回來的資料
     },
     methods: {
