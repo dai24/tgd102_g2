@@ -194,13 +194,18 @@ let vm = new Vue({ //設定想要預載的html結構
 
         </div>      
        
-        <div class="pagination-div" id="pagination-div">
-            <ul class="pagination-ul">
-                <li><a href="#" @click="left()"><i class="fa-solid fa-chevron-left"></i></a></li>
-                <li v-for="(page,i) in pageTotal"><a href="#" class="pageContent" @click="pageid(page)">{{page}}</a></li>
-                <li><a href="#" @click="right()"><i class="fa-solid fa-chevron-right"></i></a></li>
-            </ul>
-        </div>        
+        <div class="pagination-div">
+                <ul class="pagination-ul">
+                    <li><a href="#"><i class="fa-solid fa-chevron-left"></i></a></li>
+                    <li><a href="#" class="pageContent">1</a></li>
+                    <li><a href="#" class="pageContent">2</a></li>
+                    <li><a href="#" class="pageContent">3</a></li>
+                    <li><a href="#" class="pageContent">4</a></li>
+                    <li><a href="#" class="pageContent">5</a></li>
+                    <li><a href="#" class="pageContent">6</a></li>
+                    <li><a href="#"><i class="fa-solid fa-chevron-right"></i></a></li>
+                </ul>
+            </div>   
     </div>
         `,  
     })     
