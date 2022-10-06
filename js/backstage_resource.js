@@ -98,29 +98,29 @@ let vm = new Vue({
         },
         addTeacher(){ //新增導師
             const vm = this
-            console.log(this.tname) //顯示輸入的導師名稱
-            console.log(this.figure) //顯示導師照片
-            console.log(this.tschool) //顯示導師最高學歷
-            console.log(this.jobtitle) //顯示導師職業
-            console.log(this.temail) //顯示導師信箱
-            console.log(this.tdescription) //顯示導師簡介
+            // console.log(this.tname) //顯示輸入的導師名稱
+            // console.log(this.figure) //顯示導師照片
+            // console.log(this.tschool) //顯示導師最高學歷
+            // console.log(this.jobtitle) //顯示導師職業
+            // console.log(this.temail) //顯示導師信箱
+            // console.log(this.tdescription) //顯示導師簡介
             this.industryList = this.checkIndustry.join(" / ")            
             this.skillList = this.checkSkill.join(" / ")
-            console.log(this.industryList) //顯示導師擅長產業
-            console.log(this.skillList) //顯示導師擅長領域
+            // console.log(this.industryList) //顯示導師擅長產業
+            // console.log(this.skillList) //顯示導師擅長領域
 
             fetch("./php/backstage_addteacher.php",{
                 method: 'POST',
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify({
-                    tname:vm.tname,
-                    figure:vm.figure,
-                    school:vm.tschool,
-                    job:vm.jobtitle,
-                    // email:vm.temail,
-                    descript:vm.tdescription,
-                    industry:vm.industryList,
-                    skill:vm.skillList,
+                    tname:this.tname,
+                    figure:this.figure,
+                    school:this.tschool,
+                    job:this.jobtitle,
+                    // email:this.temail,
+                    descript:this.tdescription,
+                    industry:this.industryList,
+                    skill:this.skillList,
                 })
             })    
             .then(rsp => rsp.json())

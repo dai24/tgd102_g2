@@ -23,14 +23,14 @@
                 FROM company C
                 JOIN COMPANY_COIN_DETAILS D
                 ON C.ID = D.COMPANY_ID
-                WHERE C.ID like :ID or C.`NAME` like :NAME
+                WHERE C.ID like :ID or C.`NAME` like :tNAME
                 LIMIT
                 $omitData, $content;
                 "
                 ;  
         $stmt = $pdo->prepare($sql);
         $stmt -> bindValue(":ID" , $company2);
-        $stmt -> bindValue(":NAME" , $company2);
+        $stmt -> bindValue(":tNAME" , $company2);
         $stmt->execute(); //執行 
     }else{
         // echo "未查詢";

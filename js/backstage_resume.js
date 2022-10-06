@@ -4,9 +4,7 @@ Vue.component('resumedata',{
             resume_modelAll: [],
             banId:'', //停權用途
             openMask:null,
-            openM0:false,
-            togglemask:true, //測試 綁定class
-            closeDisabled:false, //測試切換上下架按鈕
+            // closeDisabled:false, //測試切換上下架按鈕
         }       
     },
     methods: {
@@ -24,7 +22,8 @@ Vue.component('resumedata',{
             if(result){
                 fetch(`./php/backstage_banResume.php?resumeId=${this.banId}`) //修改資料庫ban欄位數值為1
                 this.openMask = resumeId //打開遮罩
-                this.closeDisabled = true
+                // this.closeDisabled = true
+                window.location.reload();
                 // console.log(e.target.closest(".fa-download"))
                 // alert("下架")
             }
@@ -35,7 +34,8 @@ Vue.component('resumedata',{
             if(result){
                 fetch(`./php/backstage_banResume.php?resumeId2=${this.banId}`) //修改資料庫ban欄位數值為0
                 this.openMask = null //關閉遮罩
-                this.closeDisabled = false
+                // this.closeDisabled = false
+                window.location.reload();
                 // alert("上架")
             }
         },
@@ -66,14 +66,14 @@ Vue.component('resumedata',{
     <div class="content">
         <li v-for="models in resume_modelAll">
             <div class="resumewra" >
-                <div class ="imgMask" :style="{ 'display': models.BAN == 1 ? 'block' : 'none' }"></div>
+                <div class="imgMask" :style="{ 'display': models.BAN == 1 ? 'block' : 'none' }"></div>
                 <img :src="models.IMG_PATH" alt="模板">
             </div>            
             <div class="edit">
                 <h3>{{models.CREATE_DATE.substr(0,10).split('-').join('/')}}</h3>
                 <div class="editIcon">        
-                    <i class="fa-solid fa-upload" @click="closeM(models.ID)"><h4>上架</h4></i>
-                    <i class="fa-solid fa-download" @click="openM(models.ID)" :disabled="closeDisabled"><h4>下架</h4></i>
+                    <i class="fa-solid fa-upload" @click="closeM(models.ID)" :style="{ 'display': models.BAN == 1 ? 'flex' : 'none' }"><h4>上架</h4></i>
+                    <i class="fa-solid fa-download" @click="openM(models.ID)" :style="{ 'display': models.BAN == 1 ? 'none' : 'flex' }"><h4>下架</h4></i>
                 </div>                    
             </div>
         </li>
