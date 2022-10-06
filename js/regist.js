@@ -108,7 +108,7 @@ $(function () {
             alert("請勾選同意隱私條款");
         }
         if(agree.checked == true && alertEmailTrue == true && alertPasswordTrue == true && alertphoneTrue == true){
-            location.replace('../dist/student_login.html');
+            // location.replace('../dist/student_login.html');
         console.log('true');           
         }else{
             alert('資料輸入不完全,請重新輸入')
@@ -130,7 +130,7 @@ $(function () {
         .then(result => {
             let studentData = []; //準備一個空陣列用來裝回傳的資料
             studentData = result; //回傳資料裝進去空陣列
-            // location.replace('../dist/student_login.html');
+            location.replace('../dist/student_login.html');
             // console.log(studentData) //確認回傳結果有ID值
             // console.log(studentData[0].name) //有找到ID
             // console.log('test', result == 'successful');
