@@ -8,7 +8,14 @@ Vue.component('teacher-data',{
         }       
     },
     methods: {
-        
+        deleteTeacher(Id){
+            let teaId = Id
+            let result = confirm("確定刪除該導師?")
+            if(result){
+                console.log(teaId) //導師的id
+                fetch(`./php/backstage_deleteteacher.php?teacher=${teaId}`)
+            }
+        },
     },
     mounted() {
         //顯示履歷導師的資料
@@ -54,6 +61,7 @@ Vue.component('teacher-data',{
                         <li><h4 class="major">{{teachers.tjobtitle}}</h4></li>
                         <li><h4 class="match">已健診人數：{{teachers.ttimes}}</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a>
+                        <a href="#"><button class="btna21" @click="deleteTeacher(teachers.id)">刪除導師</button></a>
                     </ul>
                 </div>
             </div>
@@ -102,7 +110,7 @@ let vm = new Vue({
             // console.log(this.figure) //顯示導師照片
             // console.log(this.tschool) //顯示導師最高學歷
             // console.log(this.jobtitle) //顯示導師職業
-            // console.log(this.temail) //顯示導師信箱
+            console.log(this.temail) //顯示導師信箱
             // console.log(this.tdescription) //顯示導師簡介
             this.industryList = this.checkIndustry.join(" / ")            
             this.skillList = this.checkSkill.join(" / ")
@@ -117,7 +125,7 @@ let vm = new Vue({
                     figure:this.figure,
                     school:this.tschool,
                     job:this.jobtitle,
-                    email:this.temail,
+                    temail:this.temail,
                     descript:this.tdescription,
                     industry:this.industryList,
                     skill:this.skillList,
