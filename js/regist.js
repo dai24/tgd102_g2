@@ -98,14 +98,15 @@ $(function () {
     }
     
     })
-    // 隱私條款打勾驗證
+    
     let agree = document.querySelector('#agree')
-     if (agree.checked == false) {
-         console.log(agree.checked);
-         alert("請勾選同意隱私條款");
-     }
-
     document.querySelector('.submit').addEventListener('click', () => {
+        // 隱私條款打勾驗證
+    
+        if (agree.checked == false) {
+            console.log(agree.checked);
+            alert("請勾選同意隱私條款");
+        }
         if(agree.checked == true && alertEmailTrue == true && alertPasswordTrue == true && alertphoneTrue == true){
             location.replace('../dist/student_login.html');
         console.log('true');           
