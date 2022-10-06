@@ -123,8 +123,8 @@
                     margin-right: 32px;
                     img{ //導師照片
                         display: block;
-                        width: 168px;
-                        height: 168px;              
+                        width: 100%;
+                        height: 290px;              
                         object-fit:cover;
                     }              
                 }
@@ -156,8 +156,7 @@
                         width: 120px;
                         font-weight: bold;
                         color:$secondary01;
-                        margin-bottom: 24px;
-                        
+                        margin-bottom:16px;                        
                     }
                 }
             }
