@@ -8,7 +8,14 @@ Vue.component('teacher-data',{
         }       
     },
     methods: {
-        
+        deleteTeacher(Id){
+            let teaId = Id
+            let result = confirm("確定刪除該導師?")
+            if(result){
+                console.log(teaId) //導師的id
+                fetch(`./php/backstage_deleteteacher.php?teacher=${teaId}`)
+            }
+        },
     },
     mounted() {
         //顯示履歷導師的資料
@@ -54,6 +61,7 @@ Vue.component('teacher-data',{
                         <li><h4 class="major">{{teachers.tjobtitle}}</h4></li>
                         <li><h4 class="match">已健診人數：{{teachers.ttimes}}</h4></li>
                         <a href="#"><button class="btna21">詳細資料</button></a>
+                        <a href="#"><button class="btna21" @click="deleteTeacher(teachers.id)">刪除導師</button></a>
                     </ul>
                 </div>
             </div>
