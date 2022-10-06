@@ -51,7 +51,8 @@ Vue.component('student-list',{
                 //         picture: figureNow.src,
                 //     })
                 // })
-            }           
+            }    
+            console.log(vm.figure);       
         },
     },
     mounted() {
