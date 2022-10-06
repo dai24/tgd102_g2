@@ -156,7 +156,7 @@ const vm = new Vue({
         //     .then(jobclassList => this.alljobtypeparent = jobclassList);
 
 
-        fetch('php/resumeReview_all.php')
+        fetch('./php/resumeReview_all.php')
             .then(
                 resp => resp.json()
             )
