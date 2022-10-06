@@ -8,7 +8,7 @@
     $sql = "SELECT
                 ID, STUDENT_ID, `FILE_NAME`, CATEGORY, IMG_PATH, LIKE_COUNT, CREATE_DATE
             FROM RESUME
-            WHERE STUDENT_ID = $stuId;
+            WHERE STUDENT_ID = $stuId AND BAN = 0
             ";
     $stmt = $pdo->prepare($sql);
     $stmt->execute(); //執行    
