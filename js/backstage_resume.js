@@ -19,10 +19,10 @@ Vue.component('resumedata',{
             }
         },
         openM(resumeId){ //下架並打開遮罩            
-            banId = resumeId        
+            this.banId = resumeId        
             let result = confirm("確定下架?")
             if(result){
-                fetch(`./php/backstage_banResume.php?resumeId=${banId}`) //修改資料庫ban欄位數值為1
+                fetch(`./php/backstage_banResume.php?resumeId=${this.banId}`) //修改資料庫ban欄位數值為1
                 this.openMask = resumeId //打開遮罩
                 this.closeDisabled = true
                 // console.log(e.target.closest(".fa-download"))
@@ -30,10 +30,10 @@ Vue.component('resumedata',{
             }
         },
         closeM(resumeId){ //上架並關閉遮罩            
-            banId = resumeId            
+            this.banId = resumeId            
             let result = confirm("確定上架?")
             if(result){
-                fetch(`./php/backstage_banResume.php?resumeId2=${banId}`) //修改資料庫ban欄位數值為0
+                fetch(`./php/backstage_banResume.php?resumeId2=${this.banId}`) //修改資料庫ban欄位數值為0
                 this.openMask = null //關閉遮罩
                 this.closeDisabled = false
                 // alert("上架")
@@ -48,7 +48,9 @@ Vue.component('resumedata',{
         .then(rsp => rsp.json())
         .then(resume_model => {
             this.resume_modelAll = resume_model;
+            console.log(this.resume_modelAll);
         })
+        
     },
     updated() {
     //    let closeResume = document.querySelectorAll(".fa-download")
@@ -64,7 +66,7 @@ Vue.component('resumedata',{
     <div class="content">
         <li v-for="models in resume_modelAll">
             <div class="resumewra" >
-                <div :class="{imgMask:openM0}" :class="models.BAN == 1 ? openMask = models.ID : openMask = null" v-if="openMask === models.ID"></div>
+                <div class ="imgMask" :style="{ 'display': models.BAN == 1 ? 'block' : 'none' }"></div>
                 <img :src="models.IMG_PATH" alt="模板">
             </div>            
             <div class="edit">

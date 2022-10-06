@@ -97,6 +97,7 @@ let vm = new Vue({
             // console.log(this.figure)       
         },
         addTeacher(){ //新增導師
+            const vm = this
             console.log(this.tname) //顯示輸入的導師名稱
             console.log(this.figure) //顯示導師照片
             console.log(this.tschool) //顯示導師最高學歷
@@ -109,17 +110,17 @@ let vm = new Vue({
             console.log(this.skillList) //顯示導師擅長領域
 
             fetch("./php/backstage_addteacher.php",{
-                method: "POST",
+                method: 'POST',
                 headers: { "Content-Type": "application/json"},
                 body: JSON.stringify({
-                    tname:this.tname,
-                    figure:this.figure,
-                    school:this.tschool,
-                    job:this.jobtitle,
-                    email:this.temail,
-                    descript:this.tdescription,
-                    industry:this.industryList,
-                    skill:this.skillList,
+                    tname:vm.tname,
+                    figure:vm.figure,
+                    school:vm.tschool,
+                    job:vm.jobtitle,
+                    // email:vm.temail,
+                    descript:vm.tdescription,
+                    industry:vm.industryList,
+                    skill:vm.skillList,
                 })
             })    
             .then(rsp => rsp.json())
