@@ -1,3 +1,13 @@
+
+let todayVisiter = document.querySelector(".todayVisiter")
+let avgMonthVisiter = document.querySelector(".avgMonthVisiter")
+let applyerMonth = document.querySelector(".applyerMonth")
+let testMonth = document.querySelector(".testMonth")
+todayVisiter.innerHTML = 99 + Math.floor(Math.random() * 100)
+avgMonthVisiter.innerHTML = 25000 + Math.floor(Math.random() * 1000)
+applyerMonth.innerHTML = Math.floor(Math.random() * 100)
+testMonth.innerHTML = Math.floor(Math.random() * 100)
+
 //canvas 網站性別比 -----------------------------------------------------
 let ctx = document.getElementById('chart_gender');
 var myChart = new Chart(ctx, {
@@ -6,7 +16,7 @@ var myChart = new Chart(ctx, {
     //標題
     labels: ['女性', '男性', '其他',], //定義標籤代表的意思
     datasets: [{
-      label: '# test', //標籤
+      label: '#test', //標籤
       data: [55, 40, 5], //編輯資料
       //圖表背景色
       backgroundColor: [
@@ -110,7 +120,7 @@ const inputs = {
     max: 100,
     count: 8,
     decimals: 2,
-    continuity: 1
+    continuity: 1,
   };
   
   const generateLabels = () => {
@@ -193,4 +203,3 @@ const inputs = {
       }
     }
   ];
-

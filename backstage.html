@@ -3,9 +3,7 @@
 <head>
     @@include('./layout/head.html',{
         "title" : "後台主畫面"
-        })
-    <!-- char.js  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js">
+        })    
 </head>
 <body>
 <main class="backstage">
@@ -16,25 +14,25 @@
             <li class="chartData">
                 <h2 class="chartTitle">今日網站總瀏覽人數</h2>
                 <div class="chartContent">
-                    <h2><span class="chartText">350</span>人</h2>
+                    <h2 class=""><span class="chartText todayVisiter"></span>人</h2>
                 </div>
             </li>
             <li class="chartData">
                 <h2 class="chartTitle">平均每月網站總瀏覽人數</h2>
                 <div class="chartContent">
-                    <h2><span class="chartText">25000</span>人</h2>
+                    <h2><span class="chartText avgMonthVisiter"></span>人</h2>
                 </div>
             </li>
             <li class="chartData">
                 <h2 class="chartTitle">本月求職人數</h2>
                 <div class="chartContent">
-                    <h2><span class="chartText">365</span>人</h2>
+                    <h2><span class="chartText applyerMonth"></span>人</h2>
                 </div>
             </li>
             <li class="chartData">
                 <h2 class="chartTitle">本月真人健檢人數</h2>
                 <div class="chartContent">
-                    <h2><span class="chartText">165</span>人</h2>
+                    <h2><span class="chartText testMonth">165</span>人</h2>
                 </div>
             </li>
             <ul class="chart">
@@ -47,23 +45,9 @@
                     <canvas id="chart_todayVisit"></canvas>
                 </li>
             </ul>            
-        </ul>
+        </ul>  
+      </div>   
 
-        <!-- <div class="chart">
-            <canvas id="chart_gender"></canvas>
-        </div> -->
-
-          <!-- <div class="container">
-            <div class="char1">         
-            </div>
-            <div class="char2">2</div>
-            <div class="char3">3</div>
-            <div class="char4">4</div>
-            <div class="char5">5</div>
-            <div class="char6"></div>
-            <div class="chart"><canvas id="chart_gender2"></canvas></div>
-          </div> -->
-    </div>   
 </main> 
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> <!--char.js-->
 <script src="./js/backstage.js"></script>
