@@ -135,7 +135,7 @@ $(function () {
             // console.log(studentData[0].name) //有找到ID
             // console.log('test', result == 'successful');
              
-         });
+        });
 
         // .then(body => {
         //     console.log(body)

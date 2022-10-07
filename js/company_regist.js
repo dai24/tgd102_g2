@@ -41,13 +41,14 @@ $(function () {
 
             })
         })
-        .then(resp => resp.json(
-            console.log(resp)
-        ))
-        .then(body => {
-            console.log(body)
-        })
-
+        .then(resp => resp.json())
+        .then(result => {
+            let companyData = []; //準備一個空陣列用來裝回傳的資料
+            companyData = result; //回傳資料裝進去空陣列
+            location.replace('../dist/company_login.html');
+            //    console.log(studentData) //確認回傳結果有ID值
+            //    console.log(studentData[0].ID) //有找到ID
+        });
 
     })
 

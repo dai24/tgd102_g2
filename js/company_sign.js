@@ -80,8 +80,8 @@
 */
 
 //按下"送出"按鈕，跳轉頁面
-let submit = document.querySelector(".submit");
+// let submit = document.querySelector(".submit");
 
-submit.addEventListener("click", () => {
-    location = "./company_login.html";
-})
+// submit.addEventListener("click", () => {
+//     location = "./company_login.html";
+// })
