@@ -19,23 +19,23 @@ Vue.component('my-list-com',{
             <div class="companyWrapperTitImg">
 
             </div>
-            <div class="companyWrapperTitMain">
-                <div class="companyWrapperTitMainImg">
-                    <img :src="companyTitle[0].LOGO + '.jpg'" alt="">
+            <div class="companyWrapperTitMain" v-for="(companyTitle1, index) in companyTitle.slice(0, 1)" :key="index">
+                <div class="companyWrapperTitMainImg"  >
+                    <img :src="companyTitle1.LOGO + '.jpg'" alt="">
                 </div>
                 <div class="companyWrapperTitMainIcon">
-                    <div>
-                        <h2>{{companyTitle[0].COM_NAME}}</h2>
+                    <div  >
+                        <h2>{{companyTitle1.COM_NAME}}</h2>
                     </div>
                     <div class="companyIcon">
                         <div>
-                            <a href="" title="總人數"><i class="fa-solid fa-users"></i><p>{{companyTitle[0].SCALE}}</p></a>
+                            <a href="" title="總人數"><i class="fa-solid fa-users"></i><p>{{companyTitle1.SCALE}}</p></a>
                         </div>
                         <div>
-                            <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>{{companyTitle[0].ADDRESS}}</p></a>
+                            <a href="" title="地點"><i class="fa-solid fa-location-dot"></i><p>{{companyTitle1.ADDRESS}}</p></a>
                         </div>
                         <div>
-                            <a href="" title="資本額"><i class="fa-solid fa-landmark"></i><p>$ {{companyTitle[0].PROPERTY}}萬</p></a>
+                            <a href="" title="資本額"><i class="fa-solid fa-landmark"></i><p>$ {{companyTitle1.PROPERTY}}萬</p></a>
                         </div>
                     </div>
                 </div>
@@ -64,19 +64,19 @@ Vue.component('my-list-com2',{
     template:
     `
     <div class="companyWrapperMain">
-            <div class="companyWrapperContent">
+            <div class="companyWrapperContent" v-for="(companyMain1, index) in companyMain.slice(0, 1)" :key="index">
                 <div class="company">
                     <div class="companyStatement"><h3>公司介紹</h3></div>
-                    <div><p>{{companyMain[0].DESCRIBE}}</p></div>
+                    <div><p>{{companyMain1.DESCRIBE}}</p></div>
                 </div>
                 <div class="company">
                     <div class="companyStatement"><h3>產品或服務</h3></div>
                     <div><p>服務項目</p></div>
-                    <div><p>{{companyMain[0].REQUIRE}}</p></div>
+                    <div><p>{{companyMain1.REQUIRE}}</p></div>
                 </div>
                 <div class="company">
                     <div class="companyStatement"><h3>員工福利</h3></div>
-                    <div><p>{{companyMain[0].CONDITION}}</p>
+                    <div><p>{{companyMain1.CONDITION}}</p>
                     </div>
                 </div>
                     <div class="company">

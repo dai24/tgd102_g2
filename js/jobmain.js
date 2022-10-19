@@ -176,10 +176,11 @@ Vue.component('my-list4',{
         })
     },
     template:`
+
     <div class="jobMainWrapperOther">
                 <div class="jobMainWrapperOthSec">
-                    <div class="jobMainWrapperOthTitle">
-                        <img :src="jobOth[0].LOGO + '.jpg'" alt=""><h2><span>{{jobOth[0].COM_NAME}}</span>的其他熱門職缺</h2>
+                    <div class="jobMainWrapperOthTitle" v-for="(jobOth1, index) in jobOth.slice(0, 1)" :key="index">
+                        <img   :src="jobOth1.LOGO + '.jpg'" alt=""><h2><span>{{jobOth1.COM_NAME}}</span>的其他熱門職缺</h2>
                     </div>
                     <div class="jobMainWrapperOthMain" v-for="jobMainOthMain in jobOth">
                         <div>
